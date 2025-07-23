@@ -20,93 +20,99 @@ export default function Services() {
   const services = [
     {
       id: 'web',
-      title: 'Web Development',
+      title: 'Enterprise Web Development',
       icon: <Monitor className="h-6 w-6" />,
-      description: 'Create beautiful, responsive websites that drive conversions and engage your audience.',
+      subtitle: 'Build robust, scalable web platforms for business growth.',
+      description: 'Robust, scalable web solutions built with React.js, Next.js, Node.js, and NestJS for high-growth businesses. Elevate your digital presence with secure, high-performance platforms.',
       features: [
-        'Custom website development',
-        'E-commerce solutions',
-        'Progressive web applications',
-        'CMS integration',
-        'Web performance optimization',
+        'Custom web applications',
+        'eCommerce & CMS solutions',
+        'Performance optimization',
+        'Responsive UI/UX',
+        'API integrations',
       ],
       color: 'bg-blue-500/20 text-blue-700 dark:text-blue-400',
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'app',
-      title: 'App Development',
-      icon: <Smartphone className="h-6 w-6" />,
-      description: 'Build powerful, user-friendly applications for iOS, Android, and cross-platform environments.',
-      features: [
-        'Native app development',
-        'Cross-platform solutions',
-        'App UI/UX design',
-        'App maintenance and support',
-        'API integration',
-      ],
-      color: 'bg-purple-500/20 text-purple-700 dark:text-purple-400',
-      image: 'https://images.pexels.com/photos/3194518/pexels-photo-3194518.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'marketing',
-      title: 'Digital Marketing',
-      icon: <Globe className="h-6 w-6" />,
-      description: 'Amplify your online presence and drive targeted traffic with data-driven marketing strategies.',
-      features: [
-        'Search engine optimization (SEO)',
-        'Social media marketing',
-        'Pay-per-click advertising',
-        'Email marketing campaigns',
-        'Content marketing',
-      ],
-      color: 'bg-green-500/20 text-green-700 dark:text-green-400',
-      image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'branding',
-      title: 'Branding & Identity',
-      icon: <PenTool className="h-6 w-6" />,
-      description: 'Craft a compelling brand identity that resonates with your audience and sets you apart from competitors.',
-      features: [
-        'Logo and visual identity design',
-        'Brand strategy development',
-        'Brand guidelines creation',
-        'Rebranding services',
-        'Brand voice development',
-      ],
-      color: 'bg-amber-500/20 text-amber-700 dark:text-amber-400',
-      image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'analytics',
-      title: 'Analytics & Insights',
-      icon: <BarChart className="h-6 w-6" />,
-      description: 'Gain valuable insights from your data to make informed business decisions and optimize performance.',
-      features: [
-        'Data tracking implementation',
-        'Custom dashboard creation',
-        'Performance monitoring',
-        'Conversion optimization',
-        'User behavior analysis',
-      ],
-      color: 'bg-cyan-500/20 text-cyan-700 dark:text-cyan-400',
-      image: 'https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.pexels.com/photos/1181672/pexels-photo-1181672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
     {
       id: 'ai',
-      title: 'AI Solutions',
+      title: 'AI & Machine Learning Solutions',
       icon: <Cpu className="h-6 w-6" />,
-      description: 'Leverage artificial intelligence to automate processes, gain insights, and enhance user experiences.',
+      subtitle: 'Transform your business with intelligent automation and insights.',
+      description: 'Leverage the power of artificial intelligence and machine learning to automate processes, gain actionable insights, and deliver personalized experiences. Our team builds custom AI models, integrates NLP, and deploys scalable ML pipelines tailored to your business needs.',
       features: [
-        'AI-powered chatbots',
+        'Custom AI model development',
+        'Natural Language Processing (NLP)',
         'Predictive analytics',
-        'Machine learning integration',
-        'Natural language processing',
-        'Computer vision solutions',
+        'Data engineering & pipelines',
+        'AI-powered automation',
+      ],
+      color: 'bg-green-500/20 text-green-700 dark:text-green-400',
+      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    },
+    {
+      id: 'app',
+      title: 'Mobile App Engineering',
+      icon: <Smartphone className="h-6 w-6" />,
+      subtitle: 'Deliver seamless mobile experiences on every device.',
+      description: 'Cross-platform mobile apps using Flutter and React Native, engineered for seamless performance and user engagement. Launch on iOS and Android with confidence.',
+      features: [
+        'Native & cross-platform apps',
+        'UI/UX design',
+        'API & backend integration',
+        'App maintenance & support',
+        'App store deployment',
+      ],
+      color: 'bg-purple-500/20 text-purple-700 dark:text-purple-400',
+      image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    },
+    {
+      id: 'backend',
+      title: 'Backend & Database Solutions',
+      icon: <BarChart className="h-6 w-6" />,
+      subtitle: 'Empower your business with secure, scalable infrastructure.',
+      description: 'Wlopper engineers robust backend systems and data architectures using PostgreSQL, Redis, and MongoDB. We deliver secure APIs, real-time data processing, and cloud-native integrations to power your mission-critical applications.',
+      features: [
+        'RESTful & GraphQL API development',
+        'Real-time data processing',
+        'Authentication & authorization',
+        'Database design & optimization',
+        'Cloud-native integrations',
+      ],
+      color: 'bg-cyan-500/20 text-cyan-700 dark:text-cyan-400',
+      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // You can update this to a more backend/data/cloud image if desired
+    },
+    {
+      id: 'cms',
+      title: 'CMS & eCommerce Platforms',
+      icon: <PenTool className="h-6 w-6" />,
+      subtitle: 'Launch and scale content and commerce with confidence.',
+      description: 'Custom Shopify and WordPress solutions for content-driven and commerce-focused brands. Integrate, optimize, and scale your digital storefront with ease.',
+      features: [
+        'Custom themes & plugins',
+        'Payment gateway integration',
+        'Headless CMS',
+        'SEO optimization',
+        'Third-party integrations',
+      ],
+      color: 'bg-amber-500/20 text-amber-700 dark:text-amber-400',
+      image: 'https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    },
+    {
+      id: 'cloud',
+      title: 'Cloud, DevOps & Architecture',
+      icon: <Cpu className="h-6 w-6" />,
+      subtitle: 'Accelerate innovation with secure, automated cloud solutions.',
+      description: 'Cloud-native deployments, CI/CD automation, and scalable infrastructure on AWS, Azure, and GCP. Accelerate innovation with secure, cost-effective cloud solutions.',
+      features: [
+        'Cloud migration',
+        'CI/CD automation',
+        'Infrastructure as Code',
+        'Monitoring & security',
+        'Cost optimization',
       ],
       color: 'bg-red-500/20 text-red-700 dark:text-red-400',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
   ];
 
@@ -117,14 +123,16 @@ export default function Services() {
       <div className="container mx-auto px-4">
         <SectionReveal className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-            Our Services
+            What We Do
           </span>
-          <AnimatedHeading Tag="h2" className="text-3xl md:text-4xl font-bold mb-6">
-            Comprehensive Digital Solutions for Modern Businesses
+          <AnimatedHeading 
+            Tag="h2" 
+            className="text-3xl md:text-4xl font-bold mb-6 text-center mx-auto w-full flex justify-center"
+          >
+            End-to-End IT Solutions for Your Business Growth
           </AnimatedHeading>
           <p className="text-muted-foreground text-lg">
-            We offer a full suite of services to help your business thrive in the digital landscape.
-            From web development to branding, we've got you covered.
+            From web and app development to cloud, DevOps, and eCommerce, Wlopper delivers the technology expertise you need to succeed.
           </p>
         </SectionReveal>
 
@@ -134,48 +142,42 @@ export default function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
           {services.map((service, index) => (
             <motion.div
               key={service.id}
               variants={fadeUp}
-              whileHover="hover"
-              initial="rest"
-              animate="rest"
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: index * 0.12, duration: 0.6, type: 'spring' }}
               onClick={() => setActiveTab(service.id)}
               className={cn(
-                "relative overflow-hidden rounded-xl bg-card border border-border/50 p-6 cursor-pointer transition-all",
-                activeTab === service.id && "ring-1 ring-primary border-primary/50"
+                "relative flex flex-col items-center justify-center overflow-hidden rounded-2xl bg-card border border-border/50 p-8 cursor-pointer transition-all duration-300 group shadow-sm hover:shadow-lg hover:scale-[1.04] hover:border-primary/60",
+                activeTab === service.id && "ring-2 ring-primary border-primary/80 scale-105 bg-primary/5 shadow-xl z-10"
               )}
+              style={{ minHeight: 340 }}
             >
-              <motion.div variants={cardHover} className="h-full p-5">
-                <div className={cn("p-3 rounded-lg w-fit mb-4", service.color)}>
-                  {service.icon}
-                </div>
-                
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground mb-4">{service.description}</p>
-                
-                <div className="flex justify-between items-center mt-4">
-                  <button 
-                    className={cn(
-                      "text-foreground/80 hover:text-foreground flex items-center gap-1.5 font-medium transition-colors",
-                      activeTab === service.id && "text-primary"
-                    )}
-                  >
-                    Learn more <ArrowRight size={16} />
-                  </button>
-                </div>
-                
-                {activeTab === service.id && (
-                  <motion.div 
-                    className="absolute bottom-0 right-0 w-3 h-3 bg-primary m-2"
-                    layoutId="activeIndicator"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </motion.div>
+              <div className={cn("p-3 rounded-lg w-fit mb-4 text-3xl", service.color)}>
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-1 text-center">{service.title}</h3>
+              <div className="text-primary/80 text-sm font-medium mb-3 text-center">{service.subtitle}</div>
+              <ul className="space-y-2 w-full max-w-xs mx-auto mb-4">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                    <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              {activeTab === service.id && (
+                <motion.div 
+                  className="absolute bottom-0 right-0 w-4 h-4 bg-primary m-3 rounded-full shadow-lg"
+                  layoutId="activeIndicator"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
             </motion.div>
           ))}
         </motion.div>

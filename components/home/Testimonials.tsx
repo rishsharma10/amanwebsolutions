@@ -13,34 +13,50 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      role: 'CEO, TechVision',
+      name: 'Emily Carter',
+      role: 'CTO, FinSight',
       image: 'https://randomuser.me/api/portraits/women/44.jpg',
-      quote: 'Working with ScaleoX transformed our digital presence completely. Their strategic approach and technical expertise delivered results that exceeded our expectations. The team understood our vision perfectly.',
+      quote: 'Wlopper’s cloud and backend expertise enabled us to launch a secure, scalable platform ahead of schedule. Their team is proactive and highly skilled.',
       rating: 5,
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      role: 'Marketing Director, Innovate Inc',
+      name: 'Rajesh Kumar',
+      role: 'Product Lead, ShopEase',
       image: 'https://randomuser.me/api/portraits/men/32.jpg',
-      quote: 'We\'ve worked with several agencies before, but ScaleoX stands out for their creativity, reliability, and results-driven approach. They\'ve become an essential partner for our digital marketing initiatives.',
+      quote: 'The Wlopper team delivered our mobile app with flawless execution and outstanding support. We saw a 30% increase in user engagement.',
       rating: 5,
     },
     {
       id: 3,
-      name: 'Emma Rodriguez',
-      role: 'Founder, Bloom E-commerce',
+      name: 'Linda Zhang',
+      role: 'Head of IT, HealthSync',
       image: 'https://randomuser.me/api/portraits/women/68.jpg',
-      quote: 'The e-commerce platform ScaleoX built for us increased our conversion rates by 37% within just two months. Their attention to detail and focus on user experience made all the difference.',
+      quote: 'Their DevOps and automation skills transformed our deployment pipeline and reduced our costs. Wlopper is a true technology partner.',
       rating: 5,
     },
     {
       id: 4,
-      name: 'David Patel',
-      role: 'CTO, FinTech Solutions',
+      name: 'Michael Smith',
+      role: 'CEO, BrandBoost',
       image: 'https://randomuser.me/api/portraits/men/75.jpg',
-      quote: 'ScaleoX delivered a complex web application that perfectly aligned with our requirements. Their technical expertise and project management ensured a smooth development process from start to finish.',
+      quote: 'Wlopper’s CMS and eCommerce solutions gave us the flexibility and performance we needed to grow globally. Highly recommended.',
+      rating: 5,
+    },
+    {
+      id: 5,
+      name: 'Sofia Rossi',
+      role: 'CMO, MarketReach',
+      image: 'https://randomuser.me/api/portraits/women/65.jpg',
+      quote: 'Their marketing automation platform helped us streamline campaigns and improve lead generation. The results exceeded our expectations.',
+      rating: 5,
+    },
+    {
+      id: 6,
+      name: 'Lucas Müller',
+      role: 'Founder, VividBrand',
+      image: 'https://randomuser.me/api/portraits/men/45.jpg',
+      quote: 'Wlopper’s branding suite made it easy to launch a cohesive, professional identity for our startup. The process was smooth and creative.',
       rating: 5,
     },
   ];
@@ -97,17 +113,15 @@ export default function Testimonials() {
       <div className="container mx-auto px-4">
         <SectionReveal className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-            Testimonials
-          </span>
-          <AnimatedHeading Tag="h2" className="text-3xl md:text-4xl font-bold mb-6">
             What Our Clients Say
+          </span>
+          <AnimatedHeading Tag="h2" className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            Trusted by Industry Leaders Worldwide
           </AnimatedHeading>
           <p className="text-muted-foreground text-lg">
-            Don't just take our word for it. Hear what our clients have to say about working with us
-            and the results we've delivered for their businesses.
+            Discover how Wlopper empowers organizations to achieve their digital goals through innovation, reliability, and partnership.
           </p>
         </SectionReveal>
-
         {/* Testimonial Carousel */}
         <div className="relative max-w-4xl mx-auto">
           <div className="absolute -left-12 top-1/2 -translate-y-1/2 z-10">
@@ -122,7 +136,6 @@ export default function Testimonials() {
               <ChevronLeft size={24} />
             </button>
           </div>
-          
           <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-10">
             <button 
               onClick={() => {
@@ -135,7 +148,6 @@ export default function Testimonials() {
               <ChevronRight size={24} />
             </button>
           </div>
-          
           <div className="relative overflow-hidden px-4 py-8">
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
@@ -146,11 +158,11 @@ export default function Testimonials() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] }}
-                className="flex flex-col md:flex-row items-center gap-8 md:gap-16"
+                className="flex flex-col md:flex-row items-center gap-8 md:gap-16 group bg-white dark:bg-card border border-border/50 rounded-xl shadow-md hover:shadow-xl transition-all p-8"
               >
                 {/* Image */}
                 <motion.div 
-                  className="relative rounded-full overflow-hidden w-24 h-24 md:w-48 md:h-48 border-4 border-background shadow-lg flex-shrink-0"
+                  className="relative rounded-full overflow-hidden w-24 h-24 md:w-48 md:h-48 border-4 border-background shadow-lg flex-shrink-0 group-hover:border-primary transition-all"
                   initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
                   animate={{ opacity: 1, scale: 1, rotate: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -160,8 +172,11 @@ export default function Testimonials() {
                     alt={testimonials[activeIndex].name}
                     className="w-full h-full object-cover"
                   />
+                  {/* Colored accent ring */}
+                  <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 w-8 h-8 rounded-full flex items-center justify-center shadow-lg">
+                    <Quote size={20} className="text-white" />
+                  </div>
                 </motion.div>
-                
                 {/* Content */}
                 <div className="flex-1">
                   <div className="flex flex-col items-center md:items-start">
@@ -171,9 +186,9 @@ export default function Testimonials() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                      <Quote size={32} />
+                      {/* Large quote icon for desktop */}
+                      <Quote size={32} className="hidden md:block text-gradient bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" />
                     </motion.div>
-                    
                     <motion.blockquote 
                       className="text-lg md:text-xl font-medium mb-6 text-center md:text-left"
                       initial={{ opacity: 0, y: 20 }}
@@ -182,7 +197,6 @@ export default function Testimonials() {
                     >
                       "{testimonials[activeIndex].quote}"
                     </motion.blockquote>
-                    
                     <motion.div 
                       className="flex items-start md:items-center flex-col md:flex-row gap-2 md:gap-4"
                       initial={{ opacity: 0, y: 20 }}
@@ -193,9 +207,7 @@ export default function Testimonials() {
                         <h4 className="text-lg font-semibold">{testimonials[activeIndex].name}</h4>
                         <p className="text-muted-foreground">{testimonials[activeIndex].role}</p>
                       </div>
-                      
                       <div className="hidden md:block w-px h-10 bg-border mx-2"></div>
-                      
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
                           <svg 
@@ -214,7 +226,6 @@ export default function Testimonials() {
               </motion.div>
             </AnimatePresence>
           </div>
-          
           {/* Pagination Dots */}
           <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (

@@ -44,13 +44,13 @@ export default function AboutHero() {
           <motion.div variants={slideInLeft} initial="hidden" animate="visible">
             <SectionReveal>
               <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-                About Us
+                About Wlopper
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                We Create Digital Solutions That Drive Growth
+                Your Trusted Partner for End-to-End IT Solutions
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                With over a decade of experience, we've helped hundreds of businesses transform their digital presence and achieve remarkable growth.
+                Wlopper empowers organizations to innovate and scale with confidence. Our team delivers world-class web, mobile, backend, and cloud solutions using the latest technologies. We are committed to building secure, scalable, and future-ready digital products for businesses worldwide.
               </p>
             </SectionReveal>
           </motion.div>
@@ -63,8 +63,8 @@ export default function AboutHero() {
           >
             <div className="relative aspect-square rounded-2xl overflow-hidden">
               <img 
-                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Team collaboration"
+                src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Wlopper Team Collaboration"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -78,7 +78,7 @@ export default function AboutHero() {
             >
               <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
               <p className="text-muted-foreground">
-                To empower businesses with innovative digital solutions that drive sustainable growth and success.
+                To deliver innovative, reliable, and scalable IT solutions that drive business success and digital transformation.
               </p>
             </motion.div>
           </motion.div>

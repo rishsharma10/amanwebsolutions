@@ -46,10 +46,20 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-t border-border/50">
+    <footer className="bg-card border-t border-border/50 relative overflow-hidden">
+      {/* Subtle, soft gradient background for premium look */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="w-full h-full bg-gradient-to-tr from-white via-blue-50 to-fuchsia-100 dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950 opacity-90" />
+      </div>
+      {/* Tagline for business growth */}
+      <div className="w-full flex justify-center mb-14 mt-6">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-center bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg leading-tight max-w-4xl mx-auto">
+          End-to-End IT Solutions for Your Business Growth
+        </h2>
+      </div>
       {/* Main Footer */}
       <motion.div 
-        className="container mx-auto px-4 py-12 md:py-16"
+        className="container mx-auto px-4 py-12 md:py-16 relative z-10"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"

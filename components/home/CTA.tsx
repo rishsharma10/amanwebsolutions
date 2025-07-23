@@ -8,10 +8,10 @@ import { AnimatedHeading, SectionReveal } from '@/components/PageTransition';
 
 export default function CTA() {
   const benefits = [
-    'Strategic digital solutions',
-    'Expert team of professionals',
-    'Results-driven approach',
-    'Tailored to your needs',
+    'Full-spectrum IT expertise',
+    'Certified and experienced team',
+    'Proven results for global clients',
+    'Modern, scalable, and secure solutions',
   ];
 
   return (
@@ -56,11 +56,11 @@ export default function CTA() {
               variants={slideInLeft}
             >
               <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-                Start Your Project
+                Ready to Build the Future?
               </span>
               
               <AnimatedHeading Tag="h2" className="text-3xl md:text-4xl font-bold mb-6">
-                Let's Create Something Amazing Together
+                Let’s discuss how Wlopper can help you achieve your digital goals with innovative IT solutions.
               </AnimatedHeading>
               
               <p className="text-muted-foreground text-lg mb-8">
@@ -101,7 +101,7 @@ export default function CTA() {
                     animate="rest"
                     variants={buttonHover}
                   >
-                    <span>Schedule a Call</span>
+                    <span>Schedule a Consultation</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </motion.button>
                 </Link>

@@ -22,51 +22,83 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Quantum Finance Dashboard',
+      title: 'FinSight Analytics Platform',
+      description: 'A real-time analytics dashboard for financial institutions, enabling data-driven decisions with secure cloud infrastructure.',
+      tech: 'React, Node.js, PostgreSQL, AWS',
       category: 'web',
-      image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'QuantumPay',
+      image: 'https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      client: 'FinSight',
       year: '2024',
     },
     {
       id: 2,
-      title: 'EcoTrack Mobile App',
+      title: 'ShopEase Mobile Commerce',
+      description: 'A cross-platform eCommerce app with seamless user experience and secure payments for a global retail brand.',
+      tech: 'Flutter, Shopify, Firebase',
       category: 'app',
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'EcoSolutions',
+      image: 'https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      client: 'ShopEase',
       year: '2024',
     },
     {
       id: 3,
-      title: 'Nova Branding Identity',
-      category: 'branding',
-      image: 'https://images.pexels.com/photos/5699516/pexels-photo-5699516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'Nova Tech',
+      title: 'HealthSync Cloud Portal',
+      description: 'A secure patient management system with real-time data and HIPAA-compliant cloud storage for healthcare providers.',
+      tech: 'Next.js, MongoDB, Azure',
+      category: 'web',
+      image: 'https://images.pexels.com/photos/1181682/pexels-photo-1181682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      client: 'HealthSync',
       year: '2023',
     },
     {
       id: 4,
-      title: 'Pulse Marketing Campaign',
-      category: 'marketing',
-      image: 'https://images.pexels.com/photos/3194518/pexels-photo-3194518.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'Pulse Fitness',
+      title: 'BrandBoost CMS',
+      description: 'A custom WordPress and Shopify solution for a global marketing agency, enabling rapid content publishing and eCommerce integration.',
+      tech: 'WordPress, Shopify, PHP',
+      category: 'cms',
+      image: 'https://images.pexels.com/photos/1482066/pexels-photo-1482066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // New branding/creative image
+      client: 'BrandBoost',
       year: '2023',
     },
     {
       id: 5,
-      title: 'Horizon E-commerce Platform',
-      category: 'web',
-      image: 'https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'Horizon Retail',
+      title: 'CloudOps Automation Suite',
+      description: 'A DevOps automation platform for managing CI/CD pipelines and cloud deployments at scale.',
+      tech: 'Node.js, Docker, AWS',
+      category: 'cloud',
+      image: 'https://images.pexels.com/photos/1181684/pexels-photo-1181684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      client: 'CloudOps',
       year: '2023',
     },
     {
       id: 6,
-      title: 'Zenith Health App',
-      category: 'app',
-      image: 'https://images.pexels.com/photos/6224/hands-people-woman-working.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'Zenith Healthcare',
+      title: 'Insightful BI Dashboard',
+      description: 'A business intelligence dashboard for enterprise reporting and data visualization.',
+      tech: 'React, D3.js, PostgreSQL',
+      category: 'web',
+      image: 'https://images.pexels.com/photos/1181685/pexels-photo-1181685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      client: 'Insightful',
       year: '2022',
+    },
+    {
+      id: 7,
+      title: 'VividBrand Identity Suite',
+      description: 'A comprehensive branding platform for startups, delivering logo design, brand guidelines, and digital assets in one place.',
+      tech: 'Figma, Illustrator, Webflow',
+      category: 'branding',
+      image: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      client: 'VividBrand',
+      year: '2023',
+    },
+    {
+      id: 8,
+      title: 'MarketReach Campaign Engine',
+      description: 'A digital marketing automation platform for managing multi-channel campaigns, analytics, and lead generation.',
+      tech: 'React, Node.js, HubSpot API',
+      category: 'marketing',
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      client: 'MarketReach',
+      year: '2023',
     },
   ];
   
@@ -79,14 +111,13 @@ export default function Projects() {
       <div className="container mx-auto px-4">
         <SectionReveal className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-            Recent Projects
-          </span>
-          <AnimatedHeading Tag="h2" className="text-3xl md:text-4xl font-bold mb-6">
             Our Creative Portfolio
+          </span>
+          <AnimatedHeading Tag="h2" className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            Transforming Vision into Digital Excellence
           </AnimatedHeading>
           <p className="text-muted-foreground text-lg">
-            Explore our latest projects and discover how we help businesses transform their digital presence.
-            Each project represents our commitment to excellence and innovation.
+            Explore a selection of Wlopper’s recent projects—delivering scalable, secure, and innovative IT solutions for leading businesses worldwide.
           </p>
         </SectionReveal>
 
@@ -128,10 +159,10 @@ export default function Projects() {
                 initial="hidden"
                 animate="visible"
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="group"
+                className="group bg-card border border-border/50 rounded-xl shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all overflow-hidden flex flex-col relative"
               >
-                <Link href={`/portfolio/${project.id}`}>
-                  <div className="relative overflow-hidden rounded-xl">
+                <Link href={`/portfolio/${project.id}`} className="flex-1 flex flex-col">
+                  <div className="relative overflow-hidden rounded-t-xl">
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.4 }}
@@ -142,29 +173,22 @@ export default function Projects() {
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform"
                       />
+                      {/* Gradient overlay for depth */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none group-hover:from-primary/10 group-hover:via-transparent group-hover:to-transparent transition-all" />
                     </motion.div>
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                        <span className="inline-block py-1 px-2 rounded-md bg-white/20 text-white text-xs mb-2">
-                          {categories.find(c => c.id === project.category)?.label}
-                        </span>
-                        <h3 className="text-white text-xl font-semibold mb-1">{project.title}</h3>
-                        <p className="text-white/80 text-sm">{project.client} • {project.year}</p>
-                      </div>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-1 text-primary">{project.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-2">{project.description}</p>
+                      <p className="text-xs text-gray-500">{project.tech}</p>
                     </div>
                   </div>
                 </Link>
-                
-                <div className="mt-5">
-                  <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
-                  <p className="text-muted-foreground text-sm">{project.client}</p>
-                </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
-        
         {/* View All Projects Button */}
         <div className="mt-16 text-center">
           <Link href="/portfolio">

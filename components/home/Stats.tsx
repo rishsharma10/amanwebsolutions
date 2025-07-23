@@ -6,15 +6,16 @@ import { cn } from '@/lib/utils';
 import { fadeUp } from '@/lib/animations';
 import { SectionReveal } from '@/components/PageTransition';
 
+
 export default function Stats() {
   const statsRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(statsRef, { once: true, margin: '-100px' });
   
   const stats = [
-    { id: 1, value: 250, label: 'Projects Completed', prefix: '+', suffix: '', color: 'from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600' },
-    { id: 2, value: 15, label: 'Years of Experience', prefix: '', suffix: '+', color: 'from-purple-500 to-purple-700 dark:from-purple-400 dark:to-purple-600' },
+    { id: 1, value: 25, label: 'Projects Completed', prefix: '+', suffix: '', color: 'from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600' },
+    { id: 2, value: 6, label: 'Years of Experience', prefix: '', suffix: '+', color: 'from-purple-500 to-purple-700 dark:from-purple-400 dark:to-purple-600' },
     { id: 3, value: 99, label: 'Client Satisfaction', prefix: '', suffix: '%', color: 'from-green-500 to-green-700 dark:from-green-400 dark:to-green-600' },
-    { id: 4, value: 30, label: 'Team Members', prefix: '', suffix: '+', color: 'from-amber-500 to-amber-700 dark:from-amber-400 dark:to-amber-600' },
+    { id: 4, value: 10, label: 'Team Members', prefix: '', suffix: '+', color: 'from-amber-500 to-amber-700 dark:from-amber-400 dark:to-amber-600' },
   ];
 
   return (
@@ -31,20 +32,30 @@ export default function Stats() {
                 variants={fadeUp}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                transition={{ delay: index * 0.1 }}
-                className="bg-card border border-border/50 rounded-xl p-6 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                transition={{ delay: index * 0.12, duration: 0.6, type: 'spring' }}
+                className="bg-card border border-border/50 rounded-xl p-6 text-center relative overflow-hidden shadow-sm transition-all flex flex-col items-center group hover:scale-105 hover:shadow-xl"
               >
-                <div className="relative z-10">
+                <div className="relative z-10 mb-2">
                   <CountUp
                     value={stat.value}
                     isInView={isInView}
-                    className="text-4xl md:text-5xl font-bold"
+                    className="text-4xl md:text-5xl font-bold transition-colors duration-300 group-hover:text-gradient group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:via-purple-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent"
                     prefix={stat.prefix}
                     suffix={stat.suffix}
                   />
-                  <p className="text-muted-foreground font-medium mt-2">{stat.label}</p>
+                  <p className="text-muted-foreground font-medium mt-2 text-base md:text-lg">{stat.label}</p>
                 </div>
-                
+                {/* Animated Progress Bar */}
+                <div className="w-full mt-4">
+                  <div className="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: isInView ? `${getStatPercent(stat)}%` : 0 }}
+                      transition={{ duration: 1.2, delay: 0.2 + index * 0.1, type: 'spring' }}
+                      className="h-2 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 group-hover:animate-gradient-move"
+                    />
+                  </div>
+                </div>
                 <div className={cn(
                   "absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r",
                   stat.color
@@ -108,3 +119,27 @@ function CountUp({
     </span>
   );
 }
+
+// Helper to get progress percent for each stat
+type StatType = { id: number; value: number; label: string; prefix: string; suffix: string; color: string };
+function getStatPercent(stat: StatType) {
+  // Custom logic for each stat type
+  if (stat.label.toLowerCase().includes('satisfaction')) return stat.value;
+  if (stat.label.toLowerCase().includes('projects')) return 100;
+  if (stat.label.toLowerCase().includes('team')) return 100;
+  if (stat.label.toLowerCase().includes('experience')) return 100;
+  return stat.value;
+}
+
+// Add keyframes for moving gradient
+// Add this to the bottom of the file or in a global CSS file if preferred
+
+// In your globals.css, add:
+// @keyframes gradient-move {
+//   0% { background-position: 0% 50%; }
+//   100% { background-position: 100% 50%; }
+// }
+// .animate-gradient-move {
+//   background-size: 200% 200%;
+//   animation: gradient-move 2s linear infinite;
+// }

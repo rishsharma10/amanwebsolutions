@@ -25,14 +25,14 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-sky-100 via-fuchsia-100 to-pink-100">
       {/* Background Gradient Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-purple-800/10 dark:from-blue-900/30 dark:to-purple-900/30"
+          className="absolute inset-0 bg-gradient-to-br from-sky-200/60 via-fuchsia-100/40 to-pink-200/30 dark:from-sky-300/40 dark:to-fuchsia-200/40"
           style={{ y: parallaxBg }}
         />
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
         
         {/* Animated Orbs */}
         <motion.div
@@ -77,30 +77,29 @@ export default function Hero() {
               animate="visible"
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-                Innovative Digital Solutions
+              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-white/80 text-primary border border-primary/20 font-semibold text-sm tracking-wide shadow-md backdrop-blur">
+                Wlopper — IT Innovation Partner
               </span>
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight text-neutral-900"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.2 }}
             >
-              Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Digital Presence</span> With Us
+              Transforming Ideas<br />Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-fuchsia-600 to-pink-600">Digital Excellence</span>
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg"
+              className="text-xl md:text-2xl text-gray-800 mb-10 max-w-2xl font-medium"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.4 }}
             >
-              We craft exceptional digital experiences that help businesses grow. 
-              Our cutting-edge solutions drive results and transform visions into reality.
+              Wlopper delivers world-class web, mobile, and cloud solutions for ambitious businesses. From scalable platforms to seamless user experiences, we engineer technology that drives growth, security, and innovation.
             </motion.p>
             
             <motion.div 
@@ -113,12 +112,12 @@ export default function Hero() {
             >
               <Link href="/contact">
                 <motion.button
-                  className="bg-primary text-primary-foreground rounded-full px-8 py-3 font-medium hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
-                  whileHover={{ scale: 1.03 }}
+                  className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-full px-10 py-4 font-semibold text-lg shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 group border-0"
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span>Get Started</span>
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <span>Get Started with Wlopper</span>
+                  <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </Link>
               
@@ -187,15 +186,19 @@ export default function Hero() {
                 whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
                 transition={{ duration: 0.3 }}
               >
-                <img 
-                  src="https://images.pexels.com/photos/8439089/pexels-photo-8439089.jpeg" 
-                  alt="Dashboard Preview" 
-                  className="w-full h-auto rounded-t-xl"
-                />
+                <div className="relative">
+                  <img 
+                    src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                    alt="Wlopper IT Team Collaboration" 
+                    className="w-full h-auto rounded-t-xl"
+                  />
+                  {/* Blur at bottom of image */}
+                  <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 via-white/40 to-transparent backdrop-blur-md pointer-events-none" />
+                </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">Project Analytics Dashboard</h3>
+                  <h3 className="text-lg font-semibold mb-2">Cutting-Edge Technology</h3>
                   <p className="text-muted-foreground text-sm">
-                    Real-time performance tracking and insights for all your digital projects.
+                    From cloud-native apps to enterprise platforms, Wlopper engineers digital solutions that drive business growth.
                   </p>
                 </div>
               </motion.div>
