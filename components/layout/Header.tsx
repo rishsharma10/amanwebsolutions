@@ -100,7 +100,8 @@ export default function Header() {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-2"
           >
-            <span className="text-primary">{APP_NAME}</span>
+            {/* <span className="text-primary">{APP_NAME}</span> */}
+            <a className="group flex items-center space-x-2 cursor-pointer" href="/preview/3e66e85c-f045-498e-aa5d-fb31a30e4d2b/1314647"><div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300"><i className="ri-code-s-slash-fill text-white text-lg"></i></div><span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" style={{fontFamily:"Pacifico, serif"}}>Vidyonix</span></a>
             {/* <span className="text-blue-500">X</span> */}
           </motion.div>
         </Link>
@@ -164,7 +165,7 @@ export default function Header() {
 
         <div className="hidden lg:flex items-center gap-4">
           {/* Theme Switcher */}
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <motion.button
                 className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
@@ -192,12 +193,12 @@ export default function Header() {
                 <span>System</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
 
           {/* CTA Button */}
           <Link href="/contact">
             <motion.button
-              className="bg-primary text-primary-foreground rounded-full px-6 py-2 font-medium shadow-md hover:shadow-lg transition-all"
+              className="bg-gradient-to-r from-sky-400 via-fuchsia-250 to-pink-400 text-primary-foreground rounded-full px-6 py-2 font-medium shadow-md hover:shadow-lg transition-all"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -208,14 +209,14 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <div className="flex lg:hidden items-center gap-4">
-          <button
+          {/* <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
             aria-label="Toggle theme"
           >
             <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          </button>
+          </button> */}
           
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -272,7 +273,7 @@ export default function Header() {
 
               {/* Mobile CTA */}
               <Link href="/contact" className="inline-block">
-                <button className="w-full bg-primary text-primary-foreground rounded-full px-6 py-3 font-medium shadow-md">
+                <button className="w-full bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-primary-foreground rounded-full px-6 py-3 font-medium shadow-md">
                   Get in Touch
                 </button>
               </Link>

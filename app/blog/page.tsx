@@ -5,6 +5,10 @@ import Head from "next/head";
 import * as AspectRatio from "@radix-ui/react-aspect-ratio";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import CTA from "@/components/home/CTA";
+import { useState } from 'react';
 
 type BlogPost = {
   title: string;
@@ -112,37 +116,110 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
+type BlogModalState = {
+  open: boolean;
+  post?: BlogPost;
+};
+
 export default function Home() {
+  const [modal, setModal] = useState<BlogModalState>({ open: false });
+
   return (
     <>
       <Head>
-        <title>My Blog</title>
+        <title>Vidyonix Blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <section className="relative min-h-screen flex items-center pt-32">
-        <main className="container">
-          <h1 className="heading">Web & App Development Blog</h1>
-          <section className="posts">
+      <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 overflow-hidden bg-transparent">
+        {/* Animated background rings and blurry dots */}
+        <motion.div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <motion.div
+            className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-sky-400/20 blur-[100px]"
+            animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+            transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-fuchsia-400/20 blur-[120px]"
+            animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          />
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-gradient-to-br from-blue-400 via-fuchsia-400 to-pink-400 opacity-20"
+              style={{
+                width: `${32 + i * 10}px`,
+                height: `${32 + i * 10}px`,
+                left: `${10 + i * 15}%`,
+                top: `${20 + i * 12}%`,
+                filter: 'blur(8px)',
+              }}
+              animate={{
+                y: [0, 20 + i * 5, 0],
+                x: [0, -10 + i * 3, 0],
+              }}
+              transition={{ duration: 10 + i * 2, repeat: Infinity, ease: 'easeInOut', delay: i }}
+            />
+          ))}
+        </motion.div>
+        <main className="container relative z-10 mx-auto px-4 py-12">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
+            Latest Insights from Vidyonix
+          </h1>
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {blogPosts.map((post, index) => (
-              <article
+              <motion.article
                 key={index}
-                className="card"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + index * 0.06, duration: 0.7, type: 'spring' }}
+                className="relative flex flex-col rounded-3xl bg-white/95 dark:bg-neutral-100/95 shadow-xl hover:shadow-2xl overflow-hidden group hover:scale-[1.03] transition-transform duration-300 max-w-xl mx-auto"
+                style={{ minWidth: 340, minHeight: 320 }}
               >
-                <AspectRatio.Root ratio={16 / 9} className="image-container">
-                  <img src={post.image} alt={post.title} className="image" />
-                </AspectRatio.Root>
-                <div className="content">
-                  <h2>{post.title}</h2>
-                  <p>{post.excerpt}</p>
-                  <time>{post.date}</time>
+                <div className="relative w-full h-40 overflow-hidden">
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
-              </article>
+                <div className="relative z-10 flex-1 flex flex-col p-4 gap-1">
+                  <h2 className="text-lg font-bold mb-1 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-700 dark:text-gray-800 text-sm mb-1">{post.excerpt}</p>
+                  <time className="text-xs text-muted-foreground mb-1">{new Date(post.date).toLocaleDateString()}</time>
+                  <button
+                    onClick={() => setModal({ open: true, post })}
+                    className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-sky-600 hover:text-pink-500 transition-colors focus:outline-none"
+                  >
+                    Read More <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </button>
+                </div>
+              </motion.article>
             ))}
           </section>
+          {/* Blog Modal */}
+          {modal.open && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+              <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fadeIn">
+                <button
+                  className="absolute top-4 right-4 text-gray-400 hover:text-pink-500 text-2xl font-bold focus:outline-none"
+                  onClick={() => setModal({ open: false })}
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+                  {modal.post?.title}
+                </h2>
+                <img src={modal.post?.image} alt={modal.post?.title} className="w-full h-48 object-cover rounded-xl mb-4" />
+                <p className="text-gray-700 dark:text-gray-200 text-base mb-4">{modal.post?.excerpt}</p>
+                <p className="text-gray-600 dark:text-gray-300 text-base">Full article content coming soon.</p>
+              </div>
+            </div>
+          )}
         </main>
       </section>
+        <CTA/>
       <Footer />
       <style jsx>{`
         .container {

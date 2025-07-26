@@ -6,51 +6,51 @@ import { SectionReveal } from '@/components/PageTransition';
 
 export default function ServicesHero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-32">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5"></div>
-        
+    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-transparent">
+      {/* Animated background rings and blurry dots */}
+      <motion.div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <motion.div
-          className="absolute top-1/4 right-[15%] w-96 h-96 rounded-full bg-blue-500/10 blur-[120px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0.8, 0.5],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-sky-400/20 blur-[100px]"
+          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
         />
-        
         <motion.div
-          className="absolute bottom-1/4 left-[10%] w-80 h-80 rounded-full bg-purple-500/10 blur-[100px]"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.8, 0.5, 0.8],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
+          className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-fuchsia-400/20 blur-[120px]"
+          animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
-      </div>
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-br from-blue-400 via-fuchsia-400 to-pink-400 opacity-20"
+            style={{
+              width: `${32 + i * 10}px`,
+              height: `${32 + i * 10}px`,
+              left: `${10 + i * 15}%`,
+              top: `${20 + i * 12}%`,
+              filter: 'blur(8px)',
+            }}
+            animate={{
+              y: [0, 20 + i * 5, 0],
+              x: [0, -10 + i * 3, 0],
+            }}
+            transition={{ duration: 10 + i * 2, repeat: Infinity, ease: 'easeInOut', delay: i }}
+          />
+        ))}
+      </motion.div>
 
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <SectionReveal>
             <motion.div variants={fadeUp}>
-              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-                Our Services
+              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-gradient-to-r from-sky-100 via-fuchsia-100 to-pink-100 text-primary border border-primary/20 font-medium text-sm backdrop-blur">
+                End-to-End IT Solutions
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Comprehensive Digital Solutions for Modern Businesses
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+                Empowering Innovation & Business Growth
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-                From web development to digital marketing, we offer end-to-end services to help your business thrive in the digital landscape.
+              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-12 max-w-3xl mx-auto font-medium">
+                From web and app development to AI, cloud, and eCommerce, Vidyonix delivers the technology expertise you need to succeed in a digital-first world. Partner with us for scalable, secure, and future-ready solutions.
               </p>
             </motion.div>
 
@@ -76,10 +76,10 @@ export default function ServicesHero() {
                 <motion.div
                   key={index}
                   variants={fadeUp}
-                  className="bg-card border border-border/50 rounded-xl p-6"
+                  className="bg-white/90 dark:bg-neutral-100/90 rounded-2xl p-7 shadow-xl flex flex-col items-center"
                 >
-                  <div className="text-3xl font-bold mb-2">{stat.count}</div>
-                  <div className="text-muted-foreground">{stat.title}</div>
+                  <div className="text-3xl font-bold mb-2 text-gradient bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">{stat.count}</div>
+                  <div className="text-gray-700 dark:text-gray-800 font-medium">{stat.title}</div>
                 </motion.div>
               ))}
             </motion.div>

@@ -13,6 +13,7 @@ import {
   slideInLeft, slideInRight 
 } from '@/lib/animations';
 import { AnimatedHeading, SectionReveal } from '@/components/PageTransition';
+import { APP_NAME } from '../layout/Footer';
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState('web');
@@ -71,7 +72,7 @@ export default function Services() {
       title: 'Backend & Database Solutions',
       icon: <BarChart className="h-6 w-6" />,
       subtitle: 'Empower your business with secure, scalable infrastructure.',
-      description: 'Wlopper engineers robust backend systems and data architectures using PostgreSQL, Redis, and MongoDB. We deliver secure APIs, real-time data processing, and cloud-native integrations to power your mission-critical applications.',
+      description: `${APP_NAME} engineers robust backend systems and data architectures using PostgreSQL, Redis, and MongoDB. We deliver secure APIs, real-time data processing, and cloud-native integrations to power your mission-critical applications.'`,
       features: [
         'RESTful & GraphQL API development',
         'Real-time data processing',
@@ -132,7 +133,7 @@ export default function Services() {
             End-to-End IT Solutions for Your Business Growth
           </AnimatedHeading>
           <p className="text-muted-foreground text-lg">
-            From web and app development to cloud, DevOps, and eCommerce, Wlopper delivers the technology expertise you need to succeed.
+            {`From web and app development to cloud, DevOps, and eCommerce, ${APP_NAME} delivers the technology expertise you need to succeed.`}
           </p>
         </SectionReveal>
 
@@ -213,7 +214,7 @@ export default function Services() {
                 
                 <Link href={`/services/${activeService.id}`}>
                   <motion.button
-                    className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2 group"
+                    className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white rounded-full px-8 py-3 font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 mt-2 text-primary-foreground rounded-full px-6 py-2.5 font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2 group"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                   >

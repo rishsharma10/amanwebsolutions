@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { AnimatedHeading, SectionReveal } from '@/components/PageTransition';
+import { APP_NAME } from '../layout/Footer';
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -16,7 +17,7 @@ export default function Testimonials() {
       name: 'Emily Carter',
       role: 'CTO, FinSight',
       image: 'https://randomuser.me/api/portraits/women/44.jpg',
-      quote: 'Wlopper’s cloud and backend expertise enabled us to launch a secure, scalable platform ahead of schedule. Their team is proactive and highly skilled.',
+      quote: `${APP_NAME}’s cloud and backend expertise enabled us to launch a secure, scalable platform ahead of schedule. Their team is proactive and highly skilled.`,
       rating: 5,
     },
     {
@@ -24,7 +25,7 @@ export default function Testimonials() {
       name: 'Rajesh Kumar',
       role: 'Product Lead, ShopEase',
       image: 'https://randomuser.me/api/portraits/men/32.jpg',
-      quote: 'The Wlopper team delivered our mobile app with flawless execution and outstanding support. We saw a 30% increase in user engagement.',
+      quote: `The ${APP_NAME} team delivered our mobile app with flawless execution and outstanding support. We saw a 30% increase in user engagement.`,
       rating: 5,
     },
     {
@@ -32,7 +33,7 @@ export default function Testimonials() {
       name: 'Linda Zhang',
       role: 'Head of IT, HealthSync',
       image: 'https://randomuser.me/api/portraits/women/68.jpg',
-      quote: 'Their DevOps and automation skills transformed our deployment pipeline and reduced our costs. Wlopper is a true technology partner.',
+      quote: `Their DevOps and automation skills transformed our deployment pipeline and reduced our costs. ${APP_NAME} is a true technology partner.`,
       rating: 5,
     },
     {
@@ -40,7 +41,7 @@ export default function Testimonials() {
       name: 'Michael Smith',
       role: 'CEO, BrandBoost',
       image: 'https://randomuser.me/api/portraits/men/75.jpg',
-      quote: 'Wlopper’s CMS and eCommerce solutions gave us the flexibility and performance we needed to grow globally. Highly recommended.',
+      quote: `${APP_NAME}’s CMS and eCommerce solutions gave us the flexibility and performance we needed to grow globally. Highly recommended.`,
       rating: 5,
     },
     {
@@ -56,7 +57,7 @@ export default function Testimonials() {
       name: 'Lucas Müller',
       role: 'Founder, VividBrand',
       image: 'https://randomuser.me/api/portraits/men/45.jpg',
-      quote: 'Wlopper’s branding suite made it easy to launch a cohesive, professional identity for our startup. The process was smooth and creative.',
+      quote: `${APP_NAME}’s branding suite made it easy to launch a cohesive, professional identity for our startup. The process was smooth and creative.`,
       rating: 5,
     },
   ];
@@ -119,7 +120,7 @@ export default function Testimonials() {
             Trusted by Industry Leaders Worldwide
           </AnimatedHeading>
           <p className="text-muted-foreground text-lg">
-            Discover how Wlopper empowers organizations to achieve their digital goals through innovation, reliability, and partnership.
+            {`Discover how ${APP_NAME} empowers organizations to achieve their digital goals through innovation, reliability, and partnership.`}
           </p>
         </SectionReveal>
         {/* Testimonial Carousel */}

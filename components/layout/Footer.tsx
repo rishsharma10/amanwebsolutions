@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
-export const APP_NAME = 'Wlopper'
+export const APP_NAME = "VidyoNix";
 
 export default function Footer() {
   const footerLinks = {
@@ -46,10 +46,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-t border-border/50 relative overflow-hidden">
-      {/* Subtle, soft gradient background for premium look */}
+    <footer className="bg-card border-border/50 relative overflow-hidden">
+      {/* Animated blurry dots and rings for premium look */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="w-full h-full bg-gradient-to-tr from-white via-blue-50 to-fuchsia-100 dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950 opacity-90" />
+        <div className="w-full h-full bg-gradient-to-tr from-neutral-900 via-blue-950 to-fuchsia-950 opacity-95" />
       </div>
       {/* Tagline for business growth */}
       <div className="w-full flex justify-center mb-14 mt-6">
@@ -72,24 +72,26 @@ export default function Footer() {
             variants={fadeUp}
           >
             <Link href="/" className="text-primary font-bold text-2xl inline-flex items-center">
-              <span className="text-primary">Wlopper</span>
+              <span className="font-extrabold text-2xl inline-flex items-center">
+                <span className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-fuchsia-500 bg-clip-text text-transparent">Vidyo</span>
+                <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">nix</span>
+              </span>
               {/* <span className="text-blue-500">X</span> */}
             </Link>
-            <p className="mt-4 text-muted-foreground">
-              We help businesses grow through cutting-edge digital solutions and strategic marketing. 
-              Our expertise helps brands stand out in today's digital landscape.
+            <p className="mt-4 text-white/80">
+              Vidyonix delivers end-to-end IT, web, and mobile solutions for ambitious brands. We help you innovate, scale, and thrive in a digital-first world.
             </p>
             <div className="mt-6 space-y-2">
-              <div className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
+              <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
+                <Phone size={16} className="text-pink-400" />
+                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">+1 (555) 123-4567</span>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                <Mail size={16} />
-                <span>hello@cvb.com</span>
+              <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
+                <Mail size={16} className="text-pink-400" />
+                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">hello@vidyonix.com</span>
               </div>
-              <div className="flex items-start gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                <MapPin size={16} className="mt-1 flex-shrink-0" />
+              <div className="flex items-start gap-3 text-white/80 hover:text-pink-400 transition-colors">
+                <MapPin size={16} className="mt-1 flex-shrink-0 text-pink-400" />
                 <span>123 Innovation Drive, Tech Park, San Francisco, CA 94107</span>
               </div>
             </div>
@@ -100,13 +102,13 @@ export default function Footer() {
             variants={fadeUp} 
             className="lg:col-span-1"
           >
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <Link 
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 group"
+                    className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
                   >
                     <span>{link.label}</span>
                     <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -120,13 +122,13 @@ export default function Footer() {
             variants={fadeUp}
             className="lg:col-span-1"
           >
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Company</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <Link 
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 group"
+                    className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
                   >
                     <span>{link.label}</span>
                     <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -140,13 +142,13 @@ export default function Footer() {
             variants={fadeUp}
             className="lg:col-span-1"
           >
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Resources</h3>
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
                   <Link 
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1 group"
+                    className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
                   >
                     <span>{link.label}</span>
                     <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -161,30 +163,30 @@ export default function Footer() {
             variants={fadeUp}
             className="lg:col-span-1"
           >
-            <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-            <p className="text-muted-foreground mb-4">
-              Subscribe to our newsletter for the latest news and insights.
+            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Stay Updated</h3>
+            <p className="text-white/70 mb-4">
+              Get the latest insights, tech trends, and exclusive updates from Vidyonix—straight to your inbox.
             </p>
-            <div className="flex">
+            <div className="flex bg-white/80 dark:bg-neutral-900/80 rounded-lg shadow-inner overflow-hidden">
               <input 
                 type="email" 
                 placeholder="Your email" 
-                className="px-4 py-2 bg-background border border-border rounded-l-md w-full focus:outline-none focus:ring-1 focus:ring-primary"
+                className="px-4 py-2 bg-transparent border-0 w-full focus:outline-none focus:ring-1 focus:ring-primary text-gray-900 dark:text-white"
               />
-              <button className="bg-primary text-primary-foreground px-3 rounded-r-md hover:bg-primary/90 transition-colors">
+              <button className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white px-4 rounded-none font-bold hover:scale-105 transition-transform">
                 <Send size={18} />
               </button>
             </div>
             
             {/* Social Icons */}
             <div className="mt-6">
-              <h4 className="text-sm font-medium mb-3">Follow Us</h4>
+              <h4 className="text-sm font-medium mb-3 text-white/80">Follow Us</h4>
               <div className="flex items-center gap-3">
                 {socialLinks.map((link) => (
                   <Link 
                     key={link.label}
                     href={link.href}
-                    className="p-2 bg-muted hover:bg-muted/80 rounded-full transition-colors text-muted-foreground hover:text-foreground"
+                    className="p-2 bg-gradient-to-br from-sky-100 via-fuchsia-100 to-pink-100 hover:bg-gradient-to-br hover:from-sky-200 hover:via-fuchsia-200 hover:to-pink-200 rounded-full transition-colors text-pink-400 hover:text-white shadow"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -194,27 +196,37 @@ export default function Footer() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
-      
-      {/* Copyright */}
-      <div className="border-t border-border/50 py-6">
+      <div className="mt-10 border-border/50 py-6 bg-white/5">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
-            © {currentYear} {APP_NAME}. All rights reserved.
+          <p className="text-white text-sm font-medium">
+            © {currentYear} {APP_NAME}. Crafted with passion & precision. All rights reserved.
           </p>
-          <div className="mt-3 md:mt-0 flex gap-6 text-sm text-muted-foreground">
-            <Link href="/terms" className="hover:text-foreground transition-colors">
+          <div className="mt-3 md:mt-0 flex gap-6 text-sm">
+            <Link
+              href="/terms"
+              className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
+            >
               Terms of Service
             </Link>
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
+            <Link
+              href="/privacy"
+              className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
+            >
               Privacy Policy
             </Link>
-            <Link href="/cookies" className="hover:text-foreground transition-colors">
+            <Link
+              href="/cookies"
+              className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
+            >
               Cookie Policy
             </Link>
           </div>
         </div>
       </div>
+      </motion.div>
+      
+      {/* Copyright */}
+     
     </footer>
   );
 }

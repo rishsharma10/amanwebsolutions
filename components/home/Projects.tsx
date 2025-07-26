@@ -7,6 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AnimatedHeading, SectionReveal } from '@/components/PageTransition';
 import { fadeUp, staggerContainer, scaleUp } from '@/lib/animations';
+import { APP_NAME } from '../layout/Footer';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -117,7 +118,7 @@ export default function Projects() {
             Transforming Vision into Digital Excellence
           </AnimatedHeading>
           <p className="text-muted-foreground text-lg">
-            Explore a selection of Wlopper’s recent projects—delivering scalable, secure, and innovative IT solutions for leading businesses worldwide.
+            {`Explore a selection of ${APP_NAME}’s recent projects—delivering scalable, secure, and innovative IT solutions for leading businesses worldwide.`}
           </p>
         </SectionReveal>
 

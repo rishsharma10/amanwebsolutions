@@ -5,6 +5,7 @@ import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { fadeUp, slideInRight, slideInLeft } from '@/lib/animations';
 import { ArrowRight } from 'lucide-react';
+import { APP_NAME } from '../layout/Footer';
 
 export default function Hero() {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -78,7 +79,7 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
             >
               <span className="inline-block py-1 px-3 mb-6 rounded-full bg-white/80 text-primary border border-primary/20 font-semibold text-sm tracking-wide shadow-md backdrop-blur">
-                Wlopper — IT Innovation Partner
+                {`${APP_NAME} — IT Innovation Partner`}
               </span>
             </motion.div>
             
@@ -99,7 +100,7 @@ export default function Hero() {
               animate="visible"
               transition={{ delay: 0.4 }}
             >
-              Wlopper delivers world-class web, mobile, and cloud solutions for ambitious businesses. From scalable platforms to seamless user experiences, we engineer technology that drives growth, security, and innovation.
+              {`${APP_NAME} delivers world-class web, mobile, and cloud solutions for ambitious businesses. From scalable platforms to seamless user experiences, we engineer technology that drives growth, security, and innovation.`}
             </motion.p>
             
             <motion.div 
@@ -116,7 +117,7 @@ export default function Hero() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span>Get Started with Wlopper</span>
+                  <span>Get Started with {APP_NAME}</span>
                   <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </Link>
@@ -189,7 +190,7 @@ export default function Hero() {
                 <div className="relative">
                   <img 
                     src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                    alt="Wlopper IT Team Collaboration" 
+                    alt={`${APP_NAME} IT Team Collaboration`}
                     className="w-full h-auto rounded-t-xl"
                   />
                   {/* Blur at bottom of image */}
@@ -198,7 +199,7 @@ export default function Hero() {
                 <div className="p-6">
                   <h3 className="text-lg font-semibold mb-2">Cutting-Edge Technology</h3>
                   <p className="text-muted-foreground text-sm">
-                    From cloud-native apps to enterprise platforms, Wlopper engineers digital solutions that drive business growth.
+                    {`From cloud-native apps to enterprise platforms, ${APP_NAME} engineers digital solutions that drive business growth.`}
                   </p>
                 </div>
               </motion.div>
