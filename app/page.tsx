@@ -14,6 +14,46 @@ export default function Home() {
   return (
     <>
       <main className="relative overflow-x-hidden bg-brand-soft dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950">
+        {/* JSON-LD for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Vidhyonix',
+              url: 'https://vidhyonix.com',
+              logo: 'https://vidhyonix.com/favicon.png',
+              sameAs: [
+                'https://www.linkedin.com/company/vidhyonix',
+                'https://twitter.com/vidhyonix'
+              ],
+              contactPoint: [{
+                '@type': 'ContactPoint',
+                telephone: '+91 8770283188',
+                contactType: 'customer service',
+                areaServed: 'Chandigarh, India',
+                availableLanguage: 'en'
+              }]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Vidhyonix',
+              url: 'https://vidhyonix.com',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://vidhyonix.com/search?q={search_term_string}',
+                'query-input': 'required name=search_term_string'
+              }
+            })
+          }}
+        />
         {/* Animated blurry dots and moving elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           {/* Large blue dot top left */}
