@@ -13,7 +13,7 @@ import CTA from '@/components/home/CTA';
 export default function Home() {
   return (
     <>
-      <main className="relative overflow-x-hidden bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950">
+      <main className="relative overflow-x-hidden bg-brand-soft dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950">
         {/* Animated blurry dots and moving elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           {/* Large blue dot top left */}
@@ -40,7 +40,7 @@ export default function Home() {
         <Hero />
         {/* Blurred gradient overlay to blend Hero into next section */}
         <div className="relative z-10 -mt-16 h-24 w-full pointer-events-none">
-          <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent via-white/60 to-pink-50 dark:via-blue-950/60 dark:to-fuchsia-950/80 blur-2xl" />
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-b from-transparent via-white/60 to-white dark:via-blue-950/60 dark:to-fuchsia-950/80 blur-2xl" />
         </div>
         <Services />
         <Stats />

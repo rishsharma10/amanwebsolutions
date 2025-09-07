@@ -121,12 +121,12 @@ export default function ContactHero() {
                   {
                     icon: <Phone className="w-5 h-5" />,
                     title: 'Phone',
-                    content: '+1 (555) 123-4567',
+                    content: '+91 8770283188',
                   },
                   {
                     icon: <MapPin className="w-5 h-5" />,
                     title: 'Address',
-                    content: '123 Innovation Drive, Tech Park, San Francisco, CA 94107',
+                    content: 'Chandigarh, India',
                   },
                 ].map((item, index) => (
                   <motion.div

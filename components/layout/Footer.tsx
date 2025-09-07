@@ -7,6 +7,7 @@ import {
   Youtube, ArrowRight, Send 
 } from 'lucide-react';
 import { fadeUp, staggerContainer } from '@/lib/animations';
+import logo from "@/app/assets/logo/logobgtransparent.png"
 
 export const APP_NAME = "Vidhyonix";
 
@@ -69,9 +70,12 @@ export default function Footer() {
             variants={fadeUp}
           >
             <Link href="/" className="text-primary font-bold text-2xl inline-flex items-center">
-              <span className="font-extrabold text-2xl inline-flex items-center">
-                <span className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-fuchsia-500 bg-clip-text text-transparent">Vidyo</span>
-                <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">nix</span>
+              <span className="font-extrabold text-2xl inline-flex items-center gap-2">
+                <img
+                    src={logo.src}
+                    alt="Vidhyonix Logo"
+                  className="w-48 h-15 object-contain"
+                />
               </span>
               {/* <span className="text-blue-500">X</span> */}
             </Link>
@@ -81,7 +85,7 @@ export default function Footer() {
             <div className="mt-6 space-y-2">
               <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
                 <Phone size={16} className="text-pink-400" />
-                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">+1 (555) 123-4567</span>
+                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">+91 8770283188</span>
               </div>
               <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
                 <Mail size={16} className="text-pink-400" />
@@ -89,7 +93,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-3 text-white/80 hover:text-pink-400 transition-colors">
                 <MapPin size={16} className="mt-1 flex-shrink-0 text-pink-400" />
-                <span>123 Innovation Drive, Tech Park, San Francisco, CA 94107</span>
+                <span>Chandigarh, India</span>
               </div>
             </div>
           </motion.div>

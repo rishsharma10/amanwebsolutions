@@ -47,7 +47,7 @@ export default function AboutHero() {
               <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
                 About {APP_NAME}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-center mb-6 text-brand-gradient">
                 Your Trusted Partner for End-to-End IT Solutions
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
