@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'Vidhyonix',
     images: [
       {
-        url: '/og-image.png',
+        url: '/favicon.png',
         width: 1200,
         height: 630,
         alt: 'Vidhyonix - IT Innovation Partner'
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@vidhyonix',
     creator: '@vidhyonix',
-    images: ['/og-image.png']
+    images: ['/favicon.png']
   },
   robots: {
     index: true,
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     }
   },
   icons: {
-    icon: '/favicon.ico'
+    icon: '/favicon.png'
   }
 };
 
