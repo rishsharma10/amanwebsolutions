@@ -101,7 +101,7 @@ export default function Header() {
             className="flex items-center gap-2"
           >
             {/* <span className="text-primary">{APP_NAME}</span> */}
-            <a className="group flex items-center space-x-2 cursor-pointer" href="/preview/3e66e85c-f045-498e-aa5d-fb31a30e4d2b/1314647"><div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300"><i className="ri-code-s-slash-fill text-white text-lg"></i></div><span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" style={{fontFamily:"Pacifico, serif"}}>Vidyonix</span></a>
+            <a className="group flex items-center space-x-2 cursor-pointer" href="/preview/3e66e85c-f045-498e-aa5d-fb31a30e4d2b/1314647"><div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300"><i className="ri-code-s-slash-fill text-white text-lg"></i></div><span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" style={{fontFamily:"Pacifico, serif"}}>Vidhyonix</span></a>
             {/* <span className="text-blue-500">X</span> */}
           </motion.div>
         </Link>

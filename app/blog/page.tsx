@@ -127,12 +127,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Vidyonix Blog</title>
+        <title>Vidhyonix Blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Header />
-      <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 overflow-hidden bg-transparent">
-        {/* Animated background rings and blurry dots */}
+      <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-transparent">
+        {/* Animated background rings and blurry dots (like service hero) */}
         <motion.div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
           <motion.div
             className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-sky-400/20 blur-[100px]"
@@ -163,10 +163,24 @@ export default function Home() {
             />
           ))}
         </motion.div>
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="inline-block py-1 px-3 mb-6 rounded-full bg-gradient-to-r from-sky-100 via-fuchsia-100 to-pink-100 text-primary border border-primary/20 font-medium text-sm backdrop-blur">
+              Our Blog
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+              Latest Insights from Vidhyonix
+            </h1>
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 max-w-3xl mx-auto font-medium">
+              Explore expert articles, tech trends, and practical guides from the Vidhyonix team. Stay ahead with insights on web, mobile, cloud, and digital innovation for your business growth.
+            </p>
+          </div>
+        </div>
+      </section>
         <main className="container relative z-10 mx-auto px-4 py-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
-            Latest Insights from Vidyonix
-          </h1>
+            {/* <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
+              Latest Insights from Vidhyonix
+            </h1> */}
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {blogPosts.map((post, index) => (
               <motion.article
@@ -218,8 +232,7 @@ export default function Home() {
             </div>
           )}
         </main>
-      </section>
-        <CTA/>
+      <CTA/>
       <Footer />
       <style jsx>{`
         .container {

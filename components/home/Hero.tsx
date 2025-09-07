@@ -155,7 +155,7 @@ export default function Hero() {
                 ))}
               </div>
               <div>
-                <div className="font-semibold">Trusted by 2,000+ clients</div>
+                <div className="font-semibold">Trusted by 20+ clients</div>
                 <div className="text-sm text-muted-foreground flex items-center gap-1">
                   <div className="flex">
                     {[1, 2, 3, 4, 5].map((_, i) => (

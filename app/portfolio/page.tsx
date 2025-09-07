@@ -55,7 +55,7 @@ const projects = [
 const milestones = [
   {
     year: '2019',
-    title: 'Vidyonix Founded',
+    title: 'Vidhyonix Founded',
     description: 'Our journey began with a vision to deliver world-class digital solutions.',
     icon: <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="url(#a)"/><path d="M10 22l6-12 6 12H10z" fill="#fff"/><defs><linearGradient id="a" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#38bdf8"/><stop offset="0.5" stopColor="#a21caf"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs></svg>,
   },
@@ -136,20 +136,11 @@ export default function Portfolio() {
 
   return (
     <>
-      <main className="relative min-h-screen bg-background overflow-hidden">
+      <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950">
         <Header />
         {/* Hero/Intro Section */}
-        <section className="relative py-32 md:py-40 flex flex-col items-center justify-center text-center overflow-hidden rounded-b-[80px]">
-          {/* Background Image with blackish overlay */}
-          <div className="absolute inset-0 z-0 rounded-b-[80px] overflow-hidden">
-            <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Portfolio Hero Background" className="w-full h-full object-cover object-center blur-xl scale-105" />
-            {/* White gradient at the top for header text readability */}
-            <div className="absolute inset-0 rounded-b-[80px] pointer-events-none">
-              <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white/90 via-white/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60 rounded-b-[80px]" />
-            </div>
-          </div>
-          {/* Animated background circles/dots */}
+        <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-transparent">
+          {/* Animated background rings and blurry dots (like service hero) */}
           <motion.div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
             <motion.div
               className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-sky-400/20 blur-[100px]"
@@ -180,14 +171,16 @@ export default function Portfolio() {
               />
             ))}
           </motion.div>
-          <div className="relative z-20 flex flex-col items-center justify-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent mb-4 drop-shadow-lg">
-              Our Portfolio
-            </h1>
-            <div className="inline-block px-6 py-4 rounded-2xl  from-white/30 via-fuchsia-100/30 border-white/30 mb-8">
-              <p className="text-lg md:text-2xl text-white font-semibold">
-                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-extrabold">A showcase of digital excellence</span>
-                <span className="text-white/90 font-medium">, crafted by Vidyonix for ambitious brands and enterprises.</span>
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-gradient-to-r from-sky-100 via-fuchsia-100 to-pink-100 text-primary border border-primary/20 font-medium text-sm backdrop-blur">
+                Our Portfolio
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+                Digital Excellence, Delivered
+              </h1>
+              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 max-w-3xl mx-auto font-medium">
+                Explore our portfolio of innovative web, mobile, and cloud solutions. Vidhyonix partners with ambitious brands to create future-ready digital products that drive business growth and customer success.
               </p>
             </div>
           </div>
@@ -256,30 +249,33 @@ export default function Portfolio() {
                 >
                   {/* Floating, staggered effect */}
                   <motion.div
-                    className="relative rounded-3xl shadow-2xl overflow-hidden group-hover:scale-105 group-hover:shadow-3xl transition-all duration-500 bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950"
+                    className="relative rounded-3xl shadow-2xl overflow-hidden group-hover:scale-105 group-hover:shadow-3xl transition-all duration-500 bg-gradient-to-br from-white/95 via-sky-50/90 to-pink-50/90 dark:from-neutral-900/90 dark:via-blue-950/90 dark:to-fuchsia-950/90 border-2 border-primary/20"
                     style={{ top: i % 2 === 0 ? 0 : 32, zIndex: 2 }}
-                    whileHover={{ y: -12, scale: 1.04 }}
+                    whileHover={{ y: -12, scale: 1.04, rotateX: 6, rotateY: -6 }}
                   >
+                    {/* Accent orb */}
+                    <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full bg-gradient-to-br from-sky-400 via-fuchsia-400 to-pink-400 opacity-30 blur-2xl z-10 pointer-events-none" />
                     <div className="relative w-full h-64 md:h-72 overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                     </div>
-                    <div className="absolute -top-4 left-8 bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 w-16 h-16 rounded-full blur-2xl opacity-30 z-0" />
-                    {/* Text overlay for visibility */}
-                    <div className="relative z-10 p-7 flex flex-col gap-2 bg-gradient-to-br from-black/70 via-black/40 to-transparent rounded-b-3xl">
-                      <h3 className="text-2xl font-bold text-white drop-shadow mb-1">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/90 text-base mb-2 drop-shadow">
-                        {project.description}
-                      </p>
-                      <Link href={project.link} className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-pink-300 transition-colors">
-                        View Project <ArrowRight size={16} />
-                      </Link>
+                    {/* Glassmorphism overlay for content */}
+                    <div className="absolute bottom-0 left-0 w-full p-0 z-20">
+                      <div className="m-4 rounded-2xl bg-white/70 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl p-6 flex flex-col gap-2 border border-primary/10">
+                        <h3 className="text-2xl font-bold bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent mb-1">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-700 dark:text-gray-200 text-base mb-2 line-clamp-3">
+                          {project.description}
+                        </p>
+                        <Link href={project.link} className="mt-2 self-end inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white shadow hover:scale-105 transition-transform">
+                          View Project <ArrowRight size={16} />
+                        </Link>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -301,7 +297,7 @@ export default function Portfolio() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {[{
                 title: 'Scaling FinSight for 1M+ Users',
-                summary: 'How Vidyonix architected a cloud-native analytics platform to handle millions of transactions per day with zero downtime.',
+                summary: 'How Vidhyonix architected a cloud-native analytics platform to handle millions of transactions per day with zero downtime.',
                 icon: <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="url(#a)"/><path d="M10 22l6-12 6 12H10z" fill="#fff"/><defs><linearGradient id="a" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#38bdf8"/><stop offset="0.5" stopColor="#a21caf"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs></svg>,
               }, {
                 title: 'ShopEase: Mobile Commerce at Scale',
@@ -317,15 +313,19 @@ export default function Portfolio() {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.1, duration: 0.7, type: 'spring' }}
-                  className="relative bg-white/90 dark:bg-neutral-900/90 rounded-2xl shadow-xl p-8 flex flex-col gap-4 hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-border/40 overflow-hidden"
+                  className="relative group overflow-visible"
+                  whileHover={{ y: -8, scale: 1.04, rotateX: 4, rotateY: -4 }}
                 >
-                  {/* Left accent gradient bar */}
-                  <div className="absolute left-0 top-0 h-full w-2 bg-gradient-to-b from-sky-400 via-fuchsia-400 to-pink-400 rounded-l-2xl" />
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="shrink-0">{cs.icon}</span>
-                    <h3 className="text-xl font-bold bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">{cs.title}</h3>
+                  {/* Accent orb */}
+                  <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-gradient-to-br from-sky-400 via-fuchsia-400 to-pink-400 opacity-30 blur-2xl z-10 pointer-events-none" />
+                  {/* Glassmorphism card */}
+                  <div className="rounded-2xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl border-2 border-primary/20 p-8 flex flex-col gap-4 relative z-20">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="shrink-0 rounded-xl p-2 bg-gradient-to-br from-sky-400 via-fuchsia-400 to-pink-400 shadow-lg">{cs.icon}</span>
+                      <h3 className="text-xl font-bold bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">{cs.title}</h3>
+                    </div>
+                    <p className="text-gray-700 dark:text-gray-200 text-base mb-2 line-clamp-3">{cs.summary}</p>
                   </div>
-                  <p className="text-muted-foreground text-base mb-2">{cs.summary}</p>
                 </motion.div>
               ))}
             </div>
@@ -372,7 +372,7 @@ export default function Portfolio() {
             className="container mx-auto px-4 flex flex-col items-center justify-center gap-8 relative z-10"
           >
             <h2 className="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">Let's Build Your Next Big Thing Together</h2>
-            <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto text-white/90">Partner with Vidyonix for world-class digital solutions, innovation, and growth. Your vision, our expertise.</p>
+            <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto text-white/90">Partner with Vidhyonix for world-class digital solutions, innovation, and growth. Your vision, our expertise.</p>
             <Link href="/contact" className="inline-block px-8 py-4 rounded-full bg-white text-primary font-bold text-lg shadow-lg hover:bg-pink-100 hover:text-pink-600 transition-all duration-300">
               Start Your Project
             </Link>

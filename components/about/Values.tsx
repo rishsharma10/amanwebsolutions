@@ -95,15 +95,21 @@ export default function Values() {
           {values.map((v, i) => (
             <motion.div
               key={v.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 40, rotateY: 90 }}
+              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: 0.1 + i * 0.08, duration: 0.7, type: 'spring' }}
-              className={`relative flex flex-col items-center text-center rounded-3xl p-10 bg-white/90 dark:bg-neutral-900/90 shadow-xl border-0 hover:scale-105 hover:shadow-2xl transition-all duration-300 group`}
+              className={`relative flex flex-col items-center text-center rounded-3xl p-0 bg-transparent shadow-none border-0 group hover:scale-105 hover:shadow-2xl transition-all duration-300`}
               style={{ minHeight: 340 }}
             >
-              <div className={`mb-6 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${v.color} shadow-lg`}>{v.icon}</div>
-              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">{v.title}</h3>
-              <p className="text-muted-foreground text-base mb-2">{v.description}</p>
+              {/* Accent orb */}
+              <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-gradient-to-br from-sky-400 via-fuchsia-400 to-pink-400 opacity-30 blur-2xl z-10 pointer-events-none" />
+              {/* Glassmorphism card */}
+              <div className="rounded-2xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl border-2 border-primary/20 p-10 flex flex-col gap-4 relative z-20 w-full">
+                <div className={`mb-6 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${v.color} shadow-lg`}>{v.icon}</div>
+                <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">{v.title}</h3>
+                <p className="text-gray-700 dark:text-gray-200 text-base mb-2 line-clamp-3">{v.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -106,7 +106,7 @@ export default function ContactHero() {
                 Get in Touch
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
-                Connect with Vidyonix
+                Connect with Vidhyonix
               </h1>
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 font-medium">
                 Ready to build something extraordinary? Reach out to our team and discover how we can help you achieve your digital ambitions with innovative IT solutions.
@@ -116,7 +116,7 @@ export default function ContactHero() {
                   {
                     icon: <Mail className="w-5 h-5" />,
                     title: 'Email',
-                    content: 'hello@vidyonix.com',
+                    content: 'info@vidhyonix.com',
                   },
                   {
                     icon: <Phone className="w-5 h-5" />,

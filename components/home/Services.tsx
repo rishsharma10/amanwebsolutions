@@ -15,109 +15,109 @@ import {
 import { AnimatedHeading, SectionReveal } from '@/components/PageTransition';
 import { APP_NAME } from '../layout/Footer';
 
+export const servicesArray = [
+   {
+     id: 'web',
+     title: 'Frontend Web Development',
+     icon: <Monitor className="h-6 w-6" />,
+     subtitle: 'Build robust, scalable web platforms for business growth.',
+     description: 'Robust, scalable web solutions built with React.js, Next.js, Node.js, and NestJS for high-growth businesses. Elevate your digital presence with secure, high-performance platforms.',
+     features: [
+       'Custom web applications',
+       'eCommerce & CMS solutions',
+       'Performance optimization',
+       'Responsive UI/UX',
+       'API integrations',
+     ],
+     color: 'bg-blue-500/20 text-blue-700 dark:text-blue-400',
+     image: 'https://images.pexels.com/photos/1181672/pexels-photo-1181672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+   },
+   {
+     id: 'ai',
+     title: 'AI Process Management',
+     icon: <Cpu className="h-6 w-6" />,
+     subtitle: 'Streamline and orchestrate business processes with AI-driven automation.',
+     description: 'Optimize your business workflows with advanced AI process management solutions. We design and implement intelligent automation systems that coordinate tasks, monitor process health, and adapt dynamically to changing business needs—boosting efficiency and reducing manual overhead.',
+     features: [
+       'End-to-end process automation',
+       'AI-driven workflow orchestration',
+       'Real-time process monitoring',
+       'Dynamic task allocation',
+       'Intelligent exception handling',
+     ],
+     color: 'bg-green-500/20 text-green-700 dark:text-green-400',
+     image: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // AI process management/automation themed image
+   },
+   {
+     id: 'app',
+     title: 'Mobile App Development',
+     icon: <Smartphone className="h-6 w-6" />,
+     subtitle: 'Deliver seamless mobile experiences on every device.',
+     description: 'Cross-platform mobile apps using Flutter and React Native, engineered for seamless performance and user engagement. Launch on iOS and Android with confidence.',
+     features: [
+       'Native & cross-platform apps',
+       'UI/UX design',
+       'API & backend integration',
+       'App maintenance & support',
+       'App store deployment',
+     ],
+     color: 'bg-purple-500/20 text-purple-700 dark:text-purple-400',
+     image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+   },
+   {
+     id: 'backend',
+     title: 'Backend & Database Solutions',
+     icon: <BarChart className="h-6 w-6" />,
+     subtitle: 'Empower your business with secure, scalable infrastructure.',
+     description: `${APP_NAME} engineers robust backend systems and data architectures using PostgreSQL, Redis, and MongoDB. We deliver secure APIs, real-time data processing, and cloud-native integrations to power your mission-critical applications.'`,
+     features: [
+       'RESTful & GraphQL API development',
+       'Real-time data processing',
+       'Authentication & authorization',
+       'Database design & optimization',
+       'Cloud-native integrations',
+     ],
+     color: 'bg-cyan-500/20 text-cyan-700 dark:text-cyan-400',
+     image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // You can update this to a more backend/data/cloud image if desired
+   },
+   {
+     id: 'cms',
+     title: 'CMS & eCommerce Platforms',
+     icon: <PenTool className="h-6 w-6" />,
+     subtitle: 'Launch and scale content and commerce with confidence.',
+     description: 'Custom Shopify and WordPress solutions for content-driven and commerce-focused brands. Integrate, optimize, and scale your digital storefront with ease.',
+     features: [
+       'Custom themes & plugins',
+       'Payment gateway integration',
+       'Headless CMS',
+       'SEO optimization',
+       'Third-party integrations',
+     ],
+     color: 'bg-amber-500/20 text-amber-700 dark:text-amber-400',
+     image: 'https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+   },
+   {
+     id: 'cloud',
+     title: 'Cloud, DevOps & Architecture',
+     icon: <Cpu className="h-6 w-6" />,
+     subtitle: 'Accelerate innovation with secure, automated cloud solutions.',
+     description: 'Cloud-native deployments, CI/CD automation, and scalable infrastructure on AWS, Azure, and GCP. Accelerate innovation with secure, cost-effective cloud solutions.',
+     features: [
+       'Cloud migration',
+       'CI/CD automation',
+       'Infrastructure as Code',
+       'Monitoring & security',
+       'Cost optimization',
+     ],
+     color: 'bg-red-500/20 text-red-700 dark:text-red-400',
+     image: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+   },
+ ];
 export default function Services() {
   const [activeTab, setActiveTab] = useState('web');
 
-  const services = [
-    {
-      id: 'web',
-      title: 'Enterprise Web Development',
-      icon: <Monitor className="h-6 w-6" />,
-      subtitle: 'Build robust, scalable web platforms for business growth.',
-      description: 'Robust, scalable web solutions built with React.js, Next.js, Node.js, and NestJS for high-growth businesses. Elevate your digital presence with secure, high-performance platforms.',
-      features: [
-        'Custom web applications',
-        'eCommerce & CMS solutions',
-        'Performance optimization',
-        'Responsive UI/UX',
-        'API integrations',
-      ],
-      color: 'bg-blue-500/20 text-blue-700 dark:text-blue-400',
-      image: 'https://images.pexels.com/photos/1181672/pexels-photo-1181672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'ai',
-      title: 'AI & Machine Learning Solutions',
-      icon: <Cpu className="h-6 w-6" />,
-      subtitle: 'Transform your business with intelligent automation and insights.',
-      description: 'Leverage the power of artificial intelligence and machine learning to automate processes, gain actionable insights, and deliver personalized experiences. Our team builds custom AI models, integrates NLP, and deploys scalable ML pipelines tailored to your business needs.',
-      features: [
-        'Custom AI model development',
-        'Natural Language Processing (NLP)',
-        'Predictive analytics',
-        'Data engineering & pipelines',
-        'AI-powered automation',
-      ],
-      color: 'bg-green-500/20 text-green-700 dark:text-green-400',
-      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'app',
-      title: 'Mobile App Engineering',
-      icon: <Smartphone className="h-6 w-6" />,
-      subtitle: 'Deliver seamless mobile experiences on every device.',
-      description: 'Cross-platform mobile apps using Flutter and React Native, engineered for seamless performance and user engagement. Launch on iOS and Android with confidence.',
-      features: [
-        'Native & cross-platform apps',
-        'UI/UX design',
-        'API & backend integration',
-        'App maintenance & support',
-        'App store deployment',
-      ],
-      color: 'bg-purple-500/20 text-purple-700 dark:text-purple-400',
-      image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'backend',
-      title: 'Backend & Database Solutions',
-      icon: <BarChart className="h-6 w-6" />,
-      subtitle: 'Empower your business with secure, scalable infrastructure.',
-      description: `${APP_NAME} engineers robust backend systems and data architectures using PostgreSQL, Redis, and MongoDB. We deliver secure APIs, real-time data processing, and cloud-native integrations to power your mission-critical applications.'`,
-      features: [
-        'RESTful & GraphQL API development',
-        'Real-time data processing',
-        'Authentication & authorization',
-        'Database design & optimization',
-        'Cloud-native integrations',
-      ],
-      color: 'bg-cyan-500/20 text-cyan-700 dark:text-cyan-400',
-      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // You can update this to a more backend/data/cloud image if desired
-    },
-    {
-      id: 'cms',
-      title: 'CMS & eCommerce Platforms',
-      icon: <PenTool className="h-6 w-6" />,
-      subtitle: 'Launch and scale content and commerce with confidence.',
-      description: 'Custom Shopify and WordPress solutions for content-driven and commerce-focused brands. Integrate, optimize, and scale your digital storefront with ease.',
-      features: [
-        'Custom themes & plugins',
-        'Payment gateway integration',
-        'Headless CMS',
-        'SEO optimization',
-        'Third-party integrations',
-      ],
-      color: 'bg-amber-500/20 text-amber-700 dark:text-amber-400',
-      image: 'https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      id: 'cloud',
-      title: 'Cloud, DevOps & Architecture',
-      icon: <Cpu className="h-6 w-6" />,
-      subtitle: 'Accelerate innovation with secure, automated cloud solutions.',
-      description: 'Cloud-native deployments, CI/CD automation, and scalable infrastructure on AWS, Azure, and GCP. Accelerate innovation with secure, cost-effective cloud solutions.',
-      features: [
-        'Cloud migration',
-        'CI/CD automation',
-        'Infrastructure as Code',
-        'Monitoring & security',
-        'Cost optimization',
-      ],
-      color: 'bg-red-500/20 text-red-700 dark:text-red-400',
-      image: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-  ];
 
-  const activeService = services.find(service => service.id === activeTab) || services[0];
+  const activeService = servicesArray.find(service => service.id === activeTab) || servicesArray[0];
 
   return (
     <section className="py-20 md:py-32 bg-muted/50 overflow-hidden">
@@ -145,7 +145,7 @@ export default function Services() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
-          {services.map((service, index) => (
+          {servicesArray.map((service, index) => (
             <motion.div
               key={service.id}
               variants={fadeUp}

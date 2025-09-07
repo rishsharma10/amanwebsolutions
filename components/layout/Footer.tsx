@@ -8,28 +8,25 @@ import {
 } from 'lucide-react';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 
-export const APP_NAME = "VidyoNix";
+export const APP_NAME = "Vidhyonix";
 
 export default function Footer() {
   const footerLinks = {
-    services: [
-      { href: '/services/web-development', label: 'Web Development' },
-      { href: '/services/app-development', label: 'App Development' },
-      { href: '/services/digital-marketing', label: 'Digital Marketing' },
-      { href: '/services/branding', label: 'Branding & Identity' },
-      { href: '/services/ui-ux', label: 'UI/UX Design' },
-    ],
+    services: require('@/components/home/Services').servicesArray.map((service: any) => ({
+      href: `/services`,
+      label: service.title?.slice(0,17)+"...",
+    })),
     company: [
       { href: '/about', label: 'About Us' },
       { href: '/team', label: 'Our Team' },
-      { href: '/careers', label: 'Careers' },
+      // { href: '/careers', label: 'Careers' },
       { href: '/blog', label: 'Blog' },
       { href: '/contact', label: 'Contact' },
     ],
     resources: [
       { href: '/case-studies', label: 'Case Studies' },
       { href: '/portfolio', label: 'Portfolio' },
-      { href: '/resources/guides', label: 'Guides' },
+      // { href: '/resources/guides', label: 'Guides' },
       { href: '/faq', label: 'FAQ' },
       { href: '/privacy-policy', label: 'Privacy Policy' },
     ],
@@ -79,7 +76,7 @@ export default function Footer() {
               {/* <span className="text-blue-500">X</span> */}
             </Link>
             <p className="mt-4 text-white/80">
-              Vidyonix delivers end-to-end IT, web, and mobile solutions for ambitious brands. We help you innovate, scale, and thrive in a digital-first world.
+              Vidhyonix delivers end-to-end IT, web, and mobile solutions for ambitious brands. We help you innovate, scale, and thrive in a digital-first world.
             </p>
             <div className="mt-6 space-y-2">
               <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
@@ -88,7 +85,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
                 <Mail size={16} className="text-pink-400" />
-                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">hello@vidyonix.com</span>
+                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">info@vidhyonix.com</span>
               </div>
               <div className="flex items-start gap-3 text-white/80 hover:text-pink-400 transition-colors">
                 <MapPin size={16} className="mt-1 flex-shrink-0 text-pink-400" />
@@ -104,7 +101,7 @@ export default function Footer() {
           >
             <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Services</h3>
             <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
+              {footerLinks.services.map((link: any) => (
                 <li key={link.label}>
                   <Link 
                     href={link.href}
@@ -165,7 +162,7 @@ export default function Footer() {
           >
             <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Stay Updated</h3>
             <p className="text-white/70 mb-4">
-              Get the latest insights, tech trends, and exclusive updates from Vidyonix—straight to your inbox.
+              Get the latest insights, tech trends, and exclusive updates from Vidhyonix—straight to your inbox.
             </p>
             <div className="flex bg-white/80 dark:bg-neutral-900/80 rounded-lg shadow-inner overflow-hidden">
               <input 
@@ -203,7 +200,7 @@ export default function Footer() {
           </p>
           <div className="mt-3 md:mt-0 flex gap-6 text-sm">
             <Link
-              href="/terms"
+              href="/social/terms"
               className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
             >
               Terms of Service

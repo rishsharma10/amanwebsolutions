@@ -50,7 +50,7 @@ export default function ServicesHero() {
                 Empowering Innovation & Business Growth
               </h1>
               <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-12 max-w-3xl mx-auto font-medium">
-                From web and app development to AI, cloud, and eCommerce, Vidyonix delivers the technology expertise you need to succeed in a digital-first world. Partner with us for scalable, secure, and future-ready solutions.
+                From web and app development to AI, cloud, and eCommerce, Vidhyonix delivers the technology expertise you need to succeed in a digital-first world. Partner with us for scalable, secure, and future-ready solutions.
               </p>
             </motion.div>
 
