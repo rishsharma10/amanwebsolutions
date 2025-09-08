@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, slideInLeft, slideInRight } from '@/lib/animations';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { SectionReveal } from '@/components/PageTransition';
+import React, { useState } from 'react';
 
 export default function ContactHero() {
   const servicesList = [
@@ -17,6 +18,47 @@ export default function ContactHero() {
     'Digital Marketing',
     'Other',
   ];
+
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    service: '',
+    details: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const to = 'info@vidhyonix.com';
+    const subject = `New Inquiry: ${formData.name} — ${formData.service || 'General'}`;
+    const body = [
+      'New contact request via website:',
+      '',
+      `Name: ${formData.name}`,
+      `Company: ${formData.company}`,
+      `Email: ${formData.email}`,
+      `Service: ${formData.service}`,
+      '',
+      'Project Details:',
+      formData.details,
+    ].join('\n');
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(gmailUrl, '_blank');
+
+    // Fallback to default mail client if Gmail is unavailable
+    setTimeout(() => {
+      const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+    }, 500);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950">
       {/* Animated background rings and blurry dots */}
@@ -154,11 +196,15 @@ export default function ContactHero() {
             className="bg-white/95 dark:bg-neutral-900/90 rounded-3xl shadow-2xl p-10 flex flex-col gap-6 items-center"
           >
             <h2 className="text-2xl font-extrabold mb-4 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">Send Us a Message</h2>
-            <form className="w-full grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <form className="w-full grid grid-cols-1 lg:grid-cols-2 gap-5" onSubmit={handleSubmit}>
               <div className="flex flex-col gap-2 lg:col-span-1">
                 <label className="block text-sm font-medium text-primary">Full Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
                   placeholder="Your name"
                 />
@@ -167,6 +213,10 @@ export default function ContactHero() {
                 <label className="block text-sm font-medium text-primary">Company Name</label>
                 <input
                   type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
                   placeholder="Your company name"
                 />
@@ -175,6 +225,10 @@ export default function ContactHero() {
                 <label className="block text-sm font-medium text-primary">Email Address</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
                   placeholder="Your email"
                 />
@@ -182,8 +236,11 @@ export default function ContactHero() {
               <div className="flex flex-col gap-2 lg:col-span-1">
                 <label className="block text-sm font-medium text-primary">Service</label>
                 <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
-                  defaultValue=""
                 >
                   <option value="" disabled>Select a service</option>
                   {servicesList.map((service) => (
@@ -195,6 +252,10 @@ export default function ContactHero() {
                 <label className="block text-sm font-medium text-primary">Project Details</label>
                 <textarea
                   rows={4}
+                  name="details"
+                  value={formData.details}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium resize-none"
                   placeholder="Tell us about your project, goals, and timeline..."
                 ></textarea>

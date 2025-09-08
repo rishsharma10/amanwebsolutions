@@ -34,11 +34,11 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { href: '#', icon: <Facebook size={18} />, label: 'Facebook' },
-    { href: '#', icon: <Twitter size={18} />, label: 'Twitter' },
-    { href: '#', icon: <Instagram size={18} />, label: 'Instagram' },
-    { href: '#', icon: <Linkedin size={18} />, label: 'LinkedIn' },
-    { href: '#', icon: <Youtube size={18} />, label: 'YouTube' },
+    { href: 'https://www.facebook.com/share/16sEhjSj6K', icon: <Facebook size={18} />, label: 'Facebook' },
+    // { href: '#', icon: <Twitter size={18} />, label: 'Twitter' },
+    { href: 'https://www.instagram.com/vidhyonix', icon: <Instagram size={18} />, label: 'Instagram' },
+    { href: 'https://www.linkedin.com/in/vidhyonix-it-solutions-b141b0383', icon: <Linkedin size={18} />, label: 'LinkedIn' },
+    // { href: '#', icon: <Youtube size={18} />, label: 'YouTube' },
   ];
 
   const currentYear = new Date().getFullYear();
@@ -189,6 +189,8 @@ export default function Footer() {
                     href={link.href}
                     className="p-2 bg-gradient-to-br from-sky-100 via-fuchsia-100 to-pink-100 hover:bg-gradient-to-br hover:from-sky-200 hover:via-fuchsia-200 hover:to-pink-200 rounded-full transition-colors text-pink-400 hover:text-white shadow"
                     aria-label={link.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {link.icon}
                   </Link>
@@ -210,7 +212,7 @@ export default function Footer() {
               Terms of Service
             </Link>
             <Link
-              href="/privacy"
+              href="/privacy-policy"
               className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
             >
               Privacy Policy
