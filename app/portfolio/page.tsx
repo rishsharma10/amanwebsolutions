@@ -12,90 +12,261 @@ gsap.registerPlugin(ScrollTrigger);
 // @ts-ignore
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
+import madamJan from '@/app/assets/projects/madamjan.png';
+import evitavonni from '@/app/assets/projects/evitavoni.png';
+import paliYoga from '@/app/assets/projects/paliyoga.png';
+import sascoStudentLiving from '@/app/assets/projects/sasco.png';
+import designLiving from '@/app/assets/projects/designliving.png';
+import watchHouse from '@/app/assets/projects/watchhouse.png';
+import cryptoMLM from '@/app/assets/projects/phase2crypto.png';
+import marketReach from '@/app/assets/projects/aitools.png';
+import abundish from '@/app/assets/projects/abundish.png';
+import cyphr from '@/app/assets/3d/cyphr.png';
+import trionn from '@/app/assets/3d/trionn.png';
+import compsych from '@/app/assets/3d/compsych.png';
+import aether from '@/app/assets/3d/aether.png';
 
 const projects = [
   {
-    title: 'FinSight Analytics Platform',
-    description: 'Real-time analytics for financial institutions.',
-    image: 'https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '#',
+    id: 1,
+    title: 'Madam jan',
+    description: 'Madam Jan is a design-forward, playful, and utility-driven homeware brand for those who find joy in the details. We believe that beauty and function can and should coexist. Every product we design and curate is meant to delight the senses, elevate the everyday, and serve a purpose in your space.',
+    tech: ['Shopify', 'HTML', 'CSS', 'JavaScript'],
+    category: 'web',
+    image: madamJan.src,
+    client: 'Madam Jan',
+    year: '2024',
+    link: 'https://madamjanindia.com/',
   },
   {
-    title: 'ShopEase Mobile Commerce',
-    description: 'Cross-platform eCommerce app for global retail.',
-    image: 'https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '#',
+    id: 2,
+    title: 'Evitavonni',
+    description: 'Looking past trends and focusing on a timeless style that transcends fashion, the inherent beauty and unmatched quality is born from Creative Director Kate Erwich’s passion for classic couture and artisanal craftsmanship.',
+    tech: ['WordPress'],
+    category: 'web',
+    image: evitavonni.src,
+    client: 'Evitavonni',
+    year: '2024',
+    link: 'https://www.evitavonni.com/',
   },
   {
-    title: 'HealthSync Cloud Portal',
-    description: 'Secure patient management for healthcare.',
-    image: 'https://images.pexels.com/photos/1181682/pexels-photo-1181682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '#',
+    id: 3,
+    title: 'Pali Yoga',
+    description: 'A space where every stretch, every breath, and every smile holds the promise of growth and transformation.',
+    tech: ['WordPress'],
+    category: 'web',
+    image: paliYoga.src,
+    client: 'Pali Yoga',
+    year: '2023',
+    link: 'https://www.pali.yoga/',
   },
   {
-    title: 'BrandBoost CMS',
-    description: 'Content and eCommerce for global brands.',
-    image: 'https://images.pexels.com/photos/1482066/pexels-photo-1482066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '#',
+    id: 4,
+    title: 'Sasco Student Living',
+    description: 'Sasco Student Living is a student housing provider in the United States.',
+    tech: ['WordPress'],
+    category: 'web',
+    image: sascoStudentLiving.src,
+    client: 'Sasco Student Living',
+    year: '2023',
+    link: 'https://www.sascostudentliving.com/',
   },
   {
-    title: 'CloudOps Automation Suite',
-    description: 'DevOps automation for CI/CD and cloud.',
-    image: 'https://images.pexels.com/photos/1181684/pexels-photo-1181684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    link: '#',
+    id: 5,
+    title: 'Design Living 365',
+    description: 'Designliving365.com is an online store created by two Danes residing in Prague, with the purpose to deliver design products for home in a good quality for reasonable price.',
+    tech: ['WordPress'],
+    category: 'web',
+    image: designLiving.src,
+    client: 'Design Living 365',
+    year: '2023',
+    link: 'https://www.designliving365.com',
   },
   {
-    title: 'Insightful BI Dashboard',
-    description: 'Enterprise reporting and data visualization.',
-    image: 'https://images.pexels.com/photos/1181685/pexels-photo-1181685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    id: 6,
+    title: 'Watch House',
+    description: 'Watch House is a specialty coffee brand dedicated to sourcing and roasting the finest beans for coffee enthusiasts.',
+    tech: ['React'],
+    category: 'web',
+    image: watchHouse.src,
+    client: 'Watch House',
+    year: '2022',
     link: '#',
+  },
+  { 
+    id: 7,
+    title: 'Crypto MLM',
+    description: 'A comprehensive MLM platform for startups, delivering logo design, brand guidelines, and digital assets in one place.',
+    tech: ['React'],
+    category: 'web',
+    image: cryptoMLM.src,
+    client: 'Crypto MLM',
+    year: '2023',
+    link: 'https://www.phase2growth.com/',
+  },
+  {
+    id: 8,
+    title: 'Ai Tools',
+    description: 'We’re a small team that started this site because we understand how daunting it can be to learn about the many different AI technologies and tools available today. There is a lot of hype and buzzwords out there, and it’s not always clear what tools are right for your specific needs and use cases',
+    tech: ['WordPress'],
+    category: 'marketing',
+    image: marketReach.src,
+    client: 'MarketReach',
+    year: '2023',
+    link: 'https://aitoolsone.com/',
+  },
+  {
+    id: 9,
+    title: 'Abundish store',
+    description: 'Your favorite stores and restaurants delivered right to your door. Enjoy a seamless ordering experience as you explore local favorites and discover new delights. Fast and reliable service, just where you need it. Track your delivery with real-time updates, from preparation to doorstep.',
+    tech: ['Next.js', 'Nest.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
+    category: 'web',
+    image: abundish.src,
+    client: 'Abundish',
+    year: '2023',
+    link: 'https://staging.abundish.com/',
+  },
+  {
+    id: 10,
+    title: 'Aether',
+    description: 'The Aether 1 Earbuds deliver crystal-clear, studio-grade sound with timeless craftsmanship and intuitive controls. Built for effortless listening, they combine elegant design with durability, offering comfort and precision in every detail. Powered by the Sub-Alphatonic Core, they provide unmatched performance and endurance, redefining what wireless audio can truly be.',
+    tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+    category: '3d',
+    image: aether.src,
+    client: 'Aether',
+    year: '2023',
+    link: 'https://www.aether1.ai/',
+  },
+  {
+    id: 11,
+    title: 'compsych',
+    description: 'ComPsych’s Brand Guidelines define a clear and compassionate identity rooted in human resilience. With a calm, confident, caring voice, the guide outlines our purpose, visual language, and values — from logo, typography, and color to photography. Designed for organizations that believe supporting people drives success. A new dawn for elevating human potential.',
+    tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+    category: '3d',
+    image: compsych.src,
+    client: 'compsych',
+    year: '2023',
+    link: 'https://compsych.konpo.co/',
+  },
+  {
+    id: 12,
+    title: 'Trionn',
+    description: 'Trionn is a bold, full-spectrum digital agency with over 20 years of experience helping brands roar in the corporate jungle. Experts in design, branding, UX research, web & app development, ecommerce, and content management, they pride themselves on powerful collaboration, award-winning creative work, and turning ambitious visions into polished digital reality.',
+    tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+    category: '3d',
+    image: trionn.src,
+    client: 'Trionn',
+    year: '2023',
+    link: 'https://trionn.com/',
+  },
+  {
+    id: 13,
+    title: 'Cyphr',
+    description: 'Cyphr is a strategic creative studio focused on fan engagement, crafting culturally resonant experiences that build community, loyalty, and commercial value. By blending insight, tech, and bold design, they offer end-to-end solutions—from product building and IP ventures to marketing activation and data-driven fan growth.',
+    tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+    category: '3d',
+    image: cyphr.src,
+    client: 'Cyphr',
+    year: '2023',
+    link: 'https://www.cyphr.studio/',
   },
 ];
 
 const milestones = [
   {
-    year: '2019',
-    title: 'Vidhyonix Founded',
-    description: 'Our journey began with a vision to deliver world-class digital solutions.',
-    icon: <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="url(#a)"/><path d="M10 22l6-12 6 12H10z" fill="#fff"/><defs><linearGradient id="a" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#38bdf8"/><stop offset="0.5" stopColor="#a21caf"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs></svg>,
+    year: '2025',
+    title: 'Agency Founded',
+    description: 'Launched as a next-gen digital agency with a passion for creative technology and client success.',
+    icon: (
+      <svg width="32" height="32" fill="none" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="16" fill="url(#a)" />
+        <path d="M10 22l6-12 6 12H10z" fill="#fff" />
+        <defs>
+          <linearGradient id="a" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#38bdf8" />
+            <stop offset="0.5" stopColor="#a21caf" />
+            <stop offset="1" stopColor="#ec4899" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
   },
   {
-    year: '2020',
-    title: 'First 100 Clients',
-    description: 'Rapid growth and trust from startups and enterprises worldwide.',
-    icon: <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="url(#b)"/><path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/><defs><linearGradient id="b" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#38bdf8"/><stop offset="0.5" stopColor="#a21caf"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs></svg>,
+    year: '2025',
+    title: 'First 5 Clients',
+    description: 'Secured our first 5 clients, delivering impactful digital solutions and building strong partnerships.',
+    icon: (
+      <svg width="32" height="32" fill="none" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="16" fill="url(#b)" />
+        <path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+        <defs>
+          <linearGradient id="b" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#38bdf8" />
+            <stop offset="0.5" stopColor="#a21caf" />
+            <stop offset="1" stopColor="#ec4899" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
   },
   {
-    year: '2021',
-    title: 'Award-Winning Projects',
-    description: 'Recognized for innovation in web, mobile, and cloud solutions.',
-    icon: <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="url(#c)"/><path d="M16 10a6 6 0 016 6v2a6 6 0 01-12 0v-2a6 6 0 016-6z" fill="#fff"/><defs><linearGradient id="c" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#38bdf8"/><stop offset="0.5" stopColor="#a21caf"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs></svg>,
+    year: '2026',
+    title: '20+ Clients Worldwide',
+    description: 'Expanded our portfolio to over 20 clients, serving startups and established brands across multiple industries.',
+    icon: (
+      <svg width="32" height="32" fill="none" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="16" fill="url(#c)" />
+        <path d="M16 10a6 6 0 016 6v2a6 6 0 01-12 0v-2a6 6 0 016-6z" fill="#fff" />
+        <defs>
+          <linearGradient id="c" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#38bdf8" />
+            <stop offset="0.5" stopColor="#a21caf" />
+            <stop offset="1" stopColor="#ec4899" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
   },
   {
-    year: '2023',
-    title: 'Global Expansion',
-    description: 'Delivering digital excellence for clients in 20+ countries.',
-    icon: <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="url(#d)"/><path d="M16 10a6 6 0 016 6v2a6 6 0 01-12 0v-2a6 6 0 016-6z" fill="#fff"/><defs><linearGradient id="d" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stopColor="#38bdf8"/><stop offset="0.5" stopColor="#a21caf"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs></svg>,
+    year: '2027',
+    title: 'Award-Winning Campaigns',
+    description: 'Recognized for creative excellence and innovation in digital marketing and web development.',
+    icon: (
+      <svg width="32" height="32" fill="none" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="16" fill="url(#d)" />
+        <path d="M10 22l6-12 6 12H10z" fill="#fff" />
+        <defs>
+          <linearGradient id="d" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#38bdf8" />
+            <stop offset="0.5" stopColor="#a21caf" />
+            <stop offset="1" stopColor="#ec4899" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
+  },
+  {
+    year: '2028',
+    title: 'Global Team & Innovation',
+    description: 'Grew to a global team, launching AI-driven solutions and expanding our digital service offerings.',
+    icon: (
+      <svg width="32" height="32" fill="none" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="16" fill="url(#e)" />
+        <path d="M16 10v12M10 16h12" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+        <defs>
+          <linearGradient id="e" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#38bdf8" />
+            <stop offset="0.5" stopColor="#a21caf" />
+            <stop offset="1" stopColor="#ec4899" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
   },
 ];
 
-const featured = [
-  {
-    title: 'Next-Gen SaaS Platform',
-    image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'A scalable SaaS solution for global teams, with real-time collaboration and analytics.',
-  },
-  {
-    title: 'Immersive eCommerce Experience',
-    image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'A visually rich, interactive shopping platform with 3D product views and AR try-on.',
-  },
-  {
-    title: 'AI-Powered Health Portal',
-    image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'Personalized healthcare and diagnostics with AI-driven insights and secure data.',
-  },
-];
+
+
 
 export default function Portfolio() {
   // GSAP Timeline Animation
@@ -238,41 +409,65 @@ export default function Portfolio() {
             ))}
           </div>
           <div className="container mx-auto px-4">
-            <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {projects.map((project, i) => (
                 <motion.div
                   key={project.title}
                   initial={{ opacity: 0, y: 60 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: 0.1 + i * 0.08, duration: 0.8, type: 'spring' }}
-                  className="relative group overflow-visible"
+                  className="relative group flex flex-col h-full"
                 >
-                  {/* Floating, staggered effect */}
                   <motion.div
-                    className="relative rounded-3xl shadow-2xl overflow-hidden group-hover:scale-105 group-hover:shadow-3xl transition-all duration-500 bg-gradient-to-br from-white/95 via-sky-50/90 to-pink-50/90 dark:from-neutral-900/90 dark:via-blue-950/90 dark:to-fuchsia-950/90 border-2 border-primary/20"
-                    style={{ top: i % 2 === 0 ? 0 : 32, zIndex: 2 }}
-                    whileHover={{ y: -12, scale: 1.04, rotateX: 6, rotateY: -6 }}
+                    className="relative rounded-2xl shadow-xl overflow-hidden bg-white/90 dark:bg-neutral-900/90 border border-primary/10 flex flex-col h-full transition-all duration-500 group-hover:shadow-2xl"
+                    style={{ zIndex: 2 }}
+                    whileHover={{ y: -8, scale: 1.03 }}
                   >
-                    {/* Accent orb */}
-                    <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full bg-gradient-to-br from-sky-400 via-fuchsia-400 to-pink-400 opacity-30 blur-2xl z-10 pointer-events-none" />
-                    <div className="relative w-full h-64 md:h-72 overflow-hidden">
+                    {/* Project Image */}
+                    <div className="relative w-full h-56 md:h-64 overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                      {/* Subtle orb accent */}
+                      <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-gradient-to-br from-sky-400 via-fuchsia-400 to-pink-400 opacity-20 blur-2xl z-10 pointer-events-none" />
                     </div>
-                    {/* Glassmorphism overlay for content */}
-                    <div className="absolute bottom-0 left-0 w-full p-0 z-20">
-                      <div className="m-4 rounded-2xl bg-white/70 dark:bg-neutral-900/80 backdrop-blur-md shadow-xl p-6 flex flex-col gap-2 border border-primary/10">
-                        <h3 className="text-2xl font-bold bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent mb-1">
+                    {/* Card Content */}
+                    <div className="flex flex-col flex-1 justify-between p-6 gap-3">
+                      <div>
+                        <h3 className="text-xl font-bold bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent mb-2">
                           {project.title}
                         </h3>
-                        <p className="text-gray-700 dark:text-gray-200 text-base mb-2 line-clamp-3">
+                        <p className="text-gray-700 dark:text-gray-200 text-base mb-3 whitespace-pre-line">
                           {project.description}
                         </p>
-                        <Link href={project.link} className="mt-2 self-end inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white shadow hover:scale-105 transition-transform">
+                        <div className="flex flex-wrap gap-2 mb-2">
+                          {project.tech && project.tech.map((tech, idx) => (
+                            <span
+                              key={tech + idx}
+                              className="inline-block px-2 py-1 text-xs rounded bg-primary/10 text-primary border border-primary/10 font-medium"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-1">
+                          <span className="font-semibold">{project.client}</span>
+                          <span className="mx-1">•</span>
+                          <span>{project.year}</span>
+                        </div>
+                      </div>
+                      <div className="flex justify-end">
+                        <Link
+                          href={project.link}
+                          target={project.link && project.link.startsWith('http') ? "_blank" : undefined}
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white shadow hover:scale-105 transition-transform"
+                        >
                           View Project <ArrowRight size={16} />
                         </Link>
                       </div>
@@ -332,7 +527,7 @@ export default function Portfolio() {
           </div>
         </section>
         {/* Client Logos Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-neutral-950 dark:via-blue-950 dark:to-fuchsia-950">
+        {/* <section className="relative py-16 md:py-24 bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-neutral-950 dark:via-blue-950 dark:to-fuchsia-950">
           <div className="container mx-auto px-4">
             <h2 className="text-xl md:text-2xl font-bold text-center mb-8 text-muted-foreground">Trusted by Leading Brands</h2>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
@@ -357,7 +552,7 @@ export default function Portfolio() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
         {/* Contact/CTA Section */}
         <section className="relative py-20 md:py-32 text-white text-center overflow-hidden">
           {/* Background Image with dark overlay */}
@@ -410,7 +605,7 @@ export default function Portfolio() {
           </div>
           <div className="relative w-full mx-auto">
             <div ref={sliderRef} className="keen-slider w-full">
-              {featured.map((f, i) => (
+              {projects.map((f, i) => (
                 <div key={f.title} className="keen-slider__slide flex items-center justify-center px-2">
                   <motion.div
                     className="relative w-full h-[60vh] rounded-3xl overflow-hidden  flex flex-col justify-end group bg-transparent border-0"
@@ -447,7 +642,7 @@ export default function Portfolio() {
             </div>
             {/* Pagination Dots */}
             <div className="flex justify-center gap-2 mt-4">
-              {featured.map((_, idx) => (
+              {projects.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => slider.current?.moveToIdx(idx)}

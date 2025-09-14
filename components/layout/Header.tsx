@@ -94,6 +94,7 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
+    { href: '/3d-design', label: '3D Design' },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/blog', label: 'Blogs' },
     { href: '/about', label: 'About' },

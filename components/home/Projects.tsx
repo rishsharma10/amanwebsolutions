@@ -8,103 +8,190 @@ import { cn } from '@/lib/utils';
 import { AnimatedHeading, SectionReveal } from '@/components/PageTransition';
 import { fadeUp, staggerContainer, scaleUp } from '@/lib/animations';
 import { APP_NAME } from '../layout/Footer';
+import madamJan from '@/app/assets/projects/madamjan.png';
+import evitavonni from '@/app/assets/projects/evitavoni.png';
+import paliYoga from '@/app/assets/projects/paliyoga.png';
+import sascoStudentLiving from '@/app/assets/projects/sasco.png';
+import designLiving from '@/app/assets/projects/designliving.png';
+import watchHouse from '@/app/assets/projects/watchhouse.png';
+import cryptoMLM from '@/app/assets/projects/phase2crypto.png';
+import marketReach from '@/app/assets/projects/aitools.png';
+import abundish from '@/app/assets/projects/abundish.png';
+import goodCitizen from '@/app/assets/app/logo.jpg';
+import cyphr from '@/app/assets/3d/cyphr.png';
+import trionn from '@/app/assets/3d/trionn.png';
+import compsych from '@/app/assets/3d/compsych.png';
+import aether from '@/app/assets/3d/aether.png';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
-  
+
   const categories = [
     { id: 'all', label: 'All Projects' },
     { id: 'web', label: 'Web' },
     { id: 'app', label: 'Mobile' },
-    { id: 'branding', label: 'Branding' },
-    { id: 'marketing', label: 'Marketing' },
+    { id: '3d', label: '3D Design' },
   ];
-  
+
   const projects = [
     {
       id: 1,
-      title: 'FinSight Analytics Platform',
-      description: 'A real-time analytics dashboard for financial institutions, enabling data-driven decisions with secure cloud infrastructure.',
-      tech: 'React, Node.js, PostgreSQL, AWS',
+      title: 'Madam jan',
+      description: 'Madam Jan is a design-forward, playful, and utility-driven homeware brand for those who find joy in the details. We believe that beauty and function can and should coexist. Every product we design and curate is meant to delight the senses, elevate the everyday, and serve a purpose in your space.',
+      tech: ['Shopify', 'HTML', 'CSS', 'JavaScript'],
       category: 'web',
-      image: 'https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'FinSight',
+      image: madamJan.src,
+      client: 'Madam Jan',
       year: '2024',
+      link: 'https://madamjanindia.com/',
     },
     {
       id: 2,
-      title: 'ShopEase Mobile Commerce',
-      description: 'A cross-platform eCommerce app with seamless user experience and secure payments for a global retail brand.',
-      tech: 'Flutter, Shopify, Firebase',
-      category: 'app',
-      image: 'https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'ShopEase',
+      title: 'Evitavonni',
+      description: 'Looking past trends and focusing on a timeless style that transcends fashion, the inherent beauty and unmatched quality is born from Creative Director Kate Erwich’s passion for classic couture and artisanal craftsmanship.',
+      tech: ['WordPress'],
+      category: 'web',
+      image: evitavonni.src,
+      client: 'Evitavonni',
       year: '2024',
+      link: 'https://www.evitavonni.com/',
     },
     {
       id: 3,
-      title: 'HealthSync Cloud Portal',
-      description: 'A secure patient management system with real-time data and HIPAA-compliant cloud storage for healthcare providers.',
-      tech: 'Next.js, MongoDB, Azure',
+      title: 'Pali Yoga',
+      description: 'A space where every stretch, every breath, and every smile holds the promise of growth and transformation.',
+      tech: ['WordPress'],
       category: 'web',
-      image: 'https://images.pexels.com/photos/1181682/pexels-photo-1181682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'HealthSync',
+      image: paliYoga.src,
+      client: 'Pali Yoga',
       year: '2023',
+      link: 'https://www.pali.yoga/',
     },
     {
       id: 4,
-      title: 'BrandBoost CMS',
-      description: 'A custom WordPress and Shopify solution for a global marketing agency, enabling rapid content publishing and eCommerce integration.',
-      tech: 'WordPress, Shopify, PHP',
-      category: 'cms',
-      image: 'https://images.pexels.com/photos/1482066/pexels-photo-1482066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // New branding/creative image
-      client: 'BrandBoost',
+      title: 'Sasco Student Living',
+      description: 'Sasco Student Living is a student housing provider in the United States.',
+      tech: ['WordPress'],
+      category: 'web',
+      image: sascoStudentLiving.src,
+      client: 'Sasco Student Living',
       year: '2023',
+      link: 'https://www.sascostudentliving.com/',
     },
     {
       id: 5,
-      title: 'CloudOps Automation Suite',
-      description: 'A DevOps automation platform for managing CI/CD pipelines and cloud deployments at scale.',
-      tech: 'Node.js, Docker, AWS',
-      category: 'cloud',
-      image: 'https://images.pexels.com/photos/1181684/pexels-photo-1181684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'CloudOps',
+      title: 'Design Living 365',
+      description: 'Designliving365.com is an online store created by two Danes residing in Prague, with the purpose to deliver design products for home in a good quality for reasonable price.',
+      tech: ['WordPress'],
+      category: 'web',
+      image: designLiving.src,
+      client: 'Design Living 365',
       year: '2023',
+      link: 'https://www.designliving365.com',
     },
     {
       id: 6,
-      title: 'Insightful BI Dashboard',
-      description: 'A business intelligence dashboard for enterprise reporting and data visualization.',
-      tech: 'React, D3.js, PostgreSQL',
+      title: 'Watch House',
+      description: 'Watch House is a specialty coffee brand dedicated to sourcing and roasting the finest beans for coffee enthusiasts.',
+      tech: ['React'],
       category: 'web',
-      image: 'https://images.pexels.com/photos/1181685/pexels-photo-1181685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'Insightful',
+      image: watchHouse.src,
+      client: 'Watch House',
       year: '2022',
+      link: '#',
     },
-    {
+    { 
       id: 7,
-      title: 'VividBrand Identity Suite',
-      description: 'A comprehensive branding platform for startups, delivering logo design, brand guidelines, and digital assets in one place.',
-      tech: 'Figma, Illustrator, Webflow',
-      category: 'branding',
-      image: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      client: 'VividBrand',
+      title: 'Crypto MLM',
+      description: 'A comprehensive MLM platform for startups, delivering logo design, brand guidelines, and digital assets in one place.',
+      tech: ['React'],
+      category: 'web',
+      image: cryptoMLM.src,
+      client: 'Crypto MLM',
       year: '2023',
+      link: 'https://www.phase2growth.com/',
     },
     {
       id: 8,
-      title: 'MarketReach Campaign Engine',
-      description: 'A digital marketing automation platform for managing multi-channel campaigns, analytics, and lead generation.',
-      tech: 'React, Node.js, HubSpot API',
-      category: 'marketing',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'Ai Tools',
+      description: 'We’re a small team that started this site because we understand how daunting it can be to learn about the many different AI technologies and tools available today. There is a lot of hype and buzzwords out there, and it’s not always clear what tools are right for your specific needs and use cases',
+      tech: ['WordPress'],
+      category: 'web',
+      image: marketReach.src,
       client: 'MarketReach',
       year: '2023',
+      link: 'https://aitoolsone.com/',
+    },
+    {
+      id: 9,
+      title: 'Abundish store',
+      description: 'Your favorite stores and restaurants delivered right to your door. Enjoy a seamless ordering experience as you explore local favorites and discover new delights. Fast and reliable service, just where you need it. Track your delivery with real-time updates, from preparation to doorstep.',
+      tech: ['Next.js', 'Nest.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS'],
+      category: 'web',
+      image: abundish.src,
+      client: 'Abundish',
+      year: '2023',
+      link: 'https://staging.abundish.com/',
+    },
+    {
+      id: 9,
+      title: 'Good Citizen',  
+      description: 'Get notified when emergency vehicles are nearby. Clear the road, save precious minutes, and help ambulances reach those in need faster.',
+      tech: ['Flutter', 'Firebase', 'Nestjs','Redis','PostgreSQL','Docker','AWS'],
+      category: 'app',
+      image: goodCitizen.src,
+      client: 'Good Citizen',
+      year: '2023',
+      link: 'https://app.agoodcitizen.in/',
+    },
+    {
+      id: 10,
+      title: 'Aether',
+      description: 'The Aether 1 Earbuds deliver crystal-clear, studio-grade sound with timeless craftsmanship and intuitive controls. Built for effortless listening, they combine elegant design with durability, offering comfort and precision in every detail. Powered by the Sub-Alphatonic Core, they provide unmatched performance and endurance, redefining what wireless audio can truly be.',
+      tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+      category: '3d',
+      image: aether.src,
+      client: 'Aether',
+      year: '2023',
+      link: 'https://www.aether1.ai/',
+    },
+    {
+      id: 11,
+      title: 'compsych',
+      description: 'ComPsych’s Brand Guidelines define a clear and compassionate identity rooted in human resilience. With a calm, confident, caring voice, the guide outlines our purpose, visual language, and values — from logo, typography, and color to photography. Designed for organizations that believe supporting people drives success. A new dawn for elevating human potential.',
+      tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+      category: '3d',
+      image: compsych.src,
+      client: 'compsych',
+      year: '2023',
+      link: 'https://compsych.konpo.co/',
+    },
+    {
+      id: 12,
+      title: 'Trionn',
+      description: 'Trionn is a bold, full-spectrum digital agency with over 20 years of experience helping brands roar in the corporate jungle. Experts in design, branding, UX research, web & app development, ecommerce, and content management, they pride themselves on powerful collaboration, award-winning creative work, and turning ambitious visions into polished digital reality.',
+      tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+      category: '3d',
+      image: trionn.src,
+      client: 'Trionn',
+      year: '2023',
+      link: 'https://trionn.com/',
+    },
+    {
+      id: 13,
+      title: 'Cyphr',
+      description: 'Cyphr is a strategic creative studio focused on fan engagement, crafting culturally resonant experiences that build community, loyalty, and commercial value. By blending insight, tech, and bold design, they offer end-to-end solutions—from product building and IP ventures to marketing activation and data-driven fan growth.',
+      tech: ['Three.js', 'Blender', 'GSAP', 'React.js', 'Framer Motion'],
+      category: '3d',
+      image: cyphr.src,
+      client: 'Cyphr',
+      year: '2023',
+      link: 'https://www.cyphr.studio/',
     },
   ];
-  
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   return (
@@ -152,7 +239,7 @@ export default function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           <AnimatePresence mode="wait">
-            {filteredProjects.map((project) => (
+            {filteredProjects?.slice(0, 6)?.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -162,15 +249,15 @@ export default function Projects() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 className="group bg-card border border-border/50 rounded-xl shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all overflow-hidden flex flex-col relative"
               >
-                <Link href={`/portfolio/${project.id}`} className="flex-1 flex flex-col">
+                <Link target='_blank' href={project.link} className="flex-1 flex flex-col">
                   <div className="relative overflow-hidden rounded-t-xl">
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.4 }}
                       className="aspect-[4/3] overflow-hidden"
                     >
-                      <img 
-                        src={project.image} 
+                      <img
+                        src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform"
                       />
@@ -182,7 +269,9 @@ export default function Projects() {
                     <div>
                       <h3 className="text-lg font-semibold mb-1 text-primary">{project.title}</h3>
                       <p className="text-muted-foreground text-sm mb-2">{project.description}</p>
-                      <p className="text-xs text-gray-500">{project.tech}</p>
+                      {project.tech.map((tech) => (
+                        <span key={tech} className="text-xs text-gray-500 bg-primary/10 rounded-full px-2 py-1 mr-2">{tech}</span>
+                      ))}
                     </div>
                   </div>
                 </Link>
