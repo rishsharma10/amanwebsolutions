@@ -8,6 +8,7 @@ import Services from '@/components/home/Services';
 import Projects from '@/components/home/Projects';
 import Testimonials from '@/components/home/Testimonials';
 import Stats from '@/components/home/Stats';
+import SkillyTalkShowcase from '@/components/home/SkillyTalkShowcase';
 import CTA from '@/components/home/CTA';
 
 export default function Home() {
@@ -54,6 +55,45 @@ export default function Home() {
             })
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'SkillyTalk Interview',
+              applicationCategory: 'BusinessApplication',
+              operatingSystem: 'Web',
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD'
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.8',
+                ratingCount: '150'
+              },
+              description: 'AI-powered interview platform that adapts in real-time. Screen global talent with high-fidelity voice agents, intelligent follow-ups, and instant analytics. The engine of verified meritocracy for modern hiring.',
+              url: 'https://skillytalkinterview.vidhyonix.com/',
+              author: {
+                '@type': 'Organization',
+                name: 'Vidhyonix'
+              },
+              featureList: [
+                'AI-Powered Interviews',
+                'Vocal Intelligence',
+                'Visual Veracity',
+                'Merit Analytics',
+                'Contextual Threading',
+                'Zero Latency Setup',
+                'Talent Scorecarding',
+                'Real-time Adaptation',
+                'Instant Analytics'
+              ]
+            })
+          }}
+        />
         {/* Animated blurry dots and moving elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           {/* Large blue dot top left */}
@@ -84,6 +124,7 @@ export default function Home() {
         </div>
         <Services />
         <Stats />
+        <SkillyTalkShowcase />
         <Projects />
         <Testimonials />
         <CTA />

@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, 
-  Youtube, ArrowRight, Send 
+import {
+  Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin,
+  Youtube, ArrowRight, Send
 } from 'lucide-react';
 import { fadeUp, staggerContainer } from '@/lib/animations';
 import logo from "@/app/assets/logo/logobgtransparent.png"
@@ -15,7 +15,7 @@ export default function Footer() {
   const footerLinks = {
     services: require('@/components/home/Services').servicesArray.map((service: any) => ({
       href: `/services`,
-      label: service.title?.slice(0,17)+"...",
+      label: service.title?.slice(0, 17) + "...",
     })),
     company: [
       { href: '/about', label: 'About Us' },
@@ -47,7 +47,10 @@ export default function Footer() {
     <footer className="bg-card border-border/50 relative overflow-hidden">
       {/* Animated blurry dots and rings for premium look */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="w-full h-full bg-gradient-to-tr from-neutral-900 via-blue-950 to-fuchsia-950 opacity-95" />
+        <div className="w-full h-full bg-gradient-to-tr from-slate-900 via-blue-950 to-fuchsia-950" />
+        {/* Animated gradient orbs */}
+        <div className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-sky-500/20 blur-[120px] animate-pulse" />
+        <div className="absolute bottom-20 left-[10%] w-96 h-96 rounded-full bg-fuchsia-500/20 blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
       {/* Tagline for business growth */}
       <div className="w-full flex justify-center mb-14 mt-6">
@@ -56,7 +59,7 @@ export default function Footer() {
         </h2>
       </div>
       {/* Main Footer */}
-      <motion.div 
+      <motion.div
         className="container mx-auto px-4 py-12 md:py-16 relative z-10"
         variants={staggerContainer}
         initial="hidden"
@@ -65,15 +68,15 @@ export default function Footer() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Company Info */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-2"
             variants={fadeUp}
           >
             <Link href="/" className="text-primary font-bold text-2xl inline-flex items-center">
               <span className="font-extrabold text-2xl inline-flex items-center gap-2">
                 <img
-                    src={logo.src}
-                    alt="Vidhyonix Logo"
+                  src={logo.src}
+                  alt="Vidhyonix Logo"
                   className="w-48 h-15 object-contain"
                 />
               </span>
@@ -97,19 +100,19 @@ export default function Footer() {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Quick Links */}
-          <motion.div 
-            variants={fadeUp} 
+          <motion.div
+            variants={fadeUp}
             className="lg:col-span-1"
           >
             <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link: any) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
-                    className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
+                    className="text-white/90 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-400 hover:via-fuchsia-400 hover:to-pink-400 transition-all inline-flex items-center gap-1 group font-medium"
                   >
                     <span>{link.label}</span>
                     <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -118,8 +121,8 @@ export default function Footer() {
               ))}
             </ul>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             variants={fadeUp}
             className="lg:col-span-1"
           >
@@ -127,7 +130,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
                   >
@@ -138,8 +141,8 @@ export default function Footer() {
               ))}
             </ul>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             variants={fadeUp}
             className="lg:col-span-1"
           >
@@ -147,7 +150,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
                   >
@@ -158,9 +161,9 @@ export default function Footer() {
               ))}
             </ul>
           </motion.div>
-          
+
           {/* Newsletter */}
-          <motion.div 
+          <motion.div
             variants={fadeUp}
             className="lg:col-span-1"
           >
@@ -168,26 +171,26 @@ export default function Footer() {
             <p className="text-white/70 mb-4">
               Get the latest insights, tech trends, and exclusive updates from Vidhyonix—straight to your inbox.
             </p>
-            <div className="flex bg-white/80 dark:bg-neutral-900/80 rounded-lg shadow-inner overflow-hidden">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="px-4 py-2 bg-transparent border-0 w-full focus:outline-none focus:ring-1 focus:ring-primary text-gray-900 dark:text-white"
+            <div className="flex bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg overflow-hidden hover:bg-white/15 transition-all">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="px-4 py-3 bg-transparent border-0 w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-400 text-white placeholder:text-white/60"
               />
-              <button className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white px-4 rounded-none font-bold hover:scale-105 transition-transform">
-                <Send size={18} />
+              <button className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white px-5 rounded-none font-bold hover:from-sky-600 hover:via-fuchsia-600 hover:to-pink-600 transition-all shadow-lg">
+                <Send size={20} />
               </button>
             </div>
-            
+
             {/* Social Icons */}
             <div className="mt-6">
               <h4 className="text-sm font-medium mb-3 text-white/80">Follow Us</h4>
               <div className="flex items-center gap-3">
                 {socialLinks.map((link) => (
-                  <Link 
+                  <Link
                     key={link.label}
                     href={link.href}
-                    className="p-2 bg-gradient-to-br from-sky-100 via-fuchsia-100 to-pink-100 hover:bg-gradient-to-br hover:from-sky-200 hover:via-fuchsia-200 hover:to-pink-200 rounded-full transition-colors text-pink-400 hover:text-white shadow"
+                    className="p-3 bg-white/10 backdrop-blur-sm hover:bg-gradient-to-br hover:from-sky-500 hover:via-fuchsia-500 hover:to-pink-500 rounded-full transition-all text-white hover:text-white shadow-lg hover:shadow-xl hover:scale-110 border border-white/20"
                     aria-label={link.label}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -199,37 +202,37 @@ export default function Footer() {
             </div>
           </motion.div>
         </div>
-      <div className="mt-10 border-border/50 py-6 bg-white/5">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white text-sm font-medium">
-            © {currentYear} {APP_NAME}. Crafted with passion & precision. All rights reserved.
-          </p>
-          <div className="mt-3 md:mt-0 flex gap-6 text-sm">
-            <Link
-              href="/social/terms"
-              className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/privacy-policy"
-              className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-            >
-              Cookie Policy
-            </Link>
+        <div className="mt-10 border-border/50 py-6 bg-white/5">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-white text-sm font-medium">
+              © {currentYear} {APP_NAME}. Crafted with passion & precision. All rights reserved.
+            </p>
+            <div className="mt-3 md:mt-0 flex gap-6 text-sm">
+              <Link
+                href="/social/terms"
+                className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/privacy-policy"
+                className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/cookies"
+                className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
+              >
+                Cookie Policy
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
       </motion.div>
-      
+
       {/* Copyright */}
-     
+
     </footer>
   );
 }

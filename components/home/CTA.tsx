@@ -20,17 +20,18 @@ export default function CTA() {
       {/* Background Image with dark overlay */}
       <div className="absolute inset-0 z-0">
         <img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="CTA Background" className="w-full h-full object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-fuchsia-950/70 to-black/85" />
       </div>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-600/5"></div>
 
         <motion.div
-          className="absolute top-20 right-[10%] w-72 h-72 rounded-full bg-blue-500/10 blur-[100px]"
+          className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-sky-500/20 blur-[120px]"
           animate={{
-            x: [0, 30, 0],
-            y: [0, 20, 0],
+            x: [0, 40, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.2, 1],
           }}
           transition={{
             duration: 8,
@@ -40,10 +41,11 @@ export default function CTA() {
         />
 
         <motion.div
-          className="absolute bottom-20 left-[5%] w-80 h-80 rounded-full bg-purple-500/10 blur-[120px]"
+          className="absolute bottom-20 left-[5%] w-96 h-96 rounded-full bg-fuchsia-500/20 blur-[120px]"
           animate={{
-            x: [0, -20, 0],
-            y: [0, 30, 0],
+            x: [0, -30, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.2, 1],
           }}
           transition={{
             duration: 10,
@@ -72,7 +74,7 @@ export default function CTA() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
               <Link href="/contact">
                 <motion.button
-                  className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white rounded-full px-8 py-3 font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
+                  className="bg-gradient-to-r from-sky-600 via-fuchsia-600 to-pink-600 hover:from-sky-700 hover:via-fuchsia-700 hover:to-pink-700 text-white rounded-full px-10 py-4 font-black shadow-2xl hover:shadow-3xl transition-all flex items-center justify-center gap-2 group text-lg"
                   whileHover="hover"
                   initial="rest"
                   animate="rest"

@@ -10,7 +10,7 @@ export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  
+
   const testimonials = [
     {
       id: 1,
@@ -61,21 +61,21 @@ export default function Testimonials() {
       rating: 5,
     },
   ];
-  
+
   const handleNext = () => {
     setDirection(1);
-    setActiveIndex((prevIndex) => 
+    setActiveIndex((prevIndex) =>
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
   };
-  
+
   const handlePrev = () => {
     setDirection(-1);
-    setActiveIndex((prevIndex) => 
+    setActiveIndex((prevIndex) =>
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     );
   };
-  
+
   const resetInterval = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -84,7 +84,7 @@ export default function Testimonials() {
       handleNext();
     }, 5000);
   };
-  
+
   useEffect(() => {
     resetInterval();
     return () => {
@@ -93,7 +93,7 @@ export default function Testimonials() {
       }
     };
   }, [activeIndex]);
-  
+
   const variants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 200 : -200,
@@ -126,7 +126,7 @@ export default function Testimonials() {
         {/* Testimonial Carousel */}
         <div className="relative max-w-4xl mx-auto">
           <div className="absolute -left-12 top-1/2 -translate-y-1/2 z-10">
-            <button 
+            <button
               onClick={() => {
                 handlePrev();
                 resetInterval();
@@ -138,7 +138,7 @@ export default function Testimonials() {
             </button>
           </div>
           <div className="absolute -right-12 top-1/2 -translate-y-1/2 z-10">
-            <button 
+            <button
               onClick={() => {
                 handleNext();
                 resetInterval();
@@ -159,38 +159,38 @@ export default function Testimonials() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] }}
-                className="flex flex-col md:flex-row items-center gap-8 md:gap-16 group bg-white dark:bg-card border border-border/50 rounded-xl shadow-md hover:shadow-xl transition-all p-8"
+                className="flex flex-col md:flex-row items-center gap-8 md:gap-16 group bg-white/60 dark:bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl shadow-xl hover:shadow-2xl transition-all p-8 hover:border-fuchsia-400/50"
               >
                 {/* Image */}
-                <motion.div 
-                  className="relative rounded-full overflow-hidden w-24 h-24 md:w-48 md:h-48 border-4 border-background shadow-lg flex-shrink-0 group-hover:border-primary transition-all"
+                <motion.div
+                  className="relative rounded-full overflow-hidden w-24 h-24 md:w-48 md:h-48 border-4 border-white dark:border-background shadow-xl flex-shrink-0 group-hover:border-transparent group-hover:ring-4 group-hover:ring-fuchsia-400 transition-all"
                   initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
                   animate={{ opacity: 1, scale: 1, rotate: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <img 
-                    src={testimonials[activeIndex].image} 
+                  <img
+                    src={testimonials[activeIndex].image}
                     alt={testimonials[activeIndex].name}
                     className="w-full h-full object-cover"
                   />
                   {/* Colored accent ring */}
-                  <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 w-8 h-8 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 w-10 h-10 rounded-full flex items-center justify-center shadow-xl">
                     <Quote size={20} className="text-white" />
                   </div>
                 </motion.div>
                 {/* Content */}
                 <div className="flex-1">
                   <div className="flex flex-col items-center md:items-start">
-                    <motion.div 
+                    <motion.div
                       className="mb-4 text-primary"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
                       {/* Large quote icon for desktop */}
-                      <Quote size={32} className="hidden md:block text-gradient bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" />
+                      <Quote size={40} className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500" />
                     </motion.div>
-                    <motion.blockquote 
+                    <motion.blockquote
                       className="text-lg md:text-xl font-medium mb-6 text-center md:text-left"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -198,7 +198,7 @@ export default function Testimonials() {
                     >
                       "{testimonials[activeIndex].quote}"
                     </motion.blockquote>
-                    <motion.div 
+                    <motion.div
                       className="flex items-start md:items-center flex-col md:flex-row gap-2 md:gap-4"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -211,10 +211,10 @@ export default function Testimonials() {
                       <div className="hidden md:block w-px h-10 bg-border mx-2"></div>
                       <div className="flex">
                         {[...Array(5)].map((_, i) => (
-                          <svg 
-                            key={i} 
+                          <svg
+                            key={i}
                             className={`w-5 h-5 ${i < testimonials[activeIndex].rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                            fill="currentColor" 
+                            fill="currentColor"
                             viewBox="0 0 20 20"
                           >
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
@@ -237,11 +237,10 @@ export default function Testimonials() {
                   setActiveIndex(index);
                   resetInterval();
                 }}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === activeIndex 
-                    ? 'bg-primary w-8' 
+                className={`w-2.5 h-2.5 rounded-full transition-all ${index === activeIndex
+                    ? 'bg-primary w-8'
                     : 'bg-border hover:bg-primary/50'
-                }`}
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}

@@ -100,7 +100,7 @@ export default function Projects() {
       year: '2022',
       link: '#',
     },
-    { 
+    {
       id: 7,
       title: 'Crypto MLM',
       description: 'A comprehensive MLM platform for startups, delivering logo design, brand guidelines, and digital assets in one place.',
@@ -135,9 +135,9 @@ export default function Projects() {
     },
     {
       id: 9,
-      title: 'Good Citizen',  
+      title: 'Good Citizen',
       description: 'Get notified when emergency vehicles are nearby. Clear the road, save precious minutes, and help ambulances reach those in need faster.',
-      tech: ['Flutter', 'Firebase', 'Nestjs','Redis','PostgreSQL','Docker','AWS'],
+      tech: ['Flutter', 'Firebase', 'Nestjs', 'Redis', 'PostgreSQL', 'Docker', 'AWS'],
       category: 'app',
       image: goodCitizen.src,
       client: 'Good Citizen',
@@ -219,8 +219,8 @@ export default function Projects() {
                 className={cn(
                   "px-5 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap",
                   activeFilter === category.id
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-foreground/70 hover:text-foreground hover:bg-muted-foreground/10"
+                    ? "bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white shadow-lg scale-105"
+                    : "text-foreground/70 hover:text-foreground hover:bg-gradient-to-r hover:from-sky-100 hover:via-fuchsia-100 hover:to-pink-100 dark:hover:from-sky-950 dark:hover:via-fuchsia-950 dark:hover:to-pink-950"
                 )}
               >
                 {category.label}
@@ -247,7 +247,7 @@ export default function Projects() {
                 initial="hidden"
                 animate="visible"
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="group bg-card border border-border/50 rounded-xl shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all overflow-hidden flex flex-col relative"
+                className="group bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.05] hover:border-fuchsia-400/50 hover:ring-2 hover:ring-fuchsia-400/30 transition-all overflow-hidden flex flex-col relative"
               >
                 <Link target='_blank' href={project.link} className="flex-1 flex flex-col">
                   <div className="relative overflow-hidden rounded-t-xl">

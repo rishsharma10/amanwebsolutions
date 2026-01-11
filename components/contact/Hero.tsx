@@ -16,6 +16,7 @@ export default function ContactHero() {
     'UI/UX Design',
     'Branding & Identity',
     'Digital Marketing',
+    'SkillyTalk Interview',
     'Other',
   ];
 
@@ -189,7 +190,7 @@ export default function ContactHero() {
             </SectionReveal>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={slideInRight}
             initial="hidden"
             animate="visible"

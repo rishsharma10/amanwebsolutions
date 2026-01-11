@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { fadeUp, slideInRight, slideInLeft } from '@/lib/animations';
 import { ArrowRight } from 'lucide-react';
@@ -9,8 +9,8 @@ import { APP_NAME } from '../layout/Footer';
 
 export default function Hero() {
   const [windowWidth, setWindowWidth] = useState(0);
-  const { scrollY } = useViewportScroll();
-  
+  const { scrollY } = useScroll();
+
   // Parallax effect values
   const parallaxBg = useTransform(scrollY, [0, 400], [0, 100]);
   const parallaxText = useTransform(scrollY, [0, 300], [0, -50]);
@@ -26,40 +26,57 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-sky-100 via-fuchsia-100 to-pink-100">
+    <div className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-slate-900 dark:via-blue-950 dark:to-fuchsia-950">
       {/* Background Gradient Animation */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-sky-200/60 via-fuchsia-100/40 to-pink-200/30 dark:from-sky-300/40 dark:to-fuchsia-200/40"
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-sky-300/40 via-fuchsia-200/30 to-pink-300/40 dark:from-sky-400/20 dark:via-fuchsia-300/20 dark:to-pink-400/20"
           style={{ y: parallaxBg }}
         />
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
-        
-        {/* Animated Orbs */}
+
+        {/* Animated Orbs - More vibrant */}
         <motion.div
-          className="absolute top-1/4 right-[10%] w-72 h-72 rounded-full bg-blue-500/20 dark:bg-blue-500/10 blur-[100px]"
+          className="absolute top-1/4 right-[10%] w-96 h-96 rounded-full bg-gradient-to-br from-blue-500/30 to-sky-400/20 dark:from-blue-500/20 dark:to-sky-400/10 blur-[120px]"
           animate={{
-            x: [0, 30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        
-        <motion.div
-          className="absolute bottom-1/4 left-[5%] w-80 h-80 rounded-full bg-purple-500/20 dark:bg-purple-500/10 blur-[120px]"
-          animate={{
-            x: [0, -20, 0],
+            x: [0, 40, 0],
             y: [0, 30, 0],
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
+          }}
+        />
+
+        <motion.div
+          className="absolute bottom-1/4 left-[5%] w-[30rem] h-[30rem] rounded-full bg-gradient-to-br from-fuchsia-500/30 to-pink-400/20 dark:from-fuchsia-500/20 dark:to-pink-400/10 blur-[140px]"
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
             delay: 1,
+          }}
+        />
+
+        {/* Additional animated orb */}
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/15 blur-[100px]"
+          animate={{
+            x: [0, 20, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
           }}
         />
       </div>
@@ -82,18 +99,18 @@ export default function Hero() {
                 {`${APP_NAME} — IT Innovation Partner`}
               </span>
             </motion.div>
-            
-            <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight text-neutral-900"
+
+            <motion.h1
+              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-neutral-900 dark:text-white"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.2 }}
             >
-              Transforming Ideas<br />Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-fuchsia-600 to-pink-600">Digital Excellence</span>
+              Transforming Ideas<br />Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-fuchsia-600 to-pink-600 dark:from-sky-400 dark:via-fuchsia-400 dark:to-pink-400">Digital Excellence</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl md:text-2xl text-gray-800 mb-10 max-w-2xl font-medium"
               variants={fadeUp}
               initial="hidden"
@@ -102,8 +119,8 @@ export default function Hero() {
             >
               {`${APP_NAME} delivers world-class web, mobile, and cloud solutions for ambitious businesses. From scalable platforms to seamless user experiences, we engineer technology that drives growth, security, and innovation.`}
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-col sm:flex-row gap-4"
               style={{ y: parallaxButton }}
               variants={fadeUp}
@@ -113,19 +130,19 @@ export default function Hero() {
             >
               <Link href="/contact">
                 <motion.button
-                  className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-full px-10 py-4 font-semibold text-lg shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 group border-0"
-                  whileHover={{ scale: 1.05 }}
+                  className="bg-gradient-to-r from-sky-600 via-fuchsia-600 to-pink-600 hover:from-sky-700 hover:via-fuchsia-700 hover:to-pink-700 text-white rounded-full px-10 py-4 font-bold text-lg shadow-2xl hover:shadow-3xl transition-all flex items-center justify-center gap-2 group border-0"
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span>Get Started with {APP_NAME}</span>
                   <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </Link>
-              
+
               <Link href="/portfolio">
                 <motion.button
-                  className="border border-border hover:border-primary rounded-full px-8 py-3 font-medium transition-all flex items-center justify-center gap-2 group"
-                  whileHover={{ scale: 1.03 }}
+                  className="bg-white/90 dark:bg-white/10 backdrop-blur-sm border-2 border-neutral-300 dark:border-white/30 hover:border-fuchsia-500 dark:hover:border-fuchsia-400 hover:bg-white dark:hover:bg-white/20 rounded-full px-8 py-3 font-bold transition-all flex items-center justify-center gap-2 group shadow-lg hover:shadow-xl"
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span>View Our Work</span>
@@ -133,7 +150,7 @@ export default function Hero() {
                 </motion.button>
               </Link>
             </motion.div>
-            
+
             <motion.div
               className="mt-8 flex items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
@@ -142,13 +159,13 @@ export default function Hero() {
             >
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((_, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="w-10 h-10 rounded-full border-2 border-background overflow-hidden flex items-center justify-center bg-muted text-xs"
                   >
-                    <img 
-                      src={`https://randomuser.me/api/portraits/women/${i + 10}.jpg`} 
-                      alt="Client" 
+                    <img
+                      src={`https://randomuser.me/api/portraits/women/${i + 10}.jpg`}
+                      alt="Client"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -169,7 +186,7 @@ export default function Hero() {
               </div>
             </motion.div>
           </motion.div>
-          
+
           {/* Hero Image/Animation */}
           <motion.div
             className="relative z-10 flex justify-center lg:justify-end"
@@ -180,16 +197,16 @@ export default function Hero() {
           >
             <div className="relative w-full max-w-lg">
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl blur-[80px] opacity-20 dark:opacity-30"></div>
-              
+
               {/* Dashboard Preview Image */}
-              <motion.div 
+              <motion.div
                 className="relative bg-card border border-border/50 rounded-xl shadow-lg overflow-hidden"
                 whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative">
-                  <img 
-                    src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                  <img
+                    src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     alt={`${APP_NAME} IT Team Collaboration`}
                     className="w-full h-auto rounded-t-xl"
                   />
@@ -203,9 +220,9 @@ export default function Hero() {
                   </p>
                 </div>
               </motion.div>
-              
+
               {/* Floating Elements */}
-              <motion.div 
+              <motion.div
                 className="absolute -top-6 -right-6 bg-card border border-border/50 rounded-lg shadow-lg p-4 w-40"
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -217,13 +234,13 @@ export default function Hero() {
                 <div className="text-xl font-bold">+27.4%</div>
                 <div className="text-xs text-green-500 flex items-center gap-1 mt-1">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   <span>3.2% from last week</span>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="absolute -bottom-4 -left-4 bg-card border border-border/50 rounded-lg shadow-lg p-4 w-36"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -232,13 +249,13 @@ export default function Hero() {
                 <div className="flex items-center gap-1">
                   <div className="flex -space-x-2">
                     {[1, 2, 3].map((_, i) => (
-                      <div 
-                        key={i} 
+                      <div
+                        key={i}
                         className="w-8 h-8 rounded-full border-2 border-card overflow-hidden"
                       >
-                        <img 
-                          src={`https://randomuser.me/api/portraits/men/${i + 15}.jpg`} 
-                          alt="Client" 
+                        <img
+                          src={`https://randomuser.me/api/portraits/men/${i + 15}.jpg`}
+                          alt="Client"
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -255,20 +272,20 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
-        <motion.div 
+        <motion.div
           className="w-6 h-10 rounded-full border-2 border-border flex items-center justify-center"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <motion.div 
+          <motion.div
             className="w-1.5 h-1.5 rounded-full bg-primary"
-            animate={{ 
+            animate={{
               y: [0, 12, 0],
               opacity: [1, 0.3, 1]
             }}
