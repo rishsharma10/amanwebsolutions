@@ -1,91 +1,62 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeUp, slideInLeft } from '@/lib/animations';
-import { SectionReveal } from '@/components/PageTransition';
+import { Layers, Activity, ShieldCheck } from 'lucide-react';
 
 export default function ServicesHero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-transparent">
-      {/* Animated background rings and blurry dots */}
-      <motion.div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <motion.div
-          className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-sky-400/20 blur-[100px]"
-          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
-          transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-fuchsia-400/20 blur-[120px]"
-          animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        />
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-br from-blue-400 via-fuchsia-400 to-pink-400 opacity-20"
-            style={{
-              width: `${32 + i * 10}px`,
-              height: `${32 + i * 10}px`,
-              left: `${10 + i * 15}%`,
-              top: `${20 + i * 12}%`,
-              filter: 'blur(8px)',
-            }}
-            animate={{
-              y: [0, 20 + i * 5, 0],
-              x: [0, -10 + i * 3, 0],
-            }}
-            transition={{ duration: 10 + i * 2, repeat: Infinity, ease: 'easeInOut', delay: i }}
-          />
-        ))}
-      </motion.div>
-
-      <div className="container mx-auto px-4">
+    <section className="relative min-h-[85vh] flex items-center pt-32 pb-20 overflow-hidden bg-transparent">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <SectionReveal>
-            <motion.div variants={fadeUp}>
-              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-gradient-to-r from-sky-100 via-fuchsia-100 to-pink-100 text-primary border border-primary/20 font-medium text-sm backdrop-blur">
-                End-to-End IT Solutions
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
-                Empowering Innovation & Business Growth
-              </h1>
-              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-12 max-w-3xl mx-auto font-medium">
-                From web and app development to AI, cloud, and eCommerce, Vidhyonix delivers the technology expertise you need to succeed in a digital-first world. Partner with us for scalable, secure, and future-ready solutions.
-              </p>
-            </motion.div>
 
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.2,
-                  },
-                },
-              }}
-              initial="hidden"
-              animate="visible"
-            >
-              {[
-                { title: 'Web Development', count: '200+' },
-                { title: 'Happy Clients', count: '500+' },
-                { title: 'Team Experts', count: '50+' },
-              ].map((stat, index) => (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-8"
+          >
+            <Layers size={14} />
+            <span>Full-Spectrum Ecosystems</span>
+          </motion.div>
+
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold text-white leading-tight mb-8">
+            Orchestrating <span className="ai-gradient-text">Neural</span> Solutions
+          </h1>
+
+          <p className="text-xl text-slate-400 mb-16 max-w-2xl mx-auto leading-relaxed">
+            From high-fidelity voice agents to autonomous cloud infrastructure. We deploy the technical protocols required to scale your digital presence into a dominant market force.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: 'Neural Deployments', count: '150+', icon: Activity, color: 'text-brand-cyan' },
+              { title: 'Operational Up-time', count: '99.9%', icon: ShieldCheck, color: 'text-brand-fuchsia' },
+              { title: 'Global Stakeholders', count: '500+', icon: Layers, color: 'text-brand-violet' },
+            ].map((stat, index) => {
+              const Icon = stat.icon;
+              return (
                 <motion.div
                   key={index}
-                  variants={fadeUp}
-                  className="bg-white/90 dark:bg-neutral-100/90 rounded-2xl p-7 shadow-xl flex flex-col items-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
+                  className="glass-morphism rounded-[2rem] p-8 border border-white/5 group hover:border-white/20 transition-all duration-500"
                 >
-                  <div className="text-3xl font-bold mb-2 text-gradient bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">{stat.count}</div>
-                  <div className="text-gray-700 dark:text-gray-800 font-medium">{stat.title}</div>
+                  <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-4 mx-auto ${stat.color}`}>
+                    <Icon size={24} />
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-2">{stat.count}</div>
+                  <div className="text-slate-500 text-sm font-bold tracking-widest uppercase">{stat.title}</div>
                 </motion.div>
-              ))}
-            </motion.div>
-          </SectionReveal>
+              );
+            })}
+          </div>
         </div>
       </div>
+
+      {/* Decorative Orbs */}
+      <div className="absolute top-1/4 -left-20 w-64 h-64 bg-brand-cyan/10 blur-[100px] rounded-full" />
+      <div className="absolute bottom-1/4 -right-20 w-64 h-64 bg-brand-fuchsia/10 blur-[100px] rounded-full" />
     </section>
   );
 }

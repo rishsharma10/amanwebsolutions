@@ -3,73 +3,124 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { fadeUp } from '@/lib/animations';
-import { SectionReveal } from '@/components/PageTransition';
-
+import { Cpu, Activity, BarChart3, Users } from 'lucide-react';
 
 export default function Stats() {
   const statsRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(statsRef, { once: true, margin: '-100px' });
 
   const stats = [
-    { id: 1, value: 25, label: 'Projects Completed', prefix: '+', suffix: '', color: 'from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600' },
-    { id: 2, value: 6, label: 'Years of Experience', prefix: '', suffix: '+', color: 'from-purple-500 to-purple-700 dark:from-purple-400 dark:to-purple-600' },
-    { id: 3, value: 99, label: 'Client Satisfaction', prefix: '', suffix: '%', color: 'from-green-500 to-green-700 dark:from-green-400 dark:to-green-600' },
-    { id: 4, value: 10, label: 'Team Members', prefix: '', suffix: '+', color: 'from-amber-500 to-amber-700 dark:from-amber-400 dark:to-amber-600' },
+    {
+      id: 1,
+      value: 25,
+      label: 'Systems Deployed',
+      prefix: '+',
+      suffix: '',
+      icon: Cpu,
+      color: 'text-brand-cyan',
+      glow: 'shadow-brand-cyan/20'
+    },
+    {
+      id: 2,
+      value: 6,
+      label: 'Years of Stability',
+      prefix: '',
+      suffix: '+',
+      icon: Activity,
+      color: 'text-brand-violet',
+      glow: 'shadow-brand-violet/20'
+    },
+    {
+      id: 3,
+      value: 99,
+      label: 'Uptime Reliability',
+      prefix: '',
+      suffix: '%',
+      icon: BarChart3,
+      color: 'text-brand-fuchsia',
+      glow: 'shadow-brand-fuchsia/20'
+    },
+    {
+      id: 4,
+      value: 10,
+      label: 'Neural Engineers',
+      prefix: '',
+      suffix: '+',
+      icon: Users,
+      color: 'text-brand-cyan',
+      glow: 'shadow-brand-cyan/20'
+    },
   ];
 
   return (
-    <section className="py-20 bg-muted/30 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <SectionReveal>
-          <div
-            ref={statsRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {stats.map((stat, index) => (
+    <section className="py-24 bg-brand-dark relative overflow-hidden">
+      {/* Subtle scan-line overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div
+          ref={statsRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
               <motion.div
                 key={stat.id}
-                variants={fadeUp}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                transition={{ delay: index * 0.12, duration: 0.6, type: 'spring' }}
-                className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-8 text-center relative overflow-hidden shadow-lg transition-all flex flex-col items-center group hover:scale-110 hover:shadow-2xl hover:border-fuchsia-400/50 hover:ring-2 hover:ring-fuchsia-400/30"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="group relative glass-morphism p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-all duration-500 overflow-hidden"
               >
-                <div className="relative z-10 mb-2">
-                  <CountUp
-                    value={stat.value}
-                    isInView={isInView}
-                    className="text-5xl md:text-6xl font-black transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-sky-500 group-hover:via-fuchsia-500 group-hover:to-pink-500"
-                    prefix={stat.prefix}
-                    suffix={stat.suffix}
-                  />
-                  <p className="text-muted-foreground font-medium mt-2 text-base md:text-lg">{stat.label}</p>
+                {/* Background Pattern */}
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <Icon size={80} />
                 </div>
-                {/* Animated Progress Bar */}
-                <div className="w-full mt-4">
-                  <div className="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: isInView ? `${getStatPercent(stat)}%` : 0 }}
-                      transition={{ duration: 1.2, delay: 0.2 + index * 0.1, type: 'spring' }}
-                      className="h-2 rounded-full bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 group-hover:animate-gradient-move shadow-md"
+
+                <div className={cn("p-3 rounded-2xl w-fit mb-6 bg-white/5 border border-white/5", stat.color)}>
+                  <Icon size={24} />
+                </div>
+
+                <div className="space-y-1">
+                  <div className="flex items-baseline gap-1">
+                    <CountUp
+                      value={stat.value}
+                      isInView={isInView}
+                      className="text-5xl font-heading font-bold text-white tracking-tighter"
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
                     />
                   </div>
+                  <p className="text-slate-400 font-medium uppercase tracking-widest text-[10px]">
+                    {stat.label}
+                  </p>
                 </div>
-                <div className={cn(
-                  "absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r",
-                  stat.color
-                )} />
+
+                {/* Cyber Bar */}
+                <div className="mt-8 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={isInView ? { width: '100%' } : {}}
+                    transition={{ duration: 1.5, delay: index * 0.2 }}
+                    className={cn(
+                      "h-full rounded-full bg-gradient-to-r",
+                      stat.id % 3 === 0 ? "from-brand-cyan to-brand-violet" :
+                        stat.id % 2 === 0 ? "from-brand-violet to-brand-fuchsia" : "from-brand-fuchsia to-brand-cyan"
+                    )}
+                  />
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-0 left-0 w-1 h-0 group-hover:h-full bg-brand-cyan/50 transition-all duration-700" />
               </motion.div>
-            ))}
-          </div>
-        </SectionReveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
 
-// Counter animation component
 function CountUp({
   value,
   isInView,
@@ -90,12 +141,13 @@ function CountUp({
 
     let startTime: number;
     let animationFrameId: number;
-    const duration = 2000; // ms
+    const duration = 2000;
 
     const countUpAnimation = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      const currentCount = Math.floor(progress * value);
+      const easeOutQuad = (t: number) => t * (2 - t);
+      const currentCount = Math.floor(easeOutQuad(progress) * value);
 
       setCount(currentCount);
 
@@ -107,10 +159,7 @@ function CountUp({
     };
 
     animationFrameId = requestAnimationFrame(countUpAnimation);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => cancelAnimationFrame(animationFrameId);
   }, [isInView, value]);
 
   return (
@@ -119,27 +168,3 @@ function CountUp({
     </span>
   );
 }
-
-// Helper to get progress percent for each stat
-type StatType = { id: number; value: number; label: string; prefix: string; suffix: string; color: string };
-function getStatPercent(stat: StatType) {
-  // Custom logic for each stat type
-  if (stat.label.toLowerCase().includes('satisfaction')) return stat.value;
-  if (stat.label.toLowerCase().includes('projects')) return 100;
-  if (stat.label.toLowerCase().includes('team')) return 100;
-  if (stat.label.toLowerCase().includes('experience')) return 100;
-  return stat.value;
-}
-
-// Add keyframes for moving gradient
-// Add this to the bottom of the file or in a global CSS file if preferred
-
-// In your globals.css, add:
-// @keyframes gradient-move {
-//   0% { background-position: 0% 50%; }
-//   100% { background-position: 100% 50%; }
-// }
-// .animate-gradient-move {
-//   background-size: 200% 200%;
-//   animation: gradient-move 2s linear infinite;
-// }

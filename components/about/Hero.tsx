@@ -1,87 +1,77 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeUp, slideInLeft, slideInRight } from '@/lib/animations';
-import { SectionReveal } from '@/components/PageTransition';
-import { APP_NAME } from '../layout/Footer';
+import { Cpu, Sparkles } from 'lucide-react';
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-transparent">
-      {/* Animated background rings and blurry dots */}
-      <motion.div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <motion.div
-          className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-sky-400/20 blur-[100px]"
-          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
-          transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-fuchsia-400/20 blur-[120px]"
-          animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        />
-        {[...Array(5)].map((_, i) => (
+    <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-transparent">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
           <motion.div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-br from-blue-400 via-fuchsia-400 to-pink-400 opacity-20"
-            style={{
-              width: `${32 + i * 10}px`,
-              height: `${32 + i * 10}px`,
-              left: `${10 + i * 15}%`,
-              top: `${20 + i * 12}%`,
-              filter: 'blur(8px)',
-            }}
-            animate={{
-              y: [0, 20 + i * 5, 0],
-              x: [0, -10 + i * 3, 0],
-            }}
-            transition={{ duration: 10 + i * 2, repeat: Infinity, ease: 'easeInOut', delay: i }}
-          />
-        ))}
-      </motion.div>
-
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div variants={slideInLeft} initial="hidden" animate="visible">
-            <SectionReveal>
-              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-                About {APP_NAME}
-              </span>
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-center mb-6 text-brand-gradient">
-                Your Trusted Partner for End-to-End IT Solutions
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {`${APP_NAME} empowers organizations to innovate and scale with confidence. Our team delivers world-class web, mobile, backend, and cloud solutions using the latest technologies. We are committed to building secure, scalable, and future-ready digital products for businesses worldwide.`}
-              </p>
-            </SectionReveal>
-          </motion.div>
-
-          <motion.div 
-            variants={slideInRight}
-            initial="hidden"
-            animate="visible"
-            className="relative"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="relative aspect-square rounded-2xl overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt={`${APP_NAME} Team Collaboration`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-8">
+              <Cpu size={14} />
+              <span>The Architect's Vision</span>
             </div>
 
-            <motion.div 
-              className="absolute -bottom-6 -right-6 bg-card border border-border/50 rounded-lg p-6 shadow-lg max-w-xs"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
-              <p className="text-muted-foreground">
-                To deliver innovative, reliable, and scalable IT solutions that drive business success and digital transformation.
-              </p>
-            </motion.div>
+            <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-8">
+              Pioneering the <span className="ai-gradient-text">Neural</span> Frontier
+            </h1>
+
+            <p className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
+              Vidhyonix is more than a technology partner; we are the orchestrators of digital evolution. Our team architects autonomous ecosystems and high-fidelity systems that redefine the boundary between human intent and machine execution.
+            </p>
+
+            <div className="flex gap-12 border-t border-white/10 pt-10">
+              <div>
+                <div className="text-3xl font-bold text-white mb-1">2025</div>
+                <div className="text-xs text-brand-cyan font-bold tracking-widest uppercase">Ecdysis Initialized</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white mb-1">Global</div>
+                <div className="text-xs text-brand-fuchsia font-bold tracking-widest uppercase">Operational Scope</div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "circOut" }}
+            className="relative"
+          >
+            <div className="relative aspect-square glass-morphism rounded-[3rem] border border-white/10 p-4 md:p-8">
+              <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative group">
+                <img
+                  src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  alt="Neural Architecture"
+                  className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent" />
+
+                {/* Floating Microcard */}
+                <div className="absolute bottom-8 left-8 right-8 glass-morphism p-6 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xl">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 rounded-lg bg-brand-fuchsia/20 text-brand-fuchsia">
+                      <Sparkles size={18} />
+                    </div>
+                    <h3 className="text-white font-bold">CORE_MISSION</h3>
+                  </div>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    To deliver high-fidelity, autonomous IT solutions that drive exponential business evolution and digital supremacy.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute -top-12 -right-12 w-24 h-24 bg-brand-cyan/20 blur-2xl rounded-full" />
+            <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-brand-fuchsia/20 blur-3xl rounded-full" />
           </motion.div>
         </div>
       </div>

@@ -3,236 +3,143 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin,
-  Youtube, ArrowRight, Send
+  Phone, Mail, MapPin, Facebook, Instagram, Linkedin,
+  ArrowRight, Send, Cpu, Shield, Globe
 } from 'lucide-react';
-import { fadeUp, staggerContainer } from '@/lib/animations';
 import logo from "@/app/assets/logo/logobgtransparent.png"
 
 export const APP_NAME = "Vidhyonix";
 
 export default function Footer() {
-  const footerLinks = {
-    services: require('@/components/home/Services').servicesArray.map((service: any) => ({
-      href: `/services`,
-      label: service.title?.slice(0, 17) + "...",
-    })),
-    company: [
-      { href: '/about', label: 'About Us' },
-      { href: '/team', label: 'Our Team' },
-      // { href: '/careers', label: 'Careers' },
-      { href: '/blog', label: 'Blog' },
-      { href: '/contact', label: 'Contact' },
-    ],
-    resources: [
-      { href: '/case-studies', label: 'Case Studies' },
-      { href: '/portfolio', label: 'Portfolio' },
-      // { href: '/resources/guides', label: 'Guides' },
-      { href: '/faq', label: 'FAQ' },
-      { href: '/privacy-policy', label: 'Privacy Policy' },
-    ],
-  };
-
-  const socialLinks = [
-    { href: 'https://www.facebook.com/share/16sEhjSj6K', icon: <Facebook size={18} />, label: 'Facebook' },
-    // { href: '#', icon: <Twitter size={18} />, label: 'Twitter' },
-    { href: 'https://www.instagram.com/vidhyonix', icon: <Instagram size={18} />, label: 'Instagram' },
-    { href: 'https://www.linkedin.com/in/vidhyonix-it-solutions-b141b0383', icon: <Linkedin size={18} />, label: 'LinkedIn' },
-    // { href: '#', icon: <Youtube size={18} />, label: 'YouTube' },
-  ];
-
   const currentYear = new Date().getFullYear();
 
+  const footerLinks = {
+    solutions: [
+      { href: '/services', label: 'AI Engineering' },
+      { href: '/services', label: 'Web Platforms' },
+      { href: '/services', label: 'Mobile Apps' },
+      { href: '/services', label: 'Cloud & DevOps' },
+    ],
+    ecosystem: [
+      { href: '/about', label: 'Our Mission' },
+      { href: '/portfolio', label: 'Impact' },
+      { href: '/blog', label: 'Insights' },
+      { href: '/contact', label: 'Join Us' },
+    ],
+    legal: [
+      { href: '/privacy-policy', label: 'Privacy Protocol' },
+      { href: '/terms', label: 'Terms of Service' },
+      { href: '/cookies', label: 'Cookie Architecture' },
+    ]
+  };
+
   return (
-    <footer className="bg-card border-border/50 relative overflow-hidden">
-      {/* Animated blurry dots and rings for premium look */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="w-full h-full bg-gradient-to-tr from-slate-900 via-blue-950 to-fuchsia-950" />
-        {/* Animated gradient orbs */}
-        <div className="absolute top-20 right-[10%] w-96 h-96 rounded-full bg-sky-500/20 blur-[120px] animate-pulse" />
-        <div className="absolute bottom-20 left-[10%] w-96 h-96 rounded-full bg-fuchsia-500/20 blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
-      </div>
-      {/* Tagline for business growth */}
-      <div className="w-full flex justify-center mb-14 mt-6">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-center bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg leading-tight max-w-4xl mx-auto">
-          End-to-End IT Solutions for Your Business Growth
-        </h2>
-      </div>
-      {/* Main Footer */}
-      <motion.div
-        className="container mx-auto px-4 py-12 md:py-16 relative z-10"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
-          {/* Company Info */}
-          <motion.div
-            className="lg:col-span-2"
-            variants={fadeUp}
-          >
-            <Link href="/" className="text-primary font-bold text-2xl inline-flex items-center">
-              <span className="font-extrabold text-2xl inline-flex items-center gap-2">
-                <img
-                  src={logo.src}
-                  alt="Vidhyonix Logo"
-                  className="w-48 h-15 object-contain"
-                />
-              </span>
-              {/* <span className="text-blue-500">X</span> */}
+    <footer className="bg-brand-dark relative overflow-hidden pt-24 pb-12 border-t border-white/5">
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-ai-grid bg-repeat" />
+
+      {/* Glow orbs */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-violet/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+
+          {/* Brand Column */}
+          <div className="md:col-span-4 space-y-8">
+            <Link href="/" className="inline-block group">
+              <img
+                src={logo.src}
+                alt={APP_NAME}
+                className="h-12 w-auto object-contain brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.3)] transition-all"
+              />
             </Link>
-            <p className="mt-4 text-white/80">
-              Vidhyonix delivers end-to-end IT, web, and mobile solutions for ambitious brands. We help you innovate, scale, and thrive in a digital-first world.
+            <p className="text-slate-400 text-lg leading-relaxed">
+              Architecting the next generation of digital excellence. Powered by AI, engineered for scale, and designed for global impact.
             </p>
-            <div className="mt-6 space-y-2">
-              <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
-                <Phone size={16} className="text-pink-400" />
-                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">+91 8770283188</span>
-              </div>
-              <div className="flex items-center gap-3 text-white/90 hover:text-pink-400 transition-colors font-semibold">
-                <Mail size={16} className="text-pink-400" />
-                <span className="bg-gradient-to-r from-sky-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-bold">info@vidhyonix.com</span>
-              </div>
-              <div className="flex items-start gap-3 text-white/80 hover:text-pink-400 transition-colors">
-                <MapPin size={16} className="mt-1 flex-shrink-0 text-pink-400" />
-                <span>Chandigarh, India</span>
-              </div>
+            <div className="flex gap-4">
+              {[Linkedin, Instagram, Facebook].map((Icon, i) => (
+                <Link key={i} href="#" className="p-3 bg-white/5 border border-white/10 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all backdrop-blur-md">
+                  <Icon size={20} />
+                </Link>
+              ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div
-            variants={fadeUp}
-            className="lg:col-span-1"
-          >
-            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Services</h3>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link: any) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-white/90 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-400 hover:via-fuchsia-400 hover:to-pink-400 transition-all inline-flex items-center gap-1 group font-medium"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+          {/* Links Columns */}
+          <div className="md:col-span-2 space-y-6">
+            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Solutions</h4>
+            <ul className="space-y-4">
+              {footerLinks.solutions.map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href} className="text-slate-400 hover:text-white transition-colors text-sm">
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={fadeUp}
-            className="lg:col-span-1"
-          >
-            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Company</h3>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+          <div className="md:col-span-2 space-y-6">
+            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Ecosystem</h4>
+            <ul className="space-y-4">
+              {footerLinks.ecosystem.map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href} className="text-slate-400 hover:text-white transition-colors text-sm">
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={fadeUp}
-            className="lg:col-span-1"
-          >
-            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Resources</h3>
-            <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Newsletter */}
-          <motion.div
-            variants={fadeUp}
-            className="lg:col-span-1"
-          >
-            <h3 className="text-lg font-extrabold mb-4 bg-gradient-to-r from-sky-400 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent tracking-wide uppercase">Stay Updated</h3>
-            <p className="text-white/70 mb-4">
-              Get the latest insights, tech trends, and exclusive updates from Vidhyonix—straight to your inbox.
+          {/* Newsletter / Contact Column */}
+          <div className="md:col-span-4 space-y-6">
+            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Join the Evolution</h4>
+            <p className="text-slate-400 text-sm">
+              Subscribe to our neural-insights and stay ahead of the digital curve.
             </p>
-            <div className="flex bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg overflow-hidden hover:bg-white/15 transition-all">
+            <form className="relative group">
               <input
                 type="email"
-                placeholder="Your email"
-                className="px-4 py-3 bg-transparent border-0 w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-400 text-white placeholder:text-white/60"
+                placeholder="Enter your email"
+                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-cyan/50 backdrop-blur-md transition-all"
               />
-              <button className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white px-5 rounded-none font-bold hover:from-sky-600 hover:via-fuchsia-600 hover:to-pink-600 transition-all shadow-lg">
-                <Send size={20} />
+              <button className="absolute right-2 top-2 bottom-2 bg-white text-black px-6 rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2">
+                <Send size={16} />
               </button>
-            </div>
-
-            {/* Social Icons */}
-            <div className="mt-6">
-              <h4 className="text-sm font-medium mb-3 text-white/80">Follow Us</h4>
-              <div className="flex items-center gap-3">
-                {socialLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="p-3 bg-white/10 backdrop-blur-sm hover:bg-gradient-to-br hover:from-sky-500 hover:via-fuchsia-500 hover:to-pink-500 rounded-full transition-all text-white hover:text-white shadow-lg hover:shadow-xl hover:scale-110 border border-white/20"
-                    aria-label={link.label}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.icon}
-                  </Link>
-                ))}
+            </form>
+            <div className="pt-4 space-y-2">
+              <div className="flex items-center gap-3 text-slate-400 text-sm">
+                <Mail size={16} className="text-brand-cyan" />
+                <span>ops@vidhyonix.com</span>
               </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="mt-10 border-border/50 py-6 bg-white/5">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white text-sm font-medium">
-              © {currentYear} {APP_NAME}. Crafted with passion & precision. All rights reserved.
-            </p>
-            <div className="mt-3 md:mt-0 flex gap-6 text-sm">
-              <Link
-                href="/social/terms"
-                className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/privacy-policy"
-                className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-white hover:text-pink-400 transition-colors inline-flex items-center gap-1 group font-medium"
-              >
-                Cookie Policy
-              </Link>
+              <div className="flex items-center gap-3 text-slate-400 text-sm">
+                <MapPin size={16} className="text-brand-fuchsia" />
+                <span>Global HQ • Remote-First</span>
+              </div>
             </div>
           </div>
         </div>
-      </motion.div>
 
-      {/* Copyright */}
-
+        {/* Bottom Bar */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-slate-500 text-xs">
+            © {currentYear} {APP_NAME} IT SOLUTIONS. ALL RIGHTS RESERVED.
+          </p>
+          <div className="flex gap-8">
+            {footerLinks.legal.map((link, i) => (
+              <Link key={i} href={link.href} className="text-slate-500 hover:text-white transition-colors text-xs uppercase tracking-widest">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center gap-2 text-slate-500 text-xs">
+            <Shield size={12} className="text-brand-cyan" />
+            <span>ENCRYPTED CONNECTION</span>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

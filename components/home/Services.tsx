@@ -1,253 +1,282 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
-  Monitor, Smartphone, Globe, PenTool, BarChart, Cpu,
-  ArrowRight, Check
+  Monitor, Smartphone, BarChart, Cpu,
+  ArrowRight, Check, Brain, Globe, Database
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import {
-  staggerContainer, fadeUp, cardHover,
-  slideInLeft, slideInRight
-} from '@/lib/animations';
-import { AnimatedHeading, SectionReveal } from '@/components/PageTransition';
 import { APP_NAME } from '../layout/Footer';
 
 export const servicesArray = [
   {
-    id: 'web',
-    title: 'Frontend Web Development',
-    icon: <Monitor className="h-6 w-6" />,
-    subtitle: 'Build robust, scalable web platforms for business growth.',
-    description: 'Robust, scalable web solutions built with React.js, Next.js, Node.js, and NestJS for high-growth businesses. Elevate your digital presence with secure, high-performance platforms.',
-    features: [
-      'Custom web applications',
-      'eCommerce & CMS solutions',
-      'Performance optimization',
-      'Responsive UI/UX',
-      'API integrations',
-    ],
-    color: 'bg-blue-500/20 text-blue-700 dark:text-blue-400',
-    image: 'https://images.pexels.com/photos/1181672/pexels-photo-1181672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  },
-  {
     id: 'ai',
-    title: 'AI Process Management',
-    icon: <Cpu className="h-6 w-6" />,
-    subtitle: 'Streamline and orchestrate business processes with AI-driven automation.',
-    description: 'Optimize your business workflows with advanced AI process management solutions. We design and implement intelligent automation systems that coordinate tasks, monitor process health, and adapt dynamically to changing business needs—boosting efficiency and reducing manual overhead.',
+    title: 'AI Engineering',
+    icon: <Brain className="h-6 w-6" />,
+    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    subtitle: 'Autonomous agents & neural ecosystems.',
+    description: 'We build high-fidelity voice agents, intelligent follow-up systems, and predictive engines that orchestrate your business workflows with zero human intervention.',
     features: [
-      'End-to-end process automation',
-      'AI-driven workflow orchestration',
-      'Real-time process monitoring',
-      'Dynamic task allocation',
-      'Intelligent exception handling',
+      'Custom LLM Fine-tuning',
+      'Autonomous Voice Agents',
+      'Real-time Merit Analytics',
+      'Contextual Threading',
     ],
-    color: 'bg-green-500/20 text-green-700 dark:text-green-400',
-    image: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // AI process management/automation themed image
+    color: 'text-brand-cyan shadow-brand-cyan/20',
+    borderColor: 'group-hover:border-brand-cyan/50',
   },
   {
-    id: 'app',
-    title: 'Mobile App Development',
+    id: 'web',
+    title: 'Web Platforms',
+    icon: <Globe className="h-6 w-6" />,
+    image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    subtitle: 'Scalable, high-performance web systems.',
+    description: 'Digital interfaces engineered for speed and conversion. We use Next.js, React, and NestJS to build platforms that handle millions of requests with ease.',
+    features: [
+      'Next.js 15 Architectures',
+      'Micro-frontend Scalability',
+      'Edge Computing Integration',
+      'Real-time Dashboards',
+    ],
+    color: 'text-brand-violet shadow-brand-violet/20',
+    borderColor: 'group-hover:border-brand-violet/50',
+  },
+  {
+    id: 'mobile',
+    title: 'Mobile Apps',
     icon: <Smartphone className="h-6 w-6" />,
-    subtitle: 'Deliver seamless mobile experiences on every device.',
-    description: 'Cross-platform mobile apps using Flutter and React Native, engineered for seamless performance and user engagement. Launch on iOS and Android with confidence.',
+    image: 'https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    subtitle: 'Native feel, cross-platform speed.',
+    description: 'High-performance mobile applications built with Flutter and React Native. We focus on seamless UX and robust offline capabilities.',
     features: [
-      'Native & cross-platform apps',
-      'UI/UX design',
-      'API & backend integration',
-      'App maintenance & support',
-      'App store deployment',
+      'React Native / Flutter',
+      'Native Module Development',
+      'Biometric Security',
+      'Offline-first Architecture',
     ],
-    color: 'bg-purple-500/20 text-purple-700 dark:text-purple-400',
-    image: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    color: 'text-brand-fuchsia shadow-brand-fuchsia/20',
+    borderColor: 'group-hover:border-brand-fuchsia/50',
   },
   {
-    id: 'backend',
-    title: 'Backend & Database Solutions',
-    icon: <BarChart className="h-6 w-6" />,
-    subtitle: 'Empower your business with secure, scalable infrastructure.',
-    description: `${APP_NAME} engineers robust backend systems and data architectures using PostgreSQL, Redis, and MongoDB. We deliver secure APIs, real-time data processing, and cloud-native integrations to power your mission-critical applications.'`,
-    features: [
-      'RESTful & GraphQL API development',
-      'Real-time data processing',
-      'Authentication & authorization',
-      'Database design & optimization',
-      'Cloud-native integrations',
-    ],
-    color: 'bg-cyan-500/20 text-cyan-700 dark:text-cyan-400',
-    image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // You can update this to a more backend/data/cloud image if desired
-  },
-  {
-    id: 'cms',
-    title: 'CMS & eCommerce Platforms',
-    icon: <PenTool className="h-6 w-6" />,
-    subtitle: 'Launch and scale content and commerce with confidence.',
-    description: 'Custom Shopify and WordPress solutions for content-driven and commerce-focused brands. Integrate, optimize, and scale your digital storefront with ease.',
-    features: [
-      'Custom themes & plugins',
-      'Payment gateway integration',
-      'Headless CMS',
-      'SEO optimization',
-      'Third-party integrations',
-    ],
-    color: 'bg-amber-500/20 text-amber-700 dark:text-amber-400',
-    image: 'https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  },
-  {
-    id: 'cloud',
-    title: 'Cloud, DevOps & Architecture',
+    id: 'infra',
+    title: 'Cloud & DevOps',
     icon: <Cpu className="h-6 w-6" />,
-    subtitle: 'Accelerate innovation with secure, automated cloud solutions.',
-    description: 'Cloud-native deployments, CI/CD automation, and scalable infrastructure on AWS, Azure, and GCP. Accelerate innovation with secure, cost-effective cloud solutions.',
+    image: 'https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    subtitle: 'Infrastructure as Code & Automation.',
+    description: 'Secure, automated cloud deployments on AWS/Azure. We implement CI/CD pipelines that ensure zero-downtime releases and maximum security.',
     features: [
-      'Cloud migration',
-      'CI/CD automation',
-      'Infrastructure as Code',
-      'Monitoring & security',
-      'Cost optimization',
+      'Kubernetes Orchestration',
+      'Terraform / Pulumi',
+      'SOC2 Compliance Prep',
+      'Zero-Trust Networking',
     ],
-    color: 'bg-red-500/20 text-red-700 dark:text-red-400',
-    image: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    color: 'text-brand-cyan shadow-brand-cyan/20',
+    borderColor: 'group-hover:border-brand-cyan/50',
+  },
+  {
+    id: 'data',
+    title: 'Data Systems',
+    icon: <Database className="h-6 w-6" />,
+    image: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    subtitle: 'ETL Pipelines & Big Data.',
+    description: 'Robust data architectures using PostgreSQL, Redis, and MongoDB. We engineer real-time data processing pipelines for instant business insights.',
+    features: [
+      'Vector Databases (Pinecone)',
+      'Real-time Stream Processing',
+      'Graph Data Modelling',
+      'Automated Backups',
+    ],
+    color: 'text-brand-violet shadow-brand-violet/20',
+    borderColor: 'group-hover:border-brand-violet/50',
+  },
+  {
+    id: 'consulting',
+    title: 'Digital Strategy',
+    icon: <BarChart className="h-6 w-6" />,
+    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    subtitle: 'Strategic roadmap for scale.',
+    description: 'CTO-as-a-Service and technical auditing. We help you define your tech stack and hiring roadmap to ensure long-term architectural success.',
+    features: [
+      'Technical Due Diligence',
+      'Architectural Audits',
+      'Hiring Roadmap Strategy',
+      'Scaling Bottleneck Fixes',
+    ],
+    color: 'text-brand-fuchsia shadow-brand-fuchsia/20',
+    borderColor: 'group-hover:border-brand-fuchsia/50',
   },
 ];
+
 export default function Services() {
-  const [activeTab, setActiveTab] = useState('web');
-
-
-  const activeService = servicesArray.find(service => service.id === activeTab) || servicesArray[0];
+  const [activeTab, setActiveTab] = useState(servicesArray[0].id);
+  const activeService = servicesArray.find(s => s.id === activeTab)!;
 
   return (
-    <section className="py-20 md:py-32 bg-muted/50 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <SectionReveal className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-            What We Do
-          </span>
-          <AnimatedHeading
-            Tag="h2"
-            className="text-3xl md:text-4xl font-bold mb-6 text-center mx-auto w-full flex justify-center"
-          >
-            End-to-End IT Solutions for Your Business Growth
-          </AnimatedHeading>
-          <p className="text-muted-foreground text-lg">
-            {`From web and app development to cloud, DevOps, and eCommerce, ${APP_NAME} delivers the technology expertise you need to succeed.`}
-          </p>
-        </SectionReveal>
+    <section className="py-24 md:py-32 bg-brand-dark/50 relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none bg-ai-grid bg-repeat" />
 
-        {/* Services Cards Grid */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-        >
-          {servicesArray.map((service, index) => (
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-violet/10 border border-brand-violet/20 text-brand-violet text-sm font-medium mb-6"
+          >
+            <Cpu size={14} />
+            <span>Core Competencies</span>
+          </motion.div>
+
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+            Engineering the <span className="ai-gradient-text">Next Evolution</span> of Business
+          </h2>
+          <p className="text-slate-400 text-lg">
+            We deliver the full spectrum of IT solutions, from autonomous agents to enterprise-grade cloud architectures.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {servicesArray.map((service, idx) => (
             <motion.div
               key={service.id}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: index * 0.12, duration: 0.6, type: 'spring' }}
-              onClick={() => setActiveTab(service.id)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              onMouseEnter={() => setActiveTab(service.id)}
               className={cn(
-                "relative flex flex-col items-center justify-center overflow-hidden rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 p-8 cursor-pointer transition-all duration-300 group shadow-md hover:shadow-2xl hover:scale-[1.05] hover:border-transparent hover:ring-2 hover:ring-fuchsia-400/50",
-                activeTab === service.id && "ring-2 ring-fuchsia-500 border-fuchsia-500/80 scale-105 bg-gradient-to-br from-fuchsia-50/50 to-pink-50/50 dark:from-fuchsia-950/30 dark:to-pink-950/30 shadow-2xl z-10 backdrop-blur-md"
+                "group relative glass-morphism p-8 rounded-3xl transition-all duration-500 cursor-default",
+                activeTab === service.id ? "border-white/20 shadow-[0_0_50px_-12px_rgba(124,58,237,0.3)] scale-[1.02]" : "border-white/5 opacity-80"
               )}
-              style={{ minHeight: 340 }}
             >
-              <div className={cn("p-4 rounded-xl w-fit mb-4 text-3xl shadow-lg", service.color, "bg-gradient-to-br")}>
+              {/* Card Glow */}
+              <div className={cn(
+                "absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500",
+                service.id === 'ai' || service.id === 'infra' ? "bg-brand-cyan" :
+                  service.id === 'web' || service.id === 'data' ? "bg-brand-violet" : "bg-brand-fuchsia"
+              )} />
+
+              <div className={cn("mb-6 p-4 w-fit rounded-2xl glass-morphism", service.color)}>
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold mb-1 text-center">{service.title}</h3>
-              <div className="text-primary/80 text-sm font-medium mb-3 text-center">{service.subtitle}</div>
-              <ul className="space-y-2 w-full max-w-xs mx-auto mb-4">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400" />
-                    <span>{feature}</span>
+
+              <h3 className="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-cyan transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                {service.subtitle}
+              </p>
+
+              <ul className="space-y-3">
+                {service.features.slice(0, 3).map((f, i) => (
+                  <li key={i} className="flex items-center gap-3 text-xs font-medium text-slate-300">
+                    <Check size={14} className={service.color} />
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
-              {activeTab === service.id && (
-                <motion.div
-                  className="absolute bottom-0 right-0 w-5 h-5 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 m-3 rounded-full shadow-xl"
-                  layoutId="activeIndicator"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
+
+              <div className="mt-8 pt-6 border-t border-white/5">
+                <Link href={`/services/${service.id}`} className="inline-flex items-center gap-2 text-xs font-bold text-white group-hover:gap-3 transition-all">
+                  LEARN MORE
+                  <ArrowRight size={14} className={service.color} />
+                </Link>
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Detailed Service View */}
-        <div className="mt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Featured Service Detail */}
+        <motion.div
+          layout
+          className="mt-20 glass-morphism rounded-3xl p-8 md:p-12 overflow-hidden relative"
+        >
+          {/* Animated Background for detail box */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-violet rounded-full blur-[120px]" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-cyan rounded-full blur-[120px]" />
+          </div>
+
+          <AnimatePresence mode="wait">
             <motion.div
-              key={activeService.id + "-content"}
-              initial={{ opacity: 0, x: -20 }}
+              key={activeTab}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
+              className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             >
-              <SectionReveal>
-                <div className={cn("p-3 rounded-lg w-fit mb-4", activeService.color)}>
+              <div>
+                <div className={cn("p-4 w-fit rounded-2xl glass-morphism mb-6", activeService.color)}>
                   {activeService.icon}
                 </div>
+                <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+                  {activeService.title}
+                </h3>
+                <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                  {activeService.description}
+                </p>
 
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">{activeService.title}</h3>
-                <p className="text-muted-foreground text-lg mb-6">{activeService.description}</p>
-
-                <div className="space-y-3 mb-8">
-                  {activeService.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <div className="mt-1 p-0.5 rounded-full bg-primary/10 text-primary">
-                        <Check size={16} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  {activeService.features.map((f, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                      <div className={cn("p-1 rounded-md bg-white/10", activeService.color)}>
+                        <Check size={14} />
                       </div>
-                      <span>{feature}</span>
+                      <span className="text-sm font-medium text-white">{f}</span>
                     </div>
                   ))}
                 </div>
 
-                <Link href={`/services/${activeService.id}`}>
-                  <motion.button
-                    className="bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white rounded-full px-8 py-3 font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 mt-2 text-primary-foreground rounded-full px-6 py-2.5 font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-2 group"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <span>Explore {activeService.title}</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
+                <Link href="/contact">
+                  <button className="px-8 py-3 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2">
+                    Consult with Experts
+                    <ArrowRight size={18} />
+                  </button>
                 </Link>
-              </SectionReveal>
-            </motion.div>
+              </div>
 
-            <motion.div
-              key={activeService.id + "-image"}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5 }}
-              className="relative aspect-video overflow-hidden rounded-xl"
-            >
-              <img
-                src={activeService.image}
-                alt={activeService.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
-                <div className="p-6">
-                  <h4 className="text-white text-lg font-medium">{activeService.title}</h4>
-                  <p className="text-white/80 text-sm">Expert solutions tailored to your needs</p>
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group">
+                <div className="absolute inset-0 bg-brand-dark/20 z-10 group-hover:bg-transparent transition-colors duration-500" />
+                <img
+                  src={activeService.image}
+                  alt={activeService.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute bottom-4 left-4 z-20 glass-morphism px-4 py-2 rounded-lg border-white/10">
+                  <span className="text-xs font-bold text-white flex items-center gap-2">
+                    <Zap size={12} className="text-brand-cyan" />
+                    PREMIUM SOLUTIONS
+                  </span>
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function Zap(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 14.71 13.15 3a.5.5 0 0 1 .85.3v8.71L20 9.29a.5.5 0 0 1 .85.3v8.71L11.71 21a.5.5 0 0 1-.85-.3v-8.71L4 14.71a.5.5 0 0 1-.85-.3z" />
+    </svg>
   );
 }
