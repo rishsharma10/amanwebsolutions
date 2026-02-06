@@ -61,97 +61,38 @@ export default function ContactHero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-gradient-to-br from-sky-50 via-fuchsia-50 to-pink-50 dark:from-neutral-900 dark:via-blue-950 dark:to-fuchsia-950">
+    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-brand-dark">
       {/* Animated background rings and blurry dots */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Glow orbs matching homepage */}
+        <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-cyan/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-brand-fuchsia/5 rounded-full blur-[150px]" />
+      </div>
+
       <motion.div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <motion.div
-          className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-sky-400/20 blur-[100px]"
+          className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-brand-cyan/10 blur-[100px]"
           animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-fuchsia-400/20 blur-[120px]"
+          className="absolute bottom-0 right-0 w-[28rem] h-[28rem] rounded-full bg-brand-fuchsia/10 blur-[120px]"
           animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-br from-blue-400 via-fuchsia-400 to-pink-400 opacity-20"
-            style={{
-              width: `${32 + i * 10}px`,
-              height: `${32 + i * 10}px`,
-              left: `${10 + i * 15}%`,
-              top: `${20 + i * 12}%`,
-              filter: 'blur(8px)',
-            }}
-            animate={{
-              y: [0, 20 + i * 5, 0],
-              x: [0, -10 + i * 3, 0],
-            }}
-            transition={{ duration: 10 + i * 2, repeat: Infinity, ease: 'easeInOut', delay: i }}
-          />
-        ))}
-        {/* More animated dots and 3D rings */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i + 10}
-            className="absolute rounded-full bg-gradient-to-br from-sky-400 via-fuchsia-400 to-pink-400 opacity-20"
-            style={{
-              width: `${60 + i * 32}px`,
-              height: `${60 + i * 32}px`,
-              left: `${5 + i * 14}%`,
-              top: `${10 + i * 13}%`,
-              filter: 'blur(12px)',
-            }}
-            animate={{
-              scale: [1, 1.12, 1],
-              rotate: [0, 360, 0],
-            }}
-            transition={{ duration: 18 + i * 2, repeat: Infinity, ease: 'linear', delay: i * 0.5 }}
-          />
-        ))}
-        {[...Array(2)].map((_, i) => (
-          <motion.svg
-            key={i + 20}
-            width={320 + i * 120}
-            height={320 + i * 120}
-            viewBox="0 0 320 320"
-            fill="none"
-            className="absolute opacity-20"
-            style={{
-              left: i === 0 ? '-80px' : '70%',
-              top: i === 0 ? '60%' : '-60px',
-              zIndex: 0,
-            }}
-            animate={{ rotate: [0, 360, 0] }}
-            transition={{ duration: 40 + i * 10, repeat: Infinity, ease: 'linear', delay: i }}
-          >
-            <ellipse cx="160" cy="160" rx="150" ry="80" stroke="url(#ring-gradient-contact)" strokeWidth="8" />
-            <defs>
-              <linearGradient id="ring-gradient-contact" x1="0" y1="0" x2="320" y2="320" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#38bdf8" />
-                <stop offset="0.5" stopColor="#a21caf" />
-                <stop offset="1" stopColor="#ec4899" />
-              </linearGradient>
-            </defs>
-          </motion.svg>
-        ))}
-        {/* Strong blur overlay for premium effect */}
-        <div className="absolute inset-0 bg-white/30 dark:bg-neutral-900/30 backdrop-blur-2xl z-10" />
       </motion.div>
 
       <div className="container mx-auto px-4 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <motion.div variants={slideInLeft} initial="hidden" animate="visible">
             <SectionReveal>
-              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-gradient-to-r from-sky-100 via-fuchsia-100 to-pink-100 text-primary border border-primary/20 font-medium text-sm backdrop-blur">
+              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-white/5 text-brand-cyan border border-brand-cyan/20 font-medium text-sm backdrop-blur">
                 Get in Touch
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
-                Connect with Vidhyonix
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-6 text-white">
+                Connect with <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-violet to-brand-fuchsia">Vidhyonix</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 font-medium">
+              <p className="text-lg md:text-xl text-gray-400 mb-8 font-medium font-sans">
                 Ready to build something extraordinary? Reach out to our team and discover how we can help you achieve your digital ambitions with innovative IT solutions.
               </p>
               <div className="space-y-6">
@@ -160,29 +101,36 @@ export default function ContactHero() {
                     icon: <Mail className="w-5 h-5" />,
                     title: 'Email',
                     content: 'info@vidhyonix.com',
+                    link: 'mailto:info@vidhyonix.com'
                   },
                   {
                     icon: <Phone className="w-5 h-5" />,
                     title: 'Phone',
                     content: '+91 8770283188',
+                    link: 'tel:+918770283188'
                   },
                   {
                     icon: <MapPin className="w-5 h-5" />,
                     title: 'Address',
                     content: 'Chandigarh, India',
+                    link: null
                   },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    className="flex items-start gap-4 shadow-lg p-4 rounded-lg"
+                    className="flex items-start gap-4 p-4 rounded-lg border border-white/5 bg-white/5 hover:bg-white/10 transition-colors duration-300"
                   >
-                    <div className="p-2 rounded-lg bg-gradient-to-br from-sky-100 via-fuchsia-100 to-pink-100 text-primary">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-brand-start to-brand-end text-white">
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="font-medium text-primary">{item.title}</h3>
-                      <p className="text-gray-700 dark:text-gray-300">{item.content}</p>
+                      <h3 className="font-medium text-white">{item.title}</h3>
+                      {item.link ? (
+                        <a href={item.link} className="text-gray-400 hover:text-brand-cyan transition-colors">{item.content}</a>
+                      ) : (
+                        <p className="text-gray-400">{item.content}</p>
+                      )}
                     </div>
                   </motion.div>
                 ))}
@@ -194,76 +142,76 @@ export default function ContactHero() {
             variants={slideInRight}
             initial="hidden"
             animate="visible"
-            className="bg-white/95 dark:bg-neutral-900/90 rounded-3xl shadow-2xl p-10 flex flex-col gap-6 items-center"
+            className="glass-morphism rounded-3xl p-8 md:p-10 flex flex-col gap-6"
           >
-            <h2 className="text-2xl font-extrabold mb-4 bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">Send Us a Message</h2>
+            <h2 className="text-2xl font-bold mb-2 text-white">Send Us a Message</h2>
             <form className="w-full grid grid-cols-1 lg:grid-cols-2 gap-5" onSubmit={handleSubmit}>
               <div className="flex flex-col gap-2 lg:col-span-1">
-                <label className="block text-sm font-medium text-primary">Full Name</label>
+                <label className="block text-sm font-medium text-gray-300">Full Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
+                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-brand-cyan/50 focus:outline-none focus:ring-1 focus:ring-brand-cyan/50 text-white placeholder-gray-500 transition-all font-sans"
                   placeholder="Your name"
                 />
               </div>
               <div className="flex flex-col gap-2 lg:col-span-1">
-                <label className="block text-sm font-medium text-primary">Company Name</label>
+                <label className="block text-sm font-medium text-gray-300">Company Name</label>
                 <input
                   type="text"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
+                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-brand-cyan/50 focus:outline-none focus:ring-1 focus:ring-brand-cyan/50 text-white placeholder-gray-500 transition-all font-sans"
                   placeholder="Your company name"
                 />
               </div>
               <div className="flex flex-col gap-2 lg:col-span-1">
-                <label className="block text-sm font-medium text-primary">Email Address</label>
+                <label className="block text-sm font-medium text-gray-300">Email Address</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
+                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-brand-cyan/50 focus:outline-none focus:ring-1 focus:ring-brand-cyan/50 text-white placeholder-gray-500 transition-all font-sans"
                   placeholder="Your email"
                 />
               </div>
               <div className="flex flex-col gap-2 lg:col-span-1">
-                <label className="block text-sm font-medium text-primary">Service</label>
+                <label className="block text-sm font-medium text-gray-300">Service</label>
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium"
+                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-brand-cyan/50 focus:outline-none focus:ring-1 focus:ring-brand-cyan/50 text-white placeholder-gray-500 transition-all font-sans appearance-none"
                 >
-                  <option value="" disabled>Select a service</option>
+                  <option value="" disabled className="bg-neutral-900">Select a service</option>
                   {servicesList.map((service) => (
-                    <option key={service} value={service}>{service}</option>
+                    <option key={service} value={service} className="bg-neutral-900">{service}</option>
                   ))}
                 </select>
               </div>
               <div className="flex flex-col gap-2 lg:col-span-2">
-                <label className="block text-sm font-medium text-primary">Project Details</label>
+                <label className="block text-sm font-medium text-gray-300">Project Details</label>
                 <textarea
                   rows={4}
                   name="details"
                   value={formData.details}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-sky-50 via-fuchsia-50 to-pink-50 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/40 text-gray-900 dark:text-white font-medium resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-brand-cyan/50 focus:outline-none focus:ring-1 focus:ring-brand-cyan/50 text-white placeholder-gray-500 transition-all font-sans resize-none"
                   placeholder="Tell us about your project, goals, and timeline..."
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-sky-500 via-fuchsia-500 to-pink-500 text-white rounded-full px-8 py-3 font-bold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 mt-2 lg:col-span-2"
+                className="w-full bg-gradient-to-r from-brand-cyan via-brand-violet to-brand-fuchsia text-white rounded-full px-8 py-3 font-bold shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:scale-[1.02] transition-all duration-300 mt-2 lg:col-span-2"
               >
                 Send Message
               </button>

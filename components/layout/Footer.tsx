@@ -33,6 +33,12 @@ export default function Footer() {
     ]
   };
 
+  const socialLinks = [
+    { href: 'https://www.linkedin.com/in/rishabh-sharma-b141b0383/', Icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://www.instagram.com/vidhyonix/', Icon: Instagram, label: 'Instagram' },
+    { href: 'https://www.facebook.com/people/Vidhyonix/61580259069806/', Icon: Facebook, label: 'Facebook' },
+  ];
+
   return (
     <footer className="bg-brand-dark relative overflow-hidden pt-24 pb-12 border-t border-white/5">
       {/* Background patterns */}
@@ -58,9 +64,9 @@ export default function Footer() {
               Architecting the next generation of digital excellence. Powered by AI, engineered for scale, and designed for global impact.
             </p>
             <div className="flex gap-4">
-              {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                <Link key={i} href="#" className="p-3 bg-white/5 border border-white/10 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all backdrop-blur-md">
-                  <Icon size={20} />
+              {socialLinks.map((link, i) => (
+                <Link key={i} target="_blank" rel="noopener noreferrer" href={link.href} className="p-3 bg-white/5 border border-white/10 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all backdrop-blur-md">
+                  <link.Icon size={20} />
                 </Link>
               ))}
             </div>
@@ -112,7 +118,7 @@ export default function Footer() {
             <div className="pt-4 space-y-2">
               <div className="flex items-center gap-3 text-slate-400 text-sm">
                 <Mail size={16} className="text-brand-cyan" />
-                <span>ops@vidhyonix.com</span>
+                <span>vidhyonixitsolutions@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-slate-400 text-sm">
                 <MapPin size={16} className="text-brand-fuchsia" />

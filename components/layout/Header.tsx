@@ -38,10 +38,17 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrollY > 50 ? "py-3 bg-brand-dark/80 backdrop-blur-xl border-b border-white/10" : "py-6 bg-transparent"
+        "fixed top-0 w-full z-50 transition-all duration-500",
+        scrollY > 20 ? "py-3 bg-brand-dark/85 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]" : "py-6 bg-transparent"
       )}
     >
+      {/* Gradient Bottom Glow */}
+      <div
+        className={cn(
+          "absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/50 to-transparent transition-opacity duration-500",
+          scrollY > 20 ? "opacity-100" : "opacity-0"
+        )}
+      />
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-50">

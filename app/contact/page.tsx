@@ -9,7 +9,7 @@ import ContactHero from '@/components/contact/Hero';
 export default function Contact() {
   return (
     <>
-      <main>
+      <main className="bg-brand-dark">
         <Header />
         <ContactHero />
         {/* <ContactForm /> */}
