@@ -16,6 +16,7 @@ export default function Footer() {
   const footerLinks = {
     solutions: [
       { href: '/services', label: 'AI Engineering' },
+      { href: '/product', label: 'SkillyTalk AI' },
       { href: '/services', label: 'Web Platforms' },
       { href: '/services', label: 'Mobile Apps' },
       { href: '/services', label: 'Cloud & DevOps' },

@@ -29,6 +29,7 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
+    { href: '/product', label: 'Product' },
     { href: '/portfolio', label: 'Impact' },
     { href: '/blog', label: 'Insights' },
     { href: '/about', label: 'Mission' },
@@ -92,7 +93,7 @@ export default function Header() {
 
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="https://skillytalkinterview.vidhyonix.com/" target="_blank">
+          <Link href="/product">
             <button className="flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-white transition-colors px-4 py-2 border border-white/10 hover:border-brand-cyan/50 rounded-xl">
               <Zap size={14} className="text-brand-cyan" />
               SKILLYTALK
@@ -151,7 +152,7 @@ export default function Header() {
                   Get Started
                 </button>
               </Link>
-              <Link href="https://skillytalkinterview.vidhyonix.com/" className="block">
+              <Link href="/product" className="block">
                 <button className="w-full py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3">
                   <Sparkles className="text-brand-cyan" />
                   SkillyTalk AI

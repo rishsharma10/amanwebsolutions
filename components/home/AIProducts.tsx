@@ -7,31 +7,31 @@ import { ArrowRight, Bot, PhoneCall, Users } from 'lucide-react';
 
 const products = [
     {
-        title: 'AI Calling Agent',
-        description: 'Transform your sales process with our intelligent voice AI. Capable of handling thousands of simultaneous calls for lead generation, qualification, and follow-ups with human-like natural conversation.',
-        features: ['Full CRM Lead Generation', 'Natural Voice Synthesis', 'Sentiment Analysis', 'Automated Qualification'],
+        title: 'AI Voice Agents (Call Center Automation)',
+        description: 'Reduce operational costs by 40% while handling infinite call volume. Our intelligent voice agents instantly qualify leads and book appointments directly into your CRM without human intervention.',
+        features: ['Zero Hold Times', 'Instant Lead Qualification', 'Native CRM Integration', 'Human-like Natural Voice'],
         icon: <PhoneCall className="w-6 h-6" />,
-        image: '/images/ai-calling.png',
+        image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop',
         gradient: 'from-cyan-500 via-blue-500 to-indigo-500',
-        detailsValues: { value: '10k+', label: 'Daily Calls' }
+        detailsValues: { value: '40%', label: 'Cost Reduction' }
     },
     {
-        title: 'SkillyTalk Interview',
-        description: 'Revolutionize hiring with our AI-powered interview platform. Conduct structured video interviews, analyze candidate responses, and rank top talent automatically with deep behavioral insights.',
-        features: ['Automated Hiring Funnel', 'Candidate Ranking', 'CRM Integration', 'Behavioral Analysis'],
+        title: 'SkillyTalk: AI Recruitment Platform',
+        description: 'Cut your time-to-hire by 85%. SkillyTalk autonomously conducts first-round video interviews, analyzes candidate behavior, and delivers a ranked shortlist of top talent to your dashboard.',
+        features: ['Automated Screening', 'Unbiased Candidate Ranking', 'Deep Behavioral Analysis', 'Instant Shortlisting'],
         icon: <Users className="w-6 h-6" />,
-        image: '/images/ai-interview.png',
+        image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop',
         gradient: 'from-fuchsia-500 via-purple-500 to-violet-500',
-        detailsValues: { value: '85%', label: 'Time Saved' }
+        detailsValues: { value: '85%', label: 'Faster Hiring' }
     },
     {
-        title: 'Intelligent Spt Chatbot',
-        description: 'Provide 24/7 instant support with a chatbot that understands context. Beyond simple FAQs, it handles complex queries, resolves issues, and seamlessly escalates to human agents when needed.',
-        features: ['24/7 Availability', 'Smart Context Awareness', 'Multi-channel Support', 'Instant Resolution'],
+        title: 'Intelligent Support Chatbot',
+        description: 'Boost customer satisfaction while lowering support ticket volume. Our context-aware chatbot handles complex queries 24/7, resolving 70% of issues instantly without escalating to your team.',
+        features: ['24/7 Instant Resolution', 'Context & Memory Awareness', 'Multi-channel Omnichannel', 'Seamless Human Handoff'],
         icon: <Bot className="w-6 h-6" />,
-        image: '/images/ai-chatbot.png',
+        image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
         gradient: 'from-pink-500 via-rose-500 to-red-500',
-        detailsValues: { value: '24/7', label: 'Availability' }
+        detailsValues: { value: '70%', label: 'Tickets Deflected' }
     }
 ];
 

@@ -112,7 +112,7 @@ export default function ContactHero() {
                   {
                     icon: <MapPin className="w-5 h-5" />,
                     title: 'Address',
-                    content: 'Chandigarh, India',
+                    content: 'Mohali, Chandigarh',
                     link: null
                   },
                 ].map((item, index) => (

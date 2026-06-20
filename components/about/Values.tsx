@@ -8,42 +8,42 @@ export default function Values() {
   const values = [
     {
       title: 'Innovation',
-      description: 'We embrace emerging neural technologies to deliver solutions that set new industry benchmarks.',
+      description: 'We embrace the latest technologies to deliver solutions that give our clients a competitive edge.',
       icon: Sparkles,
       color: 'text-brand-cyan',
       glow: 'bg-brand-cyan/20',
     },
     {
       title: 'Integrity',
-      description: 'Transparent architecture and absolute accountability in every single node of our operational scope.',
+      description: 'We believe in full transparency. No hidden fees, clear communication, and absolute accountability.',
       icon: Shield,
       color: 'text-brand-fuchsia',
       glow: 'bg-brand-fuchsia/20',
     },
     {
       title: 'Collaboration',
-      description: 'High-bandwidth synchronization between our engineering teams and your business stakeholders.',
+      description: 'We work closely with you. Your feedback drives our development process from start to finish.',
       icon: Users,
       color: 'text-brand-violet',
       glow: 'bg-brand-violet/20',
     },
     {
       title: 'Excellence',
-      description: 'Studio-grade precision in every line of code and every autonomous decision our systems make.',
+      description: 'We deliver high-quality, bug-free software that works exactly as intended, every single time.',
       icon: Star,
       color: 'text-brand-cyan',
       glow: 'bg-brand-cyan/20',
     },
     {
-      title: 'Dynamic Ops',
-      description: 'Zero-latency adaptation to market shifts and technological evolution in real-time.',
+      title: 'Speed & Agility',
+      description: 'We move fast. We adapt to market changes quickly so your project is never delayed.',
       icon: Zap,
       color: 'text-brand-fuchsia',
       glow: 'bg-brand-fuchsia/20',
     },
     {
-      title: 'Growth Mindset',
-      description: 'Continuous iteration and self-optimizing strategies for both our team and our partners.',
+      title: 'Continuous Growth',
+      description: 'We constantly learn and improve, ensuring our strategies help your business scale efficiently.',
       icon: TrendingUp,
       color: 'text-brand-violet',
       glow: 'bg-brand-violet/20',
@@ -61,14 +61,14 @@ export default function Values() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-fuchsia/10 border border-brand-fuchsia/20 text-brand-fuchsia text-sm font-medium mb-6"
           >
             <Target size={14} />
-            <span>Ethos & Protocol</span>
+            <span>Our Core Values</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            Our <span className="ai-gradient-text">Core Protocols</span>
+            What Drives <span className="ai-gradient-text">Our Team</span>
           </h2>
           <p className="text-slate-400 text-lg">
-            The fundamental directives that orchestrate every engagement and architectural decision we make.
+            These are the principles that guide every line of code we write and every decision we make.
           </p>
         </div>
 

@@ -13,7 +13,7 @@ export default function Stats() {
     {
       id: 1,
       value: 25,
-      label: 'Systems Deployed',
+      label: 'Projects Delivered',
       prefix: '+',
       suffix: '',
       icon: Cpu,
@@ -23,7 +23,7 @@ export default function Stats() {
     {
       id: 2,
       value: 6,
-      label: 'Years of Stability',
+      label: 'Years of Experience',
       prefix: '',
       suffix: '+',
       icon: Activity,
@@ -43,7 +43,7 @@ export default function Stats() {
     {
       id: 4,
       value: 10,
-      label: 'Neural Engineers',
+      label: 'Expert Developers',
       prefix: '',
       suffix: '+',
       icon: Users,

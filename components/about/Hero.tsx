@@ -16,25 +16,25 @@ export default function AboutHero() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-8">
               <Cpu size={14} />
-              <span>The Architect's Vision</span>
+              <span>Who We Are</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-8">
-              Pioneering the <span className="ai-gradient-text">Neural</span> Frontier
+              Building the <span className="ai-gradient-text">Future</span> of Technology
             </h1>
 
             <p className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
-              Vidhyonix is more than a technology partner; we are the orchestrators of digital evolution. Our team architects autonomous ecosystems and high-fidelity systems that redefine the boundary between human intent and machine execution.
+              Vidhyonix is more than just a software agency; we are your technology partner. We build custom websites, mobile apps, and AI solutions that help your business grow faster and operate more efficiently.
             </p>
 
             <div className="flex gap-12 border-t border-white/10 pt-10">
               <div>
                 <div className="text-3xl font-bold text-white mb-1">2025</div>
-                <div className="text-xs text-brand-cyan font-bold tracking-widest uppercase">Ecdysis Initialized</div>
+                <div className="text-xs text-brand-cyan font-bold tracking-widest uppercase">Company Founded</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-white mb-1">Global</div>
-                <div className="text-xs text-brand-fuchsia font-bold tracking-widest uppercase">Operational Scope</div>
+                <div className="text-xs text-brand-fuchsia font-bold tracking-widest uppercase">Clients Served</div>
               </div>
             </div>
           </motion.div>
@@ -60,10 +60,10 @@ export default function AboutHero() {
                     <div className="p-2 rounded-lg bg-brand-fuchsia/20 text-brand-fuchsia">
                       <Sparkles size={18} />
                     </div>
-                    <h3 className="text-white font-bold">CORE_MISSION</h3>
+                    <h3 className="text-white font-bold">Our Mission</h3>
                   </div>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    To deliver high-fidelity, autonomous IT solutions that drive exponential business evolution and digital supremacy.
+                    To deliver high-quality, reliable IT solutions that drive exponential business growth for our clients.
                   </p>
                 </div>
               </div>

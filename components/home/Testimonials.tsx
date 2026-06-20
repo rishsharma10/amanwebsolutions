@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote, Star, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { APP_NAME } from '../layout/Footer';
 
@@ -14,26 +15,26 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: 'Emily Carter',
-      role: 'CTO, FinSight',
-      image: 'https://randomuser.me/api/portraits/women/44.jpg',
-      quote: `${APP_NAME}’s neural architectures enabled us to launch a secure, autonomous ecosystem ahead of schedule. Their engineering precision is unmatched.`,
+      name: 'Sarah Jenkins',
+      role: 'Marketing Director, TechFlow',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400',
+      quote: `Vidhyonix IT Solutions completely transformed our digital presence. Their web development team built a lightning-fast platform that increased our online conversions by 150% in just three months.`,
       rating: 5,
     },
     {
       id: 2,
-      name: 'Rajesh Kumar',
-      role: 'Head of Engineering, ShopEase',
-      image: 'https://randomuser.me/api/portraits/men/32.jpg',
-      quote: `The integration of high-fidelity voice agents transformed our customer journey. We saw a 40% reduction in manual oversight within standard operating hours.`,
+      name: 'David Chen',
+      role: 'Founder, Abundish',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=400',
+      quote: `We hired Vidhyonix for a complex mobile app project. Their engineers delivered a flawless application ahead of schedule. The level of communication and technical expertise is unmatched in the industry.`,
       rating: 5,
     },
     {
       id: 3,
-      name: 'Linda Zhang',
-      role: 'Dir. Innovation, HealthSync',
-      image: 'https://randomuser.me/api/portraits/women/68.jpg',
-      quote: `Their predictive engines and data orchestration reduced our operational latency by 60%. ${APP_NAME} is the definitive choice for scale.`,
+      name: 'Michael O\'Connor',
+      role: 'CEO, GlobalReach',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400',
+      quote: `Their SEO strategies are phenomenal. Before Vidhyonix, we struggled to rank. Within 60 days, their technical SEO optimizations pushed us to the top 3 spots on Google for our main keywords.`,
       rating: 5,
     },
   ];
@@ -96,10 +97,11 @@ export default function Testimonials() {
                 {/* Image Section */}
                 <div className="relative group">
                   <div className="aspect-square rounded-3xl overflow-hidden border border-white/10 relative">
-                    <img
+                    <Image
                       src={testimonials[activeIndex].image}
                       alt={testimonials[activeIndex].name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent" />
                   </div>

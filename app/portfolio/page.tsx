@@ -5,11 +5,13 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Cpu, Sparkles, Globe, Rocket, Zap, Target, History, ExternalLink } from 'lucide-react';
 // @ts-ignore
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import { cn } from '@/lib/utils';
+import BeforeAfterSlider from '@/components/shared/BeforeAfterSlider';
 
 // Import assets (assuming they exist as per previous context)
 import madamJan from '@/app/assets/projects/madamjan.png';
@@ -86,29 +88,29 @@ const projects = [
 const milestones = [
   {
     year: '2024',
-    title: 'Singularity Initialized',
-    description: 'Foundational architecture of our neural engineering core.',
+    title: 'Company Founded',
+    description: 'Began our journey as a dedicated web development agency.',
     icon: Rocket,
     color: 'text-brand-cyan',
   },
   {
     year: '2025',
-    title: 'Ecosystem Alpha',
-    description: 'Deployment of autonomous enterprise-grade frameworks.',
+    title: 'First Major Launch',
+    description: 'Delivered our first large-scale enterprise web application.',
     icon: Globe,
     color: 'text-brand-fuchsia',
   },
   {
     year: '2025',
-    title: 'Neural Expansion',
-    description: 'Integration of real-time vocal intelligence protocols.',
+    title: 'AI Integration',
+    description: 'Started offering custom AI and automation tools.',
     icon: Zap,
     color: 'text-brand-violet',
   },
   {
     year: '2026',
-    title: 'Global Supremacy',
-    description: 'The primary architectural layer for autonomous evolution.',
+    title: 'Global Growth',
+    description: 'Partnering with top-tier businesses worldwide.',
     icon: Target,
     color: 'text-brand-cyan',
   },
@@ -149,14 +151,25 @@ export default function Portfolio() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-8"
           >
             <Sparkles size={14} />
-            <span>Digital Supremacy</span>
+            <span>Our Work</span>
           </motion.div>
           <h1 className="text-5xl md:text-8xl font-heading font-extrabold text-white mb-8">
-            The <span className="ai-gradient-text">Neural</span> Archive
+            Featured <span className="ai-gradient-text">Projects</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Exploring the boundary between autonomous logic and high-fidelity design. Every project is a node in our expanding digital ecosystem.
+            Take a look at some of the best websites, applications, and digital experiences we have built for our clients.
           </p>
+        </div>
+      </section>
+
+      {/* Interactive Process Slider */}
+      <section className="py-12 relative z-10">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-heading font-bold text-white mb-4">The Vidhyonix <span className="ai-gradient-text">Transformation</span></h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">Drag the slider to see how we upgrade legacy systems into high-performance digital ecosystems.</p>
+          </div>
+          <BeforeAfterSlider />
         </div>
       </section>
 
@@ -165,7 +178,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-4 mb-12 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white uppercase tracking-tighter flex items-center gap-3">
             <Zap size={20} className="text-brand-fuchsia" />
-            FEATURED_DEPLOYMENTS
+            CASE STUDIES
           </h2>
           <div className="flex gap-2">
             <button onClick={() => slider.current?.prev()} className="p-2 rounded-full border border-white/10 hover:bg-white/5 text-white transition-all">
@@ -185,10 +198,10 @@ export default function Portfolio() {
                 whileHover={{ scale: 0.98 }}
                 transition={{ duration: 0.5 }}
               >
-                <img src={p.image} alt={p.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" />
+                <Image src={p.image} alt={p.title} fill className="object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8">
-                  <div className="text-brand-cyan font-bold text-xs tracking-widest uppercase mb-2">ARCHIVE_NODE_{p.id}</div>
+                  <div className="text-brand-cyan font-bold text-xs tracking-widest uppercase mb-2">CASE STUDY #{p.id}</div>
                   <h3 className="text-3xl font-heading font-bold text-white mb-2">{p.title}</h3>
                   <p className="text-slate-300 text-sm line-clamp-1">{p.description}</p>
                 </div>
@@ -202,7 +215,7 @@ export default function Portfolio() {
       <section className="py-32 z-10 relative bg-brand-dark/30">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
-            <h2 className="text-4xl font-heading font-bold text-white">Project <span className="text-brand-cyan">Nexus</span></h2>
+            <h2 className="text-4xl font-heading font-bold text-white">All <span className="text-brand-cyan">Projects</span></h2>
 
             <div className="flex gap-2 p-1 rounded-2xl bg-white/5 border border-white/5">
               {['all', 'web', '3d', 'marketing'].map((cat) => (
@@ -233,7 +246,7 @@ export default function Portfolio() {
                   className="group relative glass-morphism p-8 rounded-[2.5rem] border border-white/5 hover:border-white/20 transition-all duration-500"
                 >
                   <div className="relative aspect-square rounded-2xl overflow-hidden mb-6 border border-white/5">
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" />
+                    <Image src={p.image} alt={p.title} fill className="object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" />
                   </div>
 
                   <div className="space-y-4">
@@ -267,9 +280,9 @@ export default function Portfolio() {
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-fuchsia/10 border border-brand-fuchsia/20 text-brand-fuchsia text-sm font-medium mb-6">
               <History size={14} />
-              <span>Lineage</span>
+              <span>Our Story</span>
             </div>
-            <h2 className="text-4xl font-heading font-bold text-white">The <span className="ai-gradient-text">Ecdysis</span> Timeline</h2>
+            <h2 className="text-4xl font-heading font-bold text-white">The <span className="ai-gradient-text">Vidhyonix</span> Journey</h2>
           </div>
 
           <div className="relative max-w-4xl mx-auto">

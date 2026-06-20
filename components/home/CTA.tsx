@@ -34,15 +34,15 @@ export default function CTA() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-morphism border border-white/10 text-white text-sm font-bold tracking-widest uppercase"
           >
             <Zap size={14} className="text-brand-cyan" />
-            <span>Initiate Phase One</span>
+            <span>Get Started Today</span>
           </motion.div>
 
           <div className="space-y-6">
             <h2 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight">
-              Ready to <span className="ai-gradient-text">Architect</span> Your Legacy?
+              Ready to <span className="ai-gradient-text">Grow</span> Your Business?
             </h2>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Don't just keep up with the digital evolution. Lead it. Partner with our neural engineering team to build high-fidelity autonomous systems.
+              Partner with our expert development team to build the custom software, websites, and AI tools your business needs to succeed.
             </p>
           </div>
 
@@ -50,23 +50,23 @@ export default function CTA() {
             <Link href="/contact">
               <button className="px-10 py-5 bg-white text-black rounded-2xl font-bold tracking-wider hover:bg-slate-200 transition-all flex items-center gap-3 group relative overflow-hidden">
                 <div className="absolute inset-0 bg-brand-cyan/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-                <span className="relative z-10">START INNOVATION</span>
+                <span className="relative z-10">START YOUR PROJECT</span>
                 <ArrowRight size={20} className="relative z-10 group-hover:translate-x-2 transition-transform" />
               </button>
             </Link>
 
             <Link href="/contact">
               <button className="px-10 py-5 glass-morphism border border-white/10 text-white rounded-2xl font-bold tracking-wider hover:border-brand-cyan/50 transition-all">
-                CONSULT WITH EXPERTS
+                TALK TO SALES
               </button>
             </Link>
           </div>
 
           {/* Trust indicators */}
           <div className="pt-12 flex flex-wrap justify-center gap-8 opacity-40 grayscale group-hover:grayscale-0 transition-all">
-            <div className="flex items-center gap-2 text-white font-bold"><Cpu size={20} /> SYSTEMS_DEPLOYED</div>
-            <div className="flex items-center gap-2 text-white font-bold"><Sparkles size={20} /> NEURAL_READY</div>
-            <div className="flex items-center gap-2 text-white font-bold"><Zap size={20} /> ZERO_LATENCY</div>
+            <div className="flex items-center gap-2 text-white font-bold"><Cpu size={20} /> PROVEN_RESULTS</div>
+            <div className="flex items-center gap-2 text-white font-bold"><Sparkles size={20} /> EXPERT_TEAM</div>
+            <div className="flex items-center gap-2 text-white font-bold"><Zap size={20} /> FAST_DELIVERY</div>
           </div>
 
         </div>

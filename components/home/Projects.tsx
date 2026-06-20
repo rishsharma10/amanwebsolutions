@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Code, Layout, Smartphone, Box, Globe, Cpu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import madamJan from '@/app/assets/projects/madamjan.png';
@@ -24,17 +25,17 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const categories = [
-    { id: 'all', label: 'All Systems', icon: Globe },
-    { id: 'web', label: 'Ecosystems', icon: Layout },
-    { id: 'app', label: 'Neural Apps', icon: Smartphone },
-    { id: '3d', label: 'Synthetic 3D', icon: Box },
+    { id: 'all', label: 'All Projects', icon: Globe },
+    { id: 'web', label: 'Websites', icon: Layout },
+    { id: 'app', label: 'Mobile Apps', icon: Smartphone },
+    { id: '3d', label: '3D & Design', icon: Box },
   ];
 
   const projects = [
     {
       id: 1,
       title: 'Aether 1',
-      description: 'Studio-grade audio systems powered by Sub-Alphatonic Core technology.',
+      description: 'A premium 3D product showcase for high-end audio equipment.',
       tech: ['Three.js', 'Blender', 'Framer Motion'],
       category: '3d',
       image: aether.src,
@@ -44,7 +45,7 @@ export default function Projects() {
     {
       id: 2,
       title: 'Abundish',
-      description: 'Hyper-local logistics platform with real-time neural routing.',
+      description: 'A fast, reliable delivery and logistics management web platform.',
       tech: ['Next.js', 'Nest.js', 'Redis'],
       category: 'web',
       image: abundish.src,
@@ -54,7 +55,7 @@ export default function Projects() {
     {
       id: 3,
       title: 'Cyphr Studio',
-      description: 'Strategic creative hub for high-fidelity fan engagement experiences.',
+      description: 'An interactive portfolio website for a creative design agency.',
       tech: ['Three.js', 'GSAP', 'WebGL'],
       category: '3d',
       image: cyphr.src,
@@ -64,7 +65,7 @@ export default function Projects() {
     {
       id: 4,
       title: 'Good Citizen',
-      description: 'Autonomous emergency orchestration & notification network.',
+      description: 'A mobile application that helps citizens report emergencies quickly.',
       tech: ['Flutter', 'Firebase', 'Real-time'],
       category: 'app',
       image: goodCitizen.src,
@@ -74,7 +75,7 @@ export default function Projects() {
     {
       id: 5,
       title: 'Trionn',
-      description: 'Full-spectrum digital agency platform for modern corporate entities.',
+      description: 'A sleek, corporate website for a major digital marketing firm.',
       tech: ['Three.js', 'React.js', 'Design'],
       category: '3d',
       image: trionn.src,
@@ -84,7 +85,7 @@ export default function Projects() {
     {
       id: 6,
       title: 'AI Tools One',
-      description: 'Comprehensive directory of autonomous systems and neural assets.',
+      description: 'A comprehensive directory platform listing the best AI software.',
       tech: ['WordPress', 'AI Integrations'],
       category: 'web',
       image: marketReach.src,
@@ -111,14 +112,14 @@ export default function Projects() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-6"
           >
             <Cpu size={14} />
-            <span>Deployment History</span>
+            <span>Our Work</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            Pioneering <span className="ai-gradient-text">High-Fidelity</span> Solutions
+            Featured <span className="ai-gradient-text">Case Studies</span>
           </h2>
           <p className="text-slate-400 text-lg">
-            We don't just build products; we architect digital legacies for the world's most ambitious brands.
+            See how we have helped ambitious brands scale their operations and create stunning digital experiences.
           </p>
         </div>
 
@@ -163,10 +164,11 @@ export default function Projects() {
                   <div className="relative aspect-[4/3] rounded-3xl overflow-hidden glass-morphism border border-white/10">
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0">
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-brand-dark/60 group-hover:bg-brand-dark/20 transition-colors duration-500" />
                     </div>

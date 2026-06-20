@@ -5,57 +5,28 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Cpu, Sparkles, Zap, Brain, MessageSquare, Terminal, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-type BlogPost = {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  image: string;
-  readTime: string;
+import { BlogPost, blogPosts } from "@/lib/blogData";
+
+
+// Animation variants for smooth, staggered loads
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
 };
 
-const blogPosts: BlogPost[] = [
-  {
-    id: '1',
-    title: "Neural Architectures in Next.js 15",
-    excerpt: "Exploring the integration of autonomous logic layers within the latest Next.js 15 routing protocols.",
-    date: "2025-05-01",
-    category: "Engineering",
-    image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-    readTime: "6 min read",
-  },
-  {
-    id: '2',
-    title: "High-Fidelity Voice Synthesis",
-    excerpt: "The evolution of neural vocal engines and their impact on enterprise autonomous agents.",
-    date: "2025-05-02",
-    category: "AI Research",
-    image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800",
-    readTime: "8 min read",
-  },
-  {
-    id: '3',
-    title: "Sovereign Cloud Protocols",
-    excerpt: "Securing the decentralized architectural layer for the next wave of global digital ecosystems.",
-    date: "2025-05-03",
-    category: "Infrastructure",
-    image: "https://images.pexels.com/photos/1181672/pexels-photo-1181672.jpeg?auto=compress&cs=tinysrgb&w=800",
-    readTime: "5 min read",
-  },
-  {
-    id: '4',
-    title: "Predictive Merit Analytics",
-    excerpt: "Orchestrating business intelligence through real-time autonomous evaluation systems.",
-    date: "2025-05-04",
-    category: "Data Systems",
-    image: "https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=800",
-    readTime: "10 min read",
-  }
-];
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+};
 
 export default function Blog() {
   const [filter, setFilter] = useState('all');
@@ -84,46 +55,57 @@ export default function Blog() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-violet/10 border border-brand-violet/20 text-brand-violet text-sm font-medium mb-8"
           >
             <Brain size={14} />
-            <span>Neural Transmissions</span>
+            <span>Our Latest Thoughts</span>
           </motion.div>
-          <h1 className="text-5xl md:text-8xl font-heading font-extrabold text-white mb-8">
-            The <span className="ai-gradient-text">Insights</span> Feed
-          </h1>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Autonomous thought leadership, architectural blueprints, and engineering protocols for the digital-first world.
-          </p>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-5xl md:text-7xl font-heading font-extrabold text-white mb-6"
+          >
+            The <span className="ai-gradient-text">Insights</span> Blog
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed"
+          >
+            Clear, actionable advice on web development, artificial intelligence, and growing your business through technology.
+          </motion.p>
         </div>
       </section>
 
-      {/* Featured Transmission */}
-      <section className="py-20 z-10 relative">
+      {/* Featured Post */}
+      <section className="py-12 z-10 relative">
         <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative glass-morphism rounded-[2.5rem] border border-white/5 overflow-hidden flex flex-col lg:flex-row shadow-2xl"
+            transition={{ duration: 0.6 }}
+            className="relative glass-morphism rounded-[2.5rem] border border-white/5 overflow-hidden flex flex-col lg:flex-row shadow-2xl hover:border-brand-cyan/30 transition-colors duration-500"
           >
-            <div className="lg:w-1/2 aspect-video lg:aspect-auto relative">
+            <div className="lg:w-1/2 aspect-video lg:aspect-auto relative overflow-hidden">
               <img
                 src={blogPosts[0].image}
                 alt={blogPosts[0].title}
-                className="w-full h-full object-cover grayscale brightness-50 hover:grayscale-0 hover:brightness-100 transition-all duration-1000"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-transparent to-transparent hidden lg:block" />
-              <div className="absolute top-8 left-8 p-3 rounded-xl glass-morphism border border-white/10 text-white">
+              <div className="absolute top-8 left-8 p-3 rounded-xl glass-morphism border border-white/10 text-white shadow-lg">
                 <Zap size={20} className="text-brand-cyan" />
               </div>
             </div>
 
             <div className="flex-1 p-8 md:p-16 flex flex-col justify-center gap-6">
               <div className="flex items-center gap-4 text-xs font-bold tracking-widest text-brand-cyan uppercase">
-                <span>LATEST_NODE</span>
+                <span>Featured Post</span>
                 <span className="w-8 h-px bg-brand-cyan/30" />
                 <span>{blogPosts[0].category}</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-heading font-bold text-white group-hover:text-brand-cyan transition-colors">
-                {blogPosts[0].title}
+              <h2 className="text-3xl md:text-5xl font-heading font-bold text-white hover:text-brand-cyan transition-colors">
+                <Link href={`/blog/${blogPosts[0].id}`}>{blogPosts[0].title}</Link>
               </h2>
               <p className="text-slate-400 text-lg leading-relaxed">
                 {blogPosts[0].excerpt}
@@ -138,9 +120,9 @@ export default function Blog() {
                   {blogPosts[0].readTime}
                 </div>
               </div>
-              <Link href={`/blog/${blogPosts[0].id}`} className="mt-4 flex items-center gap-3 text-white font-bold group w-fit">
-                Read Transmission
-                <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform text-brand-cyan" />
+              <Link href={`/blog/${blogPosts[0].id}`} className="mt-4 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center gap-3 text-white font-bold group w-fit transition-all">
+                Read Article
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform text-brand-cyan" />
               </Link>
             </div>
           </motion.div>
@@ -148,64 +130,68 @@ export default function Blog() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-20 z-10 relative">
+      <section className="py-16 z-10 relative">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
-            <h3 className="text-2xl font-heading font-bold text-white uppercase tracking-tighter flex items-center gap-3">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+            <h3 className="text-2xl font-heading font-bold text-white flex items-center gap-3">
               <MessageSquare size={20} className="text-brand-fuchsia" />
-              ALL_PROTOCOLS
+              All Articles
             </h3>
 
-            <div className="flex gap-2 p-1 rounded-2xl bg-white/5 border border-white/5">
-              {['all', 'engineering', 'research', 'infra'].map((cat) => (
+            <div className="flex flex-wrap gap-2 p-1 rounded-2xl bg-white/5 border border-white/5">
+              {['all', 'artificial intelligence', 'web development', 'business growth', 'cloud & security'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
                   className={cn(
-                    "px-6 py-2 rounded-xl text-sm font-bold transition-all uppercase tracking-widest",
-                    filter === cat ? "bg-white text-black" : "text-white/40 hover:text-white"
+                    "px-4 py-2 rounded-xl text-xs md:text-sm font-bold transition-all capitalize tracking-wide",
+                    filter === cat ? "bg-white text-black shadow-md" : "text-white/60 hover:text-white"
                   )}
                 >
-                  {cat}
+                  {cat === 'all' ? 'All Topics' : cat}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             <AnimatePresence mode="popLayout">
-              {filteredPosts.slice(1).map((p, i) => (
+              {filteredPosts.slice(1).map((p) => (
                 <motion.div
                   layout
+                  variants={itemVariants}
                   key={p.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
-                  className="group relative glass-morphism p-6 rounded-[2rem] border border-white/5 hover:border-white/20 transition-all duration-500 flex flex-col"
+                  className="group relative glass-morphism p-6 rounded-[2rem] border border-white/5 hover:border-brand-cyan/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col bg-white/[0.02]"
                 >
-                  <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-white/5">
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700" />
+                  <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-white/10 shadow-inner">
+                    <Image src={p.image} alt={p.title} fill className="object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-brand-fuchsia font-bold text-[10px] tracking-widest uppercase">
+                      {p.category}
+                    </div>
                   </div>
 
                   <div className="space-y-4 flex-1 flex flex-col">
-                    <div className="text-brand-fuchsia font-bold text-[10px] tracking-widest uppercase">
-                      {p.category}
-                    </div>
-                    <h3 className="text-xl font-heading font-bold text-white group-hover:text-brand-cyan transition-colors line-clamp-2">{p.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed line-clamp-2">{p.excerpt}</p>
+                    <h3 className="text-xl font-heading font-bold text-white group-hover:text-brand-cyan transition-colors line-clamp-2 leading-snug">{p.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed line-clamp-3">{p.excerpt}</p>
 
-                    <div className="pt-4 mt-auto flex items-center justify-between border-t border-white/5 text-[10px] font-bold text-white/40 tracking-wider">
-                      <span className="flex items-center gap-1"><Calendar size={10} /> {p.date}</span>
-                      <span className="flex items-center gap-1"><Terminal size={10} /> {p.readTime}</span>
+                    <div className="pt-6 mt-auto flex items-center justify-between border-t border-white/5 text-xs font-medium text-slate-500">
+                      <span className="flex items-center gap-1.5"><Calendar size={14} /> {p.date}</span>
+                      <span className="flex items-center gap-1.5 text-brand-cyan"><Terminal size={14} /> {p.readTime}</span>
                     </div>
                   </div>
 
-                  <Link href={`/blog/${p.id}`} className="absolute inset-0" />
+                  <Link href={`/blog/${p.id}`} className="absolute inset-0" aria-label={`Read ${p.title}`} />
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </div>
       </section>
 

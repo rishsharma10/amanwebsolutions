@@ -13,96 +13,96 @@ import { APP_NAME } from '../layout/Footer';
 export const servicesArray = [
   {
     id: 'ai',
-    title: 'AI Engineering',
+    title: 'Custom AI Solutions',
     icon: <Brain className="h-6 w-6" />,
     image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    subtitle: 'Autonomous agents & neural ecosystems.',
-    description: 'We build high-fidelity voice agents, intelligent follow-up systems, and predictive engines that orchestrate your business workflows with zero human intervention.',
+    subtitle: 'Automate your business workflows.',
+    description: 'We build smart voice agents, chatbots, and AI tools that save you time, reduce costs, and work 24/7 without taking a break.',
     features: [
-      'Custom LLM Fine-tuning',
-      'Autonomous Voice Agents',
-      'Real-time Merit Analytics',
-      'Contextual Threading',
+      'Custom AI Chatbots',
+      'Voice Call Automation',
+      'Data Analysis Tools',
+      'Seamless API Integration',
     ],
     color: 'text-brand-cyan shadow-brand-cyan/20',
     borderColor: 'group-hover:border-brand-cyan/50',
   },
   {
     id: 'web',
-    title: 'Web Platforms',
+    title: 'Web Development',
     icon: <Globe className="h-6 w-6" />,
     image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    subtitle: 'Scalable, high-performance web systems.',
-    description: 'Digital interfaces engineered for speed and conversion. We use Next.js, React, and NestJS to build platforms that handle millions of requests with ease.',
+    subtitle: 'Fast, secure, and responsive websites.',
+    description: 'We create beautiful websites and powerful web applications designed to convert your visitors into paying customers.',
     features: [
-      'Next.js 15 Architectures',
-      'Micro-frontend Scalability',
-      'Edge Computing Integration',
-      'Real-time Dashboards',
+      'Custom React/Next.js Apps',
+      'High-Speed Performance',
+      'Secure Authentication',
+      'E-commerce Solutions',
     ],
     color: 'text-brand-violet shadow-brand-violet/20',
     borderColor: 'group-hover:border-brand-violet/50',
   },
   {
     id: 'mobile',
-    title: 'Mobile Apps',
+    title: 'Mobile App Development',
     icon: <Smartphone className="h-6 w-6" />,
     image: 'https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    subtitle: 'Native feel, cross-platform speed.',
-    description: 'High-performance mobile applications built with Flutter and React Native. We focus on seamless UX and robust offline capabilities.',
+    subtitle: 'High-quality iOS and Android apps.',
+    description: 'Reach your customers anywhere. We build intuitive and reliable mobile applications that feel native on any device.',
     features: [
-      'React Native / Flutter',
-      'Native Module Development',
-      'Biometric Security',
-      'Offline-first Architecture',
+      'iOS & Android Apps',
+      'User-Friendly Design',
+      'Push Notifications',
+      'Offline Capabilities',
     ],
     color: 'text-brand-fuchsia shadow-brand-fuchsia/20',
     borderColor: 'group-hover:border-brand-fuchsia/50',
   },
   {
     id: 'infra',
-    title: 'Cloud & DevOps',
+    title: 'Cloud & Security',
     icon: <Cpu className="h-6 w-6" />,
     image: 'https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    subtitle: 'Infrastructure as Code & Automation.',
-    description: 'Secure, automated cloud deployments on AWS/Azure. We implement CI/CD pipelines that ensure zero-downtime releases and maximum security.',
+    subtitle: 'Reliable and secure hosting solutions.',
+    description: 'We keep your application online and secure. Our cloud setups on AWS and Azure ensure your app never crashes during traffic spikes.',
     features: [
-      'Kubernetes Orchestration',
-      'Terraform / Pulumi',
-      'SOC2 Compliance Prep',
-      'Zero-Trust Networking',
+      'Cloud Server Setup',
+      'Automated Backups',
+      'Advanced Cybersecurity',
+      '24/7 Monitoring',
     ],
     color: 'text-brand-cyan shadow-brand-cyan/20',
     borderColor: 'group-hover:border-brand-cyan/50',
   },
   {
     id: 'data',
-    title: 'Data Systems',
+    title: 'Database Architecture',
     icon: <Database className="h-6 w-6" />,
     image: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    subtitle: 'ETL Pipelines & Big Data.',
-    description: 'Robust data architectures using PostgreSQL, Redis, and MongoDB. We engineer real-time data processing pipelines for instant business insights.',
+    subtitle: 'Organize and scale your data.',
+    description: 'If your current system is slow, we can fix it. We build robust databases that load instantly and protect your sensitive information.',
     features: [
-      'Vector Databases (Pinecone)',
-      'Real-time Stream Processing',
-      'Graph Data Modelling',
-      'Automated Backups',
+      'Database Optimization',
+      'Fast Search Functionality',
+      'Data Migration',
+      'Secure Storage',
     ],
     color: 'text-brand-violet shadow-brand-violet/20',
     borderColor: 'group-hover:border-brand-violet/50',
   },
   {
     id: 'consulting',
-    title: 'Digital Strategy',
+    title: 'IT Consulting',
     icon: <BarChart className="h-6 w-6" />,
     image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    subtitle: 'Strategic roadmap for scale.',
-    description: 'CTO-as-a-Service and technical auditing. We help you define your tech stack and hiring roadmap to ensure long-term architectural success.',
+    subtitle: 'Strategic technology planning.',
+    description: 'Not sure what technology you need? We provide expert advice to help you choose the right tools and save money on development.',
     features: [
-      'Technical Due Diligence',
-      'Architectural Audits',
-      'Hiring Roadmap Strategy',
-      'Scaling Bottleneck Fixes',
+      'Technology Audits',
+      'Software Architecture',
+      'Cost Reduction Strategy',
+      'Project Roadmapping',
     ],
     color: 'text-brand-fuchsia shadow-brand-fuchsia/20',
     borderColor: 'group-hover:border-brand-fuchsia/50',
@@ -127,14 +127,14 @@ export default function Services() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-violet/10 border border-brand-violet/20 text-brand-violet text-sm font-medium mb-6"
           >
             <Cpu size={14} />
-            <span>Core Competencies</span>
+            <span>Our Services</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            Engineering the <span className="ai-gradient-text">Next Evolution</span> of Business
+            Software Services That <span className="ai-gradient-text">Grow Your Business</span>
           </h2>
           <p className="text-slate-400 text-lg">
-            We deliver the full spectrum of IT solutions, from autonomous agents to enterprise-grade cloud architectures.
+            We provide end-to-end technology solutions, from custom websites to AI automation, designed to increase your revenue and reduce costs.
           </p>
         </div>
 

@@ -21,19 +21,19 @@ export default function ServiceContent() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium w-fit">
             <Cpu size={14} />
-            <span>Neural Capabilities</span>
+            <span>Our Expertise</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-heading font-extrabold leading-tight text-white">
-            Architecting <span className="ai-gradient-text">Autonomous</span> Futures
+            Building the <span className="ai-gradient-text">Future</span> of Tech
           </h2>
 
           <p className="text-slate-400 text-lg max-w-lg leading-relaxed">
-            Our engineering protocols are designed for maximum impact. We don't just build software; we architect ecosystems that evolve with your business requirements.
+            We don't just write code; we build complete software solutions designed to scale and adapt as your business grows.
           </p>
 
           <div className="space-y-4">
-            {['Zero-bias evaluation systems', 'High-fidelity vocal agents', 'Sovereign cloud architecture'].map((item, i) => (
+            {['Custom Software Development', 'AI & Automation Tools', 'Secure Cloud Hosting'].map((item, i) => (
               <div key={i} className="flex items-center gap-3 text-white font-medium">
                 <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
                 {item}
@@ -81,7 +81,7 @@ export default function ServiceContent() {
                   </p>
 
                   <div className="pt-4 flex flex-wrap gap-2">
-                    {['SCALE', 'SECURE', 'PIONEER'].map((tag) => (
+                    {['SCALABLE', 'SECURE', 'FAST'].map((tag) => (
                       <span key={tag} className="text-[10px] font-bold px-3 py-1 rounded-full border border-white/5 text-white/40 tracking-widest">
                         {tag}
                       </span>

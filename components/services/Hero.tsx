@@ -16,22 +16,22 @@ export default function ServicesHero() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-8"
           >
             <Layers size={14} />
-            <span>Full-Spectrum Ecosystems</span>
+            <span>End-to-End Solutions</span>
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold text-white leading-tight mb-8">
-            Orchestrating <span className="ai-gradient-text">Neural</span> Solutions
+            Building Digital <span className="ai-gradient-text">Excellence</span>
           </h1>
 
           <p className="text-xl text-slate-400 mb-16 max-w-2xl mx-auto leading-relaxed">
-            From high-fidelity voice agents to autonomous cloud infrastructure. We deploy the technical protocols required to scale your digital presence into a dominant market force.
+            From custom web applications to scalable cloud infrastructure, we build the technology you need to grow your business and dominate your market.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Neural Deployments', count: '150+', icon: Activity, color: 'text-brand-cyan' },
-              { title: 'Operational Up-time', count: '99.9%', icon: ShieldCheck, color: 'text-brand-fuchsia' },
-              { title: 'Global Stakeholders', count: '500+', icon: Layers, color: 'text-brand-violet' },
+              { title: 'Projects Delivered', count: '150+', icon: Activity, color: 'text-brand-cyan' },
+              { title: 'System Uptime', count: '99.9%', icon: ShieldCheck, color: 'text-brand-fuchsia' },
+              { title: 'Happy Clients', count: '500+', icon: Layers, color: 'text-brand-violet' },
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (

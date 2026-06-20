@@ -6,29 +6,29 @@ import { Rocket, Globe, Zap, Cpu, History } from 'lucide-react';
 const milestones = [
   {
     year: '2024',
-    title: 'Singularity Initialized',
-    description: 'Vidhyonix founded with the mission to orchestrate high-fidelity neural systems.',
+    title: 'Company Founded',
+    description: 'Vidhyonix was founded with a mission to help businesses scale through great software.',
     icon: Rocket,
     color: 'text-brand-cyan',
   },
   {
     year: '2025',
-    title: 'Ecosystem Alpha',
-    description: 'Deployed first autonomous operational framework for global enterprise stakeholders.',
+    title: 'First Major Launch',
+    description: 'Deployed our first major web application for an international client.',
     icon: Globe,
     color: 'text-brand-fuchsia',
   },
   {
     year: '2025',
-    title: 'Neural Expansion',
-    description: 'Integrated advanced vocal intelligence and real-time merit analytics protocols.',
+    title: 'AI Integration',
+    description: 'Expanded our services to include custom AI development and automation tools.',
     icon: Zap,
     color: 'text-brand-violet',
   },
   {
     year: '2026',
-    title: 'Supremacy Target',
-    description: 'Scaling to become the primary architectural layer for autonomous business evolution.',
+    title: 'Global Growth',
+    description: 'Scaling our team to serve top-tier enterprise clients across the world.',
     icon: Cpu,
     color: 'text-brand-cyan',
   },
@@ -46,14 +46,14 @@ export default function Journey() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-6"
           >
             <History size={14} />
-            <span>Operational Log</span>
+            <span>Our Story</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            Our <span className="ai-gradient-text">Architectural</span> Journey
+            The <span className="ai-gradient-text">Journey</span> So Far
           </h2>
           <p className="text-slate-400 text-lg">
-            Tracing the evolution of our neural engineering and the expansion of our autonomous ecosystems.
+            See how we grew from a small development shop to a comprehensive digital partner.
           </p>
         </div>
 
