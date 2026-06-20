@@ -5,6 +5,7 @@ import { fadeUp, slideInLeft, slideInRight } from '@/lib/animations';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { SectionReveal } from '@/components/PageTransition';
 import React, { useState } from 'react';
+import CouponBanner from './CouponBanner';
 
 export default function ContactHero() {
   const servicesList = [
@@ -86,6 +87,7 @@ export default function ContactHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <motion.div variants={slideInLeft} initial="hidden" animate="visible">
             <SectionReveal>
+              <CouponBanner />
               <span className="inline-block py-1 px-3 mb-6 rounded-full bg-white/5 text-brand-cyan border border-brand-cyan/20 font-medium text-sm backdrop-blur">
                 Get in Touch
               </span>
