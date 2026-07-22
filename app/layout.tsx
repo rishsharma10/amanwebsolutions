@@ -1,31 +1,34 @@
 import './globals.css';
 import React from 'react';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 import SkillyTalkModal from '@/components/SkillyTalkModal';
 import NeuralCursor from '@/components/layout/NeuralCursor';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+import GlobalSchema from '@/components/seo/GlobalSchema';
+import AIChatbot from '@/components/shared/AIChatbot';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Vidhyonix | Best IT Company — Website Development, SEO & AI Solutions',
+    default: 'Vidhyonix | Premium AI Software Development Agency',
     template: '%s | Vidhyonix'
   },
-  description: 'Vidhyonix is a top-rated IT company for custom website development, mobile app development, SEO, and AI solutions. Delivering next-gen tech. Get a free consultation.',
+  description: 'Vidhyonix is a premium AI software development agency specializing in custom SaaS platforms, intelligent automation, and high-performance web and mobile applications.',
   keywords: [
-    'Best IT Company India', 'Website Development Company', 'Next.js Development', 'React Development', 'Node.js', 'NestJS',
-    'Mobile App Development', 'React Native', 'Flutter', 'AWS', 'Azure', 'DevOps', 'AI Web Solutions', 'SkillyTalk AI Hiring',
-    'Custom Software Development', 'SEO Services for Tech Companies', 'Digital Marketing'
+    'AI Software Development Company', 'Custom SaaS Development', 'Mobile App Agency', 'Next.js Development', 'Enterprise Software',
+    'AI Integration Services', 'Digital Transformation', 'Cloud Native Architecture', 'SkillyTalk AI', 'Proprietary AI Models'
   ],
   authors: [{ name: 'Vidhyonix Team' }],
   creator: 'Vidhyonix',
   publisher: 'Vidhyonix',
   metadataBase: new URL('https://vidhyonix.com'),
   openGraph: {
-    title: 'Vidhyonix | Best IT Company — Website Development, SEO & AI Solutions',
-    description: 'Vidhyonix is a top-rated IT company for custom website development, mobile app development, SEO, and AI solutions.',
+    title: 'Vidhyonix | Premium AI Software Development Agency',
+    description: 'Specializing in custom SaaS platforms, intelligent automation, and high-performance applications.',
     url: 'https://vidhyonix.com',
     siteName: 'Vidhyonix',
     images: [
@@ -41,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vidhyonix | Best IT Company',
-    description: 'Vidhyonix is a top-rated IT company for custom website development, mobile app development, SEO, and AI solutions.',
+    title: 'Vidhyonix | AI Software Agency',
+    description: 'Specializing in custom SaaS platforms, intelligent automation, and high-performance applications.',
     images: ['/og-image.jpg'],
   },
   alternates: {
@@ -79,10 +82,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
+      <head>
+        <GlobalSchema />
+      </head>
       <body className="bg-brand-dark text-white font-sans antialiased selection:bg-brand-fuchsia/30">
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NFKQYZX8BB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NFKQYZX8BB');
+          `}
+        </Script>
         <NeuralCursor />
-        <div className="scan-line" />
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <div className="scan-line" />
+          {children}
+          <AIChatbot />
+        </ThemeProvider>
         <SkillyTalkModal />
         <BreadcrumbSchema />
       </body>

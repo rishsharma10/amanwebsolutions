@@ -14,28 +14,36 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    solutions: [
-      { href: '/services', label: 'AI Engineering' },
-      { href: '/product', label: 'SkillyTalk AI' },
-      { href: '/services', label: 'Web Platforms' },
-      { href: '/services', label: 'Mobile Apps' },
-      { href: '/services', label: 'Cloud & DevOps' },
+    services: [
+      { href: '/services/ai-development', label: 'AI Development' },
+      { href: '/services/custom-software-development', label: 'Custom Software' },
+      { href: '/services/saas-development', label: 'SaaS Development' },
+      { href: '/services/web-development', label: 'Web Development' },
+      { href: '/services/mobile-app-development', label: 'Mobile Apps' },
     ],
-    ecosystem: [
-      { href: '/about', label: 'Our Mission' },
-      { href: '/portfolio', label: 'Impact' },
-      { href: '/blog', label: 'Insights' },
-      { href: '/contact', label: 'Join Us' },
+    company: [
+      { href: '/about', label: 'About Us' },
+      { href: '/portfolio', label: 'Portfolio' },
+      { href: '/blog', label: 'Blog' },
+      { href: '/contact', label: 'Contact' },
+    ],
+    products: [
+      { href: 'https://aiinterview.skillytalk.com/', label: 'SkillyTalk AI' },
     ],
     legal: [
-      { href: '/privacy-policy', label: 'Privacy Protocol' },
+      { href: '/privacy-policy', label: 'Privacy Policy' },
       { href: '/terms', label: 'Terms of Service' },
-      { href: '/cookies', label: 'Cookie Architecture' },
+    ],
+    contacts: [
+      { href: 'https://wa.me/918770283188', label: 'WhatsApp Chat', target: '_blank' },
+      { href: 'tel:+918770283188', label: 'Call Support' },
+      { href: 'mailto:vidhyonixitsolutions@gmail.com', label: 'Email Support' },
+      { href: '/contact', label: 'Contact Form' }
     ]
   };
 
   const socialLinks = [
-    { href: 'https://www.linkedin.com/in/rishabh-sharma-b141b0383/', Icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://www.linkedin.com/company/vidhyonix-it-solutions/', Icon: Linkedin, label: 'LinkedIn' },
     { href: 'https://www.instagram.com/vidhyonix/', Icon: Instagram, label: 'Instagram' },
     { href: 'https://www.facebook.com/people/Vidhyonix/61580259069806/', Icon: Facebook, label: 'Facebook' },
   ];
@@ -53,7 +61,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
 
           {/* Brand Column */}
-          <div className="md:col-span-4 space-y-8">
+          <div className="md:col-span-3 space-y-8">
             <Link href="/" className="inline-block group">
               <img
                 src={logo.src}
@@ -75,9 +83,9 @@ export default function Footer() {
 
           {/* Links Columns */}
           <div className="md:col-span-2 space-y-6">
-            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Solutions</h4>
+            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Services</h4>
             <ul className="space-y-4">
-              {footerLinks.solutions.map((link, i) => (
+              {footerLinks.services.map((link, i) => (
                 <li key={i}>
                   <Link href={link.href} className="text-slate-400 hover:text-white transition-colors text-sm">
                     {link.label}
@@ -88,11 +96,34 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-2 space-y-6">
-            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Ecosystem</h4>
+            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Company</h4>
             <ul className="space-y-4">
-              {footerLinks.ecosystem.map((link, i) => (
+              {footerLinks.company.map((link, i) => (
                 <li key={i}>
                   <Link href={link.href} className="text-slate-400 hover:text-white transition-colors text-sm">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs mt-8">Products</h4>
+            <ul className="space-y-4">
+              {footerLinks.products.map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href} target="_blank" className="text-slate-400 hover:text-white transition-colors text-sm">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2 space-y-6">
+            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Direct Support</h4>
+            <ul className="space-y-4">
+              {footerLinks.contacts.map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href} target={link.target} className="text-slate-400 hover:text-white transition-colors text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -101,7 +132,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter / Contact Column */}
-          <div className="md:col-span-4 space-y-6">
+          <div className="md:col-span-3 space-y-6">
             <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Join the Evolution</h4>
             <p className="text-slate-400 text-sm">
               Subscribe to our neural-insights and stay ahead of the digital curve.
@@ -116,14 +147,18 @@ export default function Footer() {
                 <Send size={16} />
               </button>
             </form>
-            <div className="pt-4 space-y-2">
+            <div className="pt-4 space-y-3">
               <div className="flex items-center gap-3 text-slate-400 text-sm">
                 <Mail size={16} className="text-brand-cyan" />
                 <span>vidhyonixitsolutions@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-slate-400 text-sm">
+                <Phone size={16} className="text-brand-cyan" />
+                <span>+91 8770283188</span>
+              </div>
+              <div className="flex items-center gap-3 text-slate-400 text-sm">
                 <MapPin size={16} className="text-brand-fuchsia" />
-                <span>Global HQ • Remote-First</span>
+                <span>Mohali, Chandigarh, India</span>
               </div>
             </div>
           </div>

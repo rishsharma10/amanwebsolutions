@@ -20,21 +20,27 @@ export default function AboutHero() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-8">
-              Building the <span className="ai-gradient-text">Future</span> of Technology
+              The <span className="ai-gradient-text">AI-First</span> Engineering Agency
             </h1>
 
             <p className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
-              Vidhyonix is more than just a software agency; we are your technology partner. We build custom websites, mobile apps, and AI solutions that help your business grow faster and operate more efficiently.
+              We build intelligent digital products that drive measurable business outcomes. We aren't just developers; we are strategic technical partners dedicated to your growth, efficiency, and scale.
             </p>
 
-            <div className="flex gap-12 border-t border-white/10 pt-10">
-              <div>
-                <div className="text-3xl font-bold text-white mb-1">2025</div>
-                <div className="text-xs text-brand-cyan font-bold tracking-widest uppercase">Company Founded</div>
+            <div className="flex gap-6 border-t border-white/10 pt-10">
+              <div className="flex items-center gap-3">
+                 <div className="w-12 h-12 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan font-bold text-xl">1</div>
+                 <div>
+                    <div className="text-white font-bold text-sm uppercase tracking-wider">Speed</div>
+                    <div className="text-slate-400 text-xs">Rapid Execution</div>
+                 </div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-1">Global</div>
-                <div className="text-xs text-brand-fuchsia font-bold tracking-widest uppercase">Clients Served</div>
+               <div className="flex items-center gap-3">
+                 <div className="w-12 h-12 rounded-full bg-brand-fuchsia/20 flex items-center justify-center text-brand-fuchsia font-bold text-xl">2</div>
+                 <div>
+                    <div className="text-white font-bold text-sm uppercase tracking-wider">Quality</div>
+                    <div className="text-slate-400 text-xs">Premium Engineering</div>
+                 </div>
               </div>
             </div>
           </motion.div>

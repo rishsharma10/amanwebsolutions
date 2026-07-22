@@ -30,9 +30,9 @@ export default function Header() {
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
     { href: '/product', label: 'Product' },
-    { href: '/portfolio', label: 'Impact' },
-    { href: '/blog', label: 'Insights' },
-    { href: '/about', label: 'Mission' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -93,16 +93,9 @@ export default function Header() {
 
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="/product">
-            <button className="flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-white transition-colors px-4 py-2 border border-white/10 hover:border-brand-cyan/50 rounded-xl">
-              <Zap size={14} className="text-brand-cyan" />
-              SKILLYTALK
-            </button>
-          </Link>
           <Link href="/contact">
-            <button className="group relative px-6 py-2 bg-white text-black rounded-xl font-bold text-sm transition-all overflow-hidden flex items-center gap-2">
-              <div className="absolute inset-0 bg-brand-cyan translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300 opacity-20" />
-              <span>Innovate With Us</span>
+            <button className="group relative px-6 py-2.5 bg-brand-cyan text-brand-dark rounded-xl font-bold text-sm transition-all overflow-hidden flex items-center gap-2 hover:bg-white">
+              <span>Book Consultation</span>
             </button>
           </Link>
         </div>
@@ -148,8 +141,8 @@ export default function Header() {
 
             <div className="mt-auto pb-12 space-y-4">
               <Link href="/contact" className="block">
-                <button className="w-full py-4 bg-white text-black rounded-2xl font-bold text-xl">
-                  Get Started
+                <button className="w-full py-4 bg-brand-cyan text-brand-dark rounded-2xl font-bold text-xl hover:bg-white transition-colors">
+                  Book Consultation
                 </button>
               </Link>
               <Link href="/product" className="block">

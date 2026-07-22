@@ -59,7 +59,7 @@ export default function SkillyTalkShowcase() {
                         </div>
 
                         <div className="pt-8 flex flex-wrap gap-4">
-                            <Link href="https://skillytalkinterview.vidhyonix.com/" target="_blank">
+                            <Link href="https://aiinterview.skillytalk.com/" target="_blank">
                                 <button className="px-8 py-4 bg-white text-black rounded-2xl font-bold tracking-wider hover:bg-slate-200 transition-all flex items-center gap-2">
                                     EXPLORE PLATFORM
                                     <ArrowRight size={18} />

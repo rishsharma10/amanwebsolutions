@@ -39,25 +39,31 @@ export default function CTA() {
 
           <div className="space-y-6">
             <h2 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight">
-              Ready to <span className="ai-gradient-text">Grow</span> Your Business?
+              Let's Build Something <span className="ai-gradient-text">Exceptional</span> Together
             </h2>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
               Partner with our expert development team to build the custom software, websites, and AI tools your business needs to succeed.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
             <Link href="/contact">
-              <button className="px-10 py-5 bg-white text-black rounded-2xl font-bold tracking-wider hover:bg-slate-200 transition-all flex items-center gap-3 group relative overflow-hidden">
+              <button className="px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2 group relative overflow-hidden">
                 <div className="absolute inset-0 bg-brand-cyan/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-                <span className="relative z-10">START YOUR PROJECT</span>
-                <ArrowRight size={20} className="relative z-10 group-hover:translate-x-2 transition-transform" />
+                <span className="relative z-10">Book Free Consultation</span>
+                <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </button>
             </Link>
 
             <Link href="/contact">
-              <button className="px-10 py-5 glass-morphism border border-white/10 text-white rounded-2xl font-bold tracking-wider hover:border-brand-cyan/50 transition-all">
-                TALK TO SALES
+              <button className="px-8 py-4 glass-morphism border border-white/10 text-white rounded-xl font-bold hover:border-brand-cyan/50 transition-all">
+                Get Free Project Estimate
+              </button>
+            </Link>
+            
+            <Link href="/contact">
+              <button className="px-8 py-4 glass-morphism border border-white/10 text-white rounded-xl font-bold hover:border-brand-fuchsia/50 transition-all">
+                Schedule a Discovery Call
               </button>
             </Link>
           </div>

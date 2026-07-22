@@ -41,7 +41,7 @@ const page = () => {
         </motion.div>
 
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             className="max-w-3xl mx-auto text-center relative z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ const page = () => {
             <p className="text-gray-700 dark:text-gray-200">
               For questions about these Terms or for support, please contact us at
               {' '}
-              <a href="mailto:info@vidhyonix.com" className="text-sky-600 hover:underline">info@vidhyonix.com</a>.
+              <a href="mailto:vidhyonixitsolutions@gmail.com" className="text-sky-600 hover:underline">vidhyonixitsolutions@gmail.com</a>.
             </p>
           </section>
         </motion.div>

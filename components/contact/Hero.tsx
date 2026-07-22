@@ -5,7 +5,6 @@ import { fadeUp, slideInLeft, slideInRight } from '@/lib/animations';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { SectionReveal } from '@/components/PageTransition';
 import React, { useState } from 'react';
-import CouponBanner from './CouponBanner';
 
 export default function ContactHero() {
   const servicesList = [
@@ -28,37 +27,40 @@ export default function ContactHero() {
     service: '',
     details: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: null, message: '' });
 
-    const to = 'info@vidhyonix.com';
-    const subject = `New Inquiry: ${formData.name} — ${formData.service || 'General'}`;
-    const body = [
-      'New contact request via website:',
-      '',
-      `Name: ${formData.name}`,
-      `Company: ${formData.company}`,
-      `Email: ${formData.email}`,
-      `Service: ${formData.service}`,
-      '',
-      'Project Details:',
-      formData.details,
-    ].join('\n');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(gmailUrl, '_blank');
+      const result = await response.json();
 
-    // Fallback to default mail client if Gmail is unavailable
-    setTimeout(() => {
-      const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailtoUrl;
-    }, 500);
+      if (response.ok) {
+        setStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully. We will get back to you soon.' });
+        setFormData({ name: '', company: '', email: '', service: '', details: '' });
+      } else {
+        setStatus({ type: 'error', message: result.error || 'Failed to send message. Please try again later.' });
+      }
+    } catch (error) {
+      console.error("Submission error", error);
+      setStatus({ type: 'error', message: 'An unexpected error occurred. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,7 +89,6 @@ export default function ContactHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <motion.div variants={slideInLeft} initial="hidden" animate="visible">
             <SectionReveal>
-              <CouponBanner />
               <span className="inline-block py-1 px-3 mb-6 rounded-full bg-white/5 text-brand-cyan border border-brand-cyan/20 font-medium text-sm backdrop-blur">
                 Get in Touch
               </span>
@@ -102,8 +103,8 @@ export default function ContactHero() {
                   {
                     icon: <Mail className="w-5 h-5" />,
                     title: 'Email',
-                    content: 'info@vidhyonix.com',
-                    link: 'mailto:info@vidhyonix.com'
+                    content: 'vidhyonixitsolutions@gmail.com',
+                    link: 'mailto:vidhyonixitsolutions@gmail.com'
                   },
                   {
                     icon: <Phone className="w-5 h-5" />,
@@ -147,6 +148,13 @@ export default function ContactHero() {
             className="glass-morphism rounded-3xl p-8 md:p-10 flex flex-col gap-6"
           >
             <h2 className="text-2xl font-bold mb-2 text-white">Send Us a Message</h2>
+
+            {status.type && (
+              <div className={`p-4 rounded-xl text-sm font-medium ${status.type === 'success' ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-red-500/20 text-red-400 border border-red-500/30'}`}>
+                {status.message}
+              </div>
+            )}
+
             <form className="w-full grid grid-cols-1 lg:grid-cols-2 gap-5" onSubmit={handleSubmit}>
               <div className="flex flex-col gap-2 lg:col-span-1">
                 <label className="block text-sm font-medium text-gray-300">Full Name</label>
@@ -213,9 +221,20 @@ export default function ContactHero() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-brand-cyan via-brand-violet to-brand-fuchsia text-white rounded-full px-8 py-3 font-bold shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:scale-[1.02] transition-all duration-300 mt-2 lg:col-span-2"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-brand-cyan via-brand-violet to-brand-fuchsia text-white rounded-full px-8 py-3 font-bold shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:scale-[1.02] transition-all duration-300 mt-2 lg:col-span-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </motion.div>

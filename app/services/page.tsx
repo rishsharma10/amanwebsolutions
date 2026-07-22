@@ -1,10 +1,19 @@
-"use client";
+import { Metadata } from 'next';
 import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ServicesHero from '@/components/services/Hero';
 import CTA from '@/components/home/CTA';
 import ServiceContent from '@/components/services/ServicesContent';
+import SolutionFinder from '@/components/shared/SolutionFinder';
+
+export const metadata: Metadata = {
+  title: 'Services | Custom AI Development & Cloud Architecture',
+  description: 'Explore our core services: AI and Machine Learning, Custom SaaS Development, Next.js Web Development, and Enterprise Cloud Solutions.',
+  alternates: {
+    canonical: 'https://vidhyonix.com/services',
+  }
+};
 
 export default function Services() {
   return (
@@ -19,6 +28,13 @@ export default function Services() {
 
         <Header />
         <ServicesHero />
+        
+        <section className="py-24 relative z-10">
+          <div className="container mx-auto px-4">
+            <SolutionFinder />
+          </div>
+        </section>
+
         <ServiceContent />
         <CTA />
         <Footer />

@@ -135,7 +135,7 @@ const CookiesPage = () => {
           <div className="border-t border-white/5 pt-8 mt-12">
             <h3 className="text-lg font-bold text-white mb-2">Questions?</h3>
             <p className="text-slate-400">
-              If you have any questions about our use of cookies, please contact us at <a href="mailto:info@vidhyonix.com" className="text-brand-cyan hover:underline">info@vidhyonix.com</a>.
+              If you have any questions about our use of cookies, please contact us at <a href="mailto:vidhyonixitsolutions@gmail.com" className="text-brand-cyan hover:underline">vidhyonixitsolutions@gmail.com</a>.
             </p>
           </div>
         </motion.div>

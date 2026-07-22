@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blogData';
+import { industriesData } from '@/lib/industriesData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://vidhyonix.com';
@@ -23,10 +24,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic blog posts
   const dynamicBlogPages = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.id}`,
-    lastModified: new Date().toISOString(), // In reality, use post.date converted to ISO
+    lastModified: new Date().toISOString(),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
-  return [...staticPages, ...dynamicBlogPages];
+  // Dynamic industry pages
+  const dynamicIndustryPages = Object.keys(industriesData).map((slug) => ({
+    url: `${baseUrl}/industries/${slug}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...dynamicBlogPages, ...dynamicIndustryPages];
 }

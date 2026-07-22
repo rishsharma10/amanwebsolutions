@@ -48,6 +48,6 @@ doc.rect(50, doc.y, 500, 80).fill('#f1f5f9');
 doc.y += 15;
 doc.fontSize(14).fillColor('#0f172a').text('Ready to build your custom AI Ecosystem?', { align: 'center' });
 doc.moveDown(0.5);
-doc.fontSize(12).fillColor('#22d3ee').text('info@vidhyonix.com  |  vidhyonix.com', { align: 'center' });
+doc.fontSize(12).fillColor('#22d3ee').text('vidhyonixitsolutions@gmail.com  |  vidhyonix.com', { align: 'center' });
 
 doc.end();

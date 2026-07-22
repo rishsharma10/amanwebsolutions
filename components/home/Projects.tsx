@@ -25,72 +25,108 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const categories = [
-    { id: 'all', label: 'All Projects', icon: Globe },
-    { id: 'web', label: 'Websites', icon: Layout },
-    { id: 'app', label: 'Mobile Apps', icon: Smartphone },
-    { id: '3d', label: '3D & Design', icon: Box },
+    { id: 'all', label: 'All Work', icon: Globe },
+    { id: 'ai', label: 'AI & Agents', icon: Cpu },
+    { id: 'saas', label: 'SaaS Platforms', icon: Box },
+    { id: 'web', label: 'Web & Mobile', icon: Smartphone },
   ];
 
   const projects = [
     {
       id: 1,
-      title: 'Aether 1',
-      description: 'A premium 3D product showcase for high-end audio equipment.',
-      tech: ['Three.js', 'Blender', 'Framer Motion'],
-      category: '3d',
-      image: aether.src,
-      link: 'https://www.aether1.ai/',
+      title: 'SkillyTalk Interview',
+      problem: 'Manual candidate screening is biased, slow, and expensive.',
+      solution: 'An AI-powered voice agent that conducts technical interviews autonomously.',
+      impact: 'Reduced hiring time by 80% and eliminated human bias.',
+      tech: ['Next.js', 'OpenAI', 'WebRTC', 'NestJS'],
+      category: 'ai',
+      image: '/assets/dashboard.png', // Placeholder
+      link: 'https://aiinterview.skillytalk.com/',
       color: 'bg-brand-cyan/20 text-brand-cyan'
     },
     {
       id: 2,
-      title: 'Abundish',
-      description: 'A fast, reliable delivery and logistics management web platform.',
-      tech: ['Next.js', 'Nest.js', 'Redis'],
-      category: 'web',
-      image: abundish.src,
-      link: 'https://staging.abundish.com/',
+      title: 'AI Hiring Platform',
+      problem: 'HR teams struggle to manage thousands of resumes efficiently.',
+      solution: 'An intelligent ATS that parses, ranks, and shortlists candidates using NLP.',
+      impact: 'Increased recruiter efficiency by 3x.',
+      tech: ['React', 'Python', 'Vector DB', 'AWS'],
+      category: 'saas',
+      image: '/assets/hiring.png', // Placeholder
+      link: '#',
       color: 'bg-brand-violet/20 text-brand-violet'
     },
     {
       id: 3,
-      title: 'Cyphr Studio',
-      description: 'An interactive portfolio website for a creative design agency.',
-      tech: ['Three.js', 'GSAP', 'WebGL'],
-      category: '3d',
-      image: cyphr.src,
-      link: 'https://www.cyphr.studio/',
+      title: 'Enterprise Analytics Dashboard',
+      problem: 'Disjointed data sources lead to poor decision making.',
+      solution: 'A unified dashboard aggregating data from 10+ sources with predictive insights.',
+      impact: 'Saved executives 15 hours a week in reporting.',
+      tech: ['Vue.js', 'Node.js', 'PostgreSQL', 'Redis'],
+      category: 'saas',
+      image: 'assets/analytics.png', // Placeholder
+      link: '#',
       color: 'bg-brand-fuchsia/20 text-brand-fuchsia'
     },
     {
       id: 4,
-      title: 'Good Citizen',
-      description: 'A mobile application that helps citizens report emergencies quickly.',
-      tech: ['Flutter', 'Firebase', 'Real-time'],
-      category: 'app',
+      title: 'Good Citizen App',
+      problem: 'Citizens lack a quick way to report local emergencies.',
+      solution: 'A fast, reliable mobile app with geolocation and real-time alerts.',
+      impact: 'Over 50,000 active users reporting issues daily.',
+      tech: ['Flutter', 'Firebase', 'GCP'],
+      category: 'web',
       image: goodCitizen.src,
       link: 'https://app.agoodcitizen.in/',
       color: 'bg-brand-cyan/20 text-brand-cyan'
     },
     {
       id: 5,
-      title: 'Trionn',
-      description: 'A sleek, corporate website for a major digital marketing firm.',
-      tech: ['Three.js', 'React.js', 'Design'],
-      category: '3d',
-      image: trionn.src,
-      link: 'https://trionn.com/',
+      title: 'AI Tools Directory',
+      problem: 'Users cannot find reliable AI tools easily.',
+      solution: 'A high-performance directory with intelligent search and categorization.',
+      impact: 'Reached 100k+ monthly visitors within 3 months.',
+      tech: ['Next.js', 'Tailwind', 'Algolia'],
+      category: 'web',
+      image: marketReach.src,
+      link: 'https://aitoolsone.com/',
       color: 'bg-brand-violet/20 text-brand-violet'
     },
     {
       id: 6,
-      title: 'AI Tools One',
-      description: 'A comprehensive directory platform listing the best AI software.',
-      tech: ['WordPress', 'AI Integrations'],
-      category: 'web',
-      image: marketReach.src,
-      link: 'https://aitoolsone.com/',
+      title: 'Automated Support Agent',
+      problem: 'High customer support ticket volume causes slow response times.',
+      solution: 'A context-aware LLM chatbot integrated directly into the helpdesk.',
+      impact: 'Resolved 65% of level-1 tickets automatically.',
+      tech: ['LangChain', 'OpenAI', 'React'],
+      category: 'ai',
+      image: trionn.src, // Placeholder
+      link: '#',
       color: 'bg-brand-fuchsia/20 text-brand-fuchsia'
+    },
+    {
+      id: 7,
+      title: 'OrderGenie App',
+      problem: 'Restaurants miss incoming phone and online orders during busy peak hours, losing revenue.',
+      solution: 'An automated, voice-enabled AI ordering agent that answers calls and handles orders autonomously.',
+      impact: 'Zero missed orders during peak hours, increasing food sales by 24%.',
+      tech: ['Flutter', 'Firebase', 'GCP', 'OpenAI'],
+      category: 'web',
+      image: '/assets/ogslo.png',
+      link: 'https://app.ordergenie.in/',
+      color: 'bg-brand-cyan/20 text-brand-cyan'
+    },
+    {
+      id: 8,
+      title: 'InterviewEasy AI',
+      problem: 'Job seekers lack a realistic, stress-free environment to prepare for high-stakes technical interviews.',
+      solution: 'A conversational AI interview platform that conducts voice-based mock interviews and provides detailed scoring rubrics.',
+      impact: 'Boosted candidate hiring rates by 42% and reduced interview anxiety.',
+      tech: ['Next.js', 'OpenAI API', 'WebRTC', 'Tailwind CSS'],
+      category: 'ai',
+      image: '/assets/intervieweasy.png',
+      link: 'https://intervieweasy.ai/',
+      color: 'bg-brand-violet/20 text-brand-violet'
     }
   ];
 
@@ -124,8 +160,8 @@ export default function Projects() {
         </div>
 
         {/* Filter Categories */}
-        <div className="flex justify-center mb-16 overflow-x-auto pb-4 scrollbar-hide">
-          <div className="flex gap-2 p-1.5 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-md">
+        <div className="flex justify-start md:justify-center mb-16 overflow-x-auto pb-4 scrollbar-hide w-full max-w-full px-4">
+          <div className="flex gap-2 p-1.5 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-md shrink-0">
             {categories.map((category) => {
               const Icon = category.icon;
               return (
@@ -158,55 +194,86 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group relative"
+                className="group relative flex flex-col h-full bg-[#0d0d12]/60 rounded-3xl border border-white/5 overflow-hidden transition-all duration-300 hover:border-white/10 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
               >
-                <Link href={project.link} target="_blank" className="block">
-                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden glass-morphism border border-white/10">
-                    {/* Background Image with Overlay */}
-                    <div className="absolute inset-0 z-0">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-brand-dark/60 group-hover:bg-brand-dark/20 transition-colors duration-500" />
+                {/* Image Section */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-brand-dark flex-shrink-0">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d12] via-transparent to-transparent pointer-events-none" />
+
+                  {/* Category Badge on top of image */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className={cn("px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest block", project.color)}>
+                      {project.category}
+                    </span>
+                  </div>
+
+                  {/* External Arrow link button */}
+                  {project.link !== '#' && (
+                    <div className="absolute top-4 right-4 z-10 p-2.5 rounded-xl bg-[#0d0d12]/80 border border-white/10 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0">
+                      <ArrowRight size={16} className="text-white" />
                     </div>
+                  )}
+                </div>
 
-                    {/* Content */}
-                    <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
-                      <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className={cn("px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest w-fit mb-4", project.color)}>
-                          {project.category}
-                        </div>
-                        <h3 className="text-2xl font-heading font-bold text-white mb-3 group-hover:text-brand-cyan transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">
-                          {project.description}
-                        </p>
+                {/* Content Section */}
+                <div className="p-6 flex flex-col flex-grow justify-between space-y-6">
+                  <div>
+                    <h3 className="text-xl font-heading font-bold text-white mb-4 group-hover:text-brand-cyan transition-colors">
+                      {project.title}
+                    </h3>
+
+                    {/* Outcome / Case Study parameters */}
+                    <div className="space-y-3 bg-white/[0.02] border border-white/5 rounded-2xl p-4">
+                      <div className="text-xs leading-relaxed">
+                        <span className="text-red-400 font-bold block mb-0.5">THE CHALLENGE</span>
+                        <p className="text-slate-400 font-medium">{project.problem}</p>
                       </div>
-
-                      {/* Tech Tags */}
-                      <div className="mt-6 flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        {project.tech.map((t, i) => (
-                          <span key={i} className="text-[10px] font-medium text-white/50 px-2 py-1 bg-white/5 rounded-md border border-white/5">
-                            {t}
-                          </span>
-                        ))}
+                      <div className="w-full h-px bg-white/5" />
+                      <div className="text-xs leading-relaxed">
+                        <span className="text-green-400 font-bold block mb-0.5">THE SOLUTION</span>
+                        <p className="text-slate-300 font-medium">{project.solution}</p>
                       </div>
-                    </div>
-
-                    {/* Arrow Icon */}
-                    <div className="absolute top-6 right-6 p-3 rounded-xl glass-morphism border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-4 group-hover:translate-x-0">
-                      <ArrowRight size={20} className="text-white" />
+                      <div className="w-full h-px bg-white/5" />
+                      <div className="text-xs leading-relaxed">
+                        <span className="text-brand-cyan font-bold block mb-0.5">BUSINESS IMPACT</span>
+                        <p className="text-white font-semibold">{project.impact}</p>
+                      </div>
                     </div>
                   </div>
-                </Link>
+
+                  {/* Tech Tags & CTA */}
+                  <div className="space-y-4 pt-2">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tech.map((t, i) => (
+                        <span key={i} className="text-[10px] font-bold text-slate-400 px-2.5 py-1 bg-white/5 rounded-lg border border-white/5">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="border-t border-white/5 pt-4">
+                      {project.link !== '#' ? (
+                        <Link href={project.link} target="_blank" className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-brand-cyan transition-colors">
+                          VIEW CASE STUDY <ArrowRight size={14} />
+                        </Link>
+                      ) : (
+                        <Link href="/contact" className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-brand-cyan transition-colors">
+                          DISCUSS PROJECT <ArrowRight size={14} />
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </div>
 
                 {/* Underlay glow */}
                 <div className={cn(
-                  "absolute -inset-2 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-[2.5rem] blur-xl z-[-1]",
+                  "absolute -inset-2 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-[2.5rem] blur-2xl z-[-1] pointer-events-none",
                   project.id % 3 === 0 ? "bg-brand-cyan" : project.id % 2 === 0 ? "bg-brand-violet" : "bg-brand-fuchsia"
                 )} />
               </motion.div>

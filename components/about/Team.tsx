@@ -6,82 +6,35 @@ import { SectionReveal } from '@/components/PageTransition';
 
 export default function Team() {
   return (
-    <section className="relative min-h-screen flex items-center pt-32">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-600/5"></div>
-        
-        <motion.div
-          className="absolute top-20 right-[10%] w-72 h-72 rounded-full bg-blue-500/10 blur-[100px]"
-          animate={{
-            x: [0, 30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        
-        <motion.div
-          className="absolute bottom-20 left-[5%] w-80 h-80 rounded-full bg-purple-500/10 blur-[120px]"
-          animate={{
-            x: [0, -20, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-      </div>
+    <section className="relative py-24 md:py-32 bg-brand-dark/50 border-t border-white/5 overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <SectionReveal>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
+              The <span className="ai-gradient-text">Leadership</span> Team
+            </h2>
+            <p className="text-lg text-slate-400">
+              The engineers, designers, and strategists behind Vidhyonix's success. (Team profiles being updated)
+            </p>
+          </SectionReveal>
+        </div>
 
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div variants={slideInLeft} initial="hidden" animate="visible">
-            <SectionReveal>
-              <span className="inline-block py-1 px-3 mb-6 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm">
-                About Us
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                We Create Digital Solutions That Drive Growth
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                With over a decade of experience, we've helped hundreds of businesses transform their digital presence and achieve remarkable growth.
-              </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[1, 2, 3, 4].map((item) => (
+            <SectionReveal key={item}>
+              <div className="glass-morphism rounded-[2rem] border border-white/5 overflow-hidden group">
+                <div className="aspect-square bg-white/5 relative">
+                  <div className="absolute inset-0 flex items-center justify-center text-white/10 group-hover:text-white/20 transition-colors">
+                    <span className="font-heading font-bold text-lg uppercase tracking-widest">Profile Pending</span>
+                  </div>
+                </div>
+                <div className="p-6 text-center border-t border-white/5">
+                  <h3 className="text-xl font-bold text-white mb-1">Executive Name</h3>
+                  <p className="text-brand-cyan text-xs font-bold uppercase tracking-widest">Leadership Role</p>
+                </div>
+              </div>
             </SectionReveal>
-          </motion.div>
-
-          <motion.div 
-            variants={slideInRight}
-            initial="hidden"
-            animate="visible"
-            className="relative"
-          >
-            <div className="relative aspect-square rounded-2xl overflow-hidden">
-              <img 
-                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Team collaboration"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
-
-            <motion.div 
-              className="absolute -bottom-6 -right-6 bg-card border border-border/50 rounded-lg p-6 shadow-lg max-w-xs"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
-              <p className="text-muted-foreground">
-                To empower businesses with innovative digital solutions that drive sustainable growth and success.
-              </p>
-            </motion.div>
-          </motion.div>
+          ))}
         </div>
       </div>
     </section>

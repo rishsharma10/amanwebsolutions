@@ -29,7 +29,7 @@ export default function SkillyTalkModal() {
 
     const handleExplore = () => {
         localStorage.setItem('hasSeenSkillyTalkModal', 'true');
-        window.open('https://skillytalkinterview.vidhyonix.com/', '_blank');
+        window.open('https://aiinterview.skillytalk.com/', '_blank');
         setIsOpen(false);
     };
 
