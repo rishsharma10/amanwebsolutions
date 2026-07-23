@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Zap } from 'lucide-react';
+import { Cpu, Zap, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { servicesArray } from '../home/Services';
 
@@ -69,10 +70,12 @@ export default function ServiceContent() {
                   </div>
                 </div>
 
-                <div className="flex-1 space-y-4">
-                  <h3 className="text-3xl font-heading font-bold text-white group-hover:text-brand-cyan transition-colors">
-                    {service.title}
-                  </h3>
+                <div className="flex-1 space-y-4 w-full">
+                  <Link href={`/services/${service.id}`}>
+                    <h3 className="text-3xl font-heading font-bold text-white group-hover:text-brand-cyan transition-colors cursor-pointer">
+                      {service.title}
+                    </h3>
+                  </Link>
                   <div className="text-brand-fuchsia font-bold tracking-widest text-xs uppercase">
                     {service.subtitle}
                   </div>
@@ -80,12 +83,17 @@ export default function ServiceContent() {
                     {service.description}
                   </p>
 
-                  <div className="pt-4 flex flex-wrap gap-2">
-                    {['SCALABLE', 'SECURE', 'FAST'].map((tag) => (
-                      <span key={tag} className="text-[10px] font-bold px-3 py-1 rounded-full border border-white/5 text-white/40 tracking-widest">
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="pt-4 flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-2">
+                      {['SCALABLE', 'SECURE', 'FAST'].map((tag) => (
+                        <span key={tag} className="text-[10px] font-bold px-3 py-1 rounded-full border border-white/5 text-white/40 tracking-widest">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <Link href={`/services/${service.id}`} className="inline-flex items-center gap-2 text-xs font-bold text-brand-cyan hover:text-white transition-colors">
+                      LEARN DETAILS <ArrowRight size={14} />
+                    </Link>
                   </div>
                 </div>
               </div>

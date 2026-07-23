@@ -74,12 +74,12 @@ export default function ProductPage() {
                 variants={fadeInUp}
                 className="flex flex-col sm:flex-row gap-6 justify-center items-center"
               >
-                <Link href="https://hire.skillytalk.com" target="_blank">
+                <Link href="https://aiinterview.skillytalk.com/" target="_blank">
                   <button className="px-8 py-4 bg-brand-fuchsia hover:bg-fuchsia-600 text-white rounded-full font-bold text-lg flex items-center gap-2 shadow-lg shadow-brand-fuchsia/20 transition-all hover:scale-105 hover:shadow-brand-fuchsia/40">
                     Start Free Trial <ArrowRight size={20} />
                   </button>
                 </Link>
-                <Link href="https://www.skillytalk.com/" target="_blank">
+                <Link href="https://aiinterview.skillytalk.com/" target="_blank">
                   <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-bold text-lg transition-all hover:scale-105">
                     Explore SkillyTalk
                   </button>
@@ -252,7 +252,7 @@ export default function ProductPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link href="https://hire.skillytalk.com" target="_blank" className="w-full">
+                    <Link href="https://aiinterview.skillytalk.com/" target="_blank" className="w-full">
                       <button className="w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-slate-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                         Get Started for Free
                       </button>

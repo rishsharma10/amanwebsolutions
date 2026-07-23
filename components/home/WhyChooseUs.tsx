@@ -8,56 +8,56 @@ import { cn } from '@/lib/utils';
 const reasons = [
   {
     title: 'AI-First Engineering',
-    description: 'We don\'t just add AI as an afterthought. We architect systems from the ground up to leverage machine learning and automation for maximum efficiency.',
+    description: 'We architect machine learning systems from the ground up to automate complex workflows, delivering up to 50% operational cost savings.',
     icon: Zap,
     color: 'text-brand-cyan',
     bg: 'bg-brand-cyan/10 border-brand-cyan/20'
   },
   {
     title: 'Startup-Friendly Agility',
-    description: 'We understand runway and burn rate. Our agile process ensures you get a market-ready product fast without sacrificing quality or breaking the bank.',
+    description: 'We understand runway and burn rate. Our lean methodology allows startups to launch a robust, investor-ready MVP in under 6 weeks.',
     icon: Rocket,
     color: 'text-brand-violet',
     bg: 'bg-brand-violet/10 border-brand-violet/20'
   },
   {
     title: 'Rapid Delivery',
-    description: 'Time to market is critical. Our proven frameworks and proprietary tools allow us to deliver robust software weeks faster than traditional agencies.',
+    description: 'Time to market is critical. We utilize pre-built internal components to reduce project delivery times and engineering spend by 45%.',
     icon: Clock,
     color: 'text-brand-fuchsia',
     bg: 'bg-brand-fuchsia/10 border-brand-fuchsia/20'
   },
   {
     title: 'Scalable Architecture',
-    description: 'Build it right the first time. We design your infrastructure to effortlessly handle 10 users or 10 million users without costly rewrites.',
+    description: 'Build for long-term growth. We design auto-scaling serverless structures capable of handling 10M+ daily requests with 99.99% uptime.',
     icon: Layers,
     color: 'text-brand-cyan',
     bg: 'bg-brand-cyan/10 border-brand-cyan/20'
   },
   {
     title: 'Radical Transparency',
-    description: 'No technical jargon or hidden fees. You get direct access to developers, daily progress updates, and complete ownership of your codebase.',
+    description: 'No technical jargon. You get daily updates, direct Slack access to developers, and 100% intellectual property ownership from day one.',
     icon: MessagesSquare,
     color: 'text-brand-violet',
     bg: 'bg-brand-violet/10 border-brand-violet/20'
   },
   {
     title: 'Long-Term Partnership',
-    description: 'We don\'t just launch and leave. We provide ongoing support, continuous optimization, and strategic guidance as your business evolves.',
+    description: 'We don\'t just launch and leave. We provide ongoing support, post-launch scaling optimizations, and feature expansions to maximize your ROI.',
     icon: BarChart,
     color: 'text-brand-fuchsia',
     bg: 'bg-brand-fuchsia/10 border-brand-fuchsia/20'
   },
   {
     title: 'Security-First Approach',
-    description: 'Your data is your most valuable asset. We implement enterprise-grade encryption and security protocols to protect you from day one.',
+    description: 'Protect your valuable company data. We build systems adhering strictly to SOC 2, HIPAA, and GDPR compliance standards.',
     icon: ShieldCheck,
     color: 'text-brand-cyan',
     bg: 'bg-brand-cyan/10 border-brand-cyan/20'
   },
   {
     title: 'Modern Technology Stack',
-    description: 'We use the same battle-tested technologies trusted by tech giants, ensuring your product is fast, reliable, and future-proof.',
+    description: 'We develop using Next.js, Flutter, and FastAPI—maximizing speed, developer velocity, and cross-platform compatibility.',
     icon: CheckCircle2,
     color: 'text-brand-violet',
     bg: 'bg-brand-violet/10 border-brand-violet/20'

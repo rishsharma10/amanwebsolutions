@@ -37,10 +37,11 @@ export default function Projects() {
       title: 'SkillyTalk Interview',
       problem: 'Manual candidate screening is biased, slow, and expensive.',
       solution: 'An AI-powered voice agent that conducts technical interviews autonomously.',
-      impact: 'Reduced hiring time by 80% and eliminated human bias.',
+      impact: 'Reduced candidate screening times by 80% and eliminated scoring bias.',
+      metric: '80% Time Saved',
       tech: ['Next.js', 'OpenAI', 'WebRTC', 'NestJS'],
       category: 'ai',
-      image: '/assets/dashboard.png', // Placeholder
+      image: '/assets/dashboard.png',
       link: 'https://aiinterview.skillytalk.com/',
       color: 'bg-brand-cyan/20 text-brand-cyan'
     },
@@ -49,10 +50,11 @@ export default function Projects() {
       title: 'AI Hiring Platform',
       problem: 'HR teams struggle to manage thousands of resumes efficiently.',
       solution: 'An intelligent ATS that parses, ranks, and shortlists candidates using NLP.',
-      impact: 'Increased recruiter efficiency by 3x.',
+      impact: 'Boosted recruiter hiring throughput by 3x and reduced pipeline leaks.',
+      metric: '3x Recruiter Speed',
       tech: ['React', 'Python', 'Vector DB', 'AWS'],
       category: 'saas',
-      image: '/assets/hiring.png', // Placeholder
+      image: '/assets/hiring.png',
       link: '#',
       color: 'bg-brand-violet/20 text-brand-violet'
     },
@@ -61,10 +63,11 @@ export default function Projects() {
       title: 'Enterprise Analytics Dashboard',
       problem: 'Disjointed data sources lead to poor decision making.',
       solution: 'A unified dashboard aggregating data from 10+ sources with predictive insights.',
-      impact: 'Saved executives 15 hours a week in reporting.',
+      impact: 'Saved executives 15 hours a week in reporting with 99.9% accuracy.',
+      metric: '15 Hours Saved/Wk',
       tech: ['Vue.js', 'Node.js', 'PostgreSQL', 'Redis'],
       category: 'saas',
-      image: 'assets/analytics.png', // Placeholder
+      image: '/assets/analytics.png',
       link: '#',
       color: 'bg-brand-fuchsia/20 text-brand-fuchsia'
     },
@@ -73,7 +76,8 @@ export default function Projects() {
       title: 'Good Citizen App',
       problem: 'Citizens lack a quick way to report local emergencies.',
       solution: 'A fast, reliable mobile app with geolocation and real-time alerts.',
-      impact: 'Over 50,000 active users reporting issues daily.',
+      impact: 'Over 50,000 active users reporting issues daily, cutting response lag by 35%.',
+      metric: '50k+ Daily Reports',
       tech: ['Flutter', 'Firebase', 'GCP'],
       category: 'web',
       image: goodCitizen.src,
@@ -85,7 +89,8 @@ export default function Projects() {
       title: 'AI Tools Directory',
       problem: 'Users cannot find reliable AI tools easily.',
       solution: 'A high-performance directory with intelligent search and categorization.',
-      impact: 'Reached 100k+ monthly visitors within 3 months.',
+      impact: 'Reached 100k+ monthly unique visitors within 3 months of launch.',
+      metric: '100k+ Monthly Users',
       tech: ['Next.js', 'Tailwind', 'Algolia'],
       category: 'web',
       image: marketReach.src,
@@ -97,10 +102,11 @@ export default function Projects() {
       title: 'Automated Support Agent',
       problem: 'High customer support ticket volume causes slow response times.',
       solution: 'A context-aware LLM chatbot integrated directly into the helpdesk.',
-      impact: 'Resolved 65% of level-1 tickets automatically.',
+      impact: 'Resolved 65% of level-1 tickets automatically with 4.8 CSAT.',
+      metric: '65% Resolution Rate',
       tech: ['LangChain', 'OpenAI', 'React'],
       category: 'ai',
-      image: trionn.src, // Placeholder
+      image: '/assets/agent.png',
       link: '#',
       color: 'bg-brand-fuchsia/20 text-brand-fuchsia'
     },
@@ -110,6 +116,7 @@ export default function Projects() {
       problem: 'Restaurants miss incoming phone and online orders during busy peak hours, losing revenue.',
       solution: 'An automated, voice-enabled AI ordering agent that answers calls and handles orders autonomously.',
       impact: 'Zero missed orders during peak hours, increasing food sales by 24%.',
+      metric: '+24% Sales Growth',
       tech: ['Flutter', 'Firebase', 'GCP', 'OpenAI'],
       category: 'web',
       image: '/assets/ogslo.png',
@@ -122,6 +129,7 @@ export default function Projects() {
       problem: 'Job seekers lack a realistic, stress-free environment to prepare for high-stakes technical interviews.',
       solution: 'A conversational AI interview platform that conducts voice-based mock interviews and provides detailed scoring rubrics.',
       impact: 'Boosted candidate hiring rates by 42% and reduced interview anxiety.',
+      metric: '+42% Hiring Rate',
       tech: ['Next.js', 'OpenAI API', 'WebRTC', 'Tailwind CSS'],
       category: 'ai',
       image: '/assets/intervieweasy.png',
@@ -213,9 +221,16 @@ export default function Projects() {
                     </span>
                   </div>
 
+                  {/* Bold Metric Badge */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className="px-3 py-1.5 rounded-xl text-[10px] font-extrabold bg-brand-cyan text-brand-dark shadow-lg shadow-brand-cyan/20 uppercase tracking-widest block">
+                      {project.metric}
+                    </span>
+                  </div>
+
                   {/* External Arrow link button */}
                   {project.link !== '#' && (
-                    <div className="absolute top-4 right-4 z-10 p-2.5 rounded-xl bg-[#0d0d12]/80 border border-white/10 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-2 group-hover:translate-y-0">
+                    <div className="absolute bottom-4 right-4 z-10 p-2.5 rounded-xl bg-[#0d0d12]/85 border border-white/10 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-lg">
                       <ArrowRight size={16} className="text-white" />
                     </div>
                   )}

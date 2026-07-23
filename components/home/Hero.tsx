@@ -71,7 +71,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-brand-cyan text-sm font-medium"
             >
               <Sparkles size={14} className="animate-pulse" />
-              <span>Accelerate Your Business Growth</span>
+              <span>10x Your ROI with AI Automation</span>
             </motion.div>
 
             <motion.h1
@@ -80,7 +80,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-5xl md:text-7xl font-heading font-bold leading-[1.1] text-white"
             >
-              Build AI-Powered Software That <span className="ai-gradient-text animate-pulse">Grows</span> Your Business
+              Build Custom AI & Software That Drives Real <span className="ai-gradient-text animate-pulse">Business Outcomes</span>
             </motion.h1>
 
             <motion.p
@@ -89,7 +89,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-slate-300 max-w-2xl leading-relaxed"
             >
-              We design and develop custom AI solutions, SaaS platforms, web applications, mobile apps, and intelligent automation that help businesses launch faster, operate smarter, and scale confidently.
+              We engineer high-performance AI agents, custom SaaS platforms, and enterprise-grade software that reduce operational costs by up to 40% and accelerate product launches by weeks.
             </motion.p>
 
             <motion.div
@@ -101,7 +101,7 @@ export default function Hero() {
               <Link href="/contact">
                 <button className="group relative px-8 py-4 bg-brand-violet hover:bg-brand-violet/90 text-white rounded-xl font-bold text-lg transition-all flex items-center gap-2 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  <span>Book Free Consultation</span>
+                  <span>Book Free Demo</span>
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>

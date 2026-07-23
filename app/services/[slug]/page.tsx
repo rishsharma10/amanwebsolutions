@@ -51,9 +51,54 @@ export default function ServicePage({ params }: Props) {
     notFound();
   }
 
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': `${service.title} Services`,
+    'provider': {
+      '@type': 'LocalBusiness',
+      'name': APP_NAME,
+      'url': 'https://vidhyonix.com',
+      'logo': 'https://vidhyonix.com/favicon.png',
+      'image': 'https://vidhyonix.com/favicon.png',
+      'telephone': '+91 8770283188',
+      'email': 'vidhyonixitsolutions@gmail.com',
+      'priceRange': '₹₹',
+      'address': {
+        '@type': 'PostalAddress',
+        'addressLocality': 'Mohali, Chandigarh',
+        'addressCountry': 'IN'
+      }
+    },
+    'description': service.heroSubtitle
+  };
+
+  const faqSchema = service.faqs && service.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': service.faqs.map(faq => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a
+      }
+    }))
+  } : null;
+
   return (
     <>
       <main className="relative min-h-screen bg-brand-dark overflow-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        {faqSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
         <Header />
         <ServiceDetail data={service} slug={params.slug} />
         <Footer />

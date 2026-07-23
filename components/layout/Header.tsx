@@ -95,7 +95,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-4">
           <Link href="/contact">
             <button className="group relative px-6 py-2.5 bg-brand-cyan text-brand-dark rounded-xl font-bold text-sm transition-all overflow-hidden flex items-center gap-2 hover:bg-white">
-              <span>Book Consultation</span>
+              <span>Book Demo</span>
             </button>
           </Link>
         </div>
@@ -142,7 +142,7 @@ export default function Header() {
             <div className="mt-auto pb-12 space-y-4">
               <Link href="/contact" className="block">
                 <button className="w-full py-4 bg-brand-cyan text-brand-dark rounded-2xl font-bold text-xl hover:bg-white transition-colors">
-                  Book Consultation
+                  Book Demo
                 </button>
               </Link>
               <Link href="/product" className="block">

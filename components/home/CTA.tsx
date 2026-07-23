@@ -50,7 +50,7 @@ export default function CTA() {
             <Link href="/contact">
               <button className="px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2 group relative overflow-hidden">
                 <div className="absolute inset-0 bg-brand-cyan/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-                <span className="relative z-10">Book Free Consultation</span>
+                <span className="relative z-10">Book Free Demo</span>
                 <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </button>
             </Link>
