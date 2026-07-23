@@ -128,7 +128,7 @@ export default function Testimonials() {
                       </div>
                     </div>
                     <div className="text-center">
-                      <h4 className="text-white font-bold text-lg">{current.author}</h4>
+                      <p className="text-white font-bold text-lg">{current.author}</p>
                       <p className="text-slate-400 text-xs mt-0.5 leading-relaxed">{current.role}</p>
                       <span className="inline-block mt-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-brand-cyan text-[10px] font-extrabold tracking-widest uppercase">
                         {current.company}
@@ -168,8 +168,9 @@ export default function Testimonials() {
                     setDirection(i > activeIndex ? 1 : -1);
                     setActiveIndex(i);
                   }}
+                  aria-label={`Go to testimonial slide ${i + 1}`}
                   className={cn(
-                    "h-2 rounded-full transition-all duration-300",
+                    "h-2 rounded-full transition-all duration-300 relative after:content-[''] after:absolute after:-inset-3 after:rounded-full",
                     activeIndex === i ? "w-8 bg-brand-cyan" : "w-2 bg-white/20 hover:bg-white/40"
                   )}
                 />
@@ -180,12 +181,14 @@ export default function Testimonials() {
             <div className="flex gap-3">
               <button
                 onClick={prevSlide}
+                aria-label="Previous testimonial"
                 className="p-3.5 rounded-full border border-white/5 bg-white/5 text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-md active:scale-95"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={nextSlide}
+                aria-label="Next testimonial"
                 className="p-3.5 rounded-full border border-white/5 bg-white/5 text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-md active:scale-95"
               >
                 <ChevronRight size={20} />

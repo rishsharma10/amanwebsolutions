@@ -131,8 +131,83 @@ export default function Portfolio() {
     },
   });
 
+  const portfolioSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'Vidhyonix Case Studies & Portfolio',
+    'description': 'A showcase of software systems, custom websites, SaaS architectures, and AI integrations built by Vidhyonix.',
+    'url': 'https://vidhyonix.com/portfolio',
+    'numberOfItems': 6,
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'item': {
+          '@type': 'CreativeWork',
+          'name': 'Madam Jan',
+          'url': 'https://madamjanindia.com/',
+          'description': 'Design-forward homeware brand built on Shopify with dynamic Three.js interactions.'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'item': {
+          '@type': 'CreativeWork',
+          'name': 'Evitavonni',
+          'url': 'https://www.evitavonni.com/',
+          'description': 'Luxury fashion e-commerce portfolio and couture showpiece utilizing GSAP.'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'item': {
+          '@type': 'CreativeWork',
+          'name': 'Pali Yoga',
+          'url': 'https://www.pali.yoga/',
+          'description': 'Digital booking space and wellness platform optimized on WordPress.'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        'position': 4,
+        'item': {
+          '@type': 'CreativeWork',
+          'name': 'Abundish',
+          'url': 'https://staging.abundish.com/',
+          'description': 'Real-time logistics platform and delivery dashboard built on Next.js, Nest.js, and Redis.'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        'position': 5,
+        'item': {
+          '@type': 'CreativeWork',
+          'name': 'Aether 1',
+          'url': 'https://www.aether1.ai/',
+          'description': 'High-fidelity audio platform showing 3D interactive renders built with Three.js.'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        'position': 6,
+        'item': {
+          '@type': 'CreativeWork',
+          'name': 'Cyphr Studio',
+          'url': 'https://www.cyphr.studio/',
+          'description': 'Creative production hub for fan engagement, custom metrics, and web experiences.'
+        }
+      }
+    ]
+  };
+
   return (
     <main className="relative min-h-screen bg-brand-dark overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
+      />
       {/* Background Visual System */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.03] bg-ai-grid bg-repeat" />
@@ -181,10 +256,18 @@ export default function Portfolio() {
             CASE STUDIES
           </h2>
           <div className="flex gap-2">
-            <button onClick={() => slider.current?.prev()} className="p-2 rounded-full border border-white/10 hover:bg-white/5 text-white transition-all">
+            <button
+              onClick={() => slider.current?.prev()}
+              aria-label="Previous slide"
+              className="p-2 rounded-full border border-white/10 hover:bg-white/5 text-white transition-all"
+            >
               <ArrowRight className="rotate-180" size={20} />
             </button>
-            <button onClick={() => slider.current?.next()} className="p-2 rounded-full border border-white/10 hover:bg-white/5 text-white transition-all">
+            <button
+              onClick={() => slider.current?.next()}
+              aria-label="Next slide"
+              className="p-2 rounded-full border border-white/10 hover:bg-white/5 text-white transition-all"
+            >
               <ArrowRight size={20} />
             </button>
           </div>
@@ -252,7 +335,7 @@ export default function Portfolio() {
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
                       <h3 className="text-2xl font-heading font-bold text-white group-hover:text-brand-cyan transition-colors">{p.title}</h3>
-                      <Link href={p.link} target="_blank">
+                      <Link href={p.link} target="_blank" aria-label={`Visit external website for ${p.title}`}>
                         <ExternalLink size={20} className="text-white/20 hover:text-brand-cyan transition-colors" />
                       </Link>
                     </div>

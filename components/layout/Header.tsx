@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -59,10 +60,13 @@ export default function Header() {
             className="flex items-center gap-2 group"
           >
             <div className="relative">
-              <img
-                src={logo.src}
+              <Image
+                src={logo}
                 alt={APP_NAME}
+                width={140}
+                height={40}
                 className="h-10 md:h-12 w-auto object-contain brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.5)] transition-all"
+                priority
               />
             </div>
           </motion.div>
@@ -93,16 +97,18 @@ export default function Header() {
 
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="/contact">
-            <button className="group relative px-6 py-2.5 bg-brand-cyan text-brand-dark rounded-xl font-bold text-sm transition-all overflow-hidden flex items-center gap-2 hover:bg-white">
-              <span>Book Demo</span>
-            </button>
+          <Link
+            href="/contact"
+            className="group relative px-6 py-2.5 bg-brand-cyan text-brand-dark rounded-xl font-bold text-sm transition-all overflow-hidden flex items-center gap-2 hover:bg-white"
+          >
+            <span>Book Demo</span>
           </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           className="lg:hidden relative z-50 p-2 text-white bg-white/10 rounded-xl border border-white/10"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -140,16 +146,18 @@ export default function Header() {
             ))}
 
             <div className="mt-auto pb-12 space-y-4">
-              <Link href="/contact" className="block">
-                <button className="w-full py-4 bg-brand-cyan text-brand-dark rounded-2xl font-bold text-xl hover:bg-white transition-colors">
-                  Book Demo
-                </button>
+              <Link
+                href="/contact"
+                className="block w-full py-4 bg-brand-cyan text-brand-dark rounded-2xl font-bold text-xl hover:bg-white transition-colors text-center"
+              >
+                Book Demo
               </Link>
-              <Link href="/product" className="block">
-                <button className="w-full py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3">
-                  <Sparkles className="text-brand-cyan" />
-                  SkillyTalk AI
-                </button>
+              <Link
+                href="/product"
+                className="block w-full py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3 text-center"
+              >
+                <Sparkles className="text-brand-cyan" />
+                SkillyTalk AI
               </Link>
             </div>
           </motion.div>

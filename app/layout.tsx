@@ -2,7 +2,7 @@ import './globals.css';
 import React from 'react';
 import Script from 'next/script';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Space_Grotesk, Poppins } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import SkillyTalkModal from '@/components/SkillyTalkModal';
 import NeuralCursor from '@/components/layout/NeuralCursor';
@@ -10,7 +10,22 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import GlobalSchema from '@/components/seo/GlobalSchema';
 import AIChatbot from '@/components/shared/AIChatbot';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -81,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
+    <html lang="en" className={`dark ${inter.variable} ${spaceGrotesk.variable} ${poppins.variable}`} style={{ colorScheme: 'dark' }}>
       <head>
         <GlobalSchema />
       </head>
@@ -89,9 +104,9 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NFKQYZX8BB"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

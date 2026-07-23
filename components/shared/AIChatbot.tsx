@@ -171,6 +171,7 @@ export default function AIChatbot() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Close chat window"
                 className="p-1 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition-colors"
               >
                 <X size={18} />
@@ -241,6 +242,7 @@ export default function AIChatbot() {
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
+                aria-label="Send message"
                 className="p-2.5 bg-brand-cyan text-brand-dark rounded-xl hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-[0_0_10px_rgba(34,211,238,0.2)]"
               >
                 <Send size={14} />
@@ -252,6 +254,7 @@ export default function AIChatbot() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close AI chat assistant" : "Open AI chat assistant"}
         className="w-14 h-14 bg-gradient-to-r from-brand-cyan via-brand-violet to-brand-fuchsia rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_rgba(34,211,238,0.6)] hover:scale-105 transition-all duration-300 z-50 relative group"
       >
         {isOpen ? <X size={24} /> : <MessageSquare size={24} />}

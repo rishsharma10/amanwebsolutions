@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -80,7 +81,7 @@ export default function Trust() {
         {/* Trust & Compliance Badges Strip */}
         <div className="mb-20">
           <div className="text-center mb-8">
-            <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold">Compliance, Infrastructure & Security</h4>
+            <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">Compliance, Infrastructure & Security</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -154,10 +155,12 @@ export default function Trust() {
 
             {/* Minimal Mockup with Real Product Screenshot */}
             <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0f] shadow-2xl">
-              <img
-                src="/assets/dashboard.png"
+              <Image
+                src="/assets/dashboard.jpg"
                 alt="SkillyTalk AI Recruiter Dashboard Screenshot"
+                fill
                 className="absolute inset-0 w-full h-full object-cover opacity-75 object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent" />
 

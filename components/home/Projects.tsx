@@ -41,7 +41,7 @@ export default function Projects() {
       metric: '80% Time Saved',
       tech: ['Next.js', 'OpenAI', 'WebRTC', 'NestJS'],
       category: 'ai',
-      image: '/assets/dashboard.png',
+      image: '/assets/dashboard.jpg',
       link: 'https://aiinterview.skillytalk.com/',
       color: 'bg-brand-cyan/20 text-brand-cyan'
     },
@@ -298,11 +298,12 @@ export default function Projects() {
 
         {/* View All */}
         <div className="mt-20 text-center">
-          <Link href="/portfolio">
-            <button className="px-10 py-4 border border-white/10 rounded-2xl text-white font-bold tracking-wider hover:bg-white/5 hover:border-brand-cyan/50 transition-all flex items-center gap-3 mx-auto group">
-              VIEW ARCHIVE
-              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-            </button>
+          <Link
+            href="/portfolio"
+            className="px-10 py-4 border border-white/10 rounded-2xl text-white font-bold tracking-wider hover:bg-white/5 hover:border-brand-cyan/50 transition-all flex items-center gap-3 mx-auto group w-fit text-center"
+          >
+            VIEW ARCHIVE
+            <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
           </Link>
         </div>
       </div>

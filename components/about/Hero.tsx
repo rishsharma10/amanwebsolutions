@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Cpu, Sparkles } from 'lucide-react';
 
@@ -53,10 +54,12 @@ export default function AboutHero() {
           >
             <div className="relative aspect-square glass-morphism rounded-[3rem] border border-white/10 p-4 md:p-8">
               <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative group">
-                <img
-                  src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                <Image
+                  src="/images/neural-architecture.png"
                   alt="Neural Architecture"
+                  fill
                   className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent" />
 

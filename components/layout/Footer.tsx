@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
@@ -63,9 +64,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-3 space-y-8">
             <Link href="/" className="inline-block group">
-              <img
-                src={logo.src}
+              <Image
+                src={logo}
                 alt={APP_NAME}
+                width={140}
+                height={40}
                 className="h-12 w-auto object-contain brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(124,58,237,0.3)] transition-all"
               />
             </Link>
@@ -74,7 +77,14 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               {socialLinks.map((link, i) => (
-                <Link key={i} target="_blank" rel="noopener noreferrer" href={link.href} className="p-3 bg-white/5 border border-white/10 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all backdrop-blur-md">
+                <Link
+                  key={i}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={link.href}
+                  aria-label={`Follow us on ${link.label}`}
+                  className="p-3 bg-white/5 border border-white/10 rounded-xl text-slate-400 hover:text-brand-cyan hover:border-brand-cyan/50 transition-all backdrop-blur-md"
+                >
                   <link.Icon size={20} />
                 </Link>
               ))}
@@ -83,7 +93,7 @@ export default function Footer() {
 
           {/* Links Columns */}
           <div className="md:col-span-2 space-y-6">
-            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Services</h4>
+            <p className="text-white font-heading font-bold uppercase tracking-widest text-xs">Services</p>
             <ul className="space-y-4">
               {footerLinks.services.map((link, i) => (
                 <li key={i}>
@@ -96,7 +106,7 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-2 space-y-6">
-            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Company</h4>
+            <p className="text-white font-heading font-bold uppercase tracking-widest text-xs">Company</p>
             <ul className="space-y-4">
               {footerLinks.company.map((link, i) => (
                 <li key={i}>
@@ -106,7 +116,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs mt-8">Products</h4>
+            <p className="text-white font-heading font-bold uppercase tracking-widest text-xs mt-8">Products</p>
             <ul className="space-y-4">
               {footerLinks.products.map((link, i) => (
                 <li key={i}>
@@ -119,7 +129,7 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-2 space-y-6">
-            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Direct Support</h4>
+            <p className="text-white font-heading font-bold uppercase tracking-widest text-xs">Direct Support</p>
             <ul className="space-y-4">
               {footerLinks.contacts.map((link, i) => (
                 <li key={i}>
@@ -133,7 +143,7 @@ export default function Footer() {
 
           {/* Newsletter / Contact Column */}
           <div className="md:col-span-3 space-y-6">
-            <h4 className="text-white font-heading font-bold uppercase tracking-widest text-xs">Join the Evolution</h4>
+            <p className="text-white font-heading font-bold uppercase tracking-widest text-xs">Join the Evolution</p>
             <p className="text-slate-400 text-sm">
               Subscribe to our neural-insights and stay ahead of the digital curve.
             </p>
@@ -141,9 +151,14 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
+                aria-label="Email address for newsletter subscription"
                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-brand-cyan/50 backdrop-blur-md transition-all"
               />
-              <button className="absolute right-2 top-2 bottom-2 bg-white text-black px-6 rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2">
+              <button
+                type="submit"
+                aria-label="Subscribe to newsletter"
+                className="absolute right-2 top-2 bottom-2 bg-white text-black px-6 rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2"
+              >
                 <Send size={16} />
               </button>
             </form>

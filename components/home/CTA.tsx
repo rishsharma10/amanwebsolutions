@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Sparkles, Cpu, Zap } from 'lucide-react';
 
 export default function CTA() {
@@ -9,10 +10,12 @@ export default function CTA() {
     <section className="py-24 md:py-40 relative overflow-hidden bg-brand-dark">
       {/* Background Image with dark overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        <Image
+          src="/images/neural-architecture.png"
           alt="Neural Background"
+          fill
           className="w-full h-full object-cover opacity-20"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent" />
       </div>

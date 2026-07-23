@@ -91,14 +91,32 @@ export default function ROICalculator() {
                     <span className="text-gray-300 font-medium">Monthly Support Tickets</span>
                     <span className="text-brand-cyan font-bold">{supportTickets.toLocaleString()}</span>
                   </div>
-                  <input type="range" min="100" max="10000" step="100" value={supportTickets} onChange={(e) => setSupportTickets(Number(e.target.value))} className="w-full accent-brand-cyan h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" />
+                  <input
+                    type="range"
+                    min="100"
+                    max="10000"
+                    step="100"
+                    value={supportTickets}
+                    aria-label="Monthly Support Tickets"
+                    onChange={(e) => setSupportTickets(Number(e.target.value))}
+                    className="w-full accent-brand-cyan h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                  />
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-300 font-medium">Avg Cost Per Ticket ($)</span>
                     <span className="text-brand-cyan font-bold">${costPerTicket}</span>
                   </div>
-                  <input type="range" min="5" max="50" step="1" value={costPerTicket} onChange={(e) => setCostPerTicket(Number(e.target.value))} className="w-full accent-brand-cyan h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" />
+                  <input
+                    type="range"
+                    min="5"
+                    max="50"
+                    step="1"
+                    value={costPerTicket}
+                    aria-label="Average Cost Per Ticket"
+                    onChange={(e) => setCostPerTicket(Number(e.target.value))}
+                    className="w-full accent-brand-cyan h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                  />
                 </div>
               </motion.div>
             )}
@@ -110,14 +128,32 @@ export default function ROICalculator() {
                     <span className="text-gray-300 font-medium">Manual Hours Per Month</span>
                     <span className="text-brand-fuchsia font-bold">{manualHours} hrs</span>
                   </div>
-                  <input type="range" min="40" max="1000" step="10" value={manualHours} onChange={(e) => setManualHours(Number(e.target.value))} className="w-full accent-brand-fuchsia h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" />
+                  <input
+                    type="range"
+                    min="40"
+                    max="1000"
+                    step="10"
+                    value={manualHours}
+                    aria-label="Manual Hours Per Month"
+                    onChange={(e) => setManualHours(Number(e.target.value))}
+                    className="w-full accent-brand-fuchsia h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                  />
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-300 font-medium">Avg Hourly Rate ($)</span>
                     <span className="text-brand-fuchsia font-bold">${hourlyRate}</span>
                   </div>
-                  <input type="range" min="15" max="150" step="5" value={hourlyRate} onChange={(e) => setHourlyRate(Number(e.target.value))} className="w-full accent-brand-fuchsia h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" />
+                  <input
+                    type="range"
+                    min="15"
+                    max="150"
+                    step="5"
+                    value={hourlyRate}
+                    aria-label="Average Hourly Rate"
+                    onChange={(e) => setHourlyRate(Number(e.target.value))}
+                    className="w-full accent-brand-fuchsia h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                  />
                 </div>
               </motion.div>
             )}
@@ -129,14 +165,32 @@ export default function ROICalculator() {
                     <span className="text-gray-300 font-medium">Planned New Hires</span>
                     <span className="text-brand-violet font-bold">{newHires}</span>
                   </div>
-                  <input type="range" min="1" max="20" step="1" value={newHires} onChange={(e) => setNewHires(Number(e.target.value))} className="w-full accent-brand-violet h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" />
+                  <input
+                    type="range"
+                    min="1"
+                    max="20"
+                    step="1"
+                    value={newHires}
+                    aria-label="Planned New Hires"
+                    onChange={(e) => setNewHires(Number(e.target.value))}
+                    className="w-full accent-brand-violet h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                  />
                 </div>
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-gray-300 font-medium">Avg Annual Salary ($)</span>
                     <span className="text-brand-violet font-bold">${salary.toLocaleString()}</span>
                   </div>
-                  <input type="range" min="30000" max="150000" step="5000" value={salary} onChange={(e) => setSalary(Number(e.target.value))} className="w-full accent-brand-violet h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" />
+                  <input
+                    type="range"
+                    min="30000"
+                    max="150000"
+                    step="5000"
+                    value={salary}
+                    aria-label="Average Annual Salary"
+                    onChange={(e) => setSalary(Number(e.target.value))}
+                    className="w-full accent-brand-violet h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                  />
                 </div>
               </motion.div>
             )}
@@ -167,10 +221,11 @@ export default function ROICalculator() {
               </div>
             </div>
 
-            <Link href="/contact">
-              <button className="w-full px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                Claim Your Savings <ArrowRight size={18} />
-              </button>
+            <Link
+              href="/contact"
+              className="w-full px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center"
+            >
+              Claim Your Savings <ArrowRight size={18} />
             </Link>
           </div>
         </div>

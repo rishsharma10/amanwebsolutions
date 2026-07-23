@@ -30,6 +30,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Map slug to optimized local service image card
+  let imagePath = '/images/services_software.jpg';
+  const slug = params.slug;
+  if (slug.includes('ai-') || slug.includes('chatbot')) {
+    imagePath = '/images/services_ai.jpg';
+  } else if (slug.includes('web') || slug.includes('mobile') || slug.includes('mvp')) {
+    imagePath = '/images/services_web_mobile.jpg';
+  } else if (slug.includes('cloud') || slug.includes('infra')) {
+    imagePath = '/images/services_cloud.jpg';
+  }
+
   return {
     title: `${service.title} Services | ${APP_NAME}`,
     description: service.heroSubtitle,
@@ -37,6 +48,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${service.title} | ${APP_NAME}`,
       description: service.heroSubtitle,
       type: 'website',
+      url: `https://vidhyonix.com/services/${params.slug}`,
+      images: [
+        {
+          url: imagePath,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} Services`,
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${service.title} Services | ${APP_NAME}`,
+      description: service.heroSubtitle,
+      images: [imagePath],
     },
     alternates: {
       canonical: `https://vidhyonix.com/services/${params.slug}`

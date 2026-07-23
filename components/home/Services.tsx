@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Monitor, Smartphone, BarChart, Cpu,
   ArrowRight, Check, Brain, Globe, Database, Bot, Cloud, Rocket, Code2, Blocks, Link as LinkIcon
@@ -15,7 +16,7 @@ export const servicesArray = [
     id: 'ai-development',
     title: 'AI Development',
     icon: <Brain className="h-6 w-6" />,
-    image: '/images/services_ai.png',
+    image: '/images/services_ai.jpg',
     subtitle: 'Problem: Manual data analysis is slow and inaccurate.',
     description: 'Solution: We build custom AI models and integrations that process your business data intelligently, enabling predictive insights and smarter decisions.',
     features: ['Predictive Analytics', 'Machine Learning Models', 'Data Strategy'],
@@ -26,7 +27,7 @@ export const servicesArray = [
     id: 'custom-software-development',
     title: 'Custom Software Development',
     icon: <Monitor className="h-6 w-6" />,
-    image: '/images/services_software.png',
+    image: '/images/services_software.jpg',
     subtitle: 'Problem: Off-the-shelf software limits your growth.',
     description: 'Solution: We engineer bespoke software systems perfectly aligned with your business processes, ensuring complete ownership and limitless scalability.',
     features: ['Bespoke Architecture', 'Legacy Modernization', 'Workflow Automation'],
@@ -37,7 +38,7 @@ export const servicesArray = [
     id: 'saas-development',
     title: 'SaaS Development',
     icon: <Blocks className="h-6 w-6" />,
-    image: '/images/services_software.png',
+    image: '/images/services_software.jpg',
     subtitle: 'Problem: Launching a scalable product is technically complex.',
     description: 'Solution: We develop robust, multi-tenant SaaS platforms from scratch, handling everything from subscription billing to secure user management.',
     features: ['Multi-Tenant Architecture', 'Subscription Management', 'High Availability'],
@@ -48,7 +49,7 @@ export const servicesArray = [
     id: 'ai-automation',
     title: 'AI Automation',
     icon: <Cpu className="h-6 w-6" />,
-    image: '/images/services_ai.png',
+    image: '/images/services_ai.jpg',
     subtitle: 'Problem: Repetitive tasks drain your team\'s time.',
     description: 'Solution: We deploy intelligent automation agents that handle your routine workflows 24/7, reducing operational costs and human error.',
     features: ['Workflow Automation', 'Document Processing', 'Cost Reduction'],
@@ -59,7 +60,7 @@ export const servicesArray = [
     id: 'ai-chatbot-development',
     title: 'AI Chatbot Development',
     icon: <Bot className="h-6 w-6" />,
-    image: '/images/services_ai.png',
+    image: '/images/services_ai.jpg',
     subtitle: 'Problem: Customer support is overwhelmed and slow.',
     description: 'Solution: We build conversational AI chatbots that understand context, resolve queries instantly, and seamlessly hand off complex issues to humans.',
     features: ['24/7 Customer Support', 'Natural Language Processing', 'Human Handoff'],
@@ -70,7 +71,7 @@ export const servicesArray = [
     id: 'ai-agent-development',
     title: 'AI Agent Development',
     icon: <Brain className="h-6 w-6" />,
-    image: '/images/services_ai.png',
+    image: '/images/services_ai.jpg',
     subtitle: 'Problem: Complex processes require autonomous decision making.',
     description: 'Solution: We develop autonomous AI agents capable of reasoning, planning, and executing multi-step tasks across your existing tools and APIs.',
     features: ['Autonomous Execution', 'Multi-Tool Integration', 'Advanced Reasoning'],
@@ -81,7 +82,7 @@ export const servicesArray = [
     id: 'web-development',
     title: 'Website Development',
     icon: <Globe className="h-6 w-6" />,
-    image: '/images/services_web_mobile.png',
+    image: '/images/services_web_mobile.jpg',
     subtitle: 'Problem: Your website fails to convert visitors into leads.',
     description: 'Solution: We design lightning-fast, SEO-optimized web applications with modern aesthetics that establish trust and drive measurable business growth.',
     features: ['Conversion Optimization', 'SEO Architecture', 'Lightning Fast Speeds'],
@@ -92,7 +93,7 @@ export const servicesArray = [
     id: 'mobile-app-development',
     title: 'Mobile App Development',
     icon: <Smartphone className="h-6 w-6" />,
-    image: '/images/services_web_mobile.png',
+    image: '/images/services_web_mobile.jpg',
     subtitle: 'Problem: Losing mobile users due to poor mobile experience.',
     description: 'Solution: We build native and cross-platform mobile apps that deliver premium, intuitive experiences to keep your customers engaged on the go.',
     features: ['iOS & Android', 'Native Performance', 'Push Notifications'],
@@ -103,7 +104,7 @@ export const servicesArray = [
     id: 'mvp-development',
     title: 'MVP Development',
     icon: <Rocket className="h-6 w-6" />,
-    image: '/images/services_web_mobile.png',
+    image: '/images/services_web_mobile.jpg',
     subtitle: 'Problem: High risk in launching unvalidated startup ideas.',
     description: 'Solution: We rapidly develop robust Minimum Viable Products to help you validate your business model and attract investors within weeks, not months.',
     features: ['Rapid Prototyping', 'Investor-Ready Code', 'Core Feature Focus'],
@@ -114,7 +115,7 @@ export const servicesArray = [
     id: 'api-development',
     title: 'API Development',
     icon: <LinkIcon className="h-6 w-6" />,
-    image: '/images/services_software.png',
+    image: '/images/services_software.jpg',
     subtitle: 'Problem: Disconnected systems are creating data silos.',
     description: 'Solution: We engineer secure, high-performance APIs that connect your software ecosystem, enabling seamless data flow across your entire organization.',
     features: ['REST & GraphQL', 'High Performance', 'Secure Endpoints'],
@@ -125,7 +126,7 @@ export const servicesArray = [
     id: 'cloud-engineering',
     title: 'Cloud Solutions',
     icon: <Cloud className="h-6 w-6" />,
-    image: '/images/services_cloud.png',
+    image: '/images/services_cloud.jpg',
     subtitle: 'Problem: Infrastructure struggles under heavy user traffic.',
     description: 'Solution: We architect scalable, secure cloud environments on AWS and GCP that automatically adjust to your traffic demands while minimizing costs.',
     features: ['Auto-Scaling Infrastructure', 'Disaster Recovery', 'Cost Optimization'],
@@ -206,8 +207,12 @@ export default function Services() {
               </ul>
 
               <div className="mt-8 pt-6 border-t border-white/5">
-                <Link href={`/services/${service.id}`} className="inline-flex items-center gap-2 text-xs font-bold text-white group-hover:gap-3 transition-all">
+                <Link
+                  href={`/services/${service.id}`}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-white group-hover:gap-3 transition-all"
+                >
                   LEARN MORE
+                  <span className="sr-only"> about our {service.title} service</span>
                   <ArrowRight size={14} className={service.color} />
                 </Link>
               </div>
@@ -257,20 +262,23 @@ export default function Services() {
                   ))}
                 </div>
 
-                <Link href="/contact">
-                  <button className="px-8 py-3 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2">
-                    Consult with Experts
-                    <ArrowRight size={18} />
-                  </button>
+                <Link
+                  href="/contact"
+                  className="px-8 py-3 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center gap-2 w-fit"
+                >
+                  Consult with Experts
+                  <ArrowRight size={18} />
                 </Link>
               </div>
 
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group">
                 <div className="absolute inset-0 bg-brand-dark/20 z-10 group-hover:bg-transparent transition-colors duration-500" />
-                <img
+                <Image
                   src={activeService.image}
                   alt={activeService.title}
+                  fill
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute bottom-4 left-4 z-20 glass-morphism px-4 py-2 rounded-lg border-white/10">
                   <span className="text-xs font-bold text-white flex items-center gap-2">

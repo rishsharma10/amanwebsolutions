@@ -31,11 +31,12 @@ export default function ROICalculator() {
         <div className="space-y-8 flex flex-col justify-center">
           <div>
             <div className="flex justify-between items-end mb-4">
-              <label className="text-lg font-bold text-white">Hires Per Month</label>
+              <label htmlFor="hires-per-month-input" className="text-lg font-bold text-white">Hires Per Month</label>
               <div className="text-3xl font-black text-brand-fuchsia">{hiresPerMonth}</div>
             </div>
             <input 
               type="range" 
+              id="hires-per-month-input"
               min="1" 
               max="50" 
               value={hiresPerMonth} 

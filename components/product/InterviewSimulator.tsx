@@ -11,7 +11,7 @@ const tourScreens = [
     label: 'Recruiter Dashboard',
     title: 'Centralized Recruiter Dashboard',
     subtitle: 'Track applicant ratings, read automated transcripts, and analyze deep behavioral insights in a unified workspace.',
-    image: '/assets/dashboard.png',
+    image: '/assets/dashboard.jpg',
     stat: '85%',
     statLabel: 'Hiring Time Saved',
     colorClass: 'text-brand-fuchsia',
