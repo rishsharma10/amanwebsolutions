@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     siteName: 'Vidhyonix',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/favicon.png',
         width: 1200,
         height: 630,
         alt: 'Vidhyonix - Next-Gen IT Solutions'
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vidhyonix | AI Software Agency',
     description: 'Specializing in custom SaaS platforms, intelligent automation, and high-performance applications.',
-    images: ['/og-image.jpg'],
+    images: ['/favicon.png'],
   },
   alternates: {
     canonical: '/',
