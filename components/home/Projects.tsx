@@ -15,6 +15,7 @@ import watchHouse from '@/app/assets/projects/watchhouse.png';
 import cryptoMLM from '@/app/assets/projects/phase2crypto.png';
 import marketReach from '@/app/assets/projects/aitools.png';
 import abundish from '@/app/assets/projects/abundish.png';
+import vidhyonixCafe from '@/app/assets/projects/vidhyonixcafe.png';
 import goodCitizen from '@/app/assets/app/logo.jpg';
 import cyphr from '@/app/assets/3d/cyphr.png';
 import trionn from '@/app/assets/3d/trionn.png';
@@ -122,6 +123,19 @@ export default function Projects() {
       image: '/assets/ogslo.png',
       link: 'https://app.ordergenie.in/',
       color: 'bg-brand-cyan/20 text-brand-cyan'
+    },
+    {
+      id: 9,
+      title: 'Vidhyonix Cafe',
+      problem: 'A real cafe needed both a stunning brand website and a frictionless in-table ordering experience.',
+      solution: 'Built a full-stack cafe platform — immersive scroll website + QR-based table ordering system with live kitchen notifications.',
+      impact: 'Live at cafe.vidhyonix.com · 4.3★ on Google · 774+ reviews · QR ordering adopted across all tables.',
+      metric: '4.3★ · 774 Reviews',
+      tech: ['Next.js', 'GSAP', 'Tailwind', 'QR Ordering'],
+      category: 'web',
+      image: vidhyonixCafe.src,
+      link: 'https://cafe.vidhyonix.com/',
+      color: 'bg-amber-500/20 text-amber-400'
     },
     {
       id: 8,

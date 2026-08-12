@@ -21,6 +21,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }));
 
+  // Product pages (our own products)
+  const productPages = [
+    {
+      url: 'https://cafe.vidhyonix.com',
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: 'https://aiinterview.skillytalk.com',
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+  ];
+
   // Dynamic blog posts
   const dynamicBlogPages = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.id}`,
@@ -37,5 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...dynamicBlogPages, ...dynamicIndustryPages];
+  return [...staticPages, ...productPages, ...dynamicBlogPages, ...dynamicIndustryPages];
 }

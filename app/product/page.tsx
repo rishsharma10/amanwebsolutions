@@ -4,10 +4,11 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, Target, Users, Zap, Briefcase, FileCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Bot, Target, Users, Zap, Briefcase, FileCheck, CheckCircle2, Coffee, Layers } from 'lucide-react';
 import Link from 'next/link';
 import InterviewSimulator from '@/components/product/InterviewSimulator';
 import ROICalculator from '@/components/product/ROICalculator';
+import VidhyonixCafeShowcase from '@/components/home/VidhyonixCafeShowcase';
 
 // Animation variants
 const fadeInUp = {
@@ -44,10 +45,21 @@ export default function ProductPage() {
                 initial="hidden"
                 animate="visible"
                 variants={fadeInUp}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-fuchsia/10 border border-brand-fuchsia/20 text-brand-fuchsia text-sm font-medium mb-8"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-fuchsia/10 border border-brand-fuchsia/20 text-brand-fuchsia text-sm font-medium mb-4"
               >
-                <Bot size={14} />
-                <span>Vidhyonix Flagship Product</span>
+                <Layers size={14} />
+                <span>Vidhyonix Products</span>
+              </motion.div>
+
+              {/* Product 01 chip */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-medium mb-8 ml-3"
+              >
+                <Bot size={12} />
+                <span>Product 01 · SkillyTalk AI Interview</span>
               </motion.div>
 
               <motion.h1 
@@ -79,9 +91,9 @@ export default function ProductPage() {
                     Start Free Trial <ArrowRight size={20} />
                   </button>
                 </Link>
-                <Link href="https://aiinterview.skillytalk.com/" target="_blank">
-                  <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-bold text-lg transition-all hover:scale-105">
-                    Explore SkillyTalk
+                <Link href="/contact">
+                  <button className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-bold text-lg transition-all hover:scale-105 flex items-center gap-2">
+                    Book a Demo <ArrowRight size={20} />
                   </button>
                 </Link>
               </motion.div>
@@ -274,6 +286,23 @@ export default function ProductPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* ─── Product 02: Vidhyonix Cafe ─── */}
+        <div className="relative z-10">
+          {/* Divider with label */}
+          <div className="border-t border-white/5 bg-brand-dark">
+            <div className="container mx-auto px-4 py-12">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full">
+                  <Coffee size={14} className="text-amber-400" />
+                  <span className="text-amber-400 text-sm font-bold">Product 02 · Vidhyonix Cafe</span>
+                </div>
+                <div className="flex-1 h-px bg-gradient-to-r from-amber-500/20 to-transparent" />
+              </div>
+            </div>
+          </div>
+          <VidhyonixCafeShowcase />
+        </div>
 
         <Footer />
       </main>

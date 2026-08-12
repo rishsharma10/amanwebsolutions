@@ -17,6 +17,7 @@ export default function ContactHero() {
     'Branding & Identity',
     'Digital Marketing',
     'SkillyTalk Interview',
+    'Cafe Website',
     'Other',
   ];
 

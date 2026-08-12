@@ -14,6 +14,7 @@ import Testimonials from '@/components/home/Testimonials';
 import CTA from '@/components/home/CTA';
 import BeforeAfter from '@/components/home/BeforeAfter';
 import ROICalculator from '@/components/shared/ROICalculator';
+import VidhyonixCafeShowcase from '@/components/home/VidhyonixCafeShowcase';
 
 export const metadata: Metadata = {
   title: 'Vidhyonix | Top AI Software Development & Digital Agency',
@@ -86,6 +87,32 @@ export default function Home() {
                   '@type': 'Brand',
                   name: 'Vidhyonix'
                 }
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'FoodEstablishment',
+                '@id': 'https://cafe.vidhyonix.com/#cafe',
+                name: 'Vidhyonix Cafe',
+                url: 'https://cafe.vidhyonix.com/',
+                description: 'Handcrafted coffee, wood-fired pizzas & fresh-baked treats in Phase 8b, Mohali. Cozy vibes, honest prices.',
+                servesCuisine: ['Coffee', 'Pizza', 'Bakery', 'Italian'],
+                priceRange: '₹400–₹1,600',
+                telephone: '+91 8770283188',
+                address: {
+                  '@type': 'PostalAddress',
+                  streetAddress: 'F-452',
+                  addressLocality: 'Phase 8b, Mohali',
+                  postalCode: '160055',
+                  addressCountry: 'IN'
+                },
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: '4.3',
+                  ratingCount: '774'
+                },
+                author: {
+                  '@id': 'https://vidhyonix.com/#organization'
+                }
               }
             ])
           }}
@@ -101,6 +128,7 @@ export default function Home() {
         <Trust />
         <Services />
         <Projects />
+        <VidhyonixCafeShowcase />
         <Methodology />
         <BeforeAfter />
 

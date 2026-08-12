@@ -23,6 +23,7 @@ import watchHouse from '@/app/assets/projects/watchhouse.png';
 import cryptoMLM from '@/app/assets/projects/phase2crypto.png';
 import marketReach from '@/app/assets/projects/aitools.png';
 import abundish from '@/app/assets/projects/abundish.png';
+import vidhyonixCafe from '@/app/assets/projects/vidhyonixcafe.png';
 import cyphr from '@/app/assets/3d/cyphr.png';
 import trionn from '@/app/assets/3d/trionn.png';
 import compsych from '@/app/assets/3d/compsych.png';
@@ -64,6 +65,15 @@ const projects = [
     category: 'web',
     image: abundish.src,
     link: 'https://staging.abundish.com/',
+  },
+  {
+    id: 11,
+    title: 'Vidhyonix Cafe',
+    description: 'Premium cafe website with immersive animations, digital menu, table reservations & WhatsApp ordering for a Mohali-based cafe.',
+    tech: ['Next.js', 'GSAP', 'Tailwind'],
+    category: 'web',
+    image: vidhyonixCafe.src,
+    link: 'https://cafe.vidhyonix.com/',
   },
   {
     id: 10,
@@ -137,7 +147,7 @@ export default function Portfolio() {
     'name': 'Vidhyonix Case Studies & Portfolio',
     'description': 'A showcase of software systems, custom websites, SaaS architectures, and AI integrations built by Vidhyonix.',
     'url': 'https://vidhyonix.com/portfolio',
-    'numberOfItems': 6,
+    'numberOfItems': 7,
     'itemListElement': [
       {
         '@type': 'ListItem',
@@ -184,6 +194,16 @@ export default function Portfolio() {
         'position': 5,
         'item': {
           '@type': 'CreativeWork',
+          'name': 'Vidhyonix Cafe',
+          'url': 'https://cafe.vidhyonix.com/',
+          'description': 'Premium cafe website with immersive scroll animations, digital menu, table reservations and WhatsApp ordering for Vidhyonix Cafe, Mohali.'
+        }
+      },
+      {
+        '@type': 'ListItem',
+        'position': 6,
+        'item': {
+          '@type': 'CreativeWork',
           'name': 'Aether 1',
           'url': 'https://www.aether1.ai/',
           'description': 'High-fidelity audio platform showing 3D interactive renders built with Three.js.'
@@ -191,7 +211,7 @@ export default function Portfolio() {
       },
       {
         '@type': 'ListItem',
-        'position': 6,
+        'position': 7,
         'item': {
           '@type': 'CreativeWork',
           'name': 'Cyphr Studio',
