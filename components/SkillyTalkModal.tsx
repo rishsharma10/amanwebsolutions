@@ -2,8 +2,54 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, ArrowRight, Zap, Brain, Target } from 'lucide-react';
+import { X, Sparkles, ArrowRight, Brain } from 'lucide-react';
 import Link from 'next/link';
+
+const skillyTalkImages = [
+    '/assets/dashboard.png',
+    '/assets/agent.png',
+    '/assets/active_pipe.png',
+    '/assets/analytics.png'
+];
+
+const cafeImages = [
+    '/assets/cafe/hero.png',
+    '/assets/cafe/order_create.png',
+    '/assets/cafe/cold_coffee.png',
+    '/assets/cafe/simulator.png'
+];
+
+const AutoCarousel = ({ images }: { images: string[] }) => {
+    const duplicatedImages = [...images, ...images];
+    return (
+        <div className="relative w-full h-32 md:h-40 mt-2 mb-6 overflow-hidden rounded-xl border border-white/5 bg-black/10">
+            <motion.div
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                    x: {
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: 20,
+                        ease: "linear",
+                    },
+                }}
+                className="flex h-full w-max"
+            >
+                {duplicatedImages.map((src, i) => (
+                    <div key={i} className="h-full w-48 md:w-56 flex-shrink-0 p-2">
+                        <div className="w-full h-full relative rounded-lg overflow-hidden border border-white/10 shadow-lg">
+                            <img 
+                                src={src} 
+                                alt="Product Screenshot" 
+                                className="w-full h-full object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity duration-500" 
+                            />
+                        </div>
+                    </div>
+                ))}
+            </motion.div>
+        </div>
+    );
+};
 
 export default function SkillyTalkModal() {
     const [isOpen, setIsOpen] = useState(false);
@@ -53,155 +99,113 @@ export default function SkillyTalkModal() {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
                             transition={{ type: 'spring', duration: 0.5 }}
-                            className="relative w-full max-w-2xl"
+                            className="relative w-full max-w-5xl"
                         >
                             {/* Glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-fuchsia-600 rounded-3xl blur-2xl opacity-30" />
 
                             {/* Modal content */}
-                            <div className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl border border-cyan-500/30 shadow-2xl overflow-hidden">
-                                {/* Animated background particles */}
-                                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                                    {[...Array(10)].map((_, i) => (
-                                        <motion.div
-                                            key={i}
-                                            className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
-                                            initial={{
-                                                x: `${Math.random() * 100}%`,
-                                                y: `${Math.random() * 100}%`,
-                                            }}
-                                            animate={{
-                                                y: [`${Math.random() * 100}%`, `${Math.random() * 100}%`],
-                                                opacity: [0, 1, 0],
-                                            }}
-                                            transition={{
-                                                duration: 3 + Math.random() * 2,
-                                                repeat: Infinity,
-                                                ease: 'linear',
-                                            }}
-                                        />
-                                    ))}
-                                </div>
-
+                            <div className="relative bg-slate-900 rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                                
                                 {/* Close button */}
                                 <button
                                     onClick={handleClose}
-                                    className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 group"
+                                    className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/20 hover:bg-black/40 border border-white/20 transition-all duration-300 group backdrop-blur-sm"
                                 >
                                     <X className="w-5 h-5 text-white group-hover:rotate-90 transition-transform duration-300" />
                                 </button>
 
-                                {/* Content */}
-                                <div className="relative p-8 md:p-12">
-                                    {/* Badge */}
-                                    <motion.div
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.2 }}
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 border border-cyan-500/30 mb-6"
-                                    >
-                                        <Sparkles className="w-4 h-4 text-cyan-400" />
-                                        <span className="text-sm font-semibold text-cyan-400">New Product Launch</span>
-                                    </motion.div>
-
-                                    {/* Title */}
-                                    <motion.h2
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.3 }}
-                                        className="text-3xl md:text-4xl font-bold mb-4"
-                                    >
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-fuchsia-400">
-                                            SkillyTalk Interview
-                                        </span>
-                                    </motion.h2>
-
-                                    {/* Subtitle */}
-                                    <motion.p
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.4 }}
-                                        className="text-xl text-white/80 mb-6 font-light"
-                                    >
-                                        The Engine of Verified Meritocracy
-                                    </motion.p>
-
-                                    {/* Description */}
-                                    <motion.p
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.5 }}
-                                        className="text-white/60 mb-8 leading-relaxed"
-                                    >
-                                        AI-powered interviews that adapt in real-time. Screen global talent with high-fidelity voice agents, intelligent follow-ups, and instant analytics.
-                                    </motion.p>
-
-                                    {/* Features */}
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.6 }}
-                                        className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
-                                    >
-                                        {[
-                                            { icon: Zap, text: 'Zero Latency Setup' },
-                                            { icon: Brain, text: 'AI-Powered Insights' },
-                                            { icon: Target, text: 'Merit Analytics' },
-                                        ].map((feature, index) => (
-                                            <div
-                                                key={index}
-                                                className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10"
-                                            >
-                                                <div className="p-2 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
-                                                    <feature.icon className="w-4 h-4 text-white" />
-                                                </div>
-                                                <span className="text-sm text-white/80 font-medium">{feature.text}</span>
-                                            </div>
+                                {/* SkillyTalk Section */}
+                                <div className="flex-1 relative p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 overflow-hidden group">
+                                    {/* Animated background particles */}
+                                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                                        {[...Array(5)].map((_, i) => (
+                                            <motion.div
+                                                key={`skilly-${i}`}
+                                                className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
+                                                initial={{ x: `${Math.random() * 100}%`, y: `${Math.random() * 100}%` }}
+                                                animate={{ y: [`${Math.random() * 100}%`, `${Math.random() * 100}%`], opacity: [0, 1, 0] }}
+                                                transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: 'linear' }}
+                                            />
                                         ))}
-                                    </motion.div>
-
-                                    {/* CTA Buttons */}
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.7 }}
-                                        className="flex flex-col sm:flex-row gap-4"
-                                    >
+                                    </div>
+                                    
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 mb-6 w-fit">
+                                            <Brain className="w-4 h-4 text-cyan-400" />
+                                            <span className="text-sm font-semibold text-cyan-400">AI Recruitment</span>
+                                        </div>
+                                        
+                                        <h2 className="text-3xl font-bold mb-4">
+                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                                                SkillyTalk AI
+                                            </span>
+                                        </h2>
+                                        
+                                        <p className="text-white/60 mb-4 leading-relaxed">
+                                            The Engine of Verified Meritocracy. AI-powered interviews that adapt in real-time. Screen global talent with high-fidelity voice agents.
+                                        </p>
+                                        
+                                        <div className="flex-grow">
+                                            <AutoCarousel images={skillyTalkImages} />
+                                        </div>
+                                        
                                         <button
-                                            onClick={handleExplore}
-                                            className="group relative flex-1 px-6 py-4 rounded-xl overflow-hidden"
+                                            onClick={() => {
+                                                localStorage.setItem('hasSeenSkillyTalkModal', 'true');
+                                                window.open('https://aiinterview.skillytalk.com/', '_blank');
+                                                setIsOpen(false);
+                                            }}
+                                            className="group/btn relative w-full px-6 py-4 rounded-xl overflow-hidden mt-auto"
                                         >
-                                            {/* Animated gradient background */}
-                                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-fuchsia-600 animate-gradient-move"
-                                                style={{ backgroundSize: '200% 200%' }} />
-
-                                            {/* Shimmer effect */}
-                                            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
-
-                                            {/* Button content */}
+                                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 group-hover/btn:scale-105 transition-transform duration-300" />
                                             <span className="relative z-10 flex items-center justify-center gap-2 text-white font-semibold">
-                                                Explore Now
-                                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                                                Explore SkillyTalk
+                                                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
                                             </span>
                                         </button>
+                                    </div>
+                                </div>
 
+                                {/* Vidhyonix Cafe Section */}
+                                <div className="flex-1 relative p-8 md:p-12 bg-gradient-to-br from-amber-950 via-orange-950/40 to-slate-900 overflow-hidden group">
+                                    <div className="absolute inset-0 bg-[url('/assets/cafe/hero.png')] bg-cover bg-center opacity-10 mix-blend-overlay group-hover:scale-110 group-hover:opacity-20 transition-all duration-700" />
+                                    
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 mb-6 w-fit">
+                                            <Sparkles className="w-4 h-4 text-amber-400" />
+                                            <span className="text-sm font-semibold text-amber-400">Digital Cafe Experience</span>
+                                        </div>
+                                        
+                                        <h2 className="text-3xl font-bold mb-4">
+                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
+                                                Vidhyonix Cafe
+                                            </span>
+                                        </h2>
+                                        
+                                        <p className="text-white/60 mb-4 leading-relaxed">
+                                            A stunning cafe website with an immersive digital menu and a frictionless QR-based table ordering experience.
+                                        </p>
+                                        
+                                        <div className="flex-grow">
+                                            <AutoCarousel images={cafeImages} />
+                                        </div>
+                                        
                                         <button
-                                            onClick={handleClose}
-                                            className="flex-1 px-6 py-4 rounded-xl border-2 border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold transition-all duration-300"
+                                            onClick={() => {
+                                                localStorage.setItem('hasSeenSkillyTalkModal', 'true');
+                                                window.open('https://cafe.vidhyonix.com/', '_blank');
+                                                setIsOpen(false);
+                                            }}
+                                            className="group/btn relative w-full px-6 py-4 rounded-xl overflow-hidden mt-auto"
                                         >
-                                            Maybe Later
+                                            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-600 group-hover/btn:scale-105 transition-transform duration-300" />
+                                            <span className="relative z-10 flex items-center justify-center gap-2 text-white font-semibold">
+                                                Explore Cafe
+                                                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                                            </span>
                                         </button>
-                                    </motion.div>
-
-                                    {/* Footer note */}
-                                    <motion.p
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 0.8 }}
-                                        className="text-center text-white/40 text-xs mt-6"
-                                    >
-                                        This message will only appear once
-                                    </motion.p>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
