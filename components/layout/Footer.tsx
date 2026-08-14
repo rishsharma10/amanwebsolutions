@@ -26,6 +26,7 @@ export default function Footer() {
       { href: '/about', label: 'About Us' },
       { href: '/portfolio', label: 'Portfolio' },
       { href: '/blog', label: 'Blog' },
+      { href: '/partner-with-us', label: 'Partner With Us' },
       { href: '/contact', label: 'Contact' },
     ],
     products: [
@@ -59,6 +60,20 @@ export default function Footer() {
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Footer Partner CTA Banner */}
+        <div className="border-b border-white/5 pb-12 mb-16 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div>
+            <h3 className="text-2xl font-bold font-heading text-white mb-2">Looking for a Technology Partner?</h3>
+            <p className="text-slate-400 text-sm md:text-base">Let's build reliable AI and software solutions together.</p>
+          </div>
+          <Link 
+            href="/partner-with-us" 
+            className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-bold hover:bg-white hover:text-black transition-all flex items-center gap-2 group/btn"
+          >
+            Partner With Us <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
 
           {/* Brand Column */}

@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import React from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ServicesHero from '@/components/services/Hero';
@@ -181,6 +183,23 @@ export default function Services() {
         </section>
 
         <ServiceContent />
+
+        {/* Partnership CTA Banner */}
+        <section className="py-16 bg-brand-dark/30 border-y border-white/5 relative z-10">
+          <div className="container mx-auto px-4 text-center">
+            <h3 className="text-3xl font-heading font-bold text-white mb-4">Need a Technology Partner?</h3>
+            <p className="text-slate-400 max-w-xl mx-auto mb-8">
+              We collaborate with agencies, startups, and consultants to build next-generation software and AI solutions.
+            </p>
+            <Link
+              href="/partner-with-us"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-brand-cyan to-brand-violet text-brand-dark hover:text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:shadow-[0_0_30px_rgba(124,58,237,0.4)]"
+            >
+              Partner With Vidhyonix <ArrowRight size={18} />
+            </Link>
+          </div>
+        </section>
+
         <CTA />
         <Footer />
       </main>

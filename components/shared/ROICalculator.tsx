@@ -60,7 +60,7 @@ export default function ROICalculator() {
     <div className="w-full max-w-5xl mx-auto bg-brand-dark/50 border border-white/5 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md">
       <div className="grid lg:grid-cols-2">
         {/* Left Side: Inputs */}
-        <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-white/5">
+        <div className="p-6 sm:p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-white/5">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 bg-brand-cyan/20 rounded-xl text-brand-cyan">
               <Calculator size={24} />
@@ -68,13 +68,13 @@ export default function ROICalculator() {
             <h3 className="text-2xl font-heading font-bold text-white">ROI Calculator</h3>
           </div>
 
-          <div className="flex gap-2 mb-8 bg-white/5 p-1 rounded-xl w-fit">
+          <div className="flex gap-1.5 mb-8 bg-white/5 p-1 rounded-xl w-full">
             {(['Support', 'Automation', 'Hiring'] as CalcType[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-sm font-bold transition-all",
+                  "flex-1 text-center py-2 rounded-lg text-xs sm:text-sm font-bold transition-all",
                   activeTab === tab ? "bg-white text-black shadow-md" : "text-slate-400 hover:text-white"
                 )}
               >
@@ -198,17 +198,17 @@ export default function ROICalculator() {
         </div>
 
         {/* Right Side: Results */}
-        <div className="p-8 md:p-12 flex flex-col justify-center relative overflow-hidden">
+        <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-cyan/10 blur-[100px] rounded-full" />
           
           <div className="relative z-10 text-center">
             <h4 className="text-slate-400 font-medium mb-4 uppercase tracking-widest text-sm">Estimated Annual Savings</h4>
             
-            <div className="text-5xl md:text-7xl font-heading font-black text-white mb-8">
+            <div className="text-4xl sm:text-5xl md:text-7xl font-heading font-black text-white mb-8">
               ${annualSavings.toLocaleString(undefined, { maximumFractionDigits: 0 })}
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               <div className="bg-white/5 border border-white/10 p-4 rounded-xl">
                 <TrendingDown size={24} className="text-green-400 mx-auto mb-2" />
                 <div className="text-xs text-slate-400 uppercase tracking-wider mb-1">Impact</div>
@@ -223,7 +223,7 @@ export default function ROICalculator() {
 
             <Link
               href="/contact"
-              className="w-full px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center"
+              className="w-full px-8 py-4 bg-white text-black rounded-xl font-bold hover:bg-slate-200 transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center text-sm md:text-base"
             >
               Claim Your Savings <ArrowRight size={18} />
             </Link>

@@ -131,9 +131,9 @@ export default function ContactHero() {
                     <div>
                       <h3 className="font-medium text-white">{item.title}</h3>
                       {item.link ? (
-                        <a href={item.link} className="text-gray-400 hover:text-brand-cyan transition-colors">{item.content}</a>
+                        <a href={item.link} className="text-gray-400 hover:text-brand-cyan transition-colors text-sm sm:text-base break-all">{item.content}</a>
                       ) : (
-                        <p className="text-gray-400">{item.content}</p>
+                        <p className="text-gray-400 text-sm sm:text-base break-all">{item.content}</p>
                       )}
                     </div>
                   </motion.div>

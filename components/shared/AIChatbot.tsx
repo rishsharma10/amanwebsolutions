@@ -146,7 +146,7 @@ export default function AIChatbot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-end font-sans">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -154,7 +154,7 @@ export default function AIChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="mb-4 bg-[#0a0a0f]/95 border border-white/10 shadow-2xl rounded-3xl w-80 sm:w-96 h-[480px] flex flex-col overflow-hidden backdrop-blur-xl"
+            className="mb-4 bg-[#0a0a0f]/95 border border-white/10 shadow-2xl rounded-3xl w-[calc(100vw-2rem)] sm:w-96 max-w-sm h-[480px] max-h-[calc(100vh-7rem)] flex flex-col overflow-hidden backdrop-blur-xl"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-brand-cyan/20 to-brand-violet/20 px-5 py-4 border-b border-white/10 flex items-center justify-between">

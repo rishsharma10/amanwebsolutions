@@ -429,6 +429,22 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Partnership CTA Banner */}
+      <section className="py-24 bg-brand-dark/30 border-t border-white/5 relative z-10">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="text-3xl font-heading font-bold text-white mb-4">Have a Product Idea?</h3>
+          <p className="text-slate-400 max-w-xl mx-auto mb-8">
+            We partner with entrepreneurs, startups, and product leaders to design, build, and deploy premium software and AI digital products.
+          </p>
+          <Link
+            href="/partner-with-us"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-brand-cyan to-brand-violet text-brand-dark hover:text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:shadow-[0_0_30px_rgba(124,58,237,0.4)]"
+          >
+            Let's Build Together <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

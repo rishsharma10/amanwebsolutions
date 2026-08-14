@@ -32,7 +32,6 @@ export default function Header() {
     { href: '/services', label: 'Services' },
     { href: '/product', label: 'Product' },
     { href: '/portfolio', label: 'Portfolio' },
-    { href: '/blog', label: 'Blog' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -122,7 +121,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 lg:hidden bg-brand-dark flex flex-col pt-24 px-6 gap-6"
+            className="fixed inset-0 z-40 lg:hidden bg-[#020617] flex flex-col pt-24 px-6 gap-6"
           >
             <div className="absolute inset-0 opacity-10 bg-ai-grid bg-cover pointer-events-none" />
 
