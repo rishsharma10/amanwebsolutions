@@ -8,17 +8,16 @@ import React, { useState } from 'react';
 
 export default function ContactHero() {
   const servicesList = [
-    'Web Development',
-    'App Development',
-    'AI & Machine Learning',
+    'Custom AI Development',
+    'Autonomous AI Agents',
+    'AI Workflow Automation',
+    'Custom Software Development',
+    'Next.js Web Applications',
+    'Mobile App Development',
+    'SaaS Architecture & MVP',
+    'Custom Ecommerce Engineering',
     'Cloud & DevOps',
-    'CMS & eCommerce',
-    'UI/UX Design',
-    'Branding & Identity',
-    'Digital Marketing',
-    'SkillyTalk Interview',
-    'Cafe Website',
-    'Other',
+    'Other Technology Solutions',
   ];
 
   const [formData, setFormData] = useState({

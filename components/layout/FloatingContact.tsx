@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Phone, Mail, Calendar, FileText } from 'lucide-react';
 import Link from 'next/link';
 
+import { trackEvent } from '@/lib/analytics';
+
 export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,35 +30,56 @@ export default function FloatingContact() {
             </div>
 
             <div className="space-y-2">
-              <Link href="https://wa.me/918770283188" target="_blank" className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group">
+              <Link
+                href="https://wa.me/918770283188"
+                target="_blank"
+                onClick={() => trackEvent('whatsapp_click', { location: 'floating_widget' })}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+              >
                 <div className="bg-[#25D366]/20 text-[#25D366] p-2 rounded-lg group-hover:bg-[#25D366] group-hover:text-white transition-colors">
                   <MessageCircle size={18} />
                 </div>
                 <span className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors">WhatsApp Chat</span>
               </Link>
 
-              <Link href="/contact" className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group">
+              <Link
+                href="/contact"
+                onClick={() => trackEvent('cta_click', { location: 'floating_widget', cta_name: 'contact_form' })}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+              >
                 <div className="bg-brand-cyan/20 text-brand-cyan p-2 rounded-lg group-hover:bg-brand-cyan group-hover:text-brand-dark transition-colors">
                   <FileText size={18} />
                 </div>
                 <span className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors">Contact Form</span>
               </Link>
 
-              <Link href="#" className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group">
+              <Link
+                href="/contact"
+                onClick={() => trackEvent('book_consultation_click', { location: 'floating_widget' })}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+              >
                 <div className="bg-brand-fuchsia/20 text-brand-fuchsia p-2 rounded-lg group-hover:bg-brand-fuchsia group-hover:text-white transition-colors">
                   <Calendar size={18} />
                 </div>
-                <span className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors">Book Calendly (Coming Soon)</span>
+                <span className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors">Book Consultation</span>
               </Link>
 
-              <a href="tel:+918770283188" className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group">
+              <a
+                href="tel:+918770283188"
+                onClick={() => trackEvent('phone_click', { location: 'floating_widget' })}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+              >
                 <div className="bg-white/10 text-slate-300 p-2 rounded-lg group-hover:bg-white group-hover:text-black transition-colors">
                   <Phone size={18} />
                 </div>
                 <span className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors">Call Us</span>
               </a>
 
-              <a href="mailto:vidhyonixitsolutions@gmail.com" className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group">
+              <a
+                href="mailto:vidhyonixitsolutions@gmail.com"
+                onClick={() => trackEvent('email_click', { location: 'floating_widget' })}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+              >
                 <div className="bg-white/10 text-slate-300 p-2 rounded-lg group-hover:bg-white group-hover:text-black transition-colors">
                   <Mail size={18} />
                 </div>

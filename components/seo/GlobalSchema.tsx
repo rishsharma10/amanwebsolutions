@@ -5,28 +5,36 @@ export default function GlobalSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://vidhyonix.com/#organization',
-    name: 'Vidhyonix',
+    name: 'Vidhyonix IT Solutions',
+    alternateName: 'Vidhyonix',
     url: 'https://vidhyonix.com',
-    email: 'info@vidhyonix.com',
-    description: 'A premium AI software development agency specializing in custom SaaS platforms, intelligent automation, and high-performance web and mobile applications.',
+    email: 'vidhyonixitsolutions@gmail.com',
+    telephone: '+91 8770283188',
+    description: 'AI, Software & Product Engineering Partner designing and building intelligent software products, AI systems, SaaS platforms, automation workflows, and modern ecommerce experiences.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Mohali, Chandigarh',
+      addressCountry: 'IN'
+    },
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+1-555-0198',
-        contactType: 'sales',
+        telephone: '+91 8770283188',
+        contactType: 'customer support',
         areaServed: 'Worldwide',
-        availableLanguage: ['en']
+        availableLanguage: ['en', 'hi']
       }
     ],
     logo: {
       '@type': 'ImageObject',
       '@id': 'https://vidhyonix.com/#logo',
       url: 'https://vidhyonix.com/favicon.png',
-      caption: 'Vidhyonix Logo'
+      caption: 'Vidhyonix IT Solutions'
     },
     sameAs: [
-      'https://www.linkedin.com/company/vidhyonix',
-      'https://twitter.com/vidhyonix'
+      'https://www.linkedin.com/company/vidhyonix-it-solutions/',
+      'https://www.instagram.com/vidhyonix/',
+      'https://www.facebook.com/people/Vidhyonix/61580259069806/'
     ]
   };
 
@@ -36,13 +44,9 @@ export default function GlobalSchema() {
     '@id': 'https://vidhyonix.com/#website',
     url: 'https://vidhyonix.com',
     name: 'Vidhyonix',
+    description: 'AI, Software & Product Engineering Partner',
     publisher: {
       '@id': 'https://vidhyonix.com/#organization'
-    },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://vidhyonix.com/?s={search_term_string}',
-      'query-input': 'required name=search_term_string'
     }
   };
 

@@ -23,7 +23,6 @@ import watchHouse from '@/app/assets/projects/watchhouse.png';
 import cryptoMLM from '@/app/assets/projects/phase2crypto.png';
 import marketReach from '@/app/assets/projects/aitools.png';
 import abundish from '@/app/assets/projects/abundish.png';
-import vidhyonixCafe from '@/app/assets/projects/vidhyonixcafe.png';
 import cyphr from '@/app/assets/3d/cyphr.png';
 import trionn from '@/app/assets/3d/trionn.png';
 import compsych from '@/app/assets/3d/compsych.png';
@@ -68,12 +67,12 @@ const projects = [
   },
   {
     id: 11,
-    title: 'Vidhyonix Cafe',
-    description: 'Premium cafe website with immersive animations, digital menu, table reservations & WhatsApp ordering for a Mohali-based cafe.',
-    tech: ['Next.js', 'GSAP', 'Tailwind'],
+    title: 'Sasco Student Living',
+    description: 'Modern student accommodation portal with intuitive room explorers and digital lease application workflows.',
+    tech: ['Next.js', 'TypeScript', 'Node.js', 'Tailwind CSS'],
     category: 'web',
-    image: vidhyonixCafe.src,
-    link: 'https://cafe.vidhyonix.com/',
+    image: sascoStudentLiving.src,
+    link: '/case-studies/sasco-student-living',
   },
   {
     id: 10,
@@ -194,9 +193,9 @@ export default function Portfolio() {
         'position': 5,
         'item': {
           '@type': 'CreativeWork',
-          'name': 'Vidhyonix Cafe',
-          'url': 'https://cafe.vidhyonix.com/',
-          'description': 'Premium cafe website with immersive scroll animations, digital menu, table reservations and WhatsApp ordering for Vidhyonix Cafe, Mohali.'
+          'name': 'Sasco Student Living',
+          'url': 'https://vidhyonix.com/case-studies/sasco-student-living',
+          'description': 'Student housing portal with interactive room category visualizer and digital lease onboarding workflows.'
         }
       },
       {

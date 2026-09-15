@@ -29,29 +29,30 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Vidhyonix | Premium AI Software Development Agency',
+    default: 'Vidhyonix | AI, Software & Product Engineering Partner',
     template: '%s | Vidhyonix'
   },
-  description: 'Vidhyonix is a premium AI software development agency specializing in custom SaaS platforms, intelligent automation, and high-performance web and mobile applications.',
+  description: 'We design and build intelligent software products, AI systems, SaaS platforms, automation workflows, ecommerce experiences, and custom digital solutions for ambitious businesses.',
   keywords: [
-    'AI Software Development Company', 'Custom SaaS Development', 'Mobile App Agency', 'Next.js Development', 'Enterprise Software',
-    'AI Integration Services', 'Digital Transformation', 'Cloud Native Architecture', 'SkillyTalk AI', 'Proprietary AI Models'
+    'AI Development Company', 'AI Agent Development', 'Software Engineering Partner',
+    'Custom SaaS Development', 'Next.js Development Company', 'Headless Ecommerce Technology',
+    'Workflow Automation', 'Cloud Architecture', 'Mobile App Development', 'Product Engineering'
   ],
-  authors: [{ name: 'Vidhyonix Team' }],
-  creator: 'Vidhyonix',
-  publisher: 'Vidhyonix',
+  authors: [{ name: 'Vidhyonix Engineering Team' }],
+  creator: 'Vidhyonix IT Solutions',
+  publisher: 'Vidhyonix IT Solutions',
   metadataBase: new URL('https://vidhyonix.com'),
   openGraph: {
-    title: 'Vidhyonix | Premium AI Software Development Agency',
-    description: 'Specializing in custom SaaS platforms, intelligent automation, and high-performance applications.',
+    title: 'Vidhyonix | AI, Software & Product Engineering Partner',
+    description: 'We design and build intelligent software products, AI systems, SaaS platforms, automation workflows, ecommerce experiences, and custom digital solutions.',
     url: 'https://vidhyonix.com',
-    siteName: 'Vidhyonix',
+    siteName: 'Vidhyonix IT Solutions',
     images: [
       {
         url: '/favicon.png',
         width: 1200,
         height: 630,
-        alt: 'Vidhyonix - Next-Gen IT Solutions'
+        alt: 'Vidhyonix - AI, Software & Product Engineering'
       }
     ],
     locale: 'en_US',
@@ -59,13 +60,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vidhyonix | AI Software Agency',
-    description: 'Specializing in custom SaaS platforms, intelligent automation, and high-performance applications.',
+    title: 'Vidhyonix | AI, Software & Product Engineering Partner',
+    description: 'Intelligent software products, AI systems, SaaS platforms, and modern ecommerce experiences.',
     images: ['/favicon.png'],
   },
   alternates: {
-    canonical: '/',
-    languages: { 'en-US': '/en-US' }
+    canonical: 'https://vidhyonix.com',
   },
   formatDetection: {
     telephone: false,
@@ -120,7 +120,6 @@ export default function RootLayout({
           {children}
           <AIChatbot />
         </ThemeProvider>
-        <SkillyTalkModal />
         <BreadcrumbSchema />
       </body>
     </html>

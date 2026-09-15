@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, AlertCircle, ArrowRight, Activity, BrainCircuit } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { trackEvent } from '@/lib/analytics';
 
 type Step = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -61,8 +62,16 @@ export default function AIReadiness() {
   const [score, setScore] = useState(0);
 
   const handleAnswer = (points: number) => {
-    setScore(prev => prev + points);
-    setStep(prev => Math.min(prev + 1, 6) as Step);
+    if (step === 1) {
+      trackEvent('tool_start', { tool_name: 'ai_readiness_assessment' });
+    }
+    const newScore = score + points;
+    setScore(newScore);
+    const nextStep = Math.min(step + 1, 6) as Step;
+    setStep(nextStep);
+    if (nextStep === 6) {
+      trackEvent('tool_complete', { tool_name: 'ai_readiness_assessment', value: newScore });
+    }
   };
 
   const getResult = () => {

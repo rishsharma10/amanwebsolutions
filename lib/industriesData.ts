@@ -3,276 +3,376 @@ export interface IndustryData {
   title: string;
   heroHeadline: string;
   heroSubheadline: string;
+  industryProblem: string;
   challenges: { title: string; desc: string }[];
   solutions: { title: string; desc: string }[];
+  aiOpportunities: { title: string; desc: string }[];
+  automationOpportunities: { title: string; desc: string }[];
+  softwareOpportunities: { title: string; desc: string }[];
+  integrations: string[];
+  techStack: string[];
   caseStudy: {
     title: string;
+    clientName: string;
     problem: string;
     solution: string;
     impact: string;
+    link?: string;
   };
   faqs: { q: string; a: string }[];
 }
 
 export const industriesData: Record<string, IndustryData> = {
-  'healthcare': {
-    slug: 'healthcare',
-    title: 'Healthcare AI & Software Solutions',
-    heroHeadline: 'Transforming Healthcare with AI-Driven Engineering',
-    heroSubheadline: 'We build HIPAA-compliant telemedicine platforms, predictive diagnostics, and automated patient management systems for modern healthcare providers.',
-    challenges: [
-      { title: 'Data Silos', desc: 'Patient records are often scattered across disparate EMR systems.' },
-      { title: 'High Administrative Burden', desc: 'Staff spend excessive time on billing and appointment scheduling.' },
-      { title: 'Predictive Diagnostics', desc: 'Lack of tooling to predict patient risks before they escalate.' }
-    ],
-    solutions: [
-      { title: 'Unified Health Portals', desc: 'Custom platforms that centralize patient data securely.' },
-      { title: 'AI Scheduling Agents', desc: 'Automated booking systems that reduce no-shows by 40%.' },
-      { title: 'Machine Learning Models', desc: 'AI algorithms to assist doctors in early diagnosis.' }
-    ],
-    caseStudy: {
-      title: 'Automating Patient Triage & Appointment Scheduling',
-      problem: 'A mid-sized clinic network was losing 30% of their operational hours to manual appointment booking and patient follow-ups, leading to high staff burnout and patient dissatisfaction.',
-      solution: 'We engineered a HIPAA-compliant AI voice and chat agent integrated directly into their EMR system to handle inbound queries, schedule appointments, and perform automated follow-ups.',
-      impact: 'Reduced administrative workload by 45%, decreased appointment no-shows by 38%, and saved the clinic over $120,000 annually in operational costs.'
-    },
-    faqs: [
-      { q: 'Are your solutions HIPAA compliant?', a: 'Yes, we follow strict data encryption and compliance standards for all healthcare applications.' },
-      { q: 'Can you integrate with Epic or Cerner?', a: 'Absolutely, we specialize in HL7 and FHIR integrations with existing EMRs.' }
-    ]
-  },
-  'finance': {
-    slug: 'finance',
-    title: 'FinTech & Banking AI Solutions',
-    heroHeadline: 'Secure, Scalable FinTech Engineering',
-    heroSubheadline: 'From AI-powered fraud detection to custom neo-banking platforms, we engineer financial software that scales securely.',
-    challenges: [
-      { title: 'Fraud & Security', desc: 'Financial institutions face constant threats of sophisticated cyber attacks.' },
-      { title: 'Legacy Systems', desc: 'Core banking systems are outdated and slow to innovate.' },
-      { title: 'Customer Experience', desc: 'Users demand instant, seamless digital banking experiences.' }
-    ],
-    solutions: [
-      { title: 'AI Fraud Detection', desc: 'Real-time transaction monitoring using machine learning.' },
-      { title: 'FinTech App Development', desc: 'Modern iOS and Android banking applications.' },
-      { title: 'Automated Underwriting', desc: 'AI models that assess credit risk in seconds.' }
-    ],
-    caseStudy: {
-      title: 'Real-Time AI Fraud Detection for a Neo-Bank',
-      problem: 'A rapidly growing FinTech startup was experiencing a 15% increase in fraudulent transactions, leading to high chargeback rates and compliance warnings.',
-      solution: 'We deployed a custom machine learning model that analyzes transactional metadata in real-time, instantly flagging anomalies and blocking high-risk transfers.',
-      impact: 'Reduced fraudulent transactions by 92%, saving the company millions in potential losses while maintaining a 99.9% false-positive accuracy rate.'
-    },
-    faqs: [
-      { q: 'Do you follow PCI-DSS compliance?', a: 'Yes, our architectures are built to meet strict financial regulatory standards.' },
-      { q: 'Can you build blockchain solutions?', a: 'Yes, we develop smart contracts and DeFi applications.' }
-    ]
-  },
-  'saas': {
-    slug: 'saas',
-    title: 'SaaS Development & AI Integration',
-    heroHeadline: 'Build and Scale Profitable SaaS Products',
-    heroSubheadline: 'We help founders build robust SaaS architectures and integrate AI features that command higher ARR and reduce churn.',
-    challenges: [
-      { title: 'Time to Market', desc: 'Founders need to launch quickly to validate their ideas.' },
-      { title: 'Multi-tenant Architecture', desc: 'Designing secure databases for thousands of isolated users.' },
-      { title: 'AI Differentiation', desc: 'Standing out in a crowded market without AI is difficult.' }
-    ],
-    solutions: [
-      { title: 'Rapid MVP Development', desc: 'Launch a scalable SaaS product in 6-10 weeks.' },
-      { title: 'Cloud-Native Architecture', desc: 'Microservices built on AWS/GCP for infinite scalability.' },
-      { title: 'Generative AI Features', desc: 'Embed LLMs directly into your product to automate workflows.' }
-    ],
-    caseStudy: {
-      title: 'Scaling an AI-Powered Recruitment SaaS (SkillyTalk)',
-      problem: 'Recruiters were spending countless hours manually screening candidates, and existing video interview platforms lacked intelligent, unbiased evaluation metrics.',
-      solution: 'We architected and launched SkillyTalk, integrating advanced Speech-to-Text and LLMs to autonomously conduct and grade technical and behavioral interviews.',
-      impact: 'SkillyTalk now processes thousands of interviews concurrently, reducing enterprise time-to-hire by 60% and entirely eliminating early-stage human bias.'
-    },
-    faqs: [
-      { q: 'Do you help with product strategy?', a: 'Yes, we provide end-to-end consulting from UI/UX to cloud deployment.' },
-      { q: 'Who owns the IP?', a: 'You own 100% of the Intellectual Property (IP) and source code.' }
-    ]
-  },
-  'education': {
-    slug: 'education',
-    title: 'EdTech & E-Learning Platforms',
-    heroHeadline: 'Powering the Future of Digital Education',
-    heroSubheadline: 'We build scalable learning management systems (LMS), virtual classrooms, and AI-driven personalized learning paths.',
-    challenges: [
-      { title: 'Student Engagement', desc: 'Remote learning often leads to decreased student participation.' },
-      { title: 'Scalability', desc: 'Platforms crash during peak exam times or massive enrollments.' },
-      { title: 'Content Management', desc: 'Difficulties in organizing and delivering multimedia courses.' }
-    ],
-    solutions: [
-      { title: 'Custom LMS Development', desc: 'Bespoke learning platforms built for high concurrency.' },
-      { title: 'AI Tutors', desc: 'Personalized AI assistants that help students 24/7.' },
-      { title: 'Interactive Virtual Classrooms', desc: 'Real-time video, whiteboard, and collaboration tools.' }
-    ],
-    caseStudy: {
-      title: 'AI-Powered Personalized Learning Path Engine',
-      problem: 'An online coding bootcamp struggled with high dropout rates because students with different experience levels were forced into the same rigid curriculum pace.',
-      solution: 'We built an adaptive learning engine that uses AI to analyze quiz results and coding patterns, dynamically restructuring the curriculum for each individual student.',
-      impact: 'Course completion rates increased by 45%, and student satisfaction scores rose to an all-time high, driving a 30% increase in referral sign-ups.'
-    },
-    faqs: [
-      { q: 'Can you integrate with existing university systems?', a: 'Yes, we integrate with SIS, ERPs, and SSO providers.' },
-      { q: 'Do you build mobile apps for learning?', a: 'Absolutely, we build native and cross-platform apps for iOS and Android.' }
-    ]
-  },
-  'hr': {
-    slug: 'hr',
-    title: 'HR Tech & Recruitment Software',
-    heroHeadline: 'Automate Talent Acquisition & Management',
-    heroSubheadline: 'From intelligent ATS platforms to AI-driven interviewing systems, we build software that scales your HR operations.',
-    challenges: [
-      { title: 'Screening Bottlenecks', desc: 'Recruiters spend too much time manually reading resumes.' },
-      { title: 'Interview Bias', desc: 'Human interviews are prone to unconscious bias.' },
-      { title: 'Employee Retention', desc: 'Lack of data to predict employee churn.' }
-    ],
-    solutions: [
-      { title: 'AI Screening Tools', desc: 'Automatically parse and rank resumes against job descriptions.' },
-      { title: 'Automated Interviews', desc: 'Platforms like SkillyTalk that conduct initial candidate assessments.' },
-      { title: 'HR Analytics Dashboards', desc: 'Predictive analytics for workforce management.' }
-    ],
-    caseStudy: {
-      title: 'Automated High-Volume Candidate Screening',
-      problem: 'An enterprise staffing agency was overwhelmed by receiving over 10,000 resumes per month, creating a massive backlog and causing them to lose top talent to faster competitors.',
-      solution: 'We developed an AI-driven resume parser that extracts skills, standardizes experience, and scores candidates against job requisitions within seconds of submission.',
-      impact: 'Time-to-shortlist dropped from 7 days to 2 minutes. Recruiters reclaimed 60% of their day, allowing them to focus entirely on closing top-tier candidates.'
-    },
-    faqs: [
-      { q: 'Can you build custom ATS solutions?', a: 'Yes, we build end-to-end Applicant Tracking Systems.' },
-      { q: 'Is AI hiring biased?', a: 'We design our models specifically to ignore demographic data and focus purely on skills.' }
-    ]
-  },
-  'real-estate': {
-    slug: 'real-estate',
-    title: 'PropTech & Real Estate Solutions',
-    heroHeadline: 'Digital Transformation for Real Estate',
-    heroSubheadline: 'We engineer property management platforms, virtual tour integrations, and AI-driven valuation models.',
-    challenges: [
-      { title: 'Inefficient Property Management', desc: 'Manual tracking of rent, maintenance, and tenants.' },
-      { title: 'Lead Qualification', desc: 'Agents waste time on unqualified leads.' },
-      { title: 'Market Volatility', desc: 'Difficulty in pricing properties accurately.' }
-    ],
-    solutions: [
-      { title: 'Property Management Systems', desc: 'Centralized dashboards for landlords and property managers.' },
-      { title: 'AI Chatbots', desc: 'Qualify leads automatically 24/7 before handing to agents.' },
-      { title: 'Predictive Valuation', desc: 'Machine learning models to predict property values based on market trends.' }
-    ],
-    caseStudy: {
-      title: 'Smart Property Valuation & Lead Scoring',
-      problem: 'A national real estate brokerage had thousands of website visitors but their agents were wasting hours daily calling unverified and low-intent leads.',
-      solution: 'We implemented an AI lead-scoring bot that engages visitors, gathers their requirements, and provides instant, hyper-accurate property valuations based on real-time market data.',
-      impact: 'Lead conversion rates jumped by 300%. Agents now only talk to pre-qualified buyers, drastically increasing overall firm revenue.'
-    },
-    faqs: [
-      { q: 'Do you integrate with MLS?', a: 'Yes, we build custom IDX/MLS integrations for property listings.' },
-      { q: 'Can you build tenant mobile apps?', a: 'Yes, for rent payments, maintenance requests, and community features.' }
-    ]
-  },
+  // ==================== 1. RETAIL & COMMERCE ====================
   'retail': {
     slug: 'retail',
-    title: 'Omnichannel Retail Technology',
-    heroHeadline: 'Bridge the Gap Between In-Store and Online',
-    heroSubheadline: 'We build POS integrations, inventory management systems, and personalized shopping experiences.',
+    title: 'Retail & Consumer Goods Technology',
+    heroHeadline: 'High-Performance Software & AI Engineering for Modern Retail',
+    heroSubheadline: 'We build fast digital storefronts, real-time inventory synchronization systems, AI product discovery, and omnichannel commerce platforms.',
+    industryProblem: 'Retail brands struggle with disconnected channels: inventory counts drift between brick-and-mortar stores and ecommerce sites, legacy storefronts load too slowly for mobile shoppers, and customers encounter frustrating search experiences.',
     challenges: [
-      { title: 'Inventory Syncing', desc: 'Discrepancies between physical store inventory and online storefronts.' },
-      { title: 'Customer Loyalty', desc: 'Generic shopping experiences lead to low repeat purchase rates.' },
-      { title: 'Supply Chain Blind Spots', desc: 'Inability to track goods from warehouse to shelf.' }
+      { title: 'Fragmented Channel Silos', desc: 'In-store point of sale and online carts operate on disparate databases, leading to stockouts and painful manual reconciliations.' },
+      { title: 'Sluggish Storefront Speed', desc: 'Every 100ms of latency degrades mobile conversion rates and drives frustrated shoppers to larger marketplace competitors.' },
+      { title: 'Generic Discovery Experience', desc: 'Basic keyword search fails to understand conversational buyer intent, typos, and nuanced product attributes.' }
     ],
     solutions: [
-      { title: 'Unified Commerce Platforms', desc: 'Real-time sync across all sales channels.' },
-      { title: 'AI Recommendation Engines', desc: 'Personalized product suggestions increasing AOV by 20%.' },
-      { title: 'Smart POS Systems', desc: 'Custom Point of Sale software tailored to your workflow.' }
+      { title: 'Unified Omnichannel Architecture', desc: 'Centralize product catalogs, inventory buffers, and order routing across physical stores, mobile apps, and online marketplaces.' },
+      { title: 'Edge-Rendered Storefronts', desc: 'Engineered with Next.js and headless commerce APIs for sub-second product page loads worldwide.' },
+      { title: 'Semantic AI Search & Recommendations', desc: 'Vector-powered catalog search and personalized product carousels based on real browsing behavior.' }
     ],
+    aiOpportunities: [
+      { title: 'Vector-Based Semantic Search', desc: 'Allow shoppers to search using natural descriptions and find visually or contextually similar items.' },
+      { title: 'Automated Catalog Enrichment', desc: 'Generate SEO-optimized product titles, descriptions, and attribute tags automatically for thousands of incoming SKUs.' },
+      { title: 'Intelligent Demand Forecasting', desc: 'Analyze historical sales velocity, seasonality, and promotional trends to prevent stockouts before peak shopping periods.' }
+    ],
+    automationOpportunities: [
+      { title: 'Real-Time Inventory Reconciliation', desc: 'Automatically adjust available stock counts across Shopify, Amazon, and POS registers upon each confirmed checkout.' },
+      { title: 'Multi-Warehouse Order Routing', desc: 'Route customer orders to the closest fulfillment facility holding complete inventory to minimize shipping transit times.' },
+      { title: 'Automated Post-Purchase Tracking', desc: 'Send real-time carrier tracking updates, delivery notifications, and automated feedback requests.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Custom B2B Wholesale Portals', desc: 'Support tiered volume pricing, customer contract terms, and purchase order requests on a dedicated portal.' },
+      { title: 'Interactive 3D Product Customizers', desc: 'Enable shoppers to configure colors, textures, and dimensions in real time using WebGL/Three.js.' }
+    ],
+    integrations: ['Shopify Plus', 'Stripe', 'Algolia', 'Klaviyo', 'NetSuite ERP', 'Square POS', 'ShipStation'],
+    techStack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'Tailwind CSS'],
     caseStudy: {
-      title: 'Unified Inventory & Omnichannel POS System',
-      problem: 'A growing fashion retailer with 15 physical locations was constantly overselling items online because their legacy POS did not sync in real-time with their web store.',
-      solution: 'We engineered a custom cloud-based middleware that instantly syncs inventory levels across their POS, e-commerce platform, and warehouse scanners.',
-      impact: 'Overselling incidents were completely eliminated (0%), and online order fulfillment speed improved by 40%, directly boosting customer retention.'
+      title: 'Headless Commerce Replatform & 3D Visualizer',
+      clientName: 'Madam Jan',
+      problem: 'A premium lifestyle and homeware brand needed an immersive, fast digital flagship capable of displaying bespoke artisanal finishes without sacrificing mobile speed.',
+      solution: 'We engineered a custom Shopify Store 2.0 experience integrating interactive Three.js 3D visualizers and modular Liquid sections for internal marketing control.',
+      impact: 'Significantly elevated brand positioning, reduced catalog load times, and simplified day-to-day merchandizing updates.',
+      link: '/case-studies/madam-jan'
     },
     faqs: [
-      { q: 'Can you integrate with Shopify or Magento?', a: 'Yes, we build custom headless commerce solutions and apps for major platforms.' },
-      { q: 'Do you build loyalty programs?', a: 'Yes, from simple points systems to complex tiered digital wallets.' }
+      { q: 'Can you integrate our existing physical POS system with our online store?', a: 'Yes. We build bidirectional synchronization connectors that tie into Square, Lightspeed, Clover, and custom POS systems to maintain single-source-of-truth inventory.' },
+      { q: 'Do you work with existing Shopify stores or only new builds?', a: 'We handle both: full greenfield builds and performance overhauls of existing, established Shopify or custom storefronts.' }
     ]
   },
+
+  // ==================== 2. HEALTHCARE & WELLNESS ====================
+  'healthcare': {
+    slug: 'healthcare',
+    title: 'Healthcare & Wellness Technology',
+    heroHeadline: 'Secure Digital Systems & Patient Workflows for Healthcare Providers',
+    heroSubheadline: 'We engineer patient portals, automated intake workflows, clinical scheduling systems, and practice management software designed for security and reliability.',
+    industryProblem: 'Medical practices and wellness clinics are overwhelmed by manual administrative tasks: high call volumes for routine appointments, missing intake forms, and disconnected patient records that waste staff time.',
+    challenges: [
+      { title: 'Severe Administrative Overload', desc: 'Front-desk coordinators spend the majority of their day answering repetitive phone inquiries and manually scheduling visits.' },
+      { title: 'High Appointment No-Show Rates', desc: 'Without automated multi-channel reminders and frictionless digital rescheduling, clinics face costly idle chair time.' },
+      { title: 'Fragmented Patient Communications', desc: 'Records, patient messages, and intake documents remain scattered across email, paper files, and legacy software.' }
+    ],
+    solutions: [
+      { title: '24/7 Digital Patient Portals', desc: 'Intuitive web applications where patients view appointments, submit intake paperwork, and communicate securely.' },
+      { title: 'Intelligent Voice & Chat Triage', desc: 'AI-assisted voice and conversational agents that answer routine clinic inquiries and schedule appointments automatically.' },
+      { title: 'Automated Multi-Channel Reminders', desc: 'Contextual SMS and email notification sequences that reduce missed appointments and facilitate rapid rescheduling.' }
+    ],
+    aiOpportunities: [
+      { title: 'Conversational Appointment Scheduling', desc: 'Patients can speak or type in natural language to find open appointment slots matching their doctor preference.' },
+      { title: 'Intake Form Document Extraction', desc: 'Automatically parse patient insurance cards and prior medical summaries to pre-fill clinic intake charts.' },
+      { title: 'Post-Visit Follow-Up Intelligence', desc: 'Automate wellness check-in prompts and triage patient recovery concerns for clinician review.' }
+    ],
+    automationOpportunities: [
+      { title: 'Automated Calendar Availability Sync', desc: 'Sync doctor availability in real time across multiple clinics and prevent double-booking.' },
+      { title: 'Digital Intake & Consent Routing', desc: 'Collect digital signatures on required consent forms before patients arrive at the office.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Custom Practice Management Portals', desc: 'Unified clinician dashboards displaying daily queues, treatment notes, and billing statuses.' },
+      { title: 'Wellness Program & Subscription Platforms', desc: 'Membership portals for holistic wellness providers supporting class bookings and recurring billing.' }
+    ],
+    integrations: ['Twilio Telephony', 'Stripe', 'Google Calendar API', 'PostgreSQL', 'SendGrid', 'Custom EMR APIs'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
+    caseStudy: {
+      title: 'Digital Wellness & Mindfulness Platform',
+      clientName: 'Pali Yoga',
+      problem: 'A boutique wellness and yoga community needed a serene, fast digital home to manage schedules, student registrations, and community updates.',
+      solution: 'We architected a clean, accessible web application featuring dynamic class timetables, intuitive instructor profiles, and automated registration confirmations.',
+      impact: 'Eliminated manual booking friction, giving instructors and community members a seamless digital scheduling experience.',
+      link: '/case-studies/pali-yoga'
+    },
+    faqs: [
+      { q: 'How do you approach healthcare data privacy and security?', a: 'We strictly employ role-based access control (RBAC), end-to-end data encryption in transit and at rest, secure environment variables, and zero retention of unnecessary personal health details.' },
+      { q: 'Can your software integrate with our existing clinic management software?', a: 'Yes. We engineer secure API bridges and webhook endpoints that communicate with your existing scheduling and billing software.' }
+    ]
+  },
+
+  // ==================== 3. RECRUITMENT & HR TECH ====================
+  'recruitment': {
+    slug: 'recruitment',
+    title: 'Recruitment & HR Technology',
+    heroHeadline: 'AI-Assisted Candidate Screening & Hiring Workflow Platforms',
+    heroSubheadline: 'We build intelligent applicant tracking systems, asynchronous video assessment platforms, and automated hiring workflows that help teams hire faster.',
+    industryProblem: 'Talent acquisition teams receive hundreds of unqualified applications per opening, leading to recruiter burnout, delayed hiring cycles, and frustrated candidates left waiting in silence.',
+    challenges: [
+      { title: 'Unmanageable Resume Volumes', desc: 'Recruiters spend hours manually reading unqualified CVs instead of engaging with high-probability candidates.' },
+      { title: 'Inconsistent Early-Stage Screening', desc: 'Phone screens vary dramatically between interviewers, introducing subjective bias and inconsistent evaluations.' },
+      { title: 'Slow Time-to-Offer', desc: 'Multi-week scheduling delays cause top talent to accept competing offers before interviews conclude.' }
+    ],
+    solutions: [
+      { title: 'Automated Candidate Assessment Portals', desc: 'Structured asynchronous evaluation platforms where candidates complete role-relevant assessments at their convenience.' },
+      { title: 'Intelligent Resume Parsing & Matching', desc: 'Extract key competencies, career milestones, and certifications to surface top applicants objectively.' },
+      { title: 'Collaborative Hiring Dashboards', desc: 'Centralize scorecards, candidate video responses, and interviewer feedback in a single transparent dashboard.' }
+    ],
+    aiOpportunities: [
+      { title: 'Structured Asynchronous AI Interviews', desc: 'AI-driven interview agents ask targeted follow-up questions based on candidate responses.' },
+      { title: 'Objective Competency Scoring', desc: 'Evaluate candidate submissions against clear rubrics, generating concise diagnostic summaries for hiring managers.' },
+      { title: 'Job Description Optimization', desc: 'Analyze job postings to eliminate ambiguous requirements and attract qualified talent pools.' }
+    ],
+    automationOpportunities: [
+      { title: 'Instant Interview Scheduling', desc: 'Qualified candidates receive automated calendar links matching all panel interviewers availability.' },
+      { title: 'Continuous Status Updates', desc: 'Keep applicants informed at every stage with automated, empathetic email notifications.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Bespoke Applicant Tracking Systems (ATS)', desc: 'Custom pipeline stages, custom evaluation rubrics, and direct integration into internal Slack/HRIS.' }
+    ],
+    integrations: ['Greenhouse API', 'Lever', 'Workday', 'OpenAI API', 'Twilio', 'Stripe', 'Google Workspace'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'WebRTC', 'AWS S3'],
+    caseStudy: {
+      title: 'Automated AI Candidate Interview Platform',
+      clientName: 'SkillyTalk AI',
+      problem: 'Companies needed a scalable method to conduct fair, consistent first-round interviews across global applicant pools without exhausting recruiter calendars.',
+      solution: 'We engineered SkillyTalk AI: an end-to-end platform with interactive interview simulation, automated scoring rubrics, and hiring team dashboards.',
+      impact: 'Dramatically compressed screening time from days to minutes while providing candidates a modern, flexible interview experience.',
+      link: '/case-studies/skillytalk-ai'
+    },
+    faqs: [
+      { q: 'How does AI screening prevent algorithmic bias in hiring?', a: 'Our systems focus strictly on structured, verifiable competencies matching pre-defined rubrics. We do not use black-box sentiment or demographic profiling, keeping the final decision strictly in human hands.' }
+    ]
+  },
+
+  // ==================== 4. RESTAURANTS & HOSPITALITY ====================
+  'restaurants': {
+    slug: 'restaurants',
+    title: 'Restaurants & Hospitality Solutions',
+    heroHeadline: 'Direct Ordering Engines & Operational Systems for Hospitality',
+    heroSubheadline: 'We build direct online ordering platforms, table reservation systems, digital menu visualizers, and kitchen operations software that protect restaurant margins.',
+    industryProblem: 'Third-party delivery apps charge 25%–35% commissions that erase restaurant profit margins, while fragmented reservation tools prevent owners from owning their direct customer relationships.',
+    challenges: [
+      { title: 'Crippling Delivery Commissions', desc: 'Third-party marketplaces capture customer contact details and siphon off a massive portion of each transaction.' },
+      { title: 'Peak-Hour Phone Chaos', desc: 'Staff struggle to balance cooking and serving guests while the phone rings continuously for reservations and takeout orders.' },
+      { title: 'Disconnected Kitchen Workflow', desc: 'Online orders print on separate thermal slips, creating kitchen bottlenecks and order errors during dinner rush.' }
+    ],
+    solutions: [
+      { title: 'Direct First-Party Ordering Storefronts', desc: 'Mobile-first ordering websites with zero marketplace commissions and direct payment processing.' },
+      { title: 'Automated Voice Reservation Lines', desc: 'AI voice agents answer calls instantly, record table bookings, note dietary preferences, and confirm via SMS.' },
+      { title: 'Kitchen Display & Dispatch Integrations', desc: 'Consolidate incoming orders into a unified kitchen display system with accurate preparation timers.' }
+    ],
+    aiOpportunities: [
+      { title: 'Voice AI Phone Booking Assistant', desc: 'Handles peak phone calls, verifies open table slots, and sends instant calendar invitations.' },
+      { title: 'Dynamic Kitchen Prep Pacing', desc: 'Estimates kitchen preparation times based on current ticket volume and adjusts delivery quote windows automatically.' }
+    ],
+    automationOpportunities: [
+      { title: 'Automated SMS Order Status Tracking', desc: 'Notify guests automatically when their order is received, cooking, and ready for pickup.' },
+      { title: 'Direct Guest Loyalty Re-Engagement', desc: 'Trigger personalized return offers to past direct ordering guests based on dining frequency.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Bespoke Multi-Location Menu Management', desc: 'Update prices, 86 sold-out ingredients, and launch seasonal specials across all locations in one click.' }
+    ],
+    integrations: ['Stripe', 'Twilio Telephony', 'Square POS', 'Toast POS', 'Google Maps API'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    caseStudy: {
+      title: 'Direct Consumer Food Platform',
+      clientName: 'Abundish',
+      problem: 'A culinary brand wanted to launch a direct-to-consumer meal delivery service without being dependent on high-fee third-party food aggregator apps.',
+      solution: 'We engineered a mobile-first direct ordering platform featuring weekly menu subscriptions, ingredient dietary filters, and automated dispatch routing.',
+      impact: 'Empowered the brand to retain 100% of customer order margins and build direct relationships with recurring diners.',
+      link: '/case-studies/abundish'
+    },
+    faqs: [
+      { q: 'Can direct online orders print automatically in our kitchen?', a: 'Yes. We integrate directly with receipt printers (Epson/Star Micronics) and Kitchen Display Systems (KDS) via webhooks.' }
+    ]
+  },
+
+  // ==================== 5. REAL ESTATE & PROPERTY ====================
+  'real-estate': {
+    slug: 'real-estate',
+    title: 'Real Estate & Property Management Software',
+    heroHeadline: 'Intelligent Property Portals & Automated Leasing Workflows',
+    heroSubheadline: 'We build high-converting property listing portals, automated tenant leasing workflows, maintenance ticket systems, and investor reporting dashboards.',
+    industryProblem: 'Real estate agencies and property managers lose high-value buyer and tenant inquiries due to slow response times, outdated listing pages, and paper-heavy leasing workflows.',
+    challenges: [
+      { title: 'Slow Lead Response Times', desc: 'Prospective buyers inquire across multiple platforms; delays of more than a few minutes dramatically reduce tour bookings.' },
+      { title: 'Manual Lease Administration', desc: 'Collecting proof of income, tenant credit checks, and lease agreements through email is slow and prone to errors.' },
+      { title: 'Unintuitive Listing Showcases', desc: 'Static photo grids fail to convey architectural scale, neighborhood amenities, and floor plan layouts.' }
+    ],
+    solutions: [
+      { title: 'High-Converting Real Estate Portals', desc: 'Fast, map-integrated listing websites with neighborhood data, interactive floorplans, and instant tour booking.' },
+      { title: 'Automated Leasing & Tenant Onboarding', desc: 'Digital tenant intake pipelines that collect documents, run background checks, and generate leases for digital signing.' },
+      { title: 'Centralized Maintenance & Operations Portals', desc: 'Tenants submit repair tickets with photos, while managers assign contractors and track work progress.' }
+    ],
+    aiOpportunities: [
+      { title: '24/7 AI Property Tour Coordinator', desc: 'Answer listing-specific inquiries (pet policies, HOA fees, parking) and book property viewings into agent calendars.' },
+      { title: 'Automated Listing Copy Generation', desc: 'Transform architectural specs and feature checklists into engaging, compliant real estate descriptions.' }
+    ],
+    automationOpportunities: [
+      { title: 'MLS & Syndication Data Synchronization', desc: 'Automatically sync active, pending, and sold listings across local MLS feeds and your custom web portal.' },
+      { title: 'Automated Lease Renewal Sequences', desc: 'Trigger personalized lease renewal offers and digital agreements 90 days before lease expiration.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Investor Financial Portals', desc: 'Secure dashboards where property investors review rent rolls, capitalization rates, and distribution distributions.' }
+    ],
+    integrations: ['Mapbox API', 'DocuSign API', 'Stripe ACH', 'Twilio', 'PostgreSQL', 'AWS S3'],
+    techStack: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
+    caseStudy: {
+      title: 'Student Living & Accommodation Portal',
+      clientName: 'Sasco Student Living',
+      problem: 'A premium student housing provider needed a modern digital portal to display furnished room types, manage booking inquiries, and streamline lease paperwork.',
+      solution: 'We engineered an interactive housing platform featuring virtual room explorations, transparent amenity lists, and an integrated reservation workflow.',
+      impact: 'Accelerated lease turnaround cycles and provided prospective residents with a seamless digital reservation process.',
+      link: '/case-studies/sasco-student-living'
+    },
+    faqs: [
+      { q: 'Can your portal sync directly with our MLS feed?', a: 'Yes. We implement automated RESO Web API and RETS connectors to keep your property listings synchronized with regional real estate boards.' }
+    ]
+  },
+
+  // ==================== 6. MANUFACTURING & INDUSTRIAL ====================
   'manufacturing': {
     slug: 'manufacturing',
-    title: 'Industry 4.0 & Manufacturing Software',
-    heroHeadline: 'Smart Manufacturing Engineering',
-    heroSubheadline: 'We develop IoT dashboards, predictive maintenance models, and custom ERP solutions for the factory floor.',
+    title: 'Manufacturing & Industrial Engineering',
+    heroHeadline: 'Custom B2B Portals & Digital Operational Systems for Industry',
+    heroSubheadline: 'We build custom B2B wholesale portals, product configurators, inventory tracking software, and supply chain automation tools for manufacturers.',
+    industryProblem: 'Industrial manufacturers rely on legacy desktop software, paper purchase orders, and endless email chains to manage custom orders, leading to production delays and quoting errors.',
     challenges: [
-      { title: 'Unplanned Downtime', desc: 'Equipment failures halt production and cost millions.' },
-      { title: 'Quality Control', desc: 'Manual inspections are slow and prone to human error.' },
-      { title: 'Siloed Data', desc: 'Machines, inventory, and sales data exist in separate systems.' }
+      { title: 'Complex Custom Product Quoting', desc: 'Configuring custom dimensions, materials, and tolerances requires days of back-and-forth between sales and engineering.' },
+      { title: 'Legacy ERP Disconnect', desc: 'Valuable production data remains locked in on-premise ERPs inaccessible to field sales representatives and customers.' },
+      { title: 'Manual Supply Chain Tracking', desc: 'Raw material procurement and assembly schedules lack real-time digital visibility across departments.' }
     ],
     solutions: [
-      { title: 'Predictive Maintenance AI', desc: 'Analyze sensor data to predict machine failures before they happen.' },
-      { title: 'Computer Vision QC', desc: 'Automated visual inspection of manufactured goods.' },
-      { title: 'Custom ERP', desc: 'End-to-end resource planning connecting the shop floor to the top floor.' }
+      { title: 'Interactive B2B Product Configurators', desc: 'Web-based configurators that enforce engineering constraints, calculate live costs, and generate CAD/PDF spec sheets.' },
+      { title: 'Modern Cloud-Connected B2B Portals', desc: 'Secure client ordering portals with tiered contract pricing, re-ordering shortcuts, and production tracking.' },
+      { title: 'Automated ERP & Inventory Bridges', desc: 'Bi-directional data pipelines synchronizing orders, bills of materials (BOM), and fulfillment statuses in real time.' }
     ],
+    aiOpportunities: [
+      { title: 'Automated Technical RFP Parsing', desc: 'Extract bill-of-material line items and technical specifications from vendor RFPs to draft quoting estimates.' },
+      { title: 'Supply Chain Anomaly Detection', desc: 'Identify early supplier shipment delays and predict component lead-time variances before assembly begins.' }
+    ],
+    automationOpportunities: [
+      { title: 'Automated PO Verification & Entry', desc: 'Verify incoming PDF purchase orders against contractual pricing and insert verified records into production queues.' },
+      { title: 'Real-Time Milestone Notifications', desc: 'Notify clients automatically as their custom order moves through fabrication, powder coating, and dispatch.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Custom Maintenance Runbook Portals', desc: 'Digitized equipment manuals with interactive troubleshooting trees and QR-code parts ordering.' }
+    ],
+    integrations: ['SAP API', 'Oracle NetSuite', 'PostgreSQL', 'Stripe Invoicing', 'AWS S3', 'DocuSign'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'Docker'],
     caseStudy: {
-      title: 'IoT-Powered Predictive Maintenance Pipeline',
-      problem: 'An automotive parts manufacturer was suffering from unexpected assembly line breakdowns, costing them upwards of $50,000 per hour in lost production time.',
-      solution: 'We installed custom IoT sensors on critical machinery and built a machine learning dashboard that detects microscopic vibrational anomalies days before a failure occurs.',
-      impact: 'Unplanned downtime was reduced by 85%. The maintenance team now operates on a predictive schedule, saving the company millions annually.'
+      title: 'Luxury Architecture & Material Showcase',
+      clientName: 'Evitavonni',
+      problem: 'An artisanal luxury couture and design house required an exacting digital presence to showcase bespoke craftsmanship to global architects and interior designers.',
+      solution: 'We engineered an editorial digital platform with fluid transitions, high-resolution material inspect tools, and curated architectural lookbooks.',
+      impact: 'Elevated international prestige and streamlined trade inquiries from global design studios.',
+      link: '/case-studies/evitavonni'
     },
     faqs: [
-      { q: 'Can you integrate with our existing PLCs?', a: 'Yes, we build middleware to aggregate data from legacy industrial equipment.' },
-      { q: 'Do you provide cloud infrastructure setup?', a: 'Yes, we architect secure industrial IoT environments on AWS and Azure.' }
+      { q: 'Can your software handle custom B2B pricing agreements?', a: 'Yes. We architect custom pricing engines supporting tiered volume tiers, account-specific discounts, and formal quote approval workflows.' }
     ]
   },
-  'logistics': {
-    slug: 'logistics',
-    title: 'Logistics & Supply Chain Software',
-    heroHeadline: 'Optimize Your Supply Chain with AI',
-    heroSubheadline: 'We build fleet management software, route optimization algorithms, and real-time tracking systems.',
+
+  // ==================== 7. EDUCATION & EDTECH ====================
+  'education': {
+    slug: 'education',
+    title: 'Education & EdTech Solutions',
+    heroHeadline: 'Engaging Learning Management & Skill Assessment Platforms',
+    heroSubheadline: 'We engineer interactive learning platforms, automated student evaluation systems, cohort community portals, and live classroom software.',
+    industryProblem: 'Traditional learning platforms are clunky, disengaging, and burdened by manual grading that slows student feedback and limits educator scale.',
     challenges: [
-      { title: 'Route Inefficiencies', desc: 'Suboptimal routing increases fuel costs and delivery times.' },
-      { title: 'Visibility', desc: 'Lack of real-time tracking for high-value shipments.' },
-      { title: 'Warehouse Management', desc: 'Manual sorting and tracking slows down fulfillment.' }
+      { title: 'Low Student Completion Rates', desc: 'Passive video-only learning platforms suffer from low course completion and minimal student interaction.' },
+      { title: 'Manual Assessment Overhead', desc: 'Educators spend countless hours grading standardized assignments instead of mentoring students.' },
+      { title: 'Fragmented Learning Data', desc: 'Student progress, attendance, and quiz outcomes are trapped across incompatible classroom tools.' }
     ],
     solutions: [
-      { title: 'AI Route Optimization', desc: 'Dynamic routing algorithms that adapt to traffic and weather.' },
-      { title: 'Fleet Management Dashboards', desc: 'Real-time telemetry, driver behavior, and maintenance tracking.' },
-      { title: 'Automated WMS', desc: 'Warehouse Management Systems integrated with barcode/RFID scanners.' }
+      { title: 'Interactive Learning Experience Portals', desc: 'Gamified web platforms with real-time code sandboxes, interactive quizzes, and cohort forums.' },
+      { title: 'Automated Skill & Coding Assessments', desc: 'Instant code execution and concept evaluation that delivers immediate formative feedback to learners.' },
+      { title: 'Comprehensive Instructor Analytics', desc: 'Real-time dashboards highlighting struggling learners, drop-off points, and topic comprehension scores.' }
     ],
+    aiOpportunities: [
+      { title: 'Adaptive Learning Path Generation', desc: 'Tailor quiz difficulty and suggest supplementary learning resources based on individual concept mastery.' },
+      { title: '24/7 AI Teaching Assistant', desc: 'Provide students instant hints, conceptual explanations, and debugging support outside classroom hours.' }
+    ],
+    automationOpportunities: [
+      { title: 'Automated Certificate Issuance', desc: 'Generate verified, cryptographically signed digital certificates upon passing course requirements.' },
+      { title: 'Student Milestone Reminders', desc: 'Contextual notifications encouraging students to complete assignments before deadlines.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Cohort-Based Course Infrastructure', desc: 'Manage live sessions, breakout rooms, peer review assignments, and group projects in one place.' }
+    ],
+    integrations: ['Stripe Billing', 'Zoom / WebRTC', 'PostgreSQL', 'SendGrid', 'Vimeo / Mux Video'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'Tailwind CSS'],
     caseStudy: {
-      title: 'Dynamic AI Fleet Routing & Telemetry Dashboard',
-      problem: 'A national delivery service was struggling with rising fuel costs and missed delivery windows due to static routing protocols that could not account for live traffic and weather.',
-      solution: 'We developed a dynamic AI routing algorithm connected to a custom driver app and management dashboard. The system continuously recalculates the most efficient paths in real-time.',
-      impact: 'Fuel consumption dropped by 18%, on-time delivery rates soared to 98%, and dispatchers were able to manage 3x more vehicles simultaneously.'
+      title: 'Automated Assessment & Skill Evaluation Engine',
+      clientName: 'SkillyTalk Learning',
+      problem: 'Educational institutions needed a way to conduct objective, automated skills assessments at scale with immediate feedback.',
+      solution: 'We engineered an adaptive evaluation engine supporting automated scoring rubrics, code syntax evaluation, and structured performance feedback.',
+      impact: 'Enabled rapid assessment of thousands of student submissions while giving instructors deep cohort analytics.',
+      link: '/case-studies/skillytalk-ai'
     },
     faqs: [
-      { q: 'Do you build driver mobile apps?', a: 'Yes, custom applications for dispatch, proof of delivery, and navigation.' },
-      { q: 'Can you integrate with ELD devices?', a: 'Yes, we pull telemetry data directly from Electronic Logging Devices.' }
+      { q: 'Can you integrate with existing LMS platforms via LTI?', a: 'Yes. We support standard Learning Tools Interoperability (LTI) specifications to embed our custom assessment modules into Canvas, Blackboard, or Moodle.' }
     ]
   },
-  'e-commerce': {
-    slug: 'e-commerce',
-    title: 'Advanced E-Commerce Development',
-    heroHeadline: 'High-Performance Headless E-Commerce',
-    heroSubheadline: 'We build lightning-fast, high-converting digital storefronts for enterprise retailers and ambitious D2C brands.',
+
+  // ==================== 8. STARTUPS & HIGH-GROWTH TECH ====================
+  'startups': {
+    slug: 'startups',
+    title: 'Startups & Venture-Backed Teams',
+    heroHeadline: 'Rapid MVP Engineering & Scalable SaaS Architecture for Startups',
+    heroSubheadline: 'We partner with ambitious founders to turn product visions into market-ready SaaS applications, AI tools, and scalable platforms in 4 to 8 weeks.',
+    industryProblem: 'Early-stage founders face a brutal tradeoff: build too slowly with junior teams and run out of capital, or hire low-cost agencies that produce disposable code requiring an immediate rewrite.',
     challenges: [
-      { title: 'Slow Load Times', desc: 'Monolithic platforms cause slow page loads, hurting conversions.' },
-      { title: 'Platform Limitations', desc: 'Off-the-shelf themes restrict custom UX and business logic.' },
-      { title: 'Cart Abandonment', desc: 'Friction in the checkout process leads to lost sales.' }
+      { title: 'High Burn Rate & Slow Velocity', desc: 'Months spent in development without customer validation quickly drain angel and seed investments.' },
+      { title: 'Technical Debt from Agency Hacks', desc: 'No-code wrappers and poorly structured code collapse under first real user traffic and fail institutional due diligence.' },
+      { title: 'Lack of Senior Architectural Direction', desc: 'First-time founders frequently over-engineer unnecessary features while missing core security and billing requirements.' }
     ],
     solutions: [
-      { title: 'Headless Commerce architectures', desc: 'Next.js storefronts connected to Shopify/BigCommerce APIs.' },
-      { title: 'AI Search & Discovery', desc: 'Semantic search that understands natural language queries.' },
-      { title: 'Custom Checkout Flows', desc: 'Optimized, one-click checkout experiences tailored to your audience.' }
+      { title: 'Focused 4–8 Week MVP Delivery', desc: 'We isolate the core value loop and engineer a production-ready product fast enough to test customer willingness to pay.' },
+      { title: 'Production-Grade TypeScript Foundations', desc: 'Clean, modular Next.js and relational database architectures that pass investor technical due diligence.' },
+      { title: 'Turnkey SaaS Infrastructure', desc: 'Authentication, Stripe subscription billing, team workspaces, and product telemetry built in from day one.' }
     ],
+    aiOpportunities: [
+      { title: 'Proprietary AI Feature Implementation', desc: 'Equip your startup with specialized RAG pipelines, fine-tuned adapters, and deterministic agent workflows.' },
+      { title: 'Semantic Product Search & Filtering', desc: 'Deliver consumer-grade search experiences that differentiate your platform from incumbents.' }
+    ],
+    automationOpportunities: [
+      { title: 'Automated Product Telemetry & Alerts', desc: 'Instrument user activation funnels with real-time Slack alerts on high-intent user milestones.' },
+      { title: 'Self-Service Customer Onboarding', desc: 'Interactive step-by-step product walkthroughs that guide new signups to their first aha moment.' }
+    ],
+    softwareOpportunities: [
+      { title: 'Scalable Multi-Tenant Foundations', desc: 'Database row-level security ensuring tenant isolation, preparing your product for enterprise customer audits.' }
+    ],
+    integrations: ['Stripe Billing', 'Supabase / PostgreSQL', 'OpenAI API', 'Vercel', 'PostHog / Mixpanel', 'Resend'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Prisma', 'Tailwind CSS'],
     caseStudy: {
-      title: 'Headless Migration for a 9-Figure D2C Brand',
-      problem: 'A massive D2C brand hit the architectural limits of their traditional Shopify theme. Page load times exceeded 4 seconds, severely cannibalizing their mobile ad conversions.',
-      solution: 'We decoupled their frontend, migrating them to a blazing-fast Headless Next.js architecture while keeping Shopify as the backend commerce engine. We also integrated AI semantic search.',
-      impact: 'Mobile page load times dropped to under 800ms. The faster, highly-optimized UX drove a 22% increase in overall conversion rate within the first month.'
+      title: 'Full-Cycle Startup MVP Launch',
+      clientName: 'SkillyTalk Platform',
+      problem: 'Founders had a clear vision for AI-assisted talent evaluations but needed a senior technical partner to design and ship the production SaaS platform.',
+      solution: 'We engineered the multi-tenant web application, video recording pipeline, AI evaluation algorithms, and Stripe billing lifecycle in an agile 6-week sprint.',
+      impact: 'Successfully launched to live business customers and demonstrated strong technical defensibility.',
+      link: '/case-studies/skillytalk-ai'
     },
     faqs: [
-      { q: 'Why headless over a standard Shopify theme?', a: 'Headless allows for sub-second page loads, limitless design flexibility, and better SEO.' },
-      { q: 'Do you handle payment gateway integration?', a: 'Yes, Stripe, PayPal, Braintree, and custom regional gateways.' }
+      { q: 'Who owns the intellectual property and codebase?', a: 'You retain 100% ownership of the repository, design assets, and architecture from day one.' },
+      { q: 'Can you help us after the MVP launches?', a: 'Yes. We continue partnering with founders through subsequent funding rounds, feature expansions, and infrastructure scaling.' }
     ]
   }
 };

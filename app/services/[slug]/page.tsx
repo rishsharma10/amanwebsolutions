@@ -3,9 +3,7 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ServiceDetail from '@/components/services/ServiceDetail';
-import { servicesData } from '@/lib/servicesData';
-
-const APP_NAME = "Vidhyonix";
+import { servicesData, ServiceItem } from '@/lib/servicesData';
 
 interface Props {
   params: {
@@ -13,65 +11,67 @@ interface Props {
   };
 }
 
-// Generate static params for all services so they are built at compile time (optional but good for SEO/Performance)
-export async function generateStaticParams() {
-  return Object.keys(servicesData).map((slug) => ({
-    slug,
-  }));
+// Map legacy slugs to current canonical slugs
+const slugAliases: Record<string, string> = {
+  'ai-agent-development': 'ai-agents',
+  'cloud-engineering': 'cloud-development',
+};
+
+function resolveService(slug: string): ServiceItem | undefined {
+  const normalizedSlug = slugAliases[slug] || slug;
+  return servicesData[normalizedSlug];
 }
 
-// Dynamic SEO metadata based on the service slug
+export async function generateStaticParams() {
+  const mainSlugs = Object.keys(servicesData);
+  const aliasSlugs = Object.keys(slugAliases);
+  const allSlugs = Array.from(new Set([...mainSlugs, ...aliasSlugs]));
+  return allSlugs.map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const service = servicesData[params.slug as keyof typeof servicesData];
-  
+  const service = resolveService(params.slug);
+
   if (!service) {
     return {
-      title: 'Service Not Found',
+      title: 'Service Not Found | Vidhyonix',
+      description: 'The requested service could not be found.',
     };
   }
 
-  // Map slug to optimized local service image card
-  let imagePath = '/images/services_software.jpg';
-  const slug = params.slug;
-  if (slug.includes('ai-') || slug.includes('chatbot')) {
-    imagePath = '/images/services_ai.jpg';
-  } else if (slug.includes('web') || slug.includes('mobile') || slug.includes('mvp')) {
-    imagePath = '/images/services_web_mobile.jpg';
-  } else if (slug.includes('cloud') || slug.includes('infra')) {
-    imagePath = '/images/services_cloud.jpg';
-  }
+  const canonicalUrl = `https://vidhyonix.com/services/${service.slug}`;
 
   return {
-    title: `${service.title} Services | ${APP_NAME}`,
+    title: `${service.title} | Vidhyonix`,
     description: service.heroSubtitle,
     openGraph: {
-      title: `${service.title} | ${APP_NAME}`,
+      title: `${service.title} | Vidhyonix IT Solutions`,
       description: service.heroSubtitle,
       type: 'website',
-      url: `https://vidhyonix.com/services/${params.slug}`,
+      url: canonicalUrl,
       images: [
         {
-          url: imagePath,
+          url: '/favicon.png',
           width: 1200,
           height: 630,
-          alt: `${service.title} Services`,
+          alt: `${service.title} - Vidhyonix IT Solutions`,
         }
       ]
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${service.title} Services | ${APP_NAME}`,
+      title: `${service.title} | Vidhyonix`,
       description: service.heroSubtitle,
-      images: [imagePath],
+      images: ['/favicon.png'],
     },
     alternates: {
-      canonical: `https://vidhyonix.com/services/${params.slug}`
+      canonical: canonicalUrl,
     }
   };
 }
 
 export default function ServicePage({ params }: Props) {
-  const service = servicesData[params.slug as keyof typeof servicesData];
+  const service = resolveService(params.slug);
 
   if (!service) {
     notFound();
@@ -80,29 +80,54 @@ export default function ServicePage({ params }: Props) {
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    'name': `${service.title} Services`,
+    'name': service.title,
+    'description': service.heroSubtitle,
     'provider': {
-      '@type': 'LocalBusiness',
-      'name': APP_NAME,
+      '@type': 'Organization',
+      'name': 'Vidhyonix IT Solutions',
       'url': 'https://vidhyonix.com',
       'logo': 'https://vidhyonix.com/favicon.png',
-      'image': 'https://vidhyonix.com/favicon.png',
       'telephone': '+91 8770283188',
       'email': 'vidhyonixitsolutions@gmail.com',
-      'priceRange': '₹₹',
       'address': {
         '@type': 'PostalAddress',
         'addressLocality': 'Mohali, Chandigarh',
         'addressCountry': 'IN'
       }
     },
-    'description': service.heroSubtitle
+    'serviceType': service.pillar,
+    'areaServed': 'Worldwide'
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://vidhyonix.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Services',
+        'item': 'https://vidhyonix.com/services'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': service.title,
+        'item': `https://vidhyonix.com/services/${service.slug}`
+      }
+    ]
   };
 
   const faqSchema = service.faqs && service.faqs.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    'mainEntity': service.faqs.map(faq => ({
+    'mainEntity': service.faqs.map((faq) => ({
       '@type': 'Question',
       'name': faq.q,
       'acceptedAnswer': {
@@ -119,6 +144,10 @@ export default function ServicePage({ params }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
         {faqSchema && (
           <script
             type="application/ld+json"
@@ -126,7 +155,7 @@ export default function ServicePage({ params }: Props) {
           />
         )}
         <Header />
-        <ServiceDetail data={service} slug={params.slug} />
+        <ServiceDetail service={service} />
         <Footer />
       </main>
     </>

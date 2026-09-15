@@ -120,7 +120,7 @@ export default function Blog() {
                   {blogPosts[0].readTime}
                 </div>
               </div>
-              <Link href={`/blog/${blogPosts[0].id}`} className="mt-4 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center gap-3 text-white font-bold group w-fit transition-all">
+              <Link href={`/blog/${blogPosts[0].slug}`} className="mt-4 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center gap-3 text-white font-bold group w-fit transition-all">
                 Read Article
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform text-brand-cyan" />
               </Link>
@@ -187,7 +187,7 @@ export default function Blog() {
                     </div>
                   </div>
 
-                  <Link href={`/blog/${p.id}`} className="absolute inset-0" aria-label={`Read ${p.title}`} />
+                  <Link href={`/blog/${p.slug}`} className="absolute inset-0" aria-label={`Read ${p.title}`} />
                 </motion.div>
               ))}
             </AnimatePresence>

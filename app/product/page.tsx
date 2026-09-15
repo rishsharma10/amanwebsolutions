@@ -4,11 +4,10 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, Target, Users, Zap, Briefcase, FileCheck, CheckCircle2, Coffee, Layers } from 'lucide-react';
+import { ArrowRight, Bot, Target, Users, Zap, Briefcase, FileCheck, CheckCircle2, Layers } from 'lucide-react';
 import Link from 'next/link';
 import InterviewSimulator from '@/components/product/InterviewSimulator';
 import ROICalculator from '@/components/product/ROICalculator';
-import VidhyonixCafeShowcase from '@/components/home/VidhyonixCafeShowcase';
 
 // Animation variants
 const fadeInUp = {
@@ -286,23 +285,6 @@ export default function ProductPage() {
             </motion.div>
           </div>
         </section>
-
-        {/* ─── Product 02: Vidhyonix Cafe ─── */}
-        <div className="relative z-10">
-          {/* Divider with label */}
-          <div className="border-t border-white/5 bg-brand-dark">
-            <div className="container mx-auto px-4 py-12">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full">
-                  <Coffee size={14} className="text-amber-400" />
-                  <span className="text-amber-400 text-sm font-bold">Product 02 · Vidhyonix Cafe</span>
-                </div>
-                <div className="flex-1 h-px bg-gradient-to-r from-amber-500/20 to-transparent" />
-              </div>
-            </div>
-          </div>
-          <VidhyonixCafeShowcase />
-        </div>
 
         <Footer />
       </main>

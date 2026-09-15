@@ -21,7 +21,7 @@ export default function AboutHero() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-white leading-tight mb-8">
-              The <span className="ai-gradient-text">AI-First</span> Engineering Agency
+              AI, Software & <span className="ai-gradient-text">Product Engineering</span> Partner
             </h1>
 
             <p className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">

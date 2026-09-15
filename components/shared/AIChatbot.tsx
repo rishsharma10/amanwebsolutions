@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Bot, Check, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { trackEvent } from '@/lib/analytics';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -11,14 +12,14 @@ interface Message {
 }
 
 const initialSuggestions = [
-  "📅 Book a consultation call",
-  "💡 Tell me about Vidhyonix",
-  "🎙️ What is SkillyTalk?",
-  "🍔 How do AI agents help restaurants?",
+  "📅 Book an architectural consultation",
+  "💡 Tell me about Vidhyonix services",
+  "🤖 What AI solutions do you engineer?",
+  "🚀 How do you build SaaS MVPs?",
 ];
 
 export default function AIChatbot() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
@@ -253,7 +254,12 @@ export default function AIChatbot() {
       </AnimatePresence>
 
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          if (!isOpen) {
+            trackEvent('cta_click', { cta_name: 'ai_chatbot_opened' });
+          }
+          setIsOpen(!isOpen);
+        }}
         aria-label={isOpen ? "Close AI chat assistant" : "Open AI chat assistant"}
         className="w-14 h-14 bg-gradient-to-r from-brand-cyan via-brand-violet to-brand-fuchsia rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_rgba(34,211,238,0.6)] hover:scale-105 transition-all duration-300 z-50 relative group"
       >

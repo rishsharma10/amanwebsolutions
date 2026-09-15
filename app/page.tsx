@@ -1,151 +1,113 @@
 import { Metadata } from 'next';
-
 import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+
+// 15 Sections in exact sequential order
 import Hero from '@/components/home/Hero';
 import Trust from '@/components/home/Trust';
-import Services from '@/components/home/Services';
-import Projects from '@/components/home/Projects';
-import Methodology from '@/components/home/Methodology';
-import WhyChooseUs from '@/components/home/WhyChooseUs';
-import Industries from '@/components/home/Industries';
-import Testimonials from '@/components/home/Testimonials';
-import CTA from '@/components/home/CTA';
-import BeforeAfter from '@/components/home/BeforeAfter';
-import ROICalculator from '@/components/shared/ROICalculator';
-import VidhyonixCafeShowcase from '@/components/home/VidhyonixCafeShowcase';
+import WhatWeBuild from '@/components/home/WhatWeBuild';
+import BusinessProblems from '@/components/home/BusinessProblems';
+import AICapabilities from '@/components/home/AICapabilities';
+import SoftwareEngineeringSection from '@/components/home/SoftwareEngineeringSection';
+import EcommerceTechSection from '@/components/home/EcommerceTechSection';
+import IndustriesSection from '@/components/home/IndustriesSection';
+import CaseStudiesSection from '@/components/home/CaseStudiesSection';
+import TechStackSection from '@/components/home/TechStackSection';
+import HowWeWork from '@/components/home/HowWeWork';
+import WhyVidhyonix from '@/components/home/WhyVidhyonix';
+import FreeToolsSection from '@/components/home/FreeToolsSection';
+import HomeFAQs from '@/components/home/HomeFAQs';
+import FinalCTA from '@/components/home/FinalCTA';
 
 export const metadata: Metadata = {
-  title: 'Vidhyonix | Top AI Software Development & Digital Agency',
-  description: 'Transform your business with custom AI solutions, SaaS applications, and enterprise software engineered for scale and performance.',
+  title: 'Vidhyonix | AI, Software & Product Engineering Partner',
+  description: 'We design and build intelligent software products, AI systems, SaaS platforms, automation workflows, ecommerce experiences, and custom digital solutions for ambitious businesses.',
   alternates: {
     canonical: 'https://vidhyonix.com',
+  },
+  openGraph: {
+    title: 'Vidhyonix | AI, Software & Product Engineering Partner',
+    description: 'We design and build intelligent software products, AI systems, SaaS platforms, automation workflows, and modern ecommerce experiences.',
+    url: 'https://vidhyonix.com',
+    type: 'website'
   }
 };
 
 export default function Home() {
+  const homeSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://vidhyonix.com/#organization',
+        'name': 'Vidhyonix IT Solutions',
+        'alternateName': 'Vidhyonix',
+        'url': 'https://vidhyonix.com',
+        'logo': 'https://vidhyonix.com/favicon.png',
+        'email': 'vidhyonixitsolutions@gmail.com',
+        'telephone': '+91 8770283188',
+        'address': {
+          '@type': 'PostalAddress',
+          'addressLocality': 'Mohali, Chandigarh',
+          'addressCountry': 'IN'
+        },
+        'sameAs': [
+          'https://www.linkedin.com/company/vidhyonix-it-solutions/',
+          'https://www.instagram.com/vidhyonix/',
+          'https://www.facebook.com/people/Vidhyonix/61580259069806/'
+        ]
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://vidhyonix.com/#website',
+        'url': 'https://vidhyonix.com',
+        'name': 'Vidhyonix',
+        'publisher': {
+          '@id': 'https://vidhyonix.com/#organization'
+        }
+      }
+    ]
+  };
+
   return (
     <>
-      <main className="relative overflow-x-hidden bg-brand-dark">
+      <main className="relative overflow-x-hidden bg-brand-dark min-h-screen">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                '@context': 'https://schema.org',
-                '@type': 'LocalBusiness',
-                '@id': 'https://vidhyonix.com/#localbusiness',
-                name: 'Vidhyonix',
-                image: 'https://vidhyonix.com/favicon.png',
-                url: 'https://vidhyonix.com',
-                telephone: '+91 8770283188',
-                email: 'vidhyonixitsolutions@gmail.com',
-                priceRange: '₹₹',
-                address: {
-                  '@type': 'PostalAddress',
-                  addressLocality: 'Mohali, Chandigarh',
-                  addressCountry: 'IN'
-                },
-                openingHoursSpecification: {
-                  '@type': 'OpeningHoursSpecification',
-                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                  opens: '09:00',
-                  closes: '19:00'
-                },
-                sameAs: [
-                  'https://www.linkedin.com/company/vidhyonix',
-                  'https://twitter.com/vidhyonix',
-                  'https://www.instagram.com/vidhyonix/',
-                  'https://www.facebook.com/people/Vidhyonix/61580259069806/'
-                ]
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'SoftwareApplication',
-                '@id': 'https://aiinterview.skillytalk.com/#app',
-                name: 'SkillyTalk Interview',
-                applicationCategory: 'BusinessApplication',
-                operatingSystem: 'Web',
-                url: 'https://aiinterview.skillytalk.com/',
-                description: 'SkillyTalk is an AI-powered interview platform that automates candidate evaluation with intelligent scoring and unbiased assessments. Built by Vidhyonix.',
-                offers: {
-                  '@type': 'Offer',
-                  price: '0',
-                  priceCurrency: 'USD',
-                  availability: 'https://schema.org/InStock'
-                },
-                aggregateRating: {
-                  '@type': 'AggregateRating',
-                  ratingValue: '4.8',
-                  ratingCount: '150'
-                },
-                author: {
-                  '@id': 'https://vidhyonix.com/#organization'
-                },
-                brand: {
-                  '@type': 'Brand',
-                  name: 'Vidhyonix'
-                }
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'FoodEstablishment',
-                '@id': 'https://cafe.vidhyonix.com/#cafe',
-                name: 'Vidhyonix Cafe',
-                url: 'https://cafe.vidhyonix.com/',
-                description: 'Handcrafted coffee, wood-fired pizzas & fresh-baked treats in Phase 8b, Mohali. Cozy vibes, honest prices.',
-                servesCuisine: ['Coffee', 'Pizza', 'Bakery', 'Italian'],
-                priceRange: '₹400–₹1,600',
-                telephone: '+91 8770283188',
-                address: {
-                  '@type': 'PostalAddress',
-                  streetAddress: 'F-452',
-                  addressLocality: 'Phase 8b, Mohali',
-                  postalCode: '160055',
-                  addressCountry: 'IN'
-                },
-                aggregateRating: {
-                  '@type': 'AggregateRating',
-                  ratingValue: '4.3',
-                  ratingCount: '774'
-                },
-                author: {
-                  '@id': 'https://vidhyonix.com/#organization'
-                }
-              }
-            ])
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
         />
-        {/* Animated blurry dots and moving elements */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          {/* Glow orbs */}
-          <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-cyan/5 rounded-full blur-[150px]" />
-          <div className="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-brand-fuchsia/5 rounded-full blur-[150px]" />
-        </div>
         <Header />
+        {/* Section 1: Hero */}
         <Hero />
+        {/* Section 2: Trust / Credibility */}
         <Trust />
-        <Services />
-        <Projects />
-        <VidhyonixCafeShowcase />
-        <Methodology />
-        <BeforeAfter />
-
-        <section className="py-24 relative z-10 bg-brand-dark/50 border-y border-white/5">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Calculate Your <span className="ai-gradient-text">Savings</span></h2>
-              <p className="text-slate-400 text-lg">Discover how much time and money AI automation can save your business.</p>
-            </div>
-            <ROICalculator />
-          </div>
-        </section>
-
-        <WhyChooseUs />
-        <Industries />
-        <Testimonials />
-        <CTA />
+        {/* Section 3: What Can We Build For You? */}
+        <WhatWeBuild />
+        {/* Section 4: Business Problems We Solve */}
+        <BusinessProblems />
+        {/* Section 5: AI Capabilities */}
+        <AICapabilities />
+        {/* Section 6: Software & Product Engineering */}
+        <SoftwareEngineeringSection />
+        {/* Section 7: Ecommerce Technology */}
+        <EcommerceTechSection />
+        {/* Section 8: Industries */}
+        <IndustriesSection />
+        {/* Section 9: Case Studies */}
+        <CaseStudiesSection />
+        {/* Section 10: Technology Stack */}
+        <TechStackSection />
+        {/* Section 11: How We Work */}
+        <HowWeWork />
+        {/* Section 12: Why Vidhyonix */}
+        <WhyVidhyonix />
+        {/* Section 13: Free Tools / Assessments */}
+        <FreeToolsSection />
+        {/* Section 14: FAQs */}
+        <HomeFAQs />
+        {/* Section 15: Final CTA */}
+        <FinalCTA />
         <Footer />
       </main>
     </>
