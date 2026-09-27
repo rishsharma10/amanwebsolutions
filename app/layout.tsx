@@ -9,6 +9,8 @@ import NeuralCursor from '@/components/layout/NeuralCursor';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import GlobalSchema from '@/components/seo/GlobalSchema';
 import AIChatbot from '@/components/shared/AIChatbot';
+import CookieBanner from '@/components/shared/CookieBanner';
+import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -49,7 +51,7 @@ export const metadata: Metadata = {
     siteName: 'Vidhyonix IT Solutions',
     images: [
       {
-        url: '/favicon.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Vidhyonix - AI, Software & Product Engineering'
@@ -62,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vidhyonix | AI, Software & Product Engineering Partner',
     description: 'Intelligent software products, AI systems, SaaS platforms, and modern ecommerce experiences.',
-    images: ['/favicon.png'],
+    images: ['/og-image.jpg'],
   },
   alternates: {
     canonical: 'https://vidhyonix.com',
@@ -119,6 +121,8 @@ export default function RootLayout({
           <div className="scan-line" />
           {children}
           <AIChatbot />
+          <CookieBanner />
+          <StickyMobileCTA />
         </ThemeProvider>
         <BreadcrumbSchema />
       </body>
