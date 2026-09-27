@@ -5,6 +5,8 @@ import { caseStudiesData } from '@/lib/caseStudiesData';
 import { technologiesData } from '@/lib/technologiesData';
 import { blogPosts } from '@/lib/blogData';
 
+import { locationsData } from '@/lib/locationsData';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://vidhyonix.com';
   const now = new Date().toISOString();
@@ -20,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/free-tools',
     '/blog',
     '/portfolio',
+    '/locations',
     '/contact',
     '/team',
     '/partner-with-us',
@@ -31,6 +34,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1.0 : 0.8,
+  }));
+
+  // Location Routes (High Priority Local Search Landing Pages)
+  const locationRoutes = Object.keys(locationsData).map((slug) => ({
+    url: `${baseUrl}/locations/${slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.95,
   }));
 
   // 2. Services (All 21 Commercial Service Offerings)
@@ -88,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
+    ...locationRoutes,
     ...serviceRoutes,
     ...industryRoutes,
     ...caseStudyRoutes,

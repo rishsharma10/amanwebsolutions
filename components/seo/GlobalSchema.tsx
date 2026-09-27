@@ -50,6 +50,46 @@ export default function GlobalSchema() {
     }
   };
 
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': 'https://vidhyonix.com/#localbusiness',
+    name: 'Vidhyonix IT Solutions',
+    alternateName: 'Vidhyonix Web & AI Development',
+    url: 'https://vidhyonix.com',
+    image: 'https://vidhyonix.com/favicon.png',
+    telephone: '+91 8770283188',
+    email: 'vidhyonixitsolutions@gmail.com',
+    priceRange: '₹₹ - ₹₹₹',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Sector 119, Balongi',
+      addressLocality: 'Sahibzada Ajit Singh Nagar (Mohali)',
+      addressRegion: 'Punjab',
+      postalCode: '160055',
+      addressCountry: 'IN'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '30.7046',
+      longitude: '76.7179'
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Chandigarh' },
+      { '@type': 'City', name: 'Mohali' },
+      { '@type': 'City', name: 'Panchkula' },
+      { '@type': 'AdministrativeArea', name: 'Tricity' },
+      { '@type': 'Country', name: 'India' }
+    ],
+    knowsAbout: [
+      'Web Development',
+      'Business Website Design',
+      'SaaS Development',
+      'AI Agent Development',
+      'E-Commerce Technology'
+    ]
+  };
+
   return (
     <>
       <script
@@ -59,6 +99,10 @@ export default function GlobalSchema() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
     </>
   );

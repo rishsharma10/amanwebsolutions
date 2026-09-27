@@ -162,15 +162,17 @@ export default function Footer() {
 
           {/* Company & Legal */}
           <div className="lg:col-span-2 space-y-4">
-            <p className="text-white font-heading font-bold uppercase tracking-widest text-xs">Company</p>
+            <p className="text-white font-heading font-bold uppercase tracking-widest text-xs">Company & Locations</p>
             <ul className="space-y-2 text-xs">
               <li><Link href="/about" className="text-slate-400 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/team" className="text-slate-400 hover:text-white transition-colors">Leadership & Team</Link></li>
+              <li><Link href="/locations/chandigarh" className="text-brand-cyan font-medium hover:underline">Chandigarh Web Dev</Link></li>
+              <li><Link href="/locations/mohali" className="text-brand-cyan font-medium hover:underline">Mohali Web Dev</Link></li>
+              <li><Link href="/locations/panchkula" className="text-brand-cyan font-medium hover:underline">Panchkula Web Dev</Link></li>
+              <li><Link href="/locations/tricity" className="text-brand-cyan font-medium hover:underline">Tricity Web Dev</Link></li>
               <li><Link href="/partner-with-us" className="text-slate-400 hover:text-white transition-colors">Partner With Us</Link></li>
               <li><Link href="/contact" className="text-slate-400 hover:text-white transition-colors">Contact Form</Link></li>
               <li><Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-slate-400 hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="/cookies" className="text-slate-400 hover:text-white transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
         </div>

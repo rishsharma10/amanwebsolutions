@@ -17,6 +17,41 @@ const nextConfig = {
         destination: '/services/cloud-development',
         permanent: true,
       },
+      {
+        source: '/web-development-company-chandigarh',
+        destination: '/locations/chandigarh',
+        permanent: true,
+      },
+      {
+        source: '/web-designing-company-chandigarh',
+        destination: '/locations/chandigarh',
+        permanent: true,
+      },
+      {
+        source: '/website-development-company-in-chandigarh',
+        destination: '/locations/chandigarh',
+        permanent: true,
+      },
+      {
+        source: '/web-development-company-mohali',
+        destination: '/locations/mohali',
+        permanent: true,
+      },
+      {
+        source: '/website-designing-company-mohali',
+        destination: '/locations/mohali',
+        permanent: true,
+      },
+      {
+        source: '/web-development-company-panchkula',
+        destination: '/locations/panchkula',
+        permanent: true,
+      },
+      {
+        source: '/web-development-company-tricity',
+        destination: '/locations/tricity',
+        permanent: true,
+      },
     ];
   },
 };
