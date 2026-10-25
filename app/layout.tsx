@@ -11,6 +11,7 @@ import GlobalSchema from '@/components/seo/GlobalSchema';
 import AIChatbot from '@/components/shared/AIChatbot';
 import CookieBanner from '@/components/shared/CookieBanner';
 import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
+import DiwaliGlobalAtmosphere from '@/components/layout/DiwaliGlobalAtmosphere';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -119,6 +120,7 @@ export default function RootLayout({
         <NeuralCursor />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <div className="scan-line" />
+          <DiwaliGlobalAtmosphere />
           {children}
           <AIChatbot />
           <CookieBanner />

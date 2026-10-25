@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import TopBanner from '@/components/home/TopBanner';
+import { isDiwaliOfferActive } from '@/lib/promotions';
+import DiwaliSectionDivider from '@/components/shared/DiwaliSectionDivider';
 
 // 15 Sections in exact sequential order
 import Hero from '@/components/home/Hero';
@@ -77,35 +80,51 @@ export default function Home() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
         />
-        <Header />
+        {/* Top Festive Promotional Banner Slider (Valid till 10 Nov 2026) */}
+        {isDiwaliOfferActive() && <TopBanner />}
+        <Header bannerPresent={isDiwaliOfferActive()} />
         {/* Section 1: Hero */}
         <Hero />
+        {/* Diwali Divider 1: Diya */}
+        <DiwaliSectionDivider variant="diya" label="Illuminating Enterprise Technology" />
         {/* Section 2: Trust / Credibility */}
         <Trust />
         {/* Section 3: What Can We Build For You? */}
         <WhatWeBuild />
+        {/* Diwali Divider 2: Firecracker */}
+        <DiwaliSectionDivider variant="firecracker" label="Igniting Digital Innovation" />
         {/* Section 4: Business Problems We Solve */}
         <BusinessProblems />
         {/* Section 5: AI Capabilities */}
         <AICapabilities />
+        {/* Diwali Divider 3: Rangoli */}
+        <DiwaliSectionDivider variant="rangoli" label="Shubh Deepavali • Festival of Smart Tech" />
         {/* Section 6: Software & Product Engineering */}
         <SoftwareEngineeringSection />
         {/* Section 7: Ecommerce Technology */}
         <EcommerceTechSection />
+        {/* Diwali Divider 4: Diya */}
+        <DiwaliSectionDivider variant="diya" label="Lighting Scalable Commerce" />
         {/* Section 8: Industries */}
         <IndustriesSection />
         {/* Section 9: Case Studies */}
         <CaseStudiesSection />
+        {/* Diwali Divider 5: Firecracker */}
+        <DiwaliSectionDivider variant="firecracker" label="Breakthrough Results & Growth" />
         {/* Section 10: Technology Stack */}
         <TechStackSection />
         {/* Section 11: How We Work */}
         <HowWeWork />
         {/* Section 12: Why Vidhyonix */}
         <WhyVidhyonix />
+        {/* Diwali Divider 6: Rangoli */}
+        <DiwaliSectionDivider variant="rangoli" label="Engineering Excellence • Shubh Deepavali" />
         {/* Section 13: Free Tools / Assessments */}
         <FreeToolsSection />
         {/* Section 14: FAQs */}
         <HomeFAQs />
+        {/* Diwali Divider 7: Diya */}
+        <DiwaliSectionDivider variant="diya" label="Build Smarter This Festive Season" />
         {/* Section 15: Final CTA */}
         <FinalCTA />
         <Footer />

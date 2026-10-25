@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ProjectQualificationForm from '@/components/shared/ProjectQualificationForm';
+import DiwaliFeaturedBanner from '@/components/shared/DiwaliFeaturedBanner';
 import { Mail, Phone, MapPin, MessagesSquare, ShieldCheck, Clock, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -39,9 +40,14 @@ export default function ContactPage() {
         </section>
 
         {/* Main Content Area */}
-        <section className="py-16">
+        <section className="py-12 sm:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto">
+            {/* Eye-Catching Diwali Special Offer Banner */}
+            <div className="max-w-6xl mx-auto mb-10">
+              <DiwaliFeaturedBanner targetHref="#contact-form" />
+            </div>
+
+            <div id="contact-form" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto scroll-mt-28">
               {/* Form Column */}
               <div className="lg:col-span-8">
                 <ProjectQualificationForm />

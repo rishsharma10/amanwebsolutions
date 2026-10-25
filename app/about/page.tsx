@@ -10,6 +10,7 @@ import Founder from '@/components/about/Founder';
 import Journey from '@/components/about/Journey';
 import Team from '@/components/about/Team';
 import AIReadiness from '@/components/shared/AIReadiness';
+import DiwaliFeaturedBanner from '@/components/shared/DiwaliFeaturedBanner';
 
 export const metadata: Metadata = {
   title: 'About Vidhyonix | Our Mission & Leadership',
@@ -47,6 +48,12 @@ export default function About() {
 
         <Journey />
         <Team />
+
+        {/* Festive Diwali Promotional Feature Card */}
+        <div className="container mx-auto px-4 my-16 relative z-10 max-w-6xl">
+          <DiwaliFeaturedBanner targetHref="/contact" />
+        </div>
+
         <CTA />
         <Footer />
       </main>

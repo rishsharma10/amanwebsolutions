@@ -23,7 +23,10 @@ export type AnalyticsEvent =
   | 'contact_view'
   | 'lead_generated'
   | 'qualified_lead'
-  | 'meeting_booked';
+  | 'meeting_booked'
+  | 'diwali_celebration_open'
+  | 'diwali_coupon_copied'
+  | 'diwali_claim_click';
 
 export interface EventParams {
   category?: string;

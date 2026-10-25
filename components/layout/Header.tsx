@@ -15,15 +15,26 @@ import { trackEvent } from '@/lib/analytics';
 
 export const APP_NAME = "Vidhyonix";
 
-export default function Header() {
+export default function Header({ bannerPresent = false }: { bannerPresent?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesDropdown, setServicesDropdown] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 20;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -93,8 +104,13 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrollY > 20 ? "py-3 bg-brand-dark/90 backdrop-blur-xl border-b border-white/10 shadow-2xl" : "py-5 bg-transparent"
+        "w-full z-50 transition-all duration-300",
+        bannerPresent ? "sticky top-0 md:fixed md:top-0" : "fixed top-0",
+        isScrolled
+          ? "py-3 bg-brand-dark/90 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+          : bannerPresent
+            ? "py-3.5 bg-brand-dark/60 md:bg-transparent backdrop-blur-md md:backdrop-blur-none md:py-5"
+            : "py-5 bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">

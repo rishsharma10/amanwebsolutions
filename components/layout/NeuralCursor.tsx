@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { isDiwaliOfferActive } from '@/lib/promotions';
 
 export default function NeuralCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -23,7 +23,6 @@ export default function NeuralCursor() {
     }
 
     const mouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
       cursorX.set(e.clientX - 6); // offset by half width (12px / 2)
       cursorY.set(e.clientY - 6);
       outerX.set(e.clientX - 24); // offset by half width (48px / 2)
@@ -54,13 +53,19 @@ export default function NeuralCursor() {
     };
   }, [cursorX, cursorY, outerX, outerY]);
 
+  const isPromo = isDiwaliOfferActive();
+
   if (!isVisible) return null;
 
   return (
     <>
       {/* Inner Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-brand-cyan rounded-full pointer-events-none z-[100] mix-blend-screen shadow-[0_0_10px_#22d3ee]"
+        className={`fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[100] mix-blend-screen ${
+          isPromo
+            ? 'bg-amber-400 shadow-[0_0_12px_#f59e0b]'
+            : 'bg-brand-cyan shadow-[0_0_10px_#22d3ee]'
+        }`}
         style={{
           x: cursorX,
           y: cursorY,
@@ -69,15 +74,27 @@ export default function NeuralCursor() {
       
       {/* Outer Glow Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 rounded-full border border-brand-cyan/50 pointer-events-none z-[99]"
+        className={`fixed top-0 left-0 w-12 h-12 rounded-full pointer-events-none z-[99] border ${
+          isPromo ? 'border-amber-400/50' : 'border-brand-cyan/50'
+        }`}
         style={{
           x: outerX,
           y: outerY,
         }}
         animate={{
           scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? 'rgba(34, 211, 238, 0.1)' : 'transparent',
-          borderColor: isHovering ? 'rgba(34, 211, 238, 0.8)' : 'rgba(34, 211, 238, 0.3)',
+          backgroundColor: isHovering
+            ? isPromo
+              ? 'rgba(245, 158, 11, 0.15)'
+              : 'rgba(34, 211, 238, 0.1)'
+            : 'transparent',
+          borderColor: isHovering
+            ? isPromo
+              ? 'rgba(251, 191, 36, 0.9)'
+              : 'rgba(34, 211, 238, 0.8)'
+            : isPromo
+              ? 'rgba(245, 158, 11, 0.4)'
+              : 'rgba(34, 211, 238, 0.3)',
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       />

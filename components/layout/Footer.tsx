@@ -8,19 +8,25 @@ import {
 } from 'lucide-react';
 import logo from "@/app/assets/logo/logobgtransparent.png";
 import { trackEvent } from '@/lib/analytics';
+import { isDiwaliOfferActive } from '@/lib/promotions';
+import DiwaliFooterCard from '@/components/home/DiwaliFooterCard';
 
 export const APP_NAME = "Vidhyonix";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const isPromo = isDiwaliOfferActive();
 
   return (
-    <footer className="bg-brand-dark relative overflow-hidden pt-20 pb-12 border-t border-white/10">
+    <footer className="bg-brand-dark relative overflow-hidden pt-16 sm:pt-20 pb-12 border-t border-white/10">
       {/* Subtle Background Glows */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-cyan/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-brand-violet/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Festive Diwali Footer Showcase (Valid till 10 Nov 2026) */}
+        {isPromo && <DiwaliFooterCard />}
+
         {/* Top Consultation Banner */}
         <div className="border-b border-white/10 pb-12 mb-16 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
           <div className="max-w-2xl">
@@ -180,6 +186,16 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>© {currentYear} Vidhyonix IT Solutions. All rights reserved.</p>
+
+          {/* Festive Diwali Blessing Bar */}
+          {isPromo && (
+            <div className="flex items-center gap-2 text-amber-300 font-mono text-[11px] bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
+              <span className="animate-pulse text-amber-400">🪔</span>
+              <span className="font-semibold text-amber-200">Shubh Deepavali from Team Vidhyonix • Mohali, Chandigarh</span>
+              <span className="text-amber-400">✨</span>
+            </div>
+          )}
+
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-slate-400 transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-slate-400 transition-colors">Terms</Link>
